@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="EvaluateStarCell" rowHeight="139" id="ANJ-bT-tXk" customClass="EvaluateStarCell" customModule="DoctorManage" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="392" height="139"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ANJ-bT-tXk" id="GIh-A1-wto">
+                <rect key="frame" x="0.0" y="0.0" width="392" height="138.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="titleLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLT-55-Vgg">
+                        <rect key="frame" x="23" y="22" width="346" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.23137254900000001" green="0.27058823529999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJO-lM-qpC">
+                        <rect key="frame" x="23" y="138" width="361" height="1"/>
+                        <color key="backgroundColor" red="0.91372549020000005" green="0.92156862750000001" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="IZs-ss-6mG"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YP9-3i-qCm">
+                        <rect key="frame" x="23" y="93.5" width="22" height="22"/>
+                        <state key="normal" image="空星.png"/>
+                    </button>
+                    <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DRv-sl-hyG">
+                        <rect key="frame" x="65" y="93.5" width="22" height="22"/>
+                        <state key="normal" image="空星.png"/>
+                    </button>
+                    <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVm-bk-oMc">
+                        <rect key="frame" x="107" y="93.5" width="22" height="22"/>
+                        <state key="normal" image="空星.png"/>
+                    </button>
+                    <button opaque="NO" tag="104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fO3-qx-hAT">
+                        <rect key="frame" x="149" y="93.5" width="22" height="22"/>
+                        <state key="normal" image="空星.png"/>
+                    </button>
+                    <button opaque="NO" tag="105" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lJ-1y-OpL">
+                        <rect key="frame" x="191" y="93.5" width="22" height="22"/>
+                        <state key="normal" image="空星.png"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="WVm-bk-oMc" firstAttribute="leading" secondItem="DRv-sl-hyG" secondAttribute="trailing" constant="20" id="5a1-s2-KCn"/>
+                    <constraint firstItem="FLT-55-Vgg" firstAttribute="top" secondItem="GIh-A1-wto" secondAttribute="topMargin" constant="14" id="CBN-P4-Ipc"/>
+                    <constraint firstItem="7lJ-1y-OpL" firstAttribute="centerY" secondItem="fO3-qx-hAT" secondAttribute="centerY" id="EVl-we-Hzx"/>
+                    <constraint firstItem="7lJ-1y-OpL" firstAttribute="leading" secondItem="fO3-qx-hAT" secondAttribute="trailing" constant="20" id="PQd-Sv-PPc"/>
+                    <constraint firstItem="LJO-lM-qpC" firstAttribute="leading" secondItem="FLT-55-Vgg" secondAttribute="leading" id="SPg-3z-vJW"/>
+                    <constraint firstItem="WVm-bk-oMc" firstAttribute="centerY" secondItem="DRv-sl-hyG" secondAttribute="centerY" id="XYU-J4-ZaO"/>
+                    <constraint firstItem="DRv-sl-hyG" firstAttribute="centerY" secondItem="YP9-3i-qCm" secondAttribute="centerY" id="cCS-5K-iZL"/>
+                    <constraint firstItem="fO3-qx-hAT" firstAttribute="leading" secondItem="WVm-bk-oMc" secondAttribute="trailing" constant="20" id="dRe-wL-BAT"/>
+                    <constraint firstItem="FLT-55-Vgg" firstAttribute="trailing" secondItem="GIh-A1-wto" secondAttribute="trailingMargin" constant="-15" id="hxI-1w-X5Q"/>
+                    <constraint firstItem="LJO-lM-qpC" firstAttribute="trailing" secondItem="GIh-A1-wto" secondAttribute="trailingMargin" id="jUZ-xl-VxZ"/>
+                    <constraint firstItem="YP9-3i-qCm" firstAttribute="leading" secondItem="FLT-55-Vgg" secondAttribute="leading" id="oXp-xd-jgm"/>
+                    <constraint firstItem="fO3-qx-hAT" firstAttribute="centerY" secondItem="WVm-bk-oMc" secondAttribute="centerY" id="sYR-EA-VBU"/>
+                    <constraint firstItem="DRv-sl-hyG" firstAttribute="leading" secondItem="YP9-3i-qCm" secondAttribute="trailing" constant="20" id="t9a-fX-h3i"/>
+                    <constraint firstItem="YP9-3i-qCm" firstAttribute="bottom" secondItem="GIh-A1-wto" secondAttribute="bottomMargin" constant="-15" id="tDf-Pm-BiH"/>
+                    <constraint firstItem="FLT-55-Vgg" firstAttribute="leading" secondItem="GIh-A1-wto" secondAttribute="leadingMargin" constant="15" id="vQk-gm-3tx"/>
+                </constraints>
+            </tableViewCellContentView>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="LJO-lM-qpC" secondAttribute="bottom" id="mMq-qE-1T2"/>
+            </constraints>
+            <connections>
+                <outlet property="bottomLine" destination="LJO-lM-qpC" id="og8-pt-FPy"/>
+                <outlet property="titleLabel" destination="FLT-55-Vgg" id="eXA-rP-bxH"/>
+            </connections>
+            <point key="canvasLocation" x="-86" y="31"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="空星.png" width="22" height="22"/>
+    </resources>
+</document>

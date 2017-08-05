@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="EvaluateSecondCell" rowHeight="139" id="KGk-i7-Jjw" customClass="EvaluateSecondCell" customModule="DoctorManage" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="392" height="139"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="392" height="138.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="titleLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8K-xN-17P">
+                        <rect key="frame" x="23" y="22" width="346" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.23137254901960785" green="0.27058823529411763" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Tv-HZ-rqK">
+                        <rect key="frame" x="23" y="138" width="361" height="1"/>
+                        <color key="backgroundColor" red="0.9137254901960784" green="0.92156862745098034" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="m62-gB-ow2"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIH-QX-zza">
+                        <rect key="frame" x="23" y="93.5" width="22" height="22"/>
+                        <state key="normal" image="空星.png"/>
+                        <connections>
+                            <action selector="tapStarAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="UPo-6O-7WO"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Vq-n2-EZ5">
+                        <rect key="frame" x="65" y="93.5" width="22" height="22"/>
+                        <state key="normal" image="空星.png"/>
+                        <connections>
+                            <action selector="tapStarAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="9sF-hN-UBI"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pee-oy-Jjp">
+                        <rect key="frame" x="107" y="93.5" width="22" height="22"/>
+                        <state key="normal" image="空星.png"/>
+                        <connections>
+                            <action selector="tapStarAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="u24-r5-pM9"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" tag="104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="geR-rc-qtu">
+                        <rect key="frame" x="149" y="93.5" width="22" height="22"/>
+                        <state key="normal" image="空星.png"/>
+                        <connections>
+                            <action selector="tapStarAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="6B7-7x-i9t"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" tag="105" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OzR-nt-by7">
+                        <rect key="frame" x="191" y="93.5" width="22" height="22"/>
+                        <state key="normal" image="空星.png"/>
+                        <connections>
+                            <action selector="tapStarAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="cce-ie-N5B"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="R8K-xN-17P" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="5T6-Yg-ZNE"/>
+                    <constraint firstItem="qIH-QX-zza" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" constant="-15" id="9W1-2C-NuD"/>
+                    <constraint firstItem="geR-rc-qtu" firstAttribute="leading" secondItem="Pee-oy-Jjp" secondAttribute="trailing" constant="20" id="Aku-DC-Nz3"/>
+                    <constraint firstItem="5Vq-n2-EZ5" firstAttribute="centerY" secondItem="qIH-QX-zza" secondAttribute="centerY" id="JC7-uR-6eS"/>
+                    <constraint firstItem="R8K-xN-17P" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="14" id="Jbo-bh-H5N"/>
+                    <constraint firstItem="R8K-xN-17P" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-15" id="Msw-jQ-0eh"/>
+                    <constraint firstItem="0Tv-HZ-rqK" firstAttribute="leading" secondItem="R8K-xN-17P" secondAttribute="leading" id="PyH-au-iB3"/>
+                    <constraint firstItem="Pee-oy-Jjp" firstAttribute="leading" secondItem="5Vq-n2-EZ5" secondAttribute="trailing" constant="20" id="TXM-t6-Qqh"/>
+                    <constraint firstItem="geR-rc-qtu" firstAttribute="centerY" secondItem="Pee-oy-Jjp" secondAttribute="centerY" id="ggL-ZG-c71"/>
+                    <constraint firstItem="qIH-QX-zza" firstAttribute="leading" secondItem="R8K-xN-17P" secondAttribute="leading" id="ix4-Gf-mei"/>
+                    <constraint firstItem="OzR-nt-by7" firstAttribute="leading" secondItem="geR-rc-qtu" secondAttribute="trailing" constant="20" id="mcx-Zu-nVW"/>
+                    <constraint firstItem="5Vq-n2-EZ5" firstAttribute="leading" secondItem="qIH-QX-zza" secondAttribute="trailing" constant="20" id="rXg-Fx-jpq"/>
+                    <constraint firstItem="OzR-nt-by7" firstAttribute="centerY" secondItem="geR-rc-qtu" secondAttribute="centerY" id="ray-cV-8bG"/>
+                    <constraint firstItem="Pee-oy-Jjp" firstAttribute="centerY" secondItem="5Vq-n2-EZ5" secondAttribute="centerY" id="s6T-Gp-1Vm"/>
+                    <constraint firstItem="0Tv-HZ-rqK" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="v8b-Ad-ZY3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="0Tv-HZ-rqK" secondAttribute="bottom" id="YPv-PL-bT0"/>
+            </constraints>
+            <connections>
+                <outlet property="bottomLine" destination="0Tv-HZ-rqK" id="Vfs-FH-pMq"/>
+                <outlet property="titleLabel" destination="R8K-xN-17P" id="n0K-Ib-mab"/>
+            </connections>
+            <point key="canvasLocation" x="61" y="99.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="空星.png" width="22" height="22"/>
+    </resources>
+</document>

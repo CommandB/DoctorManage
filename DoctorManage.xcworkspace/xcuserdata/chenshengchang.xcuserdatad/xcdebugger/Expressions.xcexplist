@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "EvaluateInfoController.(commitAction(sender : UIButton) -&gt; ()).(closure #1):EvaluateInfoController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "print(resp)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "EvaluateInfoController.commitAction(sender : UIButton) -&gt; ():EvaluateInfoController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ddddd[&quot;token&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "EvaluateInfoController.(requestEvaluateStarData() -&gt; ()).(closure #1):EvaluateInfoController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "print(JSON(value)[&quot;data&quot;].arrayValue)">
+            </PersistentString>
+            <PersistentString
+               value = "JSON(value)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

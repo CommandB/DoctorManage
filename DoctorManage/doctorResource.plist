@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>unStart</key>
+	<array>
+		<dict>
+			<key>title</key>
+			<string>内科-XXX病教学查房</string>
+			<key>time</key>
+			<string>明天</string>
+			<key>beginTime</key>
+			<string>开始时间 2017/12/12 09:30</string>
+			<key>retainTime</key>
+			<string>剩 20小时30分钟</string>
+			<key>address</key>
+			<string>住院部1号楼xx病房</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>内科-xxx培训</string>
+			<key>time</key>
+			<string>明天</string>
+			<key>beginTime</key>
+			<string>开始时间 2017/12/12 09:30</string>
+			<key>retainTime</key>
+			<string>剩 15小时25分钟</string>
+			<key>address</key>
+			<string>临床技能中心二楼多媒体教室</string>
+		</dict>
+	</array>
+	<key>checking</key>
+	<array>
+		<dict>
+			<key>title</key>
+			<string>内科-XXX病教学查房</string>
+			<key>time</key>
+			<string>明天</string>
+			<key>checking</key>
+			<string>正在进行中...</string>
+			<key>address</key>
+			<string>住院部1号楼xx病房</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>内科-xxx培训</string>
+			<key>time</key>
+			<string>明天</string>
+			<key>checking</key>
+			<string>正在进行中...</string>
+			<key>address</key>
+			<string>临床技能中心二楼多媒体教室</string>
+		</dict>
+	</array>
+	<key>end</key>
+	<array>
+		<dict>
+			<key>title</key>
+			<string>内科-XXX病教学查房</string>
+			<key>time</key>
+			<string>明天</string>
+			<key>checking</key>
+			<string>2015/10/13 04:50 ~ 2017/11/12 12:35</string>
+			<key>address</key>
+			<string>住院部1号楼xx病房</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>内科-xxx培训</string>
+			<key>time</key>
+			<string>明天</string>
+			<key>checking</key>
+			<string>2017/12/12 09:30 ~ 2017/12/12 11:30</string>
+			<key>address</key>
+			<string>临床技能中心二楼多媒体教室</string>
+		</dict>
+	</array>
+</dict>
+</plist>

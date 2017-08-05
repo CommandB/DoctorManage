@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="subResMineCell" rowHeight="309" id="KGk-i7-Jjw" customClass="subResMineCell" customModule="DoctorManage" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="428" height="309"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="428" height="308.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="titleLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0FA-xZ-xOK">
+                        <rect key="frame" x="18" y="23" width="70.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" tag="1000" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testresource.png" translatesAutoresizingMaskIntoConstraints="NO" id="iDX-NJ-Hs6">
+                        <rect key="frame" x="18" y="54" width="392" height="200"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="200" id="U1i-Qm-kPS"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="老师.png" translatesAutoresizingMaskIntoConstraints="NO" id="3GP-lI-5g9">
+                        <rect key="frame" x="18" y="264" width="30" height="30"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="胡老师" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEt-RY-OV7">
+                        <rect key="frame" x="58" y="270.5" width="43" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timeLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWL-rI-7Cy">
+                        <rect key="frame" x="111" y="272.5" width="55.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNT-X5-S3J">
+                        <rect key="frame" x="337" y="263" width="73" height="32"/>
+                        <state key="normal" image="分享.png"/>
+                        <connections>
+                            <action selector="shareBtntapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1F4-Oe-fPL"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zje-vH-KDl">
+                        <rect key="frame" x="184" y="124" width="60" height="60"/>
+                        <state key="normal" image="play.png"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="UWL-rI-7Cy" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-80" id="18z-yO-Xki"/>
+                    <constraint firstItem="zje-vH-KDl" firstAttribute="centerX" secondItem="iDX-NJ-Hs6" secondAttribute="centerX" id="8EL-uC-7Qt"/>
+                    <constraint firstItem="wEt-RY-OV7" firstAttribute="centerY" secondItem="3GP-lI-5g9" secondAttribute="centerY" id="IGh-RQ-WlC"/>
+                    <constraint firstItem="UWL-rI-7Cy" firstAttribute="centerY" secondItem="3GP-lI-5g9" secondAttribute="centerY" id="LGF-9U-h1b"/>
+                    <constraint firstItem="3GP-lI-5g9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="Mnc-4D-gX5"/>
+                    <constraint firstItem="eNT-X5-S3J" firstAttribute="trailing" secondItem="iDX-NJ-Hs6" secondAttribute="trailing" id="Slj-JA-3D3"/>
+                    <constraint firstItem="0FA-xZ-xOK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="15" id="VIV-wc-ndm"/>
+                    <constraint firstItem="eNT-X5-S3J" firstAttribute="centerY" secondItem="3GP-lI-5g9" secondAttribute="centerY" id="Wl4-TP-ExC"/>
+                    <constraint firstItem="UWL-rI-7Cy" firstAttribute="leading" secondItem="wEt-RY-OV7" secondAttribute="trailing" constant="10" id="X5h-XZ-DWz"/>
+                    <constraint firstItem="iDX-NJ-Hs6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="Zo7-0b-YaL"/>
+                    <constraint firstItem="iDX-NJ-Hs6" firstAttribute="top" secondItem="0FA-xZ-xOK" secondAttribute="bottom" constant="10" id="fsc-E9-2kM"/>
+                    <constraint firstItem="iDX-NJ-Hs6" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="jDZ-h3-hHh"/>
+                    <constraint firstItem="0FA-xZ-xOK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="jiS-WE-NVz"/>
+                    <constraint firstItem="3GP-lI-5g9" firstAttribute="top" secondItem="iDX-NJ-Hs6" secondAttribute="bottom" constant="10" id="kcY-J9-9oN"/>
+                    <constraint firstItem="wEt-RY-OV7" firstAttribute="leading" secondItem="3GP-lI-5g9" secondAttribute="trailing" constant="10" id="sW1-2r-URW"/>
+                    <constraint firstItem="zje-vH-KDl" firstAttribute="centerY" secondItem="iDX-NJ-Hs6" secondAttribute="centerY" id="yoL-Yr-QPL"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="nameLabel" destination="wEt-RY-OV7" id="j3e-8B-yBM"/>
+                <outlet property="timeLabel" destination="UWL-rI-7Cy" id="ur6-dq-xJ1"/>
+                <outlet property="titleLabel" destination="0FA-xZ-xOK" id="fNr-Cj-Z1N"/>
+                <outlet property="videoImageView" destination="iDX-NJ-Hs6" id="Nx9-y2-K9i"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="166.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="play.png" width="60" height="60"/>
+        <image name="testresource.png" width="668" height="440"/>
+        <image name="分享.png" width="73" height="32"/>
+        <image name="老师.png" width="30" height="30"/>
+    </resources>
+</document>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCollectionCell" id="gTV-IL-0wX" customClass="PhotoCollectionCell" customModule="DoctorManage" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="147" height="173"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="147" height="173"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Lu-cc-7Ts">
+                        <rect key="frame" x="7" y="10" width="132" height="143"/>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testPhoto.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="jru-On-n5h">
+                        <rect key="frame" x="15" y="15" width="117" height="117"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="jru-On-n5h" secondAttribute="height" multiplier="1:1" id="Abw-D3-Xoc"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="PhotoCollectionCell" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9f-bl-myk">
+                        <rect key="frame" x="57" y="142" width="33" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.23137254901960785" green="0.27058823529411763" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4oB-Ll-Gcx">
+                        <rect key="frame" x="63" y="163" width="20" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="4oB-Ll-Gcx" secondAttribute="height" multiplier="2:1" id="5H9-N2-Kju"/>
+                            <constraint firstAttribute="width" constant="20" id="NTs-tV-Y0f"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="头像蒙版.png" translatesAutoresizingMaskIntoConstraints="NO" id="t1X-Hk-6Vo">
+                        <rect key="frame" x="50" y="50.5" width="46" height="46"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="5Lu-cc-7Ts" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" constant="-5" id="7fH-p9-wGY"/>
+                <constraint firstItem="5Lu-cc-7Ts" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" constant="-15" id="BWL-nY-HCa"/>
+                <constraint firstItem="5Lu-cc-7Ts" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" constant="-30" id="Bwb-Zq-86N"/>
+                <constraint firstItem="t1X-Hk-6Vo" firstAttribute="centerX" secondItem="jru-On-n5h" secondAttribute="centerX" id="FCK-2W-qDD"/>
+                <constraint firstItem="5Lu-cc-7Ts" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="GBx-w5-r6W"/>
+                <constraint firstItem="t1X-Hk-6Vo" firstAttribute="centerY" secondItem="jru-On-n5h" secondAttribute="centerY" id="Ikx-Fx-JOx"/>
+                <constraint firstItem="4oB-Ll-Gcx" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Ipd-EJ-cYt"/>
+                <constraint firstItem="jru-On-n5h" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="YDM-cA-O6u"/>
+                <constraint firstItem="jru-On-n5h" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="YcY-wb-rUG"/>
+                <constraint firstItem="c9f-bl-myk" firstAttribute="top" secondItem="jru-On-n5h" secondAttribute="bottom" constant="10" id="lhB-Br-xE0"/>
+                <constraint firstItem="jru-On-n5h" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="qXj-rQ-lwZ"/>
+                <constraint firstItem="4oB-Ll-Gcx" firstAttribute="bottom" secondItem="gTV-IL-0wX" secondAttribute="bottom" id="shH-A0-7nq"/>
+                <constraint firstItem="c9f-bl-myk" firstAttribute="centerX" secondItem="jru-On-n5h" secondAttribute="centerX" id="xXN-zx-5X5"/>
+            </constraints>
+            <size key="customSize" width="147" height="173"/>
+            <connections>
+                <outlet property="backgroundview" destination="5Lu-cc-7Ts" id="TSU-Ni-UNx"/>
+                <outlet property="moreView" destination="t1X-Hk-6Vo" id="Zyl-Gn-MFx"/>
+                <outlet property="nameLabel" destination="c9f-bl-myk" id="tne-tW-GUA"/>
+                <outlet property="photoImage" destination="jru-On-n5h" id="eAU-Ts-lqk"/>
+                <outlet property="triangleView" destination="4oB-Ll-Gcx" id="Hyf-Q9-NRF"/>
+            </connections>
+            <point key="canvasLocation" x="-23.5" y="-35.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="testPhoto.jpg" width="200" height="200"/>
+        <image name="头像蒙版.png" width="46" height="46"/>
+    </resources>
+</document>

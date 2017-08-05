@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DeduceScoreCell" rowHeight="141" id="KGk-i7-Jjw" customClass="DeduceScoreCell" customModule="DoctorManage" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="356" height="141"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="356" height="140.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRb-cu-8wQ">
+                        <rect key="frame" x="23" y="28" width="0.0" height="0.0"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.97647058823529409" green="0.31372549019607843" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vaj-mq-THp">
+                        <rect key="frame" x="333" y="28" width="0.0" height="0.0"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.60784313725490191" green="0.65098039215686276" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZVb-Cr-tHY">
+                        <rect key="frame" x="119.5" y="63" width="117" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="NMf-eW-jmp"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" title="点我扣分" backgroundImage="topBack.png">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="deduceBtntapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Rey-Vw-pc9"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Vaj-mq-THp" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-15" id="9yb-aF-4p3"/>
+                    <constraint firstItem="ZVb-Cr-tHY" firstAttribute="top" secondItem="jRb-cu-8wQ" secondAttribute="bottom" constant="35" id="DHg-nC-LOW"/>
+                    <constraint firstItem="ZVb-Cr-tHY" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="GYd-XB-Z9c"/>
+                    <constraint firstItem="Vaj-mq-THp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="20" id="VQz-hc-XxH"/>
+                    <constraint firstItem="jRb-cu-8wQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="da2-Ue-sYS"/>
+                    <constraint firstItem="jRb-cu-8wQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="20" id="f8f-5G-yzO"/>
+                    <constraint firstItem="ZVb-Cr-tHY" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.33" id="wUK-9A-Qxd"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="deduceBtn" destination="ZVb-Cr-tHY" id="ZZR-17-kO5"/>
+                <outlet property="deducedLabel" destination="Vaj-mq-THp" id="c3X-7a-M0S"/>
+                <outlet property="scoreruleLabel" destination="jRb-cu-8wQ" id="CcE-Pn-pJ7"/>
+            </connections>
+            <point key="canvasLocation" x="43" y="100.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="topBack.png" width="550" height="128"/>
+    </resources>
+</document>

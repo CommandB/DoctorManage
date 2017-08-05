@@ -1,0 +1,165 @@
+//
+//  SubResDepartController.swift
+//  DoctorManage
+//
+//  Created by 陈海峰 on 2017/6/17.
+//  Copyright © 2017年 chenshengchang. All rights reserved.
+//
+
+import UIKit
+import Alamofire
+import SwiftyJSON
+
+class SubResDepartController: UIViewController,UITableViewDataSource,UITableViewDelegate,subResMineCellDelegate,UIScrollViewDelegate {
+    var tableview = UITableView()
+    var player:XLVideoPlayer!
+    var dataSource:[JSON] = []
+    var index = 0
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.tableview = UITableView(frame: CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.bounds.size.height-90))
+        self.view.addSubview(tableview)
+        self.tableview.delegate = self
+        self.tableview.dataSource = self
+        let nib1 = UINib(nibName: "subResMineCell", bundle: nil)
+        self.tableview.register(nib1, forCellReuseIdentifier: "subResMineCell")
+        self.tableview.separatorStyle = .none
+        self.tableview.backgroundColor = UIColor.init(red: 245/255.0, green: 248/255.0, blue: 251, alpha: 1.0)
+        self.tableview.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshAction))
+        self.tableview.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreAction))
+        self.tableview.mj_header.beginRefreshing()
+    }
+    
+    func requestResMineData(pageindex:Int) {
+        let urlString = "http://"+Ip_port2+"doctor_train/rest/teachingMaterial/getAppMaterial.do"
+        let params = ["token":UserInfo.instance().token,"gettype":"2","pageindex":String(pageindex*10),"pagesize": "10"] as! [String:String]
+        
+        Alamofire.request(urlString, method: .post, parameters: params).responseJSON { (response) in
+            self.tableview.mj_header.endRefreshing()
+            self.tableview.mj_footer.endRefreshing()
+            MBProgressHUD.hide(for:  self.view, animated: true)
+            switch(response.result){
+            case .failure(let error):
+                print(error)
+            case .success(let response):
+                let json = JSON(response)
+                if json["code"].stringValue == "1"{
+                    //                    self.dataSource = json["data"].arrayValue
+                    for item in json["data"].arrayValue{
+                        self.dataSource.append(item)
+                    }
+                    self.tableview.reloadData()
+                }else{
+                    print("error")
+                }
+            }
+        }
+    }
+    
+    func refreshAction() {
+        dataSource.removeAll()
+        index = 0
+        self.tableview.mj_footer.resetNoMoreData()
+        requestResMineData(pageindex: index)
+    }
+    
+    func loadMoreAction() {
+        index = index + 1
+        requestResMineData(pageindex: index)
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.dataSource.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = subResMineCell.videoCellWithTableView(tableview: tableView)
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(showVideoPlayer(gesture:)))
+        cell.videoImageView.addGestureRecognizer(tap)
+        cell.titleLabel.text = self.dataSource[indexPath.section]["title"].stringValue
+        cell.nameLabel.text = self.dataSource[indexPath.section]["speaker"].stringValue
+        cell.timeLabel.text = self.dataSource[indexPath.section]["createtime"].stringValue
+        cell.delegate = self
+        cell.selectionStyle = .none
+        cell.videoImageView.tag = 100 + indexPath.section
+        return cell
+    }
+    
+    func showVideoPlayer(gesture:UITapGestureRecognizer) {
+        if player != nil {
+            player.destroy()
+        }
+        let view = gesture.view
+        let indexPath = IndexPath.init(row: 0, section: (view?.tag)!-100)
+        let cell = tableview.cellForRow(at: indexPath) as! subResMineCell
+        
+        player = XLVideoPlayer()
+        player.videoUrl = dataSource[indexPath.row]["url"].stringValue
+        //        "http://v1.mukewang.com/57de8272-38a2-4cae-b734-ac55ab528aa8/L.mp4"
+        player.playerBindTableView(tableview, currentIndexPath: indexPath)
+        player.frame = (view?.bounds)!
+        
+        cell.videoImageView.addSubview(player)
+        player.completedPlayingBlock = {(player) -> (Void) in
+            player?.destroy()
+        } 
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //        for cell in tableView.visibleCells {
+        //            (cell as! subResMineCell).avPlayer.player?.pause()
+        //        }
+        //        let cell = tableView.cellForRow(at: indexPath) as! subResMineCell
+        //        cell.avPlayer.player?.play()
+    }
+    
+    func shareBtnDelegate(button:UIButton){
+        let customView = BRCustomOptionView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height))
+        self.view.addSubview(customView)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 300
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 5
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.isEqual(self.tableview) {
+            if player != nil {
+                player.playerScrollIsSupportSmallWindowPlay(false)
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        if player != nil {
+            player.destroy()
+        }
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}

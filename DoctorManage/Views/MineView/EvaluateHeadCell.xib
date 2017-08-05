@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="EvaluateHeadCell" rowHeight="116" id="KGk-i7-Jjw" customClass="EvaluateHeadCell" customModule="DoctorManage" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="339" height="116"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="339" height="115"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zHR-fH-ETD">
+                        <rect key="frame" x="15" y="0.0" width="309" height="115"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="favRatio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pW-0t-hdg">
+                                <rect key="frame" x="230" y="50" width="50" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.97647058823529409" green="0.31372549019607843" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80Z-Da-r0Y">
+                                <rect key="frame" x="0.0" y="115" width="309" height="1"/>
+                                <color key="backgroundColor" red="0.9137254901960784" green="0.92156862745098034" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="XIP-pd-9tK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="教学水平.png" translatesAutoresizingMaskIntoConstraints="NO" id="Lpl-5q-SpP">
+                                <rect key="frame" x="-10" y="41" width="80" height="32"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="80Z-Da-r0Y" firstAttribute="width" secondItem="zHR-fH-ETD" secondAttribute="width" id="Gc8-m2-7SC"/>
+                            <constraint firstItem="80Z-Da-r0Y" firstAttribute="centerX" secondItem="zHR-fH-ETD" secondAttribute="centerX" id="b8I-9I-sTs"/>
+                            <constraint firstItem="Lpl-5q-SpP" firstAttribute="centerY" secondItem="zHR-fH-ETD" secondAttribute="centerY" id="ez6-Ro-lo1"/>
+                            <constraint firstAttribute="trailing" secondItem="3pW-0t-hdg" secondAttribute="trailing" constant="29" id="g7Q-0R-kSe"/>
+                            <constraint firstItem="Lpl-5q-SpP" firstAttribute="leading" secondItem="zHR-fH-ETD" secondAttribute="leading" constant="-10" id="hj4-vH-dDP"/>
+                            <constraint firstItem="3pW-0t-hdg" firstAttribute="centerY" secondItem="zHR-fH-ETD" secondAttribute="centerY" id="nHI-4N-JpZ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.96078431372549022" green="0.97254901960784312" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="zHR-fH-ETD" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="1GI-xX-2xs"/>
+                    <constraint firstItem="zHR-fH-ETD" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" constant="-30" id="TdX-CB-UaY"/>
+                    <constraint firstItem="zHR-fH-ETD" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" id="aAp-t2-S56"/>
+                    <constraint firstItem="zHR-fH-ETD" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="cvZ-eM-4tK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.96078431372549022" green="0.97254901960784312" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="80Z-Da-r0Y" firstAttribute="bottom" secondItem="KGk-i7-Jjw" secondAttribute="bottom" id="DbN-n5-qPa"/>
+            </constraints>
+            <connections>
+                <outlet property="favRatio" destination="3pW-0t-hdg" id="Wk9-EE-q4S"/>
+                <outlet property="headImageView" destination="Lpl-5q-SpP" id="uOF-N9-OxM"/>
+            </connections>
+            <point key="canvasLocation" x="48.5" y="146"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="教学水平.png" width="80" height="32"/>
+    </resources>
+</document>
