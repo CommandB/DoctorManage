@@ -19,7 +19,7 @@ class CompleteDetailController: UIViewController {
         super.viewDidLoad()
         let image = UIImage(named: "返回")!.withRenderingMode(.alwaysOriginal)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:image, style: .done, target: self, action: #selector(dismissAction))
-        scrollview.contentSize = CGSize(width: self.view.bounds.size.width*2, height: scrollview.bounds.size.height)
+        scrollview.contentSize = CGSize(width: self.view.bounds.size.width*2, height: 0)
         
         let subDetailVC = TaskDetailController()
         subDetailVC.headInfo = headInfo
