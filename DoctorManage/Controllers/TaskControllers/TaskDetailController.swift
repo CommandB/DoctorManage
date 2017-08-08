@@ -139,6 +139,9 @@ class TaskDetailController: UIViewController,UITableViewDataSource,UITableViewDe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 2 && indexPath.row > 0 {
+            if enterPath == .UNCOMPLETE {
+                return
+            }
             let cell = tableview.cellForRow(at: indexPath) as! TaskPersonInfoCell
             if !(cell.professionalLabel.text?.contains("医师"))! {
                 showCheckAlert(indexPath: indexPath)

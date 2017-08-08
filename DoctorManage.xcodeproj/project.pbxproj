@@ -221,6 +221,7 @@
 		B483F7F11EF43D6C00A6E289 /* DeduceScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B483F7EF1EF43D6C00A6E289 /* DeduceScoreCell.swift */; };
 		B483F7F21EF43D6C00A6E289 /* DeduceScoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B483F7F01EF43D6C00A6E289 /* DeduceScoreCell.xib */; };
 		B483F7F41EF443F400A6E289 /* ExamResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B483F7F31EF443F400A6E289 /* ExamResultController.swift */; };
+		B48D47031F35C9E800055F89 /* BRPersonInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48D47021F35C9E800055F89 /* BRPersonInfoData.swift */; };
 		B49C43A91EF4DBD800596A53 /* 全部@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B49C43A71EF4DBD800596A53 /* 全部@2x.png */; };
 		B49C43AA1EF4DBD800596A53 /* 全部@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B49C43A81EF4DBD800596A53 /* 全部@3x.png */; };
 		B4B045D01EEAD76E00C03856 /* PhotoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B045CE1EEAD76E00C03856 /* PhotoCollectionCell.swift */; };
@@ -600,6 +601,7 @@
 		B483F7EF1EF43D6C00A6E289 /* DeduceScoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeduceScoreCell.swift; sourceTree = "<group>"; };
 		B483F7F01EF43D6C00A6E289 /* DeduceScoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeduceScoreCell.xib; sourceTree = "<group>"; };
 		B483F7F31EF443F400A6E289 /* ExamResultController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamResultController.swift; sourceTree = "<group>"; };
+		B48D47021F35C9E800055F89 /* BRPersonInfoData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BRPersonInfoData.swift; sourceTree = "<group>"; };
 		B49C43A71EF4DBD800596A53 /* 全部@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "全部@2x.png"; sourceTree = "<group>"; };
 		B49C43A81EF4DBD800596A53 /* 全部@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "全部@3x.png"; sourceTree = "<group>"; };
 		B4B045CE1EEAD76E00C03856 /* PhotoCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionCell.swift; sourceTree = "<group>"; };
@@ -1296,6 +1298,7 @@
 				B419F6D21F03F06A00B7FEE9 /* UserInfo.h */,
 				B419F6D31F03F06A00B7FEE9 /* UserInfo.m */,
 				B4D62D421F1B4DF900BF07F6 /* BRCommitDataManage.swift */,
+				B48D47021F35C9E800055F89 /* BRPersonInfoData.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -1873,6 +1876,7 @@
 				B45000B11F0E709A000ABD63 /* WaitEvaluateController.swift in Sources */,
 				B4DA58901EFC131200CB31CC /* AnswerDetailController.swift in Sources */,
 				B41DFA3B1EE854690089CC67 /* CheckingTableViewCell.swift in Sources */,
+				B48D47031F35C9E800055F89 /* BRPersonInfoData.swift in Sources */,
 				B4D62D6A1F1E448300BF07F6 /* NSData+ImageContentType.m in Sources */,
 				B483F76F1EF2C7A700A6E289 /* InfoHeadCell.swift in Sources */,
 				B4B045D01EEAD76E00C03856 /* PhotoCollectionCell.swift in Sources */,

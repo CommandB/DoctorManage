@@ -41,27 +41,6 @@ class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         requestOnlineQuestions()
     }
     
-    
-    
-    func testkaoshishijuan()  {
-        let params = ["token":UserInfo.instance().token,"personid":"1001","state":"0"] as! [String:String]
-        let urlString = "http://"+"192.168.1.103:8070/"+"doctor_train/rest/exam/getAppStudentExercises.do"
-        print(params)
-        Alamofire.request(urlString, method: HTTPMethod.post, parameters: params).responseJSON { (response) in
-            switch response.result{
-            case .success:
-                if let value = response.result.value as? [String: AnyObject] {
-                    //                    success(value)
-                    let json = JSON(value)
-                    print("111json--\(json)")
-                }
-            case .failure(let _): break
-                //                failture(error)
-            }
-            
-        }
-    }
-    
     func requestMyInfo() {
         MBProgressHUD.showAdded(to: self.view, animated: true)
         let urlString = "http://"+Ip_port2+kMyInfoURL
