@@ -32,7 +32,7 @@ class UnCompleteController: UIViewController,UITableViewDataSource,UITableViewDe
     
     func getData(pageindex:Int) {
         MBProgressHUD.showAdded(to: self.view, animated: true)
-        let params = ["pageindex":String(pageindex*10),"pagesize": "10","task_state":"1","myshop_forapp_key":"987654321","token":UserInfo.instance().token]
+        let params = ["pageindex":String(pageindex*10),"pagesize": "10","task_state":"1,2","myshop_forapp_key":"987654321","token":UserInfo.instance().token]
         
         NetworkTool.sharedInstance.requestUnCompleteTask(params: params as! [String : String], success: { (response) in
             self.tableview.mj_header.endRefreshing()

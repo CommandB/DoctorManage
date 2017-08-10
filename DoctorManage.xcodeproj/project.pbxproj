@@ -95,7 +95,6 @@
 		B41DFA4F1EE855B50089CC67 /* StudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41DFA4E1EE855B50089CC67 /* StudentViewController.swift */; };
 		B41DFA551EE855BA0089CC67 /* CompleteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41DFA511EE855BA0089CC67 /* CompleteController.swift */; };
 		B41DFA561EE855BA0089CC67 /* TaskCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41DFA521EE855BA0089CC67 /* TaskCenterViewController.swift */; };
-		B41DFA571EE855BA0089CC67 /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41DFA531EE855BA0089CC67 /* TrainingViewController.swift */; };
 		B41DFA581EE855BA0089CC67 /* UnCompleteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41DFA541EE855BA0089CC67 /* UnCompleteController.swift */; };
 		B41DFA5A1EE855CB0089CC67 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41DFA591EE855CB0089CC67 /* LoginViewController.swift */; };
 		B41DFA5C1EE855F70089CC67 /* TaskDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41DFA5B1EE855F70089CC67 /* TaskDetailController.swift */; };
@@ -462,7 +461,6 @@
 		B41DFA4E1EE855B50089CC67 /* StudentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentViewController.swift; sourceTree = "<group>"; };
 		B41DFA511EE855BA0089CC67 /* CompleteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteController.swift; sourceTree = "<group>"; };
 		B41DFA521EE855BA0089CC67 /* TaskCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCenterViewController.swift; sourceTree = "<group>"; };
-		B41DFA531EE855BA0089CC67 /* TrainingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
 		B41DFA541EE855BA0089CC67 /* UnCompleteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnCompleteController.swift; sourceTree = "<group>"; };
 		B41DFA591EE855CB0089CC67 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B41DFA5B1EE855F70089CC67 /* TaskDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailController.swift; sourceTree = "<group>"; };
@@ -950,7 +948,6 @@
 			children = (
 				B41DFA521EE855BA0089CC67 /* TaskCenterViewController.swift */,
 				B41DFA511EE855BA0089CC67 /* CompleteController.swift */,
-				B41DFA531EE855BA0089CC67 /* TrainingViewController.swift */,
 				B41DFA541EE855BA0089CC67 /* UnCompleteController.swift */,
 				B41DFA5B1EE855F70089CC67 /* TaskDetailController.swift */,
 				B4B045E21EEAED9200C03856 /* CompleteDetailController.swift */,
@@ -1981,7 +1978,6 @@
 				B46CF9C31EFF869B0048112F /* NetworkTool.swift in Sources */,
 				B46CF9D11F0151CF0048112F /* XLVideoPlayer.m in Sources */,
 				B42D402D1F262EEE001143F7 /* ZHDropDownMenu.swift in Sources */,
-				B41DFA571EE855BA0089CC67 /* TrainingViewController.swift in Sources */,
 				B41DFA561EE855BA0089CC67 /* TaskCenterViewController.swift in Sources */,
 				B46CF9B51EFE11880048112F /* ELCAsset.m in Sources */,
 				B46CF9C11EFE122A0048112F /* PassVideoViewController.swift in Sources */,

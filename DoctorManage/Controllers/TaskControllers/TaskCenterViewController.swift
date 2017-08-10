@@ -26,17 +26,14 @@ class TaskCenterViewController: UIViewController {
         self.automaticallyAdjustsScrollViewInsets = false
         let unCompleteVC = UnCompleteController()
         unCompleteVC.view.frame = CGRect(x: 0, y: 0, width: scrollview.frame.size.width, height: scrollview.bounds.size.height)
-        let trainingVC = TrainingViewController()
-        trainingVC.view.frame = CGRect(x: self.view.bounds.size.width, y: 0, width: scrollview.frame.size.width, height: scrollview.bounds.size.height)
+
         let completeVC = CompleteController()
-        completeVC.view.frame = CGRect(x: self.view.bounds.size.width*2, y: 0, width: scrollview.frame.size.width, height: scrollview.bounds.size.height)
+        completeVC.view.frame = CGRect(x: self.view.bounds.size.width, y: 0, width: scrollview.frame.size.width, height: scrollview.bounds.size.height)
         
         self.addChildViewController(unCompleteVC)
-        self.addChildViewController(trainingVC)
         self.addChildViewController(completeVC)
         
         scrollview.addSubview(unCompleteVC.view)
-        scrollview.addSubview(trainingVC.view)
         scrollview.addSubview(completeVC.view)
         // Do any additional setup after loading the view.
     }

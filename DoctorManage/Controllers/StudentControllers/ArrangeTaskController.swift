@@ -47,16 +47,14 @@ class ArrangeTaskController: UIViewController,UITableViewDelegate,UITableViewDat
     }
 
     func setInputView() {
-//        taskPicker.dataSource = self
-//        taskPicker.delegate = self
-//        typeTextField.tintColor = .clear
-//        typeTextField.inputView = taskPicker
-        
         beginDatePicker.datePickerMode = .dateAndTime
         beginDatePicker.addTarget(self, action: #selector(beginDateChanged), for: .valueChanged)
+        beginTextField.addTarget(self, action: #selector(beginDateChanged), for: .touchDown)
         beginDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
         endDatePicker.datePickerMode = .dateAndTime
         endDatePicker.addTarget(self, action: #selector(endDateChanged), for: .valueChanged)
+        endTextField.addTarget(self, action: #selector(endDateChanged), for: .touchDown)
         endDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
         beginTextField.inputView = beginDatePicker
