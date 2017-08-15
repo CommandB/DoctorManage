@@ -9,12 +9,13 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-
+import AVFoundation
 class SubResMineController: UIViewController,UITableViewDataSource,UITableViewDelegate,subResMineCellDelegate,UIScrollViewDelegate {
     var tableview = UITableView()
     var player:XLVideoPlayer!
     var dataSource:[JSON] = []
     var index = 0
+    var thumbnailArr = [UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,10 +23,10 @@ class SubResMineController: UIViewController,UITableViewDataSource,UITableViewDe
         self.view.addSubview(tableview)
         self.tableview.delegate = self
         self.tableview.dataSource = self
-        self.tableview.backgroundColor = UIColor.init(red: 245/255.0, green: 248/255.0, blue: 251, alpha: 1.0)
         let nib1 = UINib(nibName: "subResMineCell", bundle: nil)
         self.tableview.register(nib1, forCellReuseIdentifier: "subResMineCell")
         self.tableview.separatorStyle = .none
+        self.tableview.backgroundColor = UIColor.init(red: 245/255.0, green: 248/255.0, blue: 251, alpha: 1.0)
         self.tableview.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshAction))
         self.tableview.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreAction))
         self.tableview.mj_header.beginRefreshing()
@@ -58,8 +59,9 @@ class SubResMineController: UIViewController,UITableViewDataSource,UITableViewDe
     func requestResMineData(pageindex:Int) {
         let urlString = "http://"+Ip_port2+"doctor_train/rest/teachingMaterial/getAppMaterial.do"
         let params = ["token":UserInfo.instance().token,"gettype":"1","pageindex":String(pageindex*10),"pagesize": "10"] as! [String:String]
-        
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         Alamofire.request(urlString, method: .post, parameters: params).responseJSON { (response) in
+            MBProgressHUD.hide(for: self.view, animated: true)
             self.tableview.mj_header.endRefreshing()
             self.tableview.mj_footer.endRefreshing()
             MBProgressHUD.hide(for:  self.view, animated: true)
@@ -72,6 +74,12 @@ class SubResMineController: UIViewController,UITableViewDataSource,UITableViewDe
 //                    self.dataSource = json["data"].arrayValue
                     for item in json["data"].arrayValue{
                         self.dataSource.append(item)
+                        if let url = URL.init(string: item["url"].stringValue){
+                            let image = self.generateThumbImage(url:url) ?? UIImage.init(named: "testresource")
+                            self.thumbnailArr.append(image!)
+                        }else{
+                            self.thumbnailArr.append(UIImage.init(named: "testresource")!)
+                        }
                     }
                     self.tableview.reloadData()
                 }else{
@@ -83,6 +91,7 @@ class SubResMineController: UIViewController,UITableViewDataSource,UITableViewDe
     
     func refreshAction() {
         dataSource.removeAll()
+        thumbnailArr.removeAll()
         index = 0
         self.tableview.mj_footer.resetNoMoreData()
         requestResMineData(pageindex: index)
@@ -103,6 +112,7 @@ class SubResMineController: UIViewController,UITableViewDataSource,UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = subResMineCell.videoCellWithTableView(tableview: tableView)
+        cell.videoImageView.image = thumbnailArr[indexPath.section]
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(showVideoPlayer(gesture:)))
         cell.videoImageView.addGestureRecognizer(tap)
         cell.titleLabel.text = self.dataSource[indexPath.section]["title"].stringValue
@@ -124,7 +134,7 @@ class SubResMineController: UIViewController,UITableViewDataSource,UITableViewDe
         let cell = tableview.cellForRow(at: indexPath) as! subResMineCell
         
         player = XLVideoPlayer()
-        player.videoUrl = "http://"+dataSource[indexPath.row]["url"].stringValue
+        player.videoUrl = dataSource[indexPath.row]["url"].stringValue
 //        "http://v1.mukewang.com/57de8272-38a2-4cae-b734-ac55ab528aa8/L.mp4"
         player.playerBindTableView(tableview, currentIndexPath: indexPath)
         player.frame = (view?.bounds)!
@@ -177,6 +187,21 @@ class SubResMineController: UIViewController,UITableViewDataSource,UITableViewDe
             player.destroy()
         }
     }
+    
+    func generateThumbImage(url : URL) -> UIImage?{
+        
+        let asset = AVAsset(url: url)
+        let assetImgGenerate : AVAssetImageGenerator = AVAssetImageGenerator(asset: asset)
+        assetImgGenerate.appliesPreferredTrackTransform = true
+        let time = CMTimeMake(1, 30)
+        let img = try? assetImgGenerate.copyCGImage(at: time, actualTime: nil)
+        
+        guard let cgImage = img else { return nil }
+        
+        let frameImg    = UIImage(cgImage: cgImage)
+        return frameImg
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -84,6 +84,7 @@ class UnCompleteController: UIViewController,UITableViewDataSource,UITableViewDe
 //        }
         cell.retainTimeLabel.text = dataSource[indexPath.section].stringValue(forKey: "overhour")
         cell.beginTimeLabel.text = dataSource[indexPath.section].stringValue(forKey: "starttime_show")
+        cell.endTimeLabel.text = dataSource[indexPath.section].stringValue(forKey: "endtime_show")
         cell.addressLabel.text = dataSource[indexPath.section].stringValue(forKey: "addressname")
         return cell
         

@@ -7,14 +7,21 @@
 //
 
 import UIKit
-
+protocol InfoHeadCellDelegate: class {
+    func photoBtnTapped(photoBtn: UIButton)
+}
 class InfoHeadCell: UITableViewCell {
     @IBOutlet weak var personName: UILabel!
     @IBOutlet weak var phoneNum: UILabel!
     @IBOutlet weak var officeName: UILabel!
     @IBOutlet weak var jobNum: UILabel!
     @IBOutlet weak var highestDegree: UILabel!
+    @IBOutlet weak var photoBtn: UIButton!
+    weak var delegate: InfoHeadCellDelegate?
 
+    @IBAction func touchPhotoBtn(_ sender: UIButton) {
+        self.delegate?.photoBtnTapped(photoBtn: sender)
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

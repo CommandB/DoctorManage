@@ -17,6 +17,7 @@ class BaseTableViewCell: UITableViewCell {
     
     @IBOutlet weak var beginTimeLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var endTimeLabel: UILabel!
     
     
     override func draw(_ rect: CGRect) {

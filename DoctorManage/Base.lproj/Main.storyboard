@@ -336,7 +336,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.97254901960784312" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="mbU-Xh-tsY" firstAttribute="bottom" secondItem="Eh5-Ww-Gdr" secondAttribute="bottom" constant="-5" id="1XO-ig-sJo"/>
                             <constraint firstItem="L4R-ac-CMO" firstAttribute="bottom" secondItem="Eh5-Ww-Gdr" secondAttribute="bottom" constant="-5" id="68d-fg-AhL"/>
@@ -981,11 +981,12 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0Z-tl-eAY">
                                 <rect key="frame" x="10" y="612" width="355" height="45"/>
-                                <color key="backgroundColor" red="1" green="0.78431372549019607" blue="0.29803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="ffc-BE-ECI"/>
                                 </constraints>
-                                <state key="normal">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="开始上传" backgroundImage="topBack.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -993,19 +994,13 @@
                                         <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="22.5"/>
+                                        <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="startUploadVideoAction:" destination="Zbi-nb-Yad" eventType="touchUpInside" id="gW9-dK-UPL"/>
+                                </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="上传中.png" translatesAutoresizingMaskIntoConstraints="NO" id="x0y-Pd-k0u">
-                                <rect key="frame" x="158" y="626" width="18" height="18"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上传中" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2S-MG-SLZ">
-                                <rect key="frame" x="184" y="626" width="46" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="播放大.png" translatesAutoresizingMaskIntoConstraints="NO" id="U4T-xK-q1V">
                                 <rect key="frame" x="157" y="100" width="60" height="60"/>
                             </imageView>
@@ -1020,31 +1015,41 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入视频名称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="07c-1p-K5n">
+                                <rect key="frame" x="15" y="250" width="345" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Hvd-hu-kzJ"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Zbi-nb-Yad" id="9k7-Qn-who"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="x0y-Pd-k0u" firstAttribute="centerX" secondItem="E0Z-tl-eAY" secondAttribute="centerX" constant="-20" id="1j4-nh-p13"/>
-                            <constraint firstItem="R2S-MG-SLZ" firstAttribute="centerX" secondItem="E0Z-tl-eAY" secondAttribute="centerX" constant="20" id="L5L-l9-0Gi"/>
                             <constraint firstItem="U4T-xK-q1V" firstAttribute="centerY" secondItem="rSm-5n-6vW" secondAttribute="centerY" id="Na8-8f-1gc"/>
-                            <constraint firstItem="x0y-Pd-k0u" firstAttribute="centerY" secondItem="E0Z-tl-eAY" secondAttribute="centerY" id="O8B-16-UVt"/>
+                            <constraint firstItem="07c-1p-K5n" firstAttribute="top" secondItem="rSm-5n-6vW" secondAttribute="bottom" constant="20" id="QS9-34-ygf"/>
                             <constraint firstItem="E0Z-tl-eAY" firstAttribute="width" secondItem="75v-da-XTv" secondAttribute="width" constant="-20" id="QxY-TE-w6Y"/>
                             <constraint firstItem="rSm-5n-6vW" firstAttribute="centerX" secondItem="75v-da-XTv" secondAttribute="centerX" id="S8Z-Xx-IIR"/>
                             <constraint firstItem="ISl-tI-eC9" firstAttribute="leading" secondItem="rSm-5n-6vW" secondAttribute="leading" id="Zm7-Db-7Zq"/>
+                            <constraint firstItem="07c-1p-K5n" firstAttribute="width" secondItem="75v-da-XTv" secondAttribute="width" constant="-30" id="b25-p1-brM"/>
                             <constraint firstItem="rSm-5n-6vW" firstAttribute="width" secondItem="75v-da-XTv" secondAttribute="width" constant="-30" id="cFe-yg-B7Z"/>
                             <constraint firstItem="E0Z-tl-eAY" firstAttribute="bottom" secondItem="gqx-7w-NYS" secondAttribute="top" constant="-10" id="ejv-sH-qhw"/>
                             <constraint firstItem="ISl-tI-eC9" firstAttribute="top" secondItem="rSm-5n-6vW" secondAttribute="bottom" id="hDg-gZ-aXb"/>
-                            <constraint firstItem="R2S-MG-SLZ" firstAttribute="centerY" secondItem="E0Z-tl-eAY" secondAttribute="centerY" id="i7T-N4-Z5v"/>
                             <constraint firstItem="E0Z-tl-eAY" firstAttribute="centerX" secondItem="75v-da-XTv" secondAttribute="centerX" id="mWt-fQ-zJb"/>
+                            <constraint firstItem="07c-1p-K5n" firstAttribute="centerX" secondItem="75v-da-XTv" secondAttribute="centerX" id="q5C-3f-sdy"/>
                             <constraint firstItem="U4T-xK-q1V" firstAttribute="centerX" secondItem="rSm-5n-6vW" secondAttribute="centerX" id="s5T-Wa-6v5"/>
                             <constraint firstItem="rSm-5n-6vW" firstAttribute="top" secondItem="h3R-Y9-3vY" secondAttribute="bottom" constant="10" id="w8c-IC-EHu"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="bottomImageview" destination="rSm-5n-6vW" id="zDb-bN-MbJ"/>
+                        <outlet property="inputTextField" destination="07c-1p-K5n" id="L71-LN-UWQ"/>
                         <outlet property="passBtn" destination="E0Z-tl-eAY" id="RvO-dN-cnG"/>
                         <outlet property="progressLabel" destination="ISl-tI-eC9" id="TGx-iE-66o"/>
-                        <outlet property="subPassImageView" destination="x0y-Pd-k0u" id="a0D-Z7-XOu"/>
-                        <outlet property="subPassingLabel" destination="R2S-MG-SLZ" id="cxx-fg-QD3"/>
                         <outlet property="widthConstrain" destination="1N2-F4-NCe" id="fWN-sq-5qa"/>
                     </connections>
                 </viewController>
@@ -1365,7 +1370,6 @@
         <image name="testresource.png" width="668" height="440"/>
         <image name="topBack.png" width="550" height="128"/>
         <image name="top背景.png" width="275" height="64"/>
-        <image name="上传中.png" width="18" height="18"/>
         <image name="加号.png" width="18" height="18"/>
         <image name="密码.png" width="22" height="22"/>
         <image name="播放大.png" width="60" height="60"/>

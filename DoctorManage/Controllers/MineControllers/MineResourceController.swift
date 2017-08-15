@@ -9,11 +9,12 @@
 import UIKit
 import MobileCoreServices
 
-class MineResourceController: UIViewController,ELCImagePickerControllerDelegate {
+class MineResourceController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     @IBOutlet weak var topBackgroundView: UIImageView!
     @IBOutlet weak var bottomLine: UILabel!
     @IBOutlet weak var scrollview: UIScrollView!
-
+    var imagePicker = UIImagePickerController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollview.contentSize = CGSize(width: self.view.bounds.size.width*2, height: self.view.frame.size.height-topBackgroundView.bounds.size.height)
@@ -29,21 +30,17 @@ class MineResourceController: UIViewController,ELCImagePickerControllerDelegate 
         scrollview.addSubview(subResMineVC.view)
         scrollview.addSubview(subresDepartVC.view)
     }
-
+    
     @IBAction func didTapBtn(_ sender: Any) {
         bottomLine.center = CGPoint.init(x: (sender as! UIButton).center.x, y:  bottomLine.center.y)
         scrollview.contentOffset = CGPoint.init(x: CGFloat((sender as! UIButton).tag-1000) * self.view.bounds.size.width, y: 0)
     }
     
     @IBAction func addVideoBtnTapped(_ sender: Any) {
-        let elcPicker = ELCImagePickerController(imagePicker: ())!
-        elcPicker.maximumImagesCount = 1
-        elcPicker.returnsOriginalImage = false
-        elcPicker.returnsImage = false
-        elcPicker.onOrder = true
-        elcPicker.mediaTypes = [kUTTypeMovie]
-        elcPicker.imagePickerDelegate = self
-        self.present(elcPicker, animated: true, completion: nil)
+        imagePicker.delegate = self
+        imagePicker.mediaTypes = [kUTTypeMovie as String]
+        imagePicker.navigationBar.setBackgroundImage(UIImage.init(named: "topBackgroundIcon"), for: .default)
+        self.present(imagePicker, animated: true, completion: nil)
     }
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let btn = self.view.viewWithTag(1000+Int(scrollview.contentOffset.x/scrollView.bounds.size.width))
@@ -53,9 +50,9 @@ class MineResourceController: UIViewController,ELCImagePickerControllerDelegate 
                 (self.childViewControllers.first as! SubResMineController).player.destroy()
             }
         }else if scrollView.contentOffset.x == 0 {
-//            if (self.childViewControllers.first as! SubResMineController).player != nil {
-//                (self.childViewControllers.first as! SubResMineController).player.destroy()
-//            }
+            //            if (self.childViewControllers.first as! SubResMineController).player != nil {
+            //                (self.childViewControllers.first as! SubResMineController).player.destroy()
+            //            }
         }
     }
     
@@ -63,31 +60,49 @@ class MineResourceController: UIViewController,ELCImagePickerControllerDelegate 
         self.dismiss(animated: true, completion: nil)
     }
     
-    //MARK:ELCImagePickerControllerDelegate
-    func elcImagePickerController(_ picker: ELCImagePickerController!, didFinishPickingMediaWithInfo info: [Any]!) {
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let passVideoViewVC = storyboard.instantiateViewController(withIdentifier: "PassVideoView")
-        picker?.pushViewController(passVideoViewVC, animated: true)
-//        self.dismiss(animated: true, completion: nil)
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
+        if let videoUrl = info[UIImagePickerControllerMediaURL] {
+            do {
+                
+                let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+                let passVideoViewVC = storyboard.instantiateViewController(withIdentifier: "PassVideoView") as! PassVideoViewController
+                passVideoViewVC.receiveData = try Data.init(contentsOf: videoUrl as! URL)
+                passVideoViewVC.receiveUrl = videoUrl as! URL
+                //                passVideoViewVC.navigationController?.pushViewController(passVideoViewVC, animated: true)
+                
+                //                imagePicker.dismiss(animated: true, completion: {
+                //                    self.navigationController?.pushViewController(passVideoViewVC, animated: true)
+                //                })
+                //
+                let nav = UINavigationController.init(rootViewController: passVideoViewVC)
+                picker.present(nav, animated: true, completion: nil)
+            } catch {
+                imagePicker.dismiss(animated: true, completion: {
+                    MBProgressHUD.showError("选取视频失败", to: self.view)
+                })
+            }
+        }
+        print(info)
     }
     
-    func elcImagePickerControllerDidCancel(_ picker: ELCImagePickerController!) {
-        self.dismiss(animated: true, completion: nil)
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
+        imagePicker.dismiss(animated: true, completion: nil)
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

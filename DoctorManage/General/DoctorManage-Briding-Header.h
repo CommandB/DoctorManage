@@ -21,5 +21,6 @@
 #import "Reachability.h"
 #import "FullScreenImageViewer.h"
 #import "UIButton+WebCache.h"
+#import "UIImageView+WebCache.h"
 
 #endif /* DoctorManage_Briding_Header_h */

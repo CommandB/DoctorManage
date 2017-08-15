@@ -9,13 +9,13 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-
+import AVFoundation
 class SubResDepartController: UIViewController,UITableViewDataSource,UITableViewDelegate,subResMineCellDelegate,UIScrollViewDelegate {
     var tableview = UITableView()
     var player:XLVideoPlayer!
     var dataSource:[JSON] = []
     var index = 0
-    
+    var thumbnailArr = [UIImage]()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableview = UITableView(frame: CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.bounds.size.height-90))
@@ -34,7 +34,7 @@ class SubResDepartController: UIViewController,UITableViewDataSource,UITableView
     func requestResMineData(pageindex:Int) {
         let urlString = "http://"+Ip_port2+"doctor_train/rest/teachingMaterial/getAppMaterial.do"
         let params = ["token":UserInfo.instance().token,"gettype":"2","pageindex":String(pageindex*10),"pagesize": "10"] as! [String:String]
-        
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         Alamofire.request(urlString, method: .post, parameters: params).responseJSON { (response) in
             self.tableview.mj_header.endRefreshing()
             self.tableview.mj_footer.endRefreshing()
@@ -48,6 +48,12 @@ class SubResDepartController: UIViewController,UITableViewDataSource,UITableView
                     //                    self.dataSource = json["data"].arrayValue
                     for item in json["data"].arrayValue{
                         self.dataSource.append(item)
+                        if let url = URL.init(string: item["url"].stringValue){
+                            let image = self.generateThumbImage(url:url) ?? UIImage.init(named: "testresource")
+                            self.thumbnailArr.append(image!)
+                        }else{
+                            self.thumbnailArr.append(UIImage.init(named: "testresource")!)
+                        }
                     }
                     self.tableview.reloadData()
                 }else{
@@ -59,6 +65,7 @@ class SubResDepartController: UIViewController,UITableViewDataSource,UITableView
     
     func refreshAction() {
         dataSource.removeAll()
+        thumbnailArr.removeAll()
         index = 0
         self.tableview.mj_footer.resetNoMoreData()
         requestResMineData(pageindex: index)
@@ -79,6 +86,7 @@ class SubResDepartController: UIViewController,UITableViewDataSource,UITableView
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = subResMineCell.videoCellWithTableView(tableview: tableView)
+        cell.videoImageView.image = thumbnailArr[indexPath.section]
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(showVideoPlayer(gesture:)))
         cell.videoImageView.addGestureRecognizer(tap)
         cell.titleLabel.text = self.dataSource[indexPath.section]["title"].stringValue
@@ -144,6 +152,20 @@ class SubResDepartController: UIViewController,UITableViewDataSource,UITableView
         if player != nil {
             player.destroy()
         }
+    }
+    
+    func generateThumbImage(url : URL) -> UIImage?{
+        
+        let asset = AVAsset(url: url)
+        let assetImgGenerate : AVAssetImageGenerator = AVAssetImageGenerator(asset: asset)
+        assetImgGenerate.appliesPreferredTrackTransform = true
+        let time = CMTimeMake(1, 30)
+        let img = try? assetImgGenerate.copyCGImage(at: time, actualTime: nil)
+        
+        guard let cgImage = img else { return nil }
+        
+        let frameImg    = UIImage(cgImage: cgImage)
+        return frameImg
     }
 
     override func didReceiveMemoryWarning() {

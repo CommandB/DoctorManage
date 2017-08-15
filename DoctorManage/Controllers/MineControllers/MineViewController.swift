@@ -9,10 +9,12 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,InfoHeadCellDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     var tableView = UITableView()
     var infoData:JSON = JSON("")
     var onlineQuestionData:[JSON] = []
+    let imagePicker = UIImagePickerController()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage.init(named: "topBackgroundIcon"), for: .default)
@@ -42,10 +44,10 @@ class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     func requestMyInfo() {
-        MBProgressHUD.showAdded(to: self.view, animated: true)
+        MBProgressHUD.showAdded(to: self.navigationController?.view, animated: true)
         let urlString = "http://"+Ip_port2+kMyInfoURL
         NetworkTool.sharedInstance.myPostRequest(urlString, ["token":UserInfo.instance().token], method: HTTPMethod.post).responseJSON { (response) in
-            MBProgressHUD.hide(for: self.view, animated: true)
+            MBProgressHUD.hideAllHUDs(for: self.navigationController?.view, animated: true)
             switch(response.result){
             case .failure(let error):
                 print(error)
@@ -98,11 +100,15 @@ class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoHeadCell", for: indexPath) as! InfoHeadCell
+            if let photourl = URL.init(string: "http://"+Ip_port2+infoData["photourl"].stringValue) {
+                cell.photoBtn.sd_setBackgroundImage(with: photourl, for: .normal, placeholderImage: UIImage.init(named: "testPhoto.jpg"))
+            }
             cell.personName.text = infoData["personname"].stringValue
             cell.phoneNum.text = infoData["phoneno"].stringValue
             cell.officeName.text = infoData["officename"].stringValue
             cell.jobNum.text = infoData["jobnum"].stringValue
             cell.highestDegree.text = infoData["highestdegree"].stringValue
+            cell.delegate = self
             return cell
         }else if indexPath.section == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "MineEvaluateCell", for: indexPath) as! MineEvaluateCell
@@ -223,6 +229,59 @@ class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         self.navigationController?.pushViewController(settingView, animated: true)
         self.hidesBottomBarWhenPushed = false
     }
+    
+    func photoBtnTapped(photoBtn: UIButton){
+        let userIconAlert = UIAlertController(title: nil, message: "请选择操作", preferredStyle: .actionSheet)
+        let selectPhotoAction = UIAlertAction.init(title: "从相册选择", style: .default, handler:{
+            (alert: UIAlertAction!) -> Void in
+                let imagePicker = UIImagePickerController()
+                imagePicker.delegate = self
+                //允许编辑
+                imagePicker.allowsEditing = true
+                imagePicker.sourceType = .photoLibrary
+                self.present(imagePicker, animated: true, completion: nil)
+        })
+        let chooseCameraAction = UIAlertAction.init(title: "拍照", style: .default, handler:{
+            (alert: UIAlertAction!) -> Void in
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = .camera
+            self.present(imagePicker, animated: true, completion: nil)
+        })
+        let canelAction = UIAlertAction(title: "取消", style: .cancel,handler: nil)
+        userIconAlert.addAction(selectPhotoAction)
+        userIconAlert.addAction(chooseCameraAction)
+        userIconAlert.addAction(canelAction)
+        self.present(userIconAlert, animated: true, completion: nil)
+    }
+
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            MBProgressHUD.showAdded(to: self.navigationController?.view, animated: true)
+            let urlString = "http://"+Ip_port2+"doctor_train/rest/person/updateMyPhoto.do"
+        NetworkTool.sharedInstance.uploadImage(urlString, images: ["image":image], parameters: ["token":UserInfo.instance().token], completionHandler: { (dataResponse) in
+            MBProgressHUD.hide(for: self.navigationController?.view, animated: true)
+            switch dataResponse.result{
+            case .success:
+                self.requestMyInfo()
+            case .failure:
+                MBProgressHUD.hide(for: self.navigationController?.view)
+                MBProgressHUD.showSuccess("更改失败")
+            }
+        })
+        } else{
+            print("Something went wrong")
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+
+    public func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
+        picker.dismiss(animated: true, completion: nil)
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

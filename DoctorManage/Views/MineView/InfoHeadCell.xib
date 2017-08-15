@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -36,13 +35,6 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testPhoto.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="dZe-T7-rOV">
-                        <rect key="frame" x="18" y="60" width="60" height="60"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="dZe-T7-rOV" secondAttribute="height" multiplier="1:1" id="05M-fe-eAx"/>
-                            <constraint firstAttribute="width" constant="60" id="2uO-WG-72n"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电话" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDI-yC-t02">
                         <rect key="frame" x="93" y="82" width="27" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -103,32 +95,43 @@
                         <color key="textColor" red="0.40784313725490196" green="0.67843137254901964" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXY-BD-eap">
+                        <rect key="frame" x="18" y="60" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="aCU-Fo-D1P"/>
+                            <constraint firstAttribute="width" secondItem="VXY-BD-eap" secondAttribute="height" multiplier="1:1" id="bDp-0A-zkp"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="testPhoto.jpg"/>
+                        <connections>
+                            <action selector="touchPhotoBtn:" destination="WVN-0R-5nJ" eventType="touchUpInside" id="9hD-mD-OAv"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="LDI-yC-t02" firstAttribute="centerY" secondItem="VXY-BD-eap" secondAttribute="centerY" id="4h6-xi-ivJ"/>
                     <constraint firstItem="JH9-L6-Uuq" firstAttribute="top" secondItem="gdd-M3-8J1" secondAttribute="topMargin" constant="10" id="4yQ-cQ-Fxw"/>
                     <constraint firstItem="JH9-L6-Uuq" firstAttribute="leading" secondItem="gdd-M3-8J1" secondAttribute="leadingMargin" constant="10" id="5mK-W1-xO2"/>
                     <constraint firstItem="8MW-jL-rF5" firstAttribute="centerY" secondItem="LDI-yC-t02" secondAttribute="centerY" id="7AJ-oq-DWq"/>
                     <constraint firstItem="vUG-g8-ejJ" firstAttribute="leading" secondItem="LDI-yC-t02" secondAttribute="leading" id="8h1-6T-UHo"/>
                     <constraint firstItem="xJg-Qi-hIi" firstAttribute="centerY" secondItem="LDI-yC-t02" secondAttribute="centerY" id="94Q-ot-G8X"/>
-                    <constraint firstItem="dZe-T7-rOV" firstAttribute="top" secondItem="5ya-MC-cth" secondAttribute="bottom" constant="20" id="A6F-j5-Okf"/>
                     <constraint firstItem="xef-Y6-AVH" firstAttribute="leading" secondItem="vUG-g8-ejJ" secondAttribute="trailing" constant="10" id="Eq7-dm-yi7"/>
                     <constraint firstItem="vUG-g8-ejJ" firstAttribute="top" secondItem="LDI-yC-t02" secondAttribute="bottom" constant="10" id="FDd-wC-udT"/>
                     <constraint firstAttribute="trailingMargin" secondItem="xJg-Qi-hIi" secondAttribute="trailing" constant="10" id="FHv-Tj-3iG"/>
-                    <constraint firstItem="LDI-yC-t02" firstAttribute="leading" secondItem="dZe-T7-rOV" secondAttribute="trailing" constant="15" id="FMH-ii-Yf0"/>
                     <constraint firstItem="5ya-MC-cth" firstAttribute="top" secondItem="JH9-L6-Uuq" secondAttribute="bottom" constant="5" id="OqL-6F-SbC"/>
                     <constraint firstItem="8MW-jL-rF5" firstAttribute="leading" secondItem="LDI-yC-t02" secondAttribute="trailing" constant="10" id="Psb-zF-trI"/>
+                    <constraint firstItem="VXY-BD-eap" firstAttribute="leading" secondItem="JH9-L6-Uuq" secondAttribute="leading" id="Ri7-fc-0mC"/>
                     <constraint firstItem="s2M-ny-Z3v" firstAttribute="trailing" secondItem="gdd-M3-8J1" secondAttribute="trailingMargin" constant="-10" id="Tdv-K0-yCW"/>
-                    <constraint firstItem="LDI-yC-t02" firstAttribute="centerY" secondItem="dZe-T7-rOV" secondAttribute="centerY" id="Y8O-0A-2Uo"/>
+                    <constraint firstItem="LDI-yC-t02" firstAttribute="leading" secondItem="VXY-BD-eap" secondAttribute="trailing" constant="15" id="XCJ-YC-VRd"/>
                     <constraint firstItem="5ya-MC-cth" firstAttribute="leading" secondItem="gdd-M3-8J1" secondAttribute="leadingMargin" constant="5" id="bY8-OL-z6w"/>
                     <constraint firstItem="jDC-Sv-vJk" firstAttribute="leading" secondItem="LDI-yC-t02" secondAttribute="leading" id="fGS-dh-U1r"/>
                     <constraint firstItem="jDC-Sv-vJk" firstAttribute="bottom" secondItem="LDI-yC-t02" secondAttribute="top" constant="-10" id="fZl-Tm-us6"/>
                     <constraint firstItem="asR-8M-5KN" firstAttribute="leading" secondItem="jDC-Sv-vJk" secondAttribute="trailing" constant="10" id="g66-dZ-V14"/>
                     <constraint firstItem="LWR-7P-xqR" firstAttribute="trailing" secondItem="gdd-M3-8J1" secondAttribute="trailingMargin" constant="-10" id="h4i-RY-jY1"/>
-                    <constraint firstItem="dZe-T7-rOV" firstAttribute="leading" secondItem="JH9-L6-Uuq" secondAttribute="leading" id="h8F-0J-cUQ"/>
                     <constraint firstItem="asR-8M-5KN" firstAttribute="centerY" secondItem="jDC-Sv-vJk" secondAttribute="centerY" id="kSB-56-TV7"/>
                     <constraint firstItem="s2M-ny-Z3v" firstAttribute="centerY" secondItem="jDC-Sv-vJk" secondAttribute="centerY" id="l6j-k2-D5w"/>
                     <constraint firstItem="n4K-LP-6ZS" firstAttribute="centerY" secondItem="LDI-yC-t02" secondAttribute="centerY" id="q8Q-Bj-7MT"/>
                     <constraint firstItem="5ya-MC-cth" firstAttribute="trailing" secondItem="gdd-M3-8J1" secondAttribute="trailingMargin" constant="-5" id="uoZ-Pf-rNN"/>
+                    <constraint firstItem="VXY-BD-eap" firstAttribute="top" secondItem="5ya-MC-cth" secondAttribute="bottom" constant="20" id="uwr-QL-m9h"/>
                     <constraint firstItem="LWR-7P-xqR" firstAttribute="centerY" secondItem="vUG-g8-ejJ" secondAttribute="centerY" id="wbE-8K-3YF"/>
                     <constraint firstItem="n4K-LP-6ZS" firstAttribute="trailing" secondItem="xJg-Qi-hIi" secondAttribute="leading" constant="-10" id="zw7-gn-Uly"/>
                     <constraint firstItem="xef-Y6-AVH" firstAttribute="centerY" secondItem="vUG-g8-ejJ" secondAttribute="centerY" id="zyi-zX-0Eq"/>
@@ -140,6 +143,7 @@
                 <outlet property="officeName" destination="xef-Y6-AVH" id="lF6-as-Ulk"/>
                 <outlet property="personName" destination="asR-8M-5KN" id="1Qv-O3-Opr"/>
                 <outlet property="phoneNum" destination="8MW-jL-rF5" id="d1l-hn-aEc"/>
+                <outlet property="photoBtn" destination="VXY-BD-eap" id="lG7-jv-BrN"/>
             </connections>
             <point key="canvasLocation" x="-4" y="57"/>
         </tableViewCell>

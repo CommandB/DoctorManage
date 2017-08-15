@@ -372,6 +372,108 @@ class NetworkTool: NSObject {
         
     }
     
+    ///图片上传
+    func uploadImage(_ url: String , images:[String : UIImage]? , parameters:[String : Any]? , completionHandler : @escaping (DataResponse<Any>) -> Void ){
+        
+        //用于验证的参数必须放在url里
+        let urlParam = "myshop_forapp_key=987654321&token="+UserInfo.instance().token
+        var postUrl = url
+        if url.hasSuffix(".do") || url.hasSuffix(".action") {
+            postUrl += "?" + urlParam
+        }else {
+            postUrl += "&" + urlParam
+        }
+        
+        
+        if parameters != nil {
+            let jsonData = JSON(parameters!)
+            r_param["data"] = jsonData.description
+        }
+        
+        upload(multipartFormData: { multipartFormData in
+            
+            if images != nil && (images?.count)!>0 {
+                for (k , v ) in images!{
+                    let data = UIImagePNGRepresentation(v)
+                    let imageName = k + ".png"
+                    multipartFormData.append(data!, withName: "file", fileName: imageName, mimeType: "image/png")
+                    
+                }
+            }
+            
+            for (k , v) in self.r_param{
+                multipartFormData.append((v as AnyObject).data(using: String.Encoding.utf8.rawValue)!, withName: k)
+                //            multipartFormData.append(v.data(using: String.Encoding.utf8)!, withName: k)
+            }
+            
+        },to:postUrl, encodingCompletion: { encodingResult in
+            
+            
+            switch encodingResult {
+            case .success(let upload, _, _):
+                
+                upload.responseJSON(completionHandler: completionHandler)
+                upload.uploadProgress { progress in
+                    print( progress.fractionCompleted )
+                }
+            case .failure(let encodingError):
+                print(encodingError)
+            }
+            
+        })
+        
+    }
     
+    ///视频上传
+    func uploadVideo(_ url: String , videoData:[String : Data]? , parameters:[String : Any]? , completionHandler : @escaping (DataResponse<Any>) -> Void ){
+        
+        //用于验证的参数必须放在url里
+        let urlParam = "myshop_forapp_key=987654321&token="+UserInfo.instance().token
+        var postUrl = url
+        if url.hasSuffix(".do") || url.hasSuffix(".action") {
+            postUrl += "?" + urlParam
+        }else {
+            postUrl += "&" + urlParam
+        }
+        
+        
+        if parameters != nil {
+            let jsonData = JSON(parameters!)
+            r_param["data"] = jsonData.description
+        }
+        
+        upload(multipartFormData: { multipartFormData in
+            
+            for (k , v ) in videoData!{
+                let videoName = k + ".mp4"
+                multipartFormData.append(v, withName: "video", fileName: videoName, mimeType: "video/mp4")
+                //                    multipartFormData.append(data!, withName: "video", fileName: videoName, mimeType: "video/mp4" )
+                
+                
+            }
+            
+            
+            for (k , v) in self.r_param{
+                multipartFormData.append((v as AnyObject).data(using: String.Encoding.utf8.rawValue)!, withName: k)
+                //            multipartFormData.append(v.data(using: String.Encoding.utf8)!, withName: k)
+            }
+            
+        },to:postUrl, encodingCompletion: { encodingResult in
+            
+            
+            switch encodingResult {
+            case .success(let upload, _, _):
+                
+                upload.responseJSON(completionHandler: completionHandler)
+                upload.uploadProgress { progress in
+                    print( progress.fractionCompleted )
+                }
+            case .failure(let encodingError):
+                print(encodingError)
+            }
+            
+        })
+        
+    }
     
 }
