@@ -96,6 +96,7 @@ class PassVideoViewController: UIViewController,UITextFieldDelegate {
                     Thread.sleep(forTimeInterval: 2.0)
                     DispatchQueue.main.async {
                         alert.dismiss(animated: true, completion: {
+                            NotificationCenter.default.post(name:NSNotification.Name(rawValue: kUploadVideoSuccessNotification), object: nil)
                         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
                         })
                     }
@@ -109,11 +110,6 @@ class PassVideoViewController: UIViewController,UITextFieldDelegate {
     }
     
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if string == "\n"{
-            MBProgressHUD.showError("请输入文件名", to: self.view)
-            textField.resignFirstResponder()
-            return false
-        }
         if string.lengthOfBytes(using: .utf8) == 0 {
             MBProgressHUD.showError("请输入文件名", to: self.view)
             return false

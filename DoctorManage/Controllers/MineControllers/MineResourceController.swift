@@ -23,7 +23,8 @@ class MineResourceController: UIViewController,UIImagePickerControllerDelegate,U
         subResMineVC.view.frame = CGRect(x: 0, y: 0, width: scrollview.bounds.size.width, height: self.view.bounds.size.height-topBackgroundView.frame.size.height)
         let subresDepartVC = SubResDepartController()
         subresDepartVC.view.frame = CGRect(x: self.view.frame.size.width, y: 0, width: scrollview.bounds.size.width, height: self.view.frame.size.height-topBackgroundView.frame.size.height)
-        
+        self.view.backgroundColor = UIColor.init(red: 245/255.0, green: 248/255.0, blue: 251, alpha: 1.0)
+
         self.addChildViewController(subResMineVC)
         self.addChildViewController(subresDepartVC)
         
@@ -67,7 +68,7 @@ class MineResourceController: UIViewController,UIImagePickerControllerDelegate,U
                 let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
                 let passVideoViewVC = storyboard.instantiateViewController(withIdentifier: "PassVideoView") as! PassVideoViewController
                 passVideoViewVC.receiveData = try Data.init(contentsOf: videoUrl as! URL)
-                passVideoViewVC.receiveUrl = videoUrl as! URL
+                passVideoViewVC.receiveUrl = videoUrl as? URL
                 //                passVideoViewVC.navigationController?.pushViewController(passVideoViewVC, animated: true)
                 
                 //                imagePicker.dismiss(animated: true, completion: {

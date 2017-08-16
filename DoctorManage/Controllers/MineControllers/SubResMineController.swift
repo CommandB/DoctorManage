@@ -27,9 +27,11 @@ class SubResMineController: UIViewController,UITableViewDataSource,UITableViewDe
         self.tableview.register(nib1, forCellReuseIdentifier: "subResMineCell")
         self.tableview.separatorStyle = .none
         self.tableview.backgroundColor = UIColor.init(red: 245/255.0, green: 248/255.0, blue: 251, alpha: 1.0)
+        self.tableview.tableFooterView = UIView()
         self.tableview.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshAction))
         self.tableview.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreAction))
         self.tableview.mj_header.beginRefreshing()
+        NotificationCenter.default.addObserver(self, selector: #selector(uploadSuccess(_:)), name:NSNotification.Name(rawValue: kUploadVideoSuccessNotification), object: nil)
     }
     
 //    func getData(pageindex:String) {
@@ -74,13 +76,8 @@ class SubResMineController: UIViewController,UITableViewDataSource,UITableViewDe
 //                    self.dataSource = json["data"].arrayValue
                     for item in json["data"].arrayValue{
                         self.dataSource.append(item)
-                        if let url = URL.init(string: item["url"].stringValue){
-                            let image = self.generateThumbImage(url:url) ?? UIImage.init(named: "testresource")
-                            self.thumbnailArr.append(image!)
-                        }else{
-                            self.thumbnailArr.append(UIImage.init(named: "testresource")!)
-                        }
                     }
+                    self.createImages()
                     self.tableview.reloadData()
                 }else{
                     print("error")
@@ -173,6 +170,12 @@ class SubResMineController: UIViewController,UITableViewDataSource,UITableViewDe
         return 5
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel(frame: CGRect.init(x: 0, y: 0, width: self.view.bounds.size.width, height: 25))
+        label.backgroundColor = UIColor(red: 245/255.0, green: 248/255.0, blue: 251/255.0, alpha: 1.0)
+        return label
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.isEqual(self.tableview) {
             if player != nil {
@@ -188,6 +191,18 @@ class SubResMineController: UIViewController,UITableViewDataSource,UITableViewDe
         }
     }
     
+    func createImages() {
+        for item in self.dataSource{
+            if let url = URL.init(string: item["url"].stringValue){
+                let image = self.generateThumbImage(url:url) ?? UIImage.init(named: "testresource")
+                self.thumbnailArr.append(image!)
+            }else{
+                self.thumbnailArr.append(UIImage.init(named: "testresource")!)
+            }
+        }
+        self.tableview.reloadData()
+    }
+    
     func generateThumbImage(url : URL) -> UIImage?{
         
         let asset = AVAsset(url: url)
@@ -200,6 +215,11 @@ class SubResMineController: UIViewController,UITableViewDataSource,UITableViewDe
         
         let frameImg    = UIImage(cgImage: cgImage)
         return frameImg
+    }
+    
+    func uploadSuccess(_ notification:Notification)
+    {
+        self.tableview.mj_header.beginRefreshing()
     }
     
     override func didReceiveMemoryWarning() {

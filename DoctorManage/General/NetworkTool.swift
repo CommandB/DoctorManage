@@ -446,7 +446,7 @@ class NetworkTool: NSObject {
             
             for (k , v ) in videoData!{
                 let videoName = k + ".mp4"
-                multipartFormData.append(v, withName: "video", fileName: videoName, mimeType: "video/mp4")
+                multipartFormData.append(v, withName: "file", fileName: videoName, mimeType: "video/mp4")
                 //                    multipartFormData.append(data!, withName: "video", fileName: videoName, mimeType: "video/mp4" )
                 
                 

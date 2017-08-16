@@ -29,6 +29,7 @@ class SubResDepartController: UIViewController,UITableViewDataSource,UITableView
         self.tableview.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshAction))
         self.tableview.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreAction))
         self.tableview.mj_header.beginRefreshing()
+        NotificationCenter.default.addObserver(self, selector: #selector(uploadSuccess(_:)), name:NSNotification.Name(rawValue: kUploadVideoSuccessNotification), object: nil)
     }
     
     func requestResMineData(pageindex:Int) {
@@ -139,6 +140,12 @@ class SubResDepartController: UIViewController,UITableViewDataSource,UITableView
         return 5
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel(frame: CGRect.init(x: 0, y: 0, width: self.view.bounds.size.width, height: 25))
+        label.backgroundColor = UIColor(red: 245/255.0, green: 248/255.0, blue: 251/255.0, alpha: 1.0)
+        return label
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.isEqual(self.tableview) {
             if player != nil {
@@ -168,6 +175,11 @@ class SubResDepartController: UIViewController,UITableViewDataSource,UITableView
         return frameImg
     }
 
+    func uploadSuccess(_ notification:Notification)
+    {
+        self.tableview.mj_header.beginRefreshing()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

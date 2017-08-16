@@ -13,7 +13,7 @@ import SwiftyJSON
 //MARK:IP地址
 let Ip_port = "139.224.207.29:8086"
 //let Ip_port2 = "58.100.106.140:80/"
-let Ip_port2 = "120.77.181.22:80/"
+var Ip_port2 = "120.77.181.22:80/"
 //let Ip_port2 = "192.168.1.106:8070/"
 
 
@@ -76,6 +76,7 @@ let kOnlineQuestionURL = "doctor_train/rest/difficult/queryByOffice.do"
 //MARK: 我的页面评价明细
 let kMyEvalueDetailURL = "doctor_train/rest/taskEvaluationResult/queryTeacherResult.do"
 
+let kUploadVideoSuccessNotification = "uploadVideoSuccessNotification"
 
 
 //MARK: 数据是否请求成功
