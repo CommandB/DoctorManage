@@ -16,7 +16,8 @@ class LoginViewController: UIViewController,SelectBaseViewDelegate,UIPickerViewD
     var dataSource:[NSDictionary] = [NSDictionary]()
     var basename = ""
     var baseportalurl = ""
-
+    var ipPort = "120.77.181.22:80"+"/"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let loginInfo = UserDefaults.standard.dictionary(forKey: "loginInfo") {
@@ -57,6 +58,7 @@ class LoginViewController: UIViewController,SelectBaseViewDelegate,UIPickerViewD
                 MBProgressHUD.showError(response["msg"] as! String, to: self.view)
                 return
             }
+            Ip_port2 = self.ipPort+"/"
             UserInfo.instance().save(response)
             self.saveLoginIngo(loginInfo: ["loginid":self.userNameTextField.text!,"password": self.passwordTextField.text!])
 
@@ -77,6 +79,7 @@ class LoginViewController: UIViewController,SelectBaseViewDelegate,UIPickerViewD
         var dic = loginInfo
         dic["basename"] = basename
         dic["baseportalurl"] = baseportalurl
+        dic["ipUrl"] = ipPort+"/"
         UserDefaults.standard.set(dic, forKey: "loginInfo")
     }
     @IBAction func selectBaseAction(_ sender: Any) {
@@ -137,6 +140,7 @@ class LoginViewController: UIViewController,SelectBaseViewDelegate,UIPickerViewD
         if row > 0 {
             basename = dataSource[row-1].stringValue(forKey: "name")
             baseportalurl = dataSource[row-1].stringValue(forKey: "portalurl")
+            ipPort = dataSource[row-1].stringValue(forKey: "url")
             self.selectBaseBtn.setTitle(basename, for: .normal)
 //            UserDefaults.standard.set(portalurl, forKey: "portalurl")
         }

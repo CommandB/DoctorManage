@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import SwiftyJSON
+import Alamofire
 class ResetPasswordController: UIViewController {
     @IBOutlet weak var inputTextField: UITextField!
     
@@ -31,6 +32,38 @@ class ResetPasswordController: UIViewController {
         if inputTextField.text?.characters.count == 0 || inputTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines).lengthOfBytes(using: .utf8) == 0{
             BRAlertView.show(message: "请输入新密码", target: self)
             return
+        }
+        inputTextField.resignFirstResponder()
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        let urlString = "http://"+Ip_port2+"doctor_portal/rest/login/modify_mine.do"
+        NetworkTool.sharedInstance.myPostRequest(urlString,["token":UserInfo.instance().token!,"password":inputTextField.text?.sha1() ?? ""], method: HTTPMethod.post).responseJSON { (response) in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            switch(response.result){
+            case .failure(let error):
+                print(error)
+            case .success(let response):
+                let json = JSON(response)
+                if json["code"].stringValue == "1"{
+                    let alert = UIAlertController.init(title: nil, message: "重置成功", preferredStyle: .alert)
+                    self.present(alert, animated: true, completion: nil)
+                    DispatchQueue.global().async {
+                        Thread.sleep(forTimeInterval: 2.0)
+                        DispatchQueue.main.async {
+                            alert.dismiss(animated: true, completion: {
+                                UserInfo.instance().logout()
+                                UserDefaults.standard.removeObject(forKey: "portalurl")
+                                UserDefaults.standard.removeObject(forKey: "loginInfo")
+                                let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+                                let loginViewController = storyboard.instantiateViewController(withIdentifier: "loginView") as! LoginViewController
+                                self.present(loginViewController, animated: true, completion: nil)
+                            })
+                        }
+                    }
+
+                }else{
+                    print("error")
+                }
+            }
         }
     }
     
