@@ -108,7 +108,7 @@ class SubResDepartController: UIViewController,UITableViewDataSource,UITableView
         let cell = tableview.cellForRow(at: indexPath) as! subResMineCell
         
         player = XLVideoPlayer()
-        player.videoUrl = dataSource[indexPath.row]["url"].stringValue
+        player.videoUrl = dataSource[indexPath.section]["url"].stringValue
         //        "http://v1.mukewang.com/57de8272-38a2-4cae-b734-ac55ab528aa8/L.mp4"
         player.playerBindTableView(tableview, currentIndexPath: indexPath)
         player.frame = (view?.bounds)!
