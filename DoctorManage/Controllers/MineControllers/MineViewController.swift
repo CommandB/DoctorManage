@@ -93,15 +93,17 @@ class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }else if onlineQuestionData.count < 4{
             return onlineQuestionData.count+1
         }
-        return 5
+        return 4
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoHeadCell", for: indexPath) as! InfoHeadCell
-            if let photourl = URL.init(string: "http://"+Ip_port2+infoData["photourl"].stringValue) {
-                cell.photoBtn.sd_setBackgroundImage(with: photourl, for: .normal, placeholderImage: UIImage.init(named: "testPhoto.jpg"))
+            if let photourl = URL.init(string: infoData["photourl"].stringValue) {
+                cell.photoBtn.sd_setBackgroundImage(with: photourl, for: .normal, placeholderImage: UIImage.init(named: "个人中心"))
+            }else{
+                cell.photoBtn.setBackgroundImage(UIImage.init(named: "个人中心"), for: .normal)
             }
             cell.personName.text = infoData["personname"].stringValue
             cell.phoneNum.text = infoData["phoneno"].stringValue
@@ -149,16 +151,16 @@ class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "OnlineHeadCell", for: indexPath) as! OnlineHeadCell
                 return cell
-            }else if indexPath.row < 4{
+            }else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "OnlineContentCell", for: indexPath) as! OnlineContentCell
-                cell.contentLabel.text = String(indexPath.row)+". "+onlineQuestionData[indexPath.row-1]["title"].stringValue
                 cell.roomLabel.text = onlineQuestionData[indexPath.row-1]["studenttype"].stringValue
+                cell.contentLabel.text = String(indexPath.row)+". "+onlineQuestionData[indexPath.row-1]["title"].stringValue
                 return cell
             }
-            var cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath)
-            cell.selectionStyle = .none
-            addSeeMoreView(cell: &cell)
-            return cell
+//            var cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath)
+//            cell.selectionStyle = .none
+//            addSeeMoreView(cell: &cell)
+//            return cell
         }
     }
     
@@ -168,7 +170,7 @@ class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }else if indexPath.section <= 2 {
             return 80
         }else if indexPath.row == 0 {
-            return 35
+            return 40
         }else{
             return 60
         }

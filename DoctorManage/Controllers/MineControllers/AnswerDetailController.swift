@@ -84,8 +84,10 @@ class AnswerDetailController: UIViewController,UITableViewDelegate,UITableViewDa
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AnswerListCell", for: indexPath) as! AnswerListCell
             cell.titleLabel.text = dataSource["title"].stringValue
+            cell.contentLabel.text = dataSource["content"].stringValue
             cell.timeLabel.text = dataSource["createtime"].stringValue
             cell.nameLabel.text = dataSource["personname"].stringValue
+            cell.contentLabel.numberOfLines = 0
             return cell
         }else{
             if indexPath.row == 0 {
@@ -112,7 +114,7 @@ class AnswerDetailController: UIViewController,UITableViewDelegate,UITableViewDa
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 100
+            return dataSource["content"].stringValue.heightWithConstrainedWidth(width: self.view.frame.size.width-30, font: UIFont.systemFont(ofSize: 14))+70
         }else if indexPath.row == 0 {
             return 44
         }

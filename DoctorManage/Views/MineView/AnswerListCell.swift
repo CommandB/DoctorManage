@@ -12,6 +12,7 @@ class AnswerListCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var contentLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

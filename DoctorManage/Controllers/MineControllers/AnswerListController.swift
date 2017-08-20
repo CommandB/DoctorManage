@@ -41,6 +41,7 @@ class AnswerListController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AnswerListCell", for: indexPath) as! AnswerListCell
         cell.titleLabel.text = String(indexPath.row+1)+". "+questionListArr[indexPath.row]["title"].stringValue
+        cell.contentLabel.text = questionListArr[indexPath.row]["content"].stringValue
         cell.nameLabel.text = questionListArr[indexPath.row]["personname"].stringValue
         cell.timeLabel.text = questionListArr[indexPath.row]["createtime"].stringValue
         return cell
@@ -55,7 +56,7 @@ class AnswerListController: UITableViewController {
         self.hidesBottomBarWhenPushed = false
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return questionListArr[indexPath.row]["content"].stringValue.heightWithConstrainedWidth(width: self.view.frame.size.width-30, font: UIFont.systemFont(ofSize: 14))+70
     }
 
     func backAction(_ sender: Any) {

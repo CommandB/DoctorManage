@@ -66,7 +66,6 @@
 		B41DF9FE1EE587340089CC67 /* 添加@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41DF9CA1EE587340089CC67 /* 添加@2x.png */; };
 		B41DF9FF1EE587340089CC67 /* 未勾选@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41DF9CB1EE587340089CC67 /* 未勾选@3x.png */; };
 		B41DFA001EE587340089CC67 /* 未勾选@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41DF9CC1EE587340089CC67 /* 未勾选@2x.png */; };
-		B41DFA021EE587340089CC67 /* 位置@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41DF9CE1EE587340089CC67 /* 位置@2x.png */; };
 		B41DFA031EE587340089CC67 /* 学员-灰色@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41DF9CF1EE587340089CC67 /* 学员-灰色@2x.png */; };
 		B41DFA041EE587340089CC67 /* 学员-灰色@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41DF9D01EE587340089CC67 /* 学员-灰色@3x.png */; };
 		B41DFA051EE587340089CC67 /* 学员@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41DF9D11EE587340089CC67 /* 学员@2x.png */; };
@@ -180,8 +179,6 @@
 		B483F77B1EF2C7F100A6E289 /* subResMineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B483F7791EF2C7F100A6E289 /* subResMineCell.swift */; };
 		B483F77C1EF2C7F100A6E289 /* subResMineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B483F77A1EF2C7F100A6E289 /* subResMineCell.xib */; };
 		B483F77E1EF2C8CA00A6E289 /* testresource.png in Resources */ = {isa = PBXBuildFile; fileRef = B483F77D1EF2C8CA00A6E289 /* testresource.png */; };
-		B483F7931EF2C97A00A6E289 /* 进入-小@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B483F7851EF2C97A00A6E289 /* 进入-小@2x.png */; };
-		B483F7941EF2C97A00A6E289 /* 进入-小@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B483F7861EF2C97A00A6E289 /* 进入-小@3x.png */; };
 		B483F79D1EF2C9BD00A6E289 /* 更多@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B483F79B1EF2C9BD00A6E289 /* 更多@2x.png */; };
 		B483F79E1EF2C9BD00A6E289 /* 更多@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B483F79C1EF2C9BD00A6E289 /* 更多@3x.png */; };
 		B483F7A61EF2CFA500A6E289 /* SubEvaTrainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B483F7A51EF2CFA500A6E289 /* SubEvaTrainController.swift */; };
@@ -263,6 +260,7 @@
 		B4D62D7E1F1E450100BF07F6 /* ApplyTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D62D7C1F1E450100BF07F6 /* ApplyTaskCell.swift */; };
 		B4D62D7F1F1E450100BF07F6 /* ApplyTaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4D62D7D1F1E450100BF07F6 /* ApplyTaskCell.xib */; };
 		B4D62D831F1E455800BF07F6 /* FullScreenImageViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D62D821F1E455800BF07F6 /* FullScreenImageViewer.m */; };
+		B4D92C3F1F49465A0029528C /* LocalNotificationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D92C3E1F49465A0029528C /* LocalNotificationUtils.swift */; };
 		B4DA57811EF96BDB00CB31CC /* HistoryEvaluateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DA577F1EF96BDB00CB31CC /* HistoryEvaluateCell.swift */; };
 		B4DA57821EF96BDB00CB31CC /* HistoryEvaluateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4DA57801EF96BDB00CB31CC /* HistoryEvaluateCell.xib */; };
 		B4DA57841EFA9D5300CB31CC /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DA57831EFA9D5300CB31CC /* ResetPasswordController.swift */; };
@@ -432,7 +430,6 @@
 		B41DF9CA1EE587340089CC67 /* 添加@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "添加@2x.png"; sourceTree = "<group>"; };
 		B41DF9CB1EE587340089CC67 /* 未勾选@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "未勾选@3x.png"; sourceTree = "<group>"; };
 		B41DF9CC1EE587340089CC67 /* 未勾选@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "未勾选@2x.png"; sourceTree = "<group>"; };
-		B41DF9CE1EE587340089CC67 /* 位置@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "位置@2x.png"; sourceTree = "<group>"; };
 		B41DF9CF1EE587340089CC67 /* 学员-灰色@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "学员-灰色@2x.png"; sourceTree = "<group>"; };
 		B41DF9D01EE587340089CC67 /* 学员-灰色@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "学员-灰色@3x.png"; sourceTree = "<group>"; };
 		B41DF9D11EE587340089CC67 /* 学员@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "学员@2x.png"; sourceTree = "<group>"; };
@@ -559,8 +556,6 @@
 		B483F7791EF2C7F100A6E289 /* subResMineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = subResMineCell.swift; sourceTree = "<group>"; };
 		B483F77A1EF2C7F100A6E289 /* subResMineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = subResMineCell.xib; sourceTree = "<group>"; };
 		B483F77D1EF2C8CA00A6E289 /* testresource.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testresource.png; sourceTree = "<group>"; };
-		B483F7851EF2C97A00A6E289 /* 进入-小@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "进入-小@2x.png"; sourceTree = "<group>"; };
-		B483F7861EF2C97A00A6E289 /* 进入-小@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "进入-小@3x.png"; sourceTree = "<group>"; };
 		B483F79B1EF2C9BD00A6E289 /* 更多@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "更多@2x.png"; sourceTree = "<group>"; };
 		B483F79C1EF2C9BD00A6E289 /* 更多@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "更多@3x.png"; sourceTree = "<group>"; };
 		B483F7A51EF2CFA500A6E289 /* SubEvaTrainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubEvaTrainController.swift; sourceTree = "<group>"; };
@@ -661,6 +656,7 @@
 		B4D62D7D1F1E450100BF07F6 /* ApplyTaskCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ApplyTaskCell.xib; sourceTree = "<group>"; };
 		B4D62D811F1E455800BF07F6 /* FullScreenImageViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullScreenImageViewer.h; sourceTree = "<group>"; };
 		B4D62D821F1E455800BF07F6 /* FullScreenImageViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullScreenImageViewer.m; sourceTree = "<group>"; };
+		B4D92C3E1F49465A0029528C /* LocalNotificationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationUtils.swift; sourceTree = "<group>"; };
 		B4DA577F1EF96BDB00CB31CC /* HistoryEvaluateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryEvaluateCell.swift; sourceTree = "<group>"; };
 		B4DA57801EF96BDB00CB31CC /* HistoryEvaluateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryEvaluateCell.xib; sourceTree = "<group>"; };
 		B4DA57831EFA9D5300CB31CC /* ResetPasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
@@ -1296,6 +1292,7 @@
 				B419F6D31F03F06A00B7FEE9 /* UserInfo.m */,
 				B4D62D421F1B4DF900BF07F6 /* BRCommitDataManage.swift */,
 				B48D47021F35C9E800055F89 /* BRPersonInfoData.swift */,
+				B4D92C3E1F49465A0029528C /* LocalNotificationUtils.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -1440,7 +1437,6 @@
 				B41DF9CA1EE587340089CC67 /* 添加@2x.png */,
 				B41DF9CB1EE587340089CC67 /* 未勾选@3x.png */,
 				B41DF9CC1EE587340089CC67 /* 未勾选@2x.png */,
-				B41DF9CE1EE587340089CC67 /* 位置@2x.png */,
 				B41DF9CF1EE587340089CC67 /* 学员-灰色@2x.png */,
 				B41DF9D01EE587340089CC67 /* 学员-灰色@3x.png */,
 				B41DF9D11EE587340089CC67 /* 学员@2x.png */,
@@ -1450,8 +1446,6 @@
 				B41DF9D51EE587340089CC67 /* top背景@3x.png */,
 				B41DF9D61EE587340089CC67 /* top背景@2x.png */,
 				B41DFA651EE982DB0089CC67 /* topBackgroundIcon.png */,
-				B483F7851EF2C97A00A6E289 /* 进入-小@2x.png */,
-				B483F7861EF2C97A00A6E289 /* 进入-小@3x.png */,
 				B4DA57A21EFA9F3E00CB31CC /* 我的切图 */,
 				B483F7AD1EF40DC000A6E289 /* 考评页切图 */,
 			);
@@ -1654,7 +1648,6 @@
 				B4DA57FD1EFA9F3E00CB31CC /* 黄底边2@2x.png in Resources */,
 				B41DF9F81EE587340089CC67 /* 密码@3x.png in Resources */,
 				B41DF9EA1EE587340089CC67 /* 渐变大@2x.png in Resources */,
-				B41DFA021EE587340089CC67 /* 位置@2x.png in Resources */,
 				B42BC6481EEECB9A007B665E /* bar@2x.png in Resources */,
 				B483F7EA1EF43AC700A6E289 /* ComputeScroHeadCell.xib in Resources */,
 				B483F7C11EF40DC000A6E289 /* 位置@3x.png in Resources */,
@@ -1667,7 +1660,6 @@
 				B41DF9EC1EE587340089CC67 /* 渐变小@2x.png in Resources */,
 				B41DF9F51EE587340089CC67 /* 满星@3x.png in Resources */,
 				B4CF78021EEB977A00FD36E9 /* EvaluateCell.xib in Resources */,
-				B483F7941EF2C97A00A6E289 /* 进入-小@3x.png in Resources */,
 				B41DFA791EE996F50089CC67 /* WishlistCell.xib in Resources */,
 				B483F7CA1EF40DC000A6E289 /* 进入小灰箭头@2x.png in Resources */,
 				B42BC64F1EF02259007B665E /* QuestionSelectCell.xib in Resources */,
@@ -1744,7 +1736,6 @@
 				B4DA57D51EFA9F3E00CB31CC /* 分享至@2x.png in Resources */,
 				B483F7C31EF40DC000A6E289 /* 完成@3x.png in Resources */,
 				B4500BEB1F0E8E75000ABD63 /* pulldown_list@2x.png in Resources */,
-				B483F7931EF2C97A00A6E289 /* 进入-小@2x.png in Resources */,
 				B483F7E21EF40E1C00A6E289 /* SubScoreCell.xib in Resources */,
 				B41DFA3E1EE854690089CC67 /* DescribleCell.xib in Resources */,
 				B42BC6491EEECB9A007B665E /* bar@3x.png in Resources */,
@@ -1965,6 +1956,7 @@
 				B41B384D1F0A9A2D00EFBEFF /* EvaluateDetailController.swift in Sources */,
 				B46CF9D01F0151CF0048112F /* XLSlider.m in Sources */,
 				B4D62D731F1E448300BF07F6 /* SDWebImagePrefetcher.m in Sources */,
+				B4D92C3F1F49465A0029528C /* LocalNotificationUtils.swift in Sources */,
 				B41DFA7F1EE9A4160089CC67 /* StudentTaskViewController.swift in Sources */,
 				B483F7D31EF40DF900A6E289 /* ExamingViewController.swift in Sources */,
 				B4B045D31EEAD99C00C03856 /* PersonalInfoController.swift in Sources */,
@@ -2164,7 +2156,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = chenshengchang.DoctorManage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/chenshengchang/Desktop/DoctorManage/DoctorManage/General/DoctorManage-Briding-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/chenshengchang/Desktop/GitDoctormanage/DoctorManage/General/DoctorManage-Briding-Header.h";
 				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
@@ -2193,7 +2185,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = chenshengchang.DoctorManage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/chenshengchang/Desktop/DoctorManage/DoctorManage/General/DoctorManage-Briding-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/chenshengchang/Desktop/GitDoctormanage/DoctorManage/General/DoctorManage-Briding-Header.h";
 				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
