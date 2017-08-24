@@ -87,17 +87,21 @@ class ReportViewController: UITableViewController,ApplyTaskCellDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let taskApplyAlert = UIAlertController.init(title: "申报任务", message: nil, preferredStyle: .actionSheet)
+        let taskApplyAlert = UIAlertController.init(title: "申报任务审批", message: nil, preferredStyle: .actionSheet)
         let sureAction = UIAlertAction.init(title: "确认任务", style: .default, handler:{
                 (alert: UIAlertAction!) -> Void in
             self.requestTaskApplyAnswer(taskapplyid: self.dataSource[indexPath.section]["taskapplyid"].stringValue, state: "1")
             })
-        let rejectAction = UIAlertAction.init(title: "驳回任务申报", style: .destructive, handler:{
+        let rejectAction = UIAlertAction.init(title: "驳回任务", style: .destructive, handler:{
                 (alert: UIAlertAction!) -> Void in
             self.requestTaskApplyAnswer(taskapplyid: self.dataSource[indexPath.section]["taskapplyid"].stringValue, state: "2")
             })
+        let cancelAction = UIAlertAction.init(title: "取消操作", style: .default, handler:{
+            (alert: UIAlertAction!) -> Void in
+        })
             taskApplyAlert.addAction(sureAction)
             taskApplyAlert.addAction(rejectAction)
+            taskApplyAlert.addAction(cancelAction)
             self.present(taskApplyAlert, animated: true, completion: nil)
     }
     
@@ -116,6 +120,7 @@ class ReportViewController: UITableViewController,ApplyTaskCellDelegate {
                 if json["code"].stringValue == "1"{
                     if state == "1"{
                         self.showSuccessAlert(message: "确认成功")
+                        self.tableView.mj_header.beginRefreshing()
                     }else{
                         self.showSuccessAlert(message: "任务已驳回")
                     }

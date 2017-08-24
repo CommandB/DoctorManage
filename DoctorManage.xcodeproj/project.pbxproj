@@ -261,6 +261,8 @@
 		B4D62D7F1F1E450100BF07F6 /* ApplyTaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4D62D7D1F1E450100BF07F6 /* ApplyTaskCell.xib */; };
 		B4D62D831F1E455800BF07F6 /* FullScreenImageViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D62D821F1E455800BF07F6 /* FullScreenImageViewer.m */; };
 		B4D92C3F1F49465A0029528C /* LocalNotificationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D92C3E1F49465A0029528C /* LocalNotificationUtils.swift */; };
+		B4D92D051F4F16710029528C /* UnCompleteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D92D031F4F16710029528C /* UnCompleteCell.swift */; };
+		B4D92D061F4F16710029528C /* UnCompleteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4D92D041F4F16710029528C /* UnCompleteCell.xib */; };
 		B4DA57811EF96BDB00CB31CC /* HistoryEvaluateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DA577F1EF96BDB00CB31CC /* HistoryEvaluateCell.swift */; };
 		B4DA57821EF96BDB00CB31CC /* HistoryEvaluateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4DA57801EF96BDB00CB31CC /* HistoryEvaluateCell.xib */; };
 		B4DA57841EFA9D5300CB31CC /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DA57831EFA9D5300CB31CC /* ResetPasswordController.swift */; };
@@ -657,6 +659,8 @@
 		B4D62D811F1E455800BF07F6 /* FullScreenImageViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullScreenImageViewer.h; sourceTree = "<group>"; };
 		B4D62D821F1E455800BF07F6 /* FullScreenImageViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullScreenImageViewer.m; sourceTree = "<group>"; };
 		B4D92C3E1F49465A0029528C /* LocalNotificationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationUtils.swift; sourceTree = "<group>"; };
+		B4D92D031F4F16710029528C /* UnCompleteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnCompleteCell.swift; sourceTree = "<group>"; };
+		B4D92D041F4F16710029528C /* UnCompleteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnCompleteCell.xib; sourceTree = "<group>"; };
 		B4DA577F1EF96BDB00CB31CC /* HistoryEvaluateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryEvaluateCell.swift; sourceTree = "<group>"; };
 		B4DA57801EF96BDB00CB31CC /* HistoryEvaluateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryEvaluateCell.xib; sourceTree = "<group>"; };
 		B4DA57831EFA9D5300CB31CC /* ResetPasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
@@ -847,6 +851,8 @@
 			children = (
 				B41DFA2D1EE854690089CC67 /* BaseTableViewCell.swift */,
 				B41DFA2E1EE854690089CC67 /* BaseTableViewCell.xib */,
+				B4D92D031F4F16710029528C /* UnCompleteCell.swift */,
+				B4D92D041F4F16710029528C /* UnCompleteCell.xib */,
 				B41DFA2F1EE854690089CC67 /* CheckingTableViewCell.swift */,
 				B41DFA301EE854690089CC67 /* CheckingTableViewCell.xib */,
 				B41DFA311EE854690089CC67 /* DescribleCell.swift */,
@@ -1646,6 +1652,7 @@
 				B483F7C91EF40DC000A6E289 /* 进入  @3x.png in Resources */,
 				B41DFA3A1EE854690089CC67 /* BaseTableViewCell.xib in Resources */,
 				B4DA57FD1EFA9F3E00CB31CC /* 黄底边2@2x.png in Resources */,
+				B4D92D061F4F16710029528C /* UnCompleteCell.xib in Resources */,
 				B41DF9F81EE587340089CC67 /* 密码@3x.png in Resources */,
 				B41DF9EA1EE587340089CC67 /* 渐变大@2x.png in Resources */,
 				B42BC6481EEECB9A007B665E /* bar@2x.png in Resources */,
@@ -1856,6 +1863,7 @@
 			files = (
 				B46CF9B71EFE11880048112F /* ELCAssetTablePicker.m in Sources */,
 				B483F7F41EF443F400A6E289 /* ExamResultController.swift in Sources */,
+				B4D92D051F4F16710029528C /* UnCompleteCell.swift in Sources */,
 				B4CF78011EEB977A00FD36E9 /* EvaluateCell.swift in Sources */,
 				B41DFA431EE854690089CC67 /* SeeQuestionCell.swift in Sources */,
 				B48018DB1EF6296400250158 /* HistoryEvaluateController.swift in Sources */,

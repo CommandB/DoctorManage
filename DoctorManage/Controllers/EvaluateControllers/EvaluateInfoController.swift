@@ -121,6 +121,13 @@ class EvaluateInfoController: UIViewController,UITableViewDelegate,UITableViewDa
     }
     
     func commitAction(sender:UIButton){
+        for itemInfo in evaluateStarData.arrayValue {
+            if itemInfo["get_value"].intValue == 0 {
+                MBProgressHUD.showError("请查看遗漏评价", to: self.navigationController?.view)
+                return;
+            }
+        }
+        
         sender.isEnabled = false
         MBProgressHUD.showMessage("提交中", to: self.view)
         let urlString = "http://"+Ip_port2+kCommitEvaluationResultURL

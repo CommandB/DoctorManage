@@ -19,8 +19,8 @@ class UnCompleteController: UIViewController,UITableViewDataSource,UITableViewDe
         self.view.addSubview(tableview)
         self.tableview.delegate = self
         self.tableview.dataSource = self
-        let nib = UINib(nibName: "BaseTableViewCell", bundle: nil)
-        self.tableview.register(nib, forCellReuseIdentifier: "BaseCell")
+        let nib = UINib(nibName: "UnCompleteCell", bundle: nil)
+        self.tableview.register(nib, forCellReuseIdentifier: "UnCompleteCell")
         self.tableview.tableFooterView = UIView()
         self.tableview.backgroundColor = UIColor.init(red: 245/255.0, green: 248/255.0, blue: 251, alpha: 1.0)
         self.tableview.separatorStyle = .none
@@ -73,7 +73,7 @@ class UnCompleteController: UIViewController,UITableViewDataSource,UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableview.dequeueReusableCell(withIdentifier: "BaseCell", for: indexPath) as! BaseTableViewCell
+        let cell = tableview.dequeueReusableCell(withIdentifier: "UnCompleteCell", for: indexPath) as! UnCompleteCell
         cell.titleLabel.text = dataSource[indexPath.section].stringValue(forKey: "title")
 //        cell.timeLabel.text = "(明天)"
         cell.timeLabel.isHidden = true
@@ -91,7 +91,7 @@ class UnCompleteController: UIViewController,UITableViewDataSource,UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 170
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

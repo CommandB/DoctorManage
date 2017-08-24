@@ -39,7 +39,8 @@ class BaseEvaluateController: UITableViewController,MoreMenuClickDelegate {
 //        self.extendedLayoutIncludesOpaqueBars = true
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
 //        self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage.init(named: "Menu"), style: .done, target: self, action: #selector(rightItemTapped))
+        let image = UIImage(named: "Menu")!.withRenderingMode(.alwaysOriginal)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .done, target: self, action: #selector(rightItemTapped))
         self.title = "考评"
         tableView.tableFooterView = UIView()
         self.tableView.backgroundColor = UIColor(red: 245/255.0, green: 248/255.0, blue: 251/255.0, alpha: 1.0)
