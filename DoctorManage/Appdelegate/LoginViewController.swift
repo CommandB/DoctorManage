@@ -66,6 +66,8 @@ class LoginViewController: UIViewController,SelectBaseViewDelegate,UIPickerViewD
             let mainTabbar = MainTabbarController()
             self.present(mainTabbar, animated: true, completion: nil)
             MBProgressHUD.showSuccess("登录成功")
+            let defaultCenter = NotificationCenter.default
+            defaultCenter.post(name: NSNotification.Name(rawValue: kLoginSuccessNotification), object: nil, userInfo: nil)
         }) { (error) in
             MBProgressHUD.hide(for: self.view, animated: true)
             UserInfo.instance().logout()

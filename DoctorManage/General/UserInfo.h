@@ -28,7 +28,7 @@
 @property (nonatomic, strong) NSString *token;
 @property (nonatomic, strong) NSString *companyname;
 @property (nonatomic, strong) NSString *companyid;
-
+@property (nonatomic, strong) NSString *userkey;
 
 + (instancetype)instance;
 + (void)archiverUserInfo;

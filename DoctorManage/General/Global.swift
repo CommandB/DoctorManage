@@ -79,6 +79,10 @@ let kMyEvalueDetailURL = "doctor_train/rest/taskEvaluationResult/queryTeacherRes
 let kUploadVideoSuccessNotification = "uploadVideoSuccessNotification"
 
 
+//MARK:Notification
+
+let kLoginSuccessNotification = "kLoginSuccessNotification"
+
 //MARK: 数据是否请求成功
 func iSRequestSuccess(data:[String:String]) -> Bool {
     if data["code"] == "1" {

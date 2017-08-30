@@ -69,6 +69,7 @@ NSUserDomainMask,YES) objectAtIndex:0])
     _token = [aDict stringValueForKey:kToken];
     _companyname = [aDict stringValueForKey:kCompanyname];
     _companyid = [aDict stringValueForKey:kCompanyid];
+    _userkey = [aDict stringValueForKey:@"userkey"];
 }
 
 #pragma mark NSCoding
@@ -76,6 +77,7 @@ NSUserDomainMask,YES) objectAtIndex:0])
     [encoder encodeObject:_token forKey:kToken];
     [encoder encodeObject:_companyname forKey:kCompanyname];
     [encoder encodeObject:_companyid forKey:kCompanyid];
+    [encoder encodeObject:_userkey forKey:@"userkey"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -83,6 +85,7 @@ NSUserDomainMask,YES) objectAtIndex:0])
         _token = [decoder decodeObjectForKey:kToken];
         _companyname = [decoder decodeObjectForKey:kCompanyname];
         _companyid = [decoder decodeObjectForKey:kCompanyid];
+        _userkey = [decoder decodeObjectForKey:@"userkey"];
     }
     return self;
 }

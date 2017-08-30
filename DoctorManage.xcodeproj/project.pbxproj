@@ -539,6 +539,7 @@
 		B46CF9CC1F0151CF0048112F /* XLSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLSlider.m; sourceTree = "<group>"; };
 		B46CF9CD1F0151CF0048112F /* XLVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLVideoPlayer.h; sourceTree = "<group>"; };
 		B46CF9CE1F0151CF0048112F /* XLVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLVideoPlayer.m; sourceTree = "<group>"; };
+		B477EE2F1F57103B0070180A /* DoctorManage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DoctorManage.entitlements; sourceTree = "<group>"; };
 		B48018D81EF628A800250158 /* HistoryExamController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryExamController.swift; sourceTree = "<group>"; };
 		B48018DA1EF6296400250158 /* HistoryEvaluateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryEvaluateController.swift; sourceTree = "<group>"; };
 		B48018DD1EF6324300250158 /* HistoryExamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryExamCell.swift; sourceTree = "<group>"; };
@@ -1328,6 +1329,7 @@
 		B4DC05E31EE1AFD100AB32F4 /* DoctorManage */ = {
 			isa = PBXGroup;
 			children = (
+				B477EE2F1F57103B0070180A /* DoctorManage.entitlements */,
 				B4DC07241EE456D500AB32F4 /* Appdelegate */,
 				B4DC073D1EE4582100AB32F4 /* Controllers */,
 				B41DFA2C1EE854690089CC67 /* Views */,
@@ -1538,8 +1540,13 @@
 				TargetAttributes = {
 					B4DC05E01EE1AFD100AB32F4 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 9M7S9E2MV9;
+						DevelopmentTeam = M3CME6CTLX;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					B4DC05F41EE1AFD100AB32F4 = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -2147,7 +2154,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = 9M7S9E2MV9;
+				CODE_SIGN_ENTITLEMENTS = DoctorManage/DoctorManage.entitlements;
+				DEVELOPMENT_TEAM = M3CME6CTLX;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DoctorManage/Venders/TouAnDai/myLocationSDK",
@@ -2162,7 +2170,7 @@
 					"$(PROJECT_DIR)/DoctorManage/Venders/TouAnDai/UMSocial_Sdk_4.2.3",
 					"$(PROJECT_DIR)/DoctorManage/Venders/TouAnDai/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = chenshengchang.DoctorManage;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaowukeji.DoctorManage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/chenshengchang/Desktop/GitDoctormanage/DoctorManage/General/DoctorManage-Briding-Header.h";
 				SWIFT_VERSION = 3.0;
@@ -2176,7 +2184,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = 9M7S9E2MV9;
+				CODE_SIGN_ENTITLEMENTS = DoctorManage/DoctorManage.entitlements;
+				DEVELOPMENT_TEAM = M3CME6CTLX;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DoctorManage/Venders/TouAnDai/myLocationSDK",
@@ -2191,7 +2200,7 @@
 					"$(PROJECT_DIR)/DoctorManage/Venders/TouAnDai/UMSocial_Sdk_4.2.3",
 					"$(PROJECT_DIR)/DoctorManage/Venders/TouAnDai/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = chenshengchang.DoctorManage;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaowukeji.DoctorManage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/chenshengchang/Desktop/GitDoctormanage/DoctorManage/General/DoctorManage-Briding-Header.h";
 				SWIFT_VERSION = 3.0;
