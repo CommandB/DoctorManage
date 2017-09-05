@@ -141,6 +141,9 @@
 		B4500BF31F113A39000ABD63 /* nextQuestion.png in Resources */ = {isa = PBXBuildFile; fileRef = B4500BF01F113A38000ABD63 /* nextQuestion.png */; };
 		B4500BF41F113A39000ABD63 /* nextQuestion@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4500BF11F113A38000ABD63 /* nextQuestion@2x.png */; };
 		B4500BF51F113A39000ABD63 /* nextQuestion@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4500BF21F113A38000ABD63 /* nextQuestion@3x.png */; };
+		B4551F3A1F5BF29500CC68B3 /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4551F391F5BF29500CC68B3 /* TrainingViewController.swift */; };
+		B4551F5F1F5ED52C00CC68B3 /* TrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4551F5D1F5ED52C00CC68B3 /* TrainingCell.swift */; };
+		B4551F601F5ED52C00CC68B3 /* TrainingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4551F5E1F5ED52C00CC68B3 /* TrainingCell.xib */; };
 		B46CF9B41EFE11880048112F /* ELCAlbumPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = B46CF99E1EFE11880048112F /* ELCAlbumPickerController.m */; };
 		B46CF9B51EFE11880048112F /* ELCAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = B46CF9A01EFE11880048112F /* ELCAsset.m */; };
 		B46CF9B61EFE11880048112F /* ELCAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B46CF9A21EFE11880048112F /* ELCAssetCell.m */; };
@@ -260,9 +263,6 @@
 		B4D62D7E1F1E450100BF07F6 /* ApplyTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D62D7C1F1E450100BF07F6 /* ApplyTaskCell.swift */; };
 		B4D62D7F1F1E450100BF07F6 /* ApplyTaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4D62D7D1F1E450100BF07F6 /* ApplyTaskCell.xib */; };
 		B4D62D831F1E455800BF07F6 /* FullScreenImageViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D62D821F1E455800BF07F6 /* FullScreenImageViewer.m */; };
-		B4D92C3F1F49465A0029528C /* LocalNotificationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D92C3E1F49465A0029528C /* LocalNotificationUtils.swift */; };
-		B4D92D051F4F16710029528C /* UnCompleteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D92D031F4F16710029528C /* UnCompleteCell.swift */; };
-		B4D92D061F4F16710029528C /* UnCompleteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4D92D041F4F16710029528C /* UnCompleteCell.xib */; };
 		B4DA57811EF96BDB00CB31CC /* HistoryEvaluateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DA577F1EF96BDB00CB31CC /* HistoryEvaluateCell.swift */; };
 		B4DA57821EF96BDB00CB31CC /* HistoryEvaluateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4DA57801EF96BDB00CB31CC /* HistoryEvaluateCell.xib */; };
 		B4DA57841EFA9D5300CB31CC /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DA57831EFA9D5300CB31CC /* ResetPasswordController.swift */; };
@@ -508,6 +508,9 @@
 		B4500BF01F113A38000ABD63 /* nextQuestion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nextQuestion.png; sourceTree = "<group>"; };
 		B4500BF11F113A38000ABD63 /* nextQuestion@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nextQuestion@2x.png"; sourceTree = "<group>"; };
 		B4500BF21F113A38000ABD63 /* nextQuestion@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nextQuestion@3x.png"; sourceTree = "<group>"; };
+		B4551F391F5BF29500CC68B3 /* TrainingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
+		B4551F5D1F5ED52C00CC68B3 /* TrainingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingCell.swift; sourceTree = "<group>"; };
+		B4551F5E1F5ED52C00CC68B3 /* TrainingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrainingCell.xib; sourceTree = "<group>"; };
 		B46CF99D1EFE11880048112F /* ELCAlbumPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAlbumPickerController.h; sourceTree = "<group>"; };
 		B46CF99E1EFE11880048112F /* ELCAlbumPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAlbumPickerController.m; sourceTree = "<group>"; };
 		B46CF99F1EFE11880048112F /* ELCAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAsset.h; sourceTree = "<group>"; };
@@ -659,9 +662,6 @@
 		B4D62D7D1F1E450100BF07F6 /* ApplyTaskCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ApplyTaskCell.xib; sourceTree = "<group>"; };
 		B4D62D811F1E455800BF07F6 /* FullScreenImageViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullScreenImageViewer.h; sourceTree = "<group>"; };
 		B4D62D821F1E455800BF07F6 /* FullScreenImageViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullScreenImageViewer.m; sourceTree = "<group>"; };
-		B4D92C3E1F49465A0029528C /* LocalNotificationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationUtils.swift; sourceTree = "<group>"; };
-		B4D92D031F4F16710029528C /* UnCompleteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnCompleteCell.swift; sourceTree = "<group>"; };
-		B4D92D041F4F16710029528C /* UnCompleteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnCompleteCell.xib; sourceTree = "<group>"; };
 		B4DA577F1EF96BDB00CB31CC /* HistoryEvaluateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryEvaluateCell.swift; sourceTree = "<group>"; };
 		B4DA57801EF96BDB00CB31CC /* HistoryEvaluateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryEvaluateCell.xib; sourceTree = "<group>"; };
 		B4DA57831EFA9D5300CB31CC /* ResetPasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
@@ -852,8 +852,8 @@
 			children = (
 				B41DFA2D1EE854690089CC67 /* BaseTableViewCell.swift */,
 				B41DFA2E1EE854690089CC67 /* BaseTableViewCell.xib */,
-				B4D92D031F4F16710029528C /* UnCompleteCell.swift */,
-				B4D92D041F4F16710029528C /* UnCompleteCell.xib */,
+				B4551F5D1F5ED52C00CC68B3 /* TrainingCell.swift */,
+				B4551F5E1F5ED52C00CC68B3 /* TrainingCell.xib */,
 				B41DFA2F1EE854690089CC67 /* CheckingTableViewCell.swift */,
 				B41DFA301EE854690089CC67 /* CheckingTableViewCell.xib */,
 				B41DFA311EE854690089CC67 /* DescribleCell.swift */,
@@ -952,6 +952,7 @@
 				B41DFA521EE855BA0089CC67 /* TaskCenterViewController.swift */,
 				B41DFA511EE855BA0089CC67 /* CompleteController.swift */,
 				B41DFA541EE855BA0089CC67 /* UnCompleteController.swift */,
+				B4551F391F5BF29500CC68B3 /* TrainingViewController.swift */,
 				B41DFA5B1EE855F70089CC67 /* TaskDetailController.swift */,
 				B4B045E21EEAED9200C03856 /* CompleteDetailController.swift */,
 				B4B045E61EEAF1C900C03856 /* SubValuateController.swift */,
@@ -1299,7 +1300,6 @@
 				B419F6D31F03F06A00B7FEE9 /* UserInfo.m */,
 				B4D62D421F1B4DF900BF07F6 /* BRCommitDataManage.swift */,
 				B48D47021F35C9E800055F89 /* BRPersonInfoData.swift */,
-				B4D92C3E1F49465A0029528C /* LocalNotificationUtils.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -1659,7 +1659,6 @@
 				B483F7C91EF40DC000A6E289 /* 进入  @3x.png in Resources */,
 				B41DFA3A1EE854690089CC67 /* BaseTableViewCell.xib in Resources */,
 				B4DA57FD1EFA9F3E00CB31CC /* 黄底边2@2x.png in Resources */,
-				B4D92D061F4F16710029528C /* UnCompleteCell.xib in Resources */,
 				B41DF9F81EE587340089CC67 /* 密码@3x.png in Resources */,
 				B41DF9EA1EE587340089CC67 /* 渐变大@2x.png in Resources */,
 				B42BC6481EEECB9A007B665E /* bar@2x.png in Resources */,
@@ -1701,6 +1700,7 @@
 				B4DA57ED1EFA9F3E00CB31CC /* 蓝色底@2x.png in Resources */,
 				B4B045D91EEAD9E100C03856 /* PersonalnfoCell.xib in Resources */,
 				B41DFA091EE587340089CC67 /* top背景@3x.png in Resources */,
+				B4551F601F5ED52C00CC68B3 /* TrainingCell.xib in Resources */,
 				B41DF9E31EE587340089CC67 /* 个人中心@3x.png in Resources */,
 				B4F3E2191F232813005BC906 /* ArrangeTaskCell.xib in Resources */,
 				B4DA57E11EFA9F3E00CB31CC /* 教学水平@2x.png in Resources */,
@@ -1870,9 +1870,9 @@
 			files = (
 				B46CF9B71EFE11880048112F /* ELCAssetTablePicker.m in Sources */,
 				B483F7F41EF443F400A6E289 /* ExamResultController.swift in Sources */,
-				B4D92D051F4F16710029528C /* UnCompleteCell.swift in Sources */,
 				B4CF78011EEB977A00FD36E9 /* EvaluateCell.swift in Sources */,
 				B41DFA431EE854690089CC67 /* SeeQuestionCell.swift in Sources */,
+				B4551F5F1F5ED52C00CC68B3 /* TrainingCell.swift in Sources */,
 				B48018DB1EF6296400250158 /* HistoryEvaluateController.swift in Sources */,
 				B483F7E41EF41B9C00A6E289 /* QuestionListController.swift in Sources */,
 				B41DFA581EE855BA0089CC67 /* UnCompleteController.swift in Sources */,
@@ -1885,6 +1885,7 @@
 				B4B045D01EEAD76E00C03856 /* PhotoCollectionCell.swift in Sources */,
 				B41DFA8A1EE9AC8B0089CC67 /* TakeTurnsCell.swift in Sources */,
 				B4D62D781F1E448300BF07F6 /* UIImageView+WebCache.m in Sources */,
+				B4551F3A1F5BF29500CC68B3 /* TrainingViewController.swift in Sources */,
 				B483F75D1EF2BC9300A6E289 /* MineResourceController.swift in Sources */,
 				B4D62D711F1E448300BF07F6 /* SDWebImageDownloaderOperation.m in Sources */,
 				B419F6BE1F03E02400B7FEE9 /* SelectBaseView.swift in Sources */,
@@ -1971,7 +1972,6 @@
 				B41B384D1F0A9A2D00EFBEFF /* EvaluateDetailController.swift in Sources */,
 				B46CF9D01F0151CF0048112F /* XLSlider.m in Sources */,
 				B4D62D731F1E448300BF07F6 /* SDWebImagePrefetcher.m in Sources */,
-				B4D92C3F1F49465A0029528C /* LocalNotificationUtils.swift in Sources */,
 				B41DFA7F1EE9A4160089CC67 /* StudentTaskViewController.swift in Sources */,
 				B483F7D31EF40DF900A6E289 /* ExamingViewController.swift in Sources */,
 				B4B045D31EEAD99C00C03856 /* PersonalInfoController.swift in Sources */,

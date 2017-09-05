@@ -9,6 +9,7 @@
 import UIKit
 enum ENTER_PATH :Int{
     case UNCOMPLETE
+    case TRAINING
     case COMPLETE
 }
 class TaskDetailController: UIViewController,UITableViewDataSource,UITableViewDelegate {
@@ -62,10 +63,10 @@ class TaskDetailController: UIViewController,UITableViewDataSource,UITableViewDe
         if enterPath == .UNCOMPLETE {
             return 3
         }
-//        else if enterPath == .TRAINING {
-//            //return 4  查看习题先不做
-//            return 3
-//        }
+        else if enterPath == .TRAINING {
+            //return 4  查看习题先不做
+            return 3
+        }
         return 3
     }
     
@@ -139,7 +140,7 @@ class TaskDetailController: UIViewController,UITableViewDataSource,UITableViewDe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 2 && indexPath.row > 0 {
-            if headInfo["task_state"] as! NSNumber == 1{
+            if headInfo["task_state"] as! NSNumber == 1 || headInfo["task_state"] as! NSNumber == 2{
                 return
             }
             let cell = tableview.cellForRow(at: indexPath) as! TaskPersonInfoCell

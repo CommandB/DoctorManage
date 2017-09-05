@@ -1,14 +1,14 @@
 //
-//  UnCompleteCell.swift
+//  TrainingCell.swift
 //  DoctorManage
 //
-//  Created by 陈海峰 on 2017/8/24.
+//  Created by 陈海峰 on 2017/9/5.
 //  Copyright © 2017年 chenshengchang. All rights reserved.
 //
 
 import UIKit
 
-class UnCompleteCell: UITableViewCell {
+class TrainingCell: UITableViewCell {
     @IBOutlet weak var backGroundView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -18,12 +18,12 @@ class UnCompleteCell: UITableViewCell {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
     
-    
     override func draw(_ rect: CGRect) {
         //        backGroundView.backgroundColor = UIColor.white
         //        self.contentView.backgroundColor = UIColor.init(colorLiteralRed: 0.88, green: 0.88, blue: 0.88, alpha: 1.0)
         titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
