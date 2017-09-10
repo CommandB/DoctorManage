@@ -24,7 +24,7 @@ class TaskDetailController: UIViewController,UITableViewDataSource,UITableViewDe
         self.navigationController?.navigationBar.isTranslucent = false;
         self.extendedLayoutIncludesOpaqueBars = true;
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
-        tableview.frame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.frame.size.height)
+        tableview.frame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.frame.size.height-64)
         tableview.delegate = self
         tableview.dataSource = self
         tableview.tableFooterView = UIView()

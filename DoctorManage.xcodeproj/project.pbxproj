@@ -2155,6 +2155,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = DoctorManage/DoctorManage.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = M3CME6CTLX;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2172,6 +2173,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaowukeji.DoctorManage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/chenshengchang/Desktop/GitDoctormanage/DoctorManage/General/DoctorManage-Briding-Header.h";
 				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
@@ -2185,6 +2188,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = DoctorManage/DoctorManage.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = M3CME6CTLX;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2202,6 +2206,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaowukeji.DoctorManage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/chenshengchang/Desktop/GitDoctormanage/DoctorManage/General/DoctorManage-Briding-Header.h";
 				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";

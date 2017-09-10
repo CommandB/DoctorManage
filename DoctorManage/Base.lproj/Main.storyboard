@@ -1262,10 +1262,10 @@
             </objects>
             <point key="canvasLocation" x="96.799999999999997" y="439.43028485757122"/>
         </scene>
-        <!--Task Center View Controller-->
+        <!--View Controller-->
         <scene sceneID="WcV-gT-Bfq">
             <objects>
-                <viewController storyboardIdentifier="taskCenterView" id="08j-ax-ocV" customClass="TaskCenterViewController" customModule="DoctorManage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="taskCenterView" id="08j-ax-ocV" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rHc-mK-KPR"/>
                         <viewControllerLayoutGuide type="bottom" id="6RS-WL-LY5"/>

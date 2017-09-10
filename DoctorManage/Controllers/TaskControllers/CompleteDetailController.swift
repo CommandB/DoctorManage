@@ -24,7 +24,7 @@ class CompleteDetailController: UIViewController {
         let subDetailVC = TaskDetailController()
         subDetailVC.headInfo = headInfo
         subDetailVC.enterPath = .COMPLETE
-        subDetailVC.view.frame = CGRect(x: 0, y: 0, width: scrollview.bounds.size.width, height: self.view.bounds.size.height-90-49)
+        subDetailVC.view.frame = CGRect(x: 0, y: 0, width: scrollview.bounds.size.width, height: scrollview.bounds.size.height)
         let subValuateVC = SubValuateController()
         subValuateVC.headInfo = headInfo
         subValuateVC.view.frame = CGRect(x: self.view.bounds.size.width, y: 0, width: scrollview.bounds.size.width, height: scrollview.bounds.size.height)

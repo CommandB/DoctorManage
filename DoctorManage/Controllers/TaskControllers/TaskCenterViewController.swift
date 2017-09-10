@@ -8,56 +8,126 @@
 
 import UIKit
 
-class TaskCenterViewController: UIViewController {
-    @IBOutlet weak var topBackgroundView: UIImageView!
-    @IBOutlet weak var scrollview: UIScrollView!
-    @IBOutlet weak var bottomLine: UILabel!
+class TaskCenterViewController: UIViewController,UITableViewDataSource,UITableViewDelegate  {
+    var tableview = UITableView()
+    var dataSource:[NSDictionary] = []
+    var index = 0
     
-    
-    var stackView: UIStackView!
-    private var buttons: [UIButton]         = []
-    private var dataSource:[NSDictionary]   = []
-    private var currentIndex:Int   = 0
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "topBack.png"), for: .default)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+        self.title = "任务中心"
         
-        scrollview.contentSize = CGSize(width: self.view.bounds.size.width*3, height: scrollview.bounds.size.height)
-        self.automaticallyAdjustsScrollViewInsets = false
-        let unCompleteVC = UnCompleteController()
-        unCompleteVC.view.frame = CGRect(x: 0, y: 0, width: scrollview.frame.size.width, height: scrollview.bounds.size.height)
-
-        let trainingVC = TrainingViewController()
-        trainingVC.view.frame = CGRect(x: self.view.bounds.size.width, y: 0, width: scrollview.frame.size.width, height: scrollview.bounds.size.height)
+        let rightBtn = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 80, height: 30))
+        rightBtn.setTitle("历史任务", for: .normal)
+        rightBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        rightBtn.addTarget(self, action: #selector(historyTaskAction), for: .touchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: rightBtn)
         
-        let completeVC = CompleteController()
-        completeVC.view.frame = CGRect(x: self.view.bounds.size.width*2, y: 0, width: scrollview.frame.size.width, height: scrollview.bounds.size.height)
-        
-        self.addChildViewController(unCompleteVC)
-        self.addChildViewController(trainingVC)
-        self.addChildViewController(completeVC)
-        
-        scrollview.addSubview(unCompleteVC.view)
-        scrollview.addSubview(trainingVC.view)
-        scrollview.addSubview(completeVC.view)
-        // Do any additional setup after loading the view.
+        self.tableview = UITableView(frame: CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.bounds.size.height-64-49))
+        self.view.addSubview(tableview)
+        self.tableview.delegate = self
+        self.tableview.dataSource = self
+        let nib = UINib(nibName: "TrainingCell", bundle: nil)
+        self.tableview.register(nib, forCellReuseIdentifier: "TrainingCell")
+        self.tableview.tableFooterView = UIView()
+        self.tableview.backgroundColor = UIColor.init(red: 245/255.0, green: 248/255.0, blue: 251, alpha: 1.0)
+        self.tableview.separatorStyle = .none
+        self.tableview.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshAction))
+        self.tableview.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreAction))
+        self.tableview.mj_header.beginRefreshing()
+        //        getData(pageindex: "0")
     }
     
-    @IBAction func didTapBtn(_ sender: Any) {
-        bottomLine.center = CGPoint.init(x: (sender as! UIButton).center.x, y:  bottomLine.center.y)
+    func getData(pageindex:Int) {
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        let params = ["pageindex":String(pageindex*10),"pagesize": "10","task_state":"1","myshop_forapp_key":"987654321","token":UserInfo.instance().token]
         
-        scrollview.contentOffset = CGPoint.init(x: CGFloat((sender as! UIButton).tag-1000) * self.view.bounds.size.width, y: 0)
-        
+        NetworkTool.sharedInstance.requestUnCompleteTask(params: params as! [String : String], success: { (response) in
+            self.tableview.mj_header.endRefreshing()
+            self.tableview.mj_footer.endRefreshing()
+            MBProgressHUD.hide(for:  self.view, animated: true)
+            if let data = response["data"],response["data"]?.count != 0{
+                for i in 1...(data as! [NSDictionary]).count {
+                    self.dataSource.append((data as! [NSDictionary])[i-1])
+                }
+                self.tableview.reloadData()
+            }
+            else if response["data"]?.count == 0{
+                self.tableview.mj_footer.endRefreshingWithNoMoreData()
+            }
+        }) { (error) in
+            self.tableview.mj_header.endRefreshing()
+            self.tableview.mj_footer.endRefreshing()
+            MBProgressHUD.hide(for:  self.view, animated: true)
+        }
     }
-
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let btn = self.view.viewWithTag(1000+Int(scrollview.contentOffset.x/self.view.bounds.size.width))
-        bottomLine.center = CGPoint.init(x: (btn as! UIButton).center.x, y:  bottomLine.center.y)
+    func refreshAction() {
+        dataSource.removeAll()
+        index = 0
+        self.tableview.mj_footer.resetNoMoreData()
+        getData(pageindex: index)
     }
     
-    override func viewDidLayoutSubviews() {
-        let btn = self.view.viewWithTag(1000+Int(scrollview.contentOffset.x/self.view.bounds.size.width))
-        bottomLine.center = CGPoint.init(x: (btn as! UIButton).center.x, y:  bottomLine.center.y)
+    func loadMoreAction() {
+        index = index + 1
+        getData(pageindex: index)
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return dataSource.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableview.dequeueReusableCell(withIdentifier: "TrainingCell", for: indexPath) as! TrainingCell
+        cell.titleLabel.text = dataSource[indexPath.section].stringValue(forKey: "title")
+        //        cell.timeLabel.text = "(明天)"
+        cell.timeLabel.isHidden = true
+        //        if Int(dataSource[indexPath.section].stringValue(forKey: "left_hour"))! <= 0 {
+        //            cell.retainTimeLabel.text = "0"
+        //        }else{
+        //            cell.retainTimeLabel.text = dataSource[indexPath.section].stringValue(forKey: "left_hour")
+        //        }
+        cell.retainTimeLabel.text = dataSource[indexPath.section].stringValue(forKey: "overhour")
+        cell.beginTimeLabel.text = dataSource[indexPath.section].stringValue(forKey: "starttime_show")
+        cell.endTimeLabel.text = dataSource[indexPath.section].stringValue(forKey: "endtime_show")
+        cell.addressLabel.text = dataSource[indexPath.section].stringValue(forKey: "addressname")
+        return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 170
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel(frame: CGRect.init(x: 0, y: 0, width: self.view.bounds.size.width, height: 25))
+        label.backgroundColor = UIColor(red: 245/255.0, green: 248/255.0, blue: 251/255.0, alpha: 1.0)
+        return label
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let taskDetailVC = TaskDetailController()
+        taskDetailVC.title = "任务详细"
+        taskDetailVC.enterPath = .UNCOMPLETE
+        taskDetailVC.headInfo = dataSource[indexPath.section]
+        let nav = UINavigationController(rootViewController: taskDetailVC)
+        self.present(nav, animated: true, completion: nil)
+    }
+    
+    func historyTaskAction() {
+        let completeView = CompleteController()
+        let nav = UINavigationController.init(rootViewController: completeView)
+        self.present(nav, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -65,15 +135,15 @@ class TaskCenterViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
