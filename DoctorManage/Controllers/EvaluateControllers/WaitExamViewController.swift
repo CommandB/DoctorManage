@@ -20,8 +20,8 @@ class WaitExamViewController: UIViewController,UITableViewDelegate,UITableViewDa
         tableview.dataSource = self
         self.tableview.backgroundColor = UIColor.init(red: 245/255.0, green: 248/255.0, blue: 251, alpha: 1.0)
         self.view.addSubview(tableview)
-        let nib1 = UINib(nibName: "EvaluateBaseCell", bundle: nil)
-        tableview.register(nib1, forCellReuseIdentifier: "EvaluateBaseCell")
+        let nib1 = UINib(nibName: "WaitEvaluateCell", bundle: nil)
+        tableview.register(nib1, forCellReuseIdentifier: "WaitEvaluateCell")
         tableview.tableFooterView = UIView()
         
         self.tableview.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshAction))
@@ -76,16 +76,17 @@ class WaitExamViewController: UIViewController,UITableViewDelegate,UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EvaluateBaseCell", for: indexPath) as! EvaluateBaseCell
-            cell.titleLabel.text = examDataSource[indexPath.row].stringValue(forKey: "title")
-            cell.typeLabel.text = examDataSource[indexPath.row].stringValue(forKey: "examtypename")
-            cell.timeLabel.text = examDataSource[indexPath.row].stringValue(forKey: "createtime")
-            cell.personLabel.text = examDataSource[indexPath.row].stringValue(forKey: "bepersonname")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WaitEvaluateCell", for: indexPath) as! WaitEvaluateCell
+        cell.titleLabel.text = examDataSource[indexPath.row].stringValue(forKey: "title")
+        cell.typeLabel.text = examDataSource[indexPath.row].stringValue(forKey: "examtypename")
+        cell.timeLabel.text = examDataSource[indexPath.row].stringValue(forKey: "createtime")
+        cell.personLabel.text = examDataSource[indexPath.row].stringValue(forKey: "bepersonname")
+        cell.addressLabel.text = examDataSource[indexPath.row].stringValue(forKey: "addressname")
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 110
+        return 125
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

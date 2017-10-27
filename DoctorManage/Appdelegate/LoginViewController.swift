@@ -16,7 +16,7 @@ class LoginViewController: UIViewController,SelectBaseViewDelegate,UIPickerViewD
     var dataSource:[NSDictionary] = [NSDictionary]()
     var basename = ""
     var baseportalurl = ""
-    var ipPort = "120.77.181.22:80"+"/"
+    var ipPort = "120.77.181.22:80"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class LoginViewController: UIViewController,SelectBaseViewDelegate,UIPickerViewD
             basename = loginInfo["basename"] as! String
             baseportalurl = loginInfo["baseportalurl"] as! String
             selectBaseBtn.setTitle(basename, for: .normal)
-
+            ipPort = loginInfo["ipUrl"] as! String
 //            basePickerView.selectRow(<#T##row: Int##Int#>, inComponent: 0, animated: false)
         }
     }
@@ -81,7 +81,7 @@ class LoginViewController: UIViewController,SelectBaseViewDelegate,UIPickerViewD
         var dic = loginInfo
         dic["basename"] = basename
         dic["baseportalurl"] = baseportalurl
-        dic["ipUrl"] = ipPort+"/"
+        dic["ipUrl"] = ipPort
         UserDefaults.standard.set(dic, forKey: "loginInfo")
     }
     @IBAction func selectBaseAction(_ sender: Any) {

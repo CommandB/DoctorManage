@@ -7,10 +7,11 @@
 //
 
 import UIKit
-
+import SwiftyJSON
+import Alamofire
 class StudentViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate  {
     @IBOutlet weak var collectionView: UICollectionView!
-    var dataSource:[NSDictionary] = []
+    var dataSource:[JSON] = [JSON]()
     var lastPath = IndexPath.init(item: 0, section: 0)
 
     // 子标题
@@ -18,57 +19,86 @@ class StudentViewController: UIViewController,UICollectionViewDelegate,UICollect
         if num == 2 {
             return ["心愿单", "任务申报"]
         }
-        return ["心愿单", "学员任务", "大纲进度","个人信息"]
+        return ["学员任务", "大纲进度","个人信息"]
     }
     
     // 子控制器
-    func createControllers(_ num:Int,dataSource:NSDictionary) -> [UIViewController] {
+    func createControllers(_ num:Int,dataSource:JSON) -> [UIViewController] {
         var cons:[UIViewController] = [UIViewController]()
+//        for i in 0..<num {
+//            if i == 0 {
+//                let subController = WishlistViewController()
+//                if num == 2{
+//                    subController.studentType = .AllType
+//                }else{
+//                    subController.studentType = .SingleType
+//                }
+//                subController.infoDic = dataSource
+//                cons.append(subController)
+//            }else if i == 1{
+//                if num == 2{
+//                    let subController = ReportViewController()
+//                    cons.append(subController)
+//                }else{
+//                    let subController = StudentTaskViewController()
+//                    subController.infoDic = dataSource
+//                    subController.studentType = .AllType
+//                    cons.append(subController)
+//                }
+//            }else if i == 2{
+//                let subController = TaketurnsController()
+//                subController.infoDic = dataSource
+//                if num == 2{
+//                    subController.studentType = .AllType
+//                }else{
+//                    subController.studentType = .SingleType
+//                }
+//                cons.append(subController)
+//            }else{
+//                let subController = PersonalInfoController()
+//                subController.infoDic = dataSource
+//                if num == 2{
+//                    subController.studentType = .AllType
+//                }else{
+//                    subController.studentType = .SingleType
+//                }
+//                cons.append(subController)
+//            }
+//        }
+        
+        
         for i in 0..<num {
             if i == 0 {
-                let subController = WishlistViewController()
                 if num == 2{
-                    subController.studentType = .AllType
+                    let subController = WishlistViewController()
+                    subController.infoDic = dataSource
+                    cons.append(subController)
                 }else{
-                    subController.studentType = .SingleType
+                    let subController = StudentTaskViewController()
+                    subController.infoDic = dataSource
+                    cons.append(subController)
                 }
-                subController.infoDic = dataSource
-                cons.append(subController)
             }else if i == 1{
                 if num == 2{
                     let subController = ReportViewController()
                     cons.append(subController)
                 }else{
-                    let subController = StudentTaskViewController()
+                    let subController = TaketurnsController()
                     subController.infoDic = dataSource
-                    subController.studentType = .AllType
                     cons.append(subController)
                 }
-            }else if i == 2{
-                let subController = TaketurnsController()
-                subController.infoDic = dataSource
-                if num == 2{
-                    subController.studentType = .AllType
-                }else{
-                    subController.studentType = .SingleType
-                }
-                cons.append(subController)
             }else{
                 let subController = PersonalInfoController()
                 subController.infoDic = dataSource
-                if num == 2{
-                    subController.studentType = .AllType
-                }else{
-                    subController.studentType = .SingleType
-                }
                 cons.append(subController)
             }
         }
+        
         return cons
     }
     
     /// 菜单分类控制器
-    func createlxfMenuVc(_ num:Int,dataSource:NSDictionary) -> LXFMenuPageController {
+    func createlxfMenuVc(_ num:Int,dataSource:JSON) -> LXFMenuPageController {
         let pageVc = LXFMenuPageController(controllers: self.createControllers(num, dataSource: dataSource), titles: self.createSubTitleArr(num), inParentController: self)
         pageVc.delegate = self
         
@@ -88,7 +118,7 @@ class StudentViewController: UIViewController,UICollectionViewDelegate,UICollect
         if let view = self.view.viewWithTag(1000) {
             view.removeFromSuperview()
         }
-        let lxfMenuVc = self.createlxfMenuVc(2, dataSource: NSDictionary())
+        let lxfMenuVc = self.createlxfMenuVc(2, dataSource: JSON(""))
         lxfMenuVc.view.frame = CGRect(x: 0, y: collectionView.frame.size.height, width: self.view.frame.size.width, height: self.view.bounds.size.height-collectionView.frame.size.height)
         self.view.addSubview(lxfMenuVc.view)
         lxfMenuVc.view.tag = 1000
@@ -98,16 +128,34 @@ class StudentViewController: UIViewController,UICollectionViewDelegate,UICollect
     }
     
     func requestData() {
-        let params = ["token":UserInfo.instance().token]
-        NetworkTool.sharedInstance.requestQueryMyStudentsURL(params: params as! [String : String], success: { (response) in
-            if let data = response["data"],response["data"]?.count != 0 {
-                for i in 1...(data as! [NSDictionary]).count {
-                    self.dataSource.append((data as! [NSDictionary])[i-1])
+//        let params = ["token":UserInfo.instance().token]
+//        NetworkTool.sharedInstance.requestQueryMyStudentsURL(params: params as! [String : String], success: { (response) in
+//            if let data = response["data"],response["data"]?.count != 0 {
+//                for i in 1...(data as! [NSDictionary]).count {
+//                    self.dataSource.append((data as! [NSDictionary])[i-1])
+//                }
+//                self.collectionView.reloadData()
+//            }
+//        }) { (error) in
+//
+//        }
+        
+        
+        let urlString = "http://"+Ip_port2+kQueryMyStudentsURL
+        NetworkTool.sharedInstance.myPostRequest(urlString,["token":UserInfo.instance().token!], method: HTTPMethod.post).responseJSON { (response) in
+            switch(response.result){
+            case .failure(let error):
+                print(error)
+            case .success(let response):
+                let json = JSON(response)
+                if json["code"].stringValue == "1"{
+                    self.dataSource = json["data"].arrayValue
+                    BRPersonInfoData.shared.totalPersonInfo = json["data"].arrayValue
+                    self.collectionView.reloadData()
+                }else{
+                    print("error")
                 }
-                self.collectionView.reloadData()
             }
-        }) { (error) in
-
         }
     }
     
@@ -130,8 +178,12 @@ class StudentViewController: UIViewController,UICollectionViewDelegate,UICollect
             cell.nameLabel.text =  "全部"
             cell.photoImage.image = UIImage.init(named: "全部")
         }else{
-            cell.nameLabel.text = dataSource[indexPath.row-1].stringValue(forKey: "personname")
-            cell.photoImage.image = UIImage.init(named: "testPhoto.jpg")
+            cell.nameLabel.text = dataSource[indexPath.row-1]["personname"].stringValue
+            if let photourl = URL.init(string: dataSource[indexPath.row-1]["photourl"].stringValue)  {
+                cell.photoImage.sd_setImage(with: photourl, placeholderImage: UIImage.init(named: "个人中心"))
+            }else{
+                cell.photoImage.image = UIImage.init(named: "个人中心")
+            }
         }
         if collectionView.contentSize.width > self.view.bounds.size.width {
             if cell.frame.origin.x < self.view.frame.size.width && cell.frame.origin.x+cell.bounds.size.width>self.view.frame.size.width {
@@ -155,7 +207,7 @@ class StudentViewController: UIViewController,UICollectionViewDelegate,UICollect
             if let view = self.view.viewWithTag(1000) {
                 view.removeFromSuperview()
             }
-            let lxfMenuVc = self.createlxfMenuVc(2, dataSource: NSDictionary())
+            let lxfMenuVc = self.createlxfMenuVc(2, dataSource: JSON(""))
             //            lxfMenuVc.tipBtnFontSize = 12
             lxfMenuVc.view.frame = CGRect(x: 0, y: collectionView.frame.size.height, width: self.view.frame.size.width, height: self.view.bounds.size.height-collectionView.frame.size.height)
             self.view.addSubview(lxfMenuVc.view)
@@ -165,20 +217,13 @@ class StudentViewController: UIViewController,UICollectionViewDelegate,UICollect
             if let view = self.view.viewWithTag(1000) {
                 view.removeFromSuperview()
             }
-            let lxfMenuVc = self.createlxfMenuVc(4, dataSource: dataSource[indexPath.item-1])
+            let lxfMenuVc = self.createlxfMenuVc(3, dataSource: dataSource[indexPath.item-1])
             //            lxfMenuVc.tipBtnFontSize = 12
             lxfMenuVc.view.frame = CGRect(x: 0, y: collectionView.frame.size.height, width: self.view.frame.size.width, height: self.view.bounds.size.height-collectionView.frame.size.height)
             self.view.addSubview(lxfMenuVc.view)
             lxfMenuVc.view.tag = 1000
             
         }
-//        for cell in collectionView.visibleCells {
-//            (cell as! PhotoCollectionCell).backgroundview.backgroundColor = UIColor.clear
-//            (cell as! PhotoCollectionCell).triangleView.isHidden = true
-//        }
-//        let cell = collectionView.cellForItem(at: indexPath) as! PhotoCollectionCell
-//        cell.backgroundview.backgroundColor = UIColor.init(red: 245/255.0, green: 248/255.0, blue: 252/255.0, alpha: 1.0)
-//        cell.triangleView.isHidden = false
         
         let newRow = indexPath.row
         let oldRow = lastPath.row 
@@ -237,24 +282,5 @@ class StudentViewController: UIViewController,UICollectionViewDelegate,UICollect
 extension StudentViewController: LXFMenuPageControllerDelegate {
     func lxf_MenuPageCurrentSubController(index: NSInteger, menuPageController: LXFMenuPageController) {
         print("第\(index)个子控制器")
-//        let baseView = menuPageController.controllers[index] as! BaseViewController
-//        baseView.infoDic = dataSource[index]
-
-        
-//        switch index {
-//        case 0:
-//            break
-//        case 1:
-//            break
-//        case 2:
-//            let takeTurnsVC = menuPageController.controllers[2] as! TaketurnsController
-//            takeTurnsVC.personId = dataSource[index].stringValue(forKey: "personid")
-//        case 3:
-//            let personalInfoVC = menuPageController.controllers[3] as! PersonalInfoController
-//            personalInfoVC.dataSource = dataSource[index]
-//            personalInfoVC.tableView.reloadData()
-//        default:
-//            break
-//        }
     }
 }

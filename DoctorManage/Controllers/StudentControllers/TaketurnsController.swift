@@ -23,7 +23,7 @@ class TaketurnsController: BaseViewController {
     
     func getData() {
         MBProgressHUD.showAdded(to: self.view, animated: true)
-        let params = ["personid":String(infoDic["personid"] as! Int),"token":UserInfo.instance().token]
+        let params = ["personid":infoDic["personid"].stringValue,"token":UserInfo.instance().token]
         NetworkTool.sharedInstance.requestQueryStudentOutlineByTeacherURL(params: params as! [String : String], success: { (response) in
             MBProgressHUD.hide(for:  self.view, animated: true)
             if let data = response["data"],response["data"]?.count != 0{
@@ -54,7 +54,7 @@ class TaketurnsController: BaseViewController {
         cell.detailLabel.text = "达成数例"
         cell.titleNum.text = dataSource[indexPath.section].stringValue(forKey: "requirednum")
         cell.detailNum.text = dataSource[indexPath.section].stringValue(forKey: "completenum")
-        cell.ratioNum.text = String(Int(cell.detailNum.text!)!/Int(cell.titleNum.text!)!*100)+"%"
+        cell.ratioNum.text = String(Float(cell.detailNum.text!)!/Float(cell.titleNum.text!)!*100)+"%"
         return cell
     }
     

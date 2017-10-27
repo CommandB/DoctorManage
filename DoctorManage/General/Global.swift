@@ -13,8 +13,8 @@ import SwiftyJSON
 //MARK:IP地址
 let Ip_port = "139.224.207.29:8086"
 //let Ip_port2 = "58.100.106.140:80/"
-var Ip_port2 = "120.77.181.22:80/"
-//let Ip_port2 = "192.168.1.106:8070/"
+//var Ip_port2 = "120.77.181.22:80/"
+var Ip_port2 = "218.109.193.102/"
 
 
 //MARK: 屏幕尺寸

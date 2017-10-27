@@ -141,7 +141,7 @@ extension LXFMenuPageController {
 extension LXFMenuPageController {
     fileprivate func configSubTitles() {
         // 每一个titleBtn的宽度
-        let btnW = kScreenW / 4
+        let btnW = kScreenW / 3
         
         for index in 0..<titleArray.count {
             let title = titleArray[index]

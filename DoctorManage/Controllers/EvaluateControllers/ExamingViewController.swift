@@ -84,7 +84,8 @@ class ExamingViewController: UIViewController,UIScrollViewDelegate {
     
     func reloadHeadTitle(questionIndex:Int) {
         titleLabel.text = dataSource[questionIndex]["indexname"].stringValue+dataSource[questionIndex]["title"].stringValue
-        scoreLabel.text = "总分12分"
+//        scoreLabel.text = questionsscore
+        scoreLabel.text = "总分"+dataSource[questionIndex]["questionsscore"].stringValue
     }
     
     @IBAction func confirmAction(_ sender: Any) {

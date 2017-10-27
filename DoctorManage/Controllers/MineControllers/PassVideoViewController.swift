@@ -110,10 +110,10 @@ class PassVideoViewController: UIViewController,UITextFieldDelegate {
     }
     
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if string.lengthOfBytes(using: .utf8) == 0 {
-            MBProgressHUD.showError("请输入文件名", to: self.view)
-            return false
-        }
+//        if textField.text?.lengthOfBytes(using: .utf8) == 0 {
+//            MBProgressHUD.showError("请输入文件名", to: self.view)
+//            return false
+//        }
         return true
     }
     @IBAction func startUploadVideoAction(_ sender: UIButton) {

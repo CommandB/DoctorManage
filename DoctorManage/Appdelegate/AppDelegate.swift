@@ -14,16 +14,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let appKey = "f7a22a8c139ace77b2eb22a9"
     let channel = "Publish channel"
-    let isProduction = false
+    let isProduction = true
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        application.applicationIconBadgeNumber = 0;
         if UserInfo.instance().token != nil {
             //更新ipPort
             if let loginInfo = UserDefaults.standard.dictionary(forKey: "loginInfo") {
-                Ip_port2 = loginInfo["ipUrl"] as? String ?? ""
+                Ip_port2 = (loginInfo["ipUrl"] as? String)! + "/" 
             }
             let tabbarController = MainTabbarController()
             self.window?.rootViewController = tabbarController
+            checkNewVersion()
         }else{
             let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
             let loginViewController = storyboard.instantiateViewController(withIdentifier: "loginView") as! LoginViewController
@@ -46,6 +48,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = UIColor.white
     }
     
+    func checkNewVersion() {
+        Task().checkUpdateForAppID { (thisVersion, version) in
+            let alertController = UIAlertController(title: "最新版本(\(version))已发布", message: nil, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "立刻更新", style: .default) { (UIAlertAction) in
+                let AppID = "1289216466"
+                if let URL = URL(string: "https://itunes.apple.com/us/app/id\(AppID)?ls=1&mt=8") {
+                    UIApplication.shared.openURL(URL)
+                }
+            }
+            alertController.addAction(okAction)
+            self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+        }
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -57,6 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
+        application.applicationIconBadgeNumber = 0;
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     }
 
@@ -101,6 +118,8 @@ extension AppDelegate:UNUserNotificationCenterDelegate,JPUSHRegisterDelegate
         JPUSHService.handleRemoteNotification(userInfo)
         print("iOS7及以上系统，收到通知:\(userInfo)")
         completionHandler(UIBackgroundFetchResult.newData)
+        JPUSHService.setBadge(0)
+        application.applicationIconBadgeNumber = 0
     }
     
     //    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {

@@ -140,13 +140,13 @@ class TaskDetailController: UIViewController,UITableViewDataSource,UITableViewDe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 2 && indexPath.row > 0 {
-            if headInfo["task_state"] as! NSNumber == 1 || headInfo["task_state"] as! NSNumber == 2{
+            if headInfo["task_state"] as! NSNumber == 3 || headInfo["task_state"] as! NSNumber == 4{
                 return
             }
-            let cell = tableview.cellForRow(at: indexPath) as! TaskPersonInfoCell
-            if !(cell.professionalLabel.text?.contains("医师"))! {
+//            let cell = tableview.cellForRow(at: indexPath) as! TaskPersonInfoCell
+//            if !(cell.professionalLabel.text?.contains("医师"))! {
                 showCheckAlert(indexPath: indexPath)
-            }
+//            }
         }else if indexPath.section == 3{
             self.navigationController?.pushViewController(QuestionViewController(), animated: true)
         }
@@ -165,12 +165,18 @@ class TaskDetailController: UIViewController,UITableViewDataSource,UITableViewDe
             self.requestRecordTaskSignResult(type: "旷课", indexPath: indexPath)
         })
         truancyAction.setValue(UIColor.init(red: 59/255.0, green: 69/255.0, blue: 79/255.0, alpha: 1.0), forKey: "_titleTextColor")
+        let okAction = UIAlertAction.init(title: "正常", style: UIAlertActionStyle.default, handler:{
+            (alert: UIAlertAction!) -> Void in
+            self.requestRecordTaskSignResult(type: "正常", indexPath: indexPath)
+        })
+        okAction.setValue(UIColor.init(red: 59/255.0, green: 69/255.0, blue: 79/255.0, alpha: 1.0), forKey: "_titleTextColor")
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: {
             (alert: UIAlertAction!) -> Void in
         })
         cancelAction.setValue(UIColor.init(red: 153/255.0, green: 153/255.0, blue: 153/255.0, alpha: 1.0), forKey: "_titleTextColor")
         checkAlert.addAction(lateAction)
         checkAlert.addAction(truancyAction)
+        checkAlert.addAction(okAction)
         checkAlert.addAction(cancelAction)
         self.present(checkAlert, animated: true, completion: nil)
     }

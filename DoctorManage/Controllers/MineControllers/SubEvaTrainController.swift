@@ -70,7 +70,10 @@ class SubEvaTrainController: UIViewController,UITableViewDataSource,UITableViewD
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let itemCount = trainDataArr[indexPath.section]["items"].arrayValue.count/3
+        if trainDataArr[indexPath.section]["items"].arrayValue.count == 0 {
+            return 50
+        }
+        let itemCount = (trainDataArr[indexPath.section]["items"].arrayValue.count-1)/3 + 1
         
         return CGFloat(50+itemCount*45)
     }

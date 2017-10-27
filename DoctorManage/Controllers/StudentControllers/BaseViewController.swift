@@ -7,14 +7,16 @@
 //
 
 import UIKit
-enum StudentType {
-    case AllType
-    case SingleType
-}
+import SwiftyJSON
+import Alamofire
+//enum StudentType {
+//    case AllType
+//    case SingleType
+//}
 class BaseViewController: UITableViewController {
-    var infoDic:NSDictionary = NSDictionary()
-    var studentType:StudentType = .AllType
-    
+    var infoDic:JSON = JSON("")
+//    var studentType:StudentType = .AllType
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none

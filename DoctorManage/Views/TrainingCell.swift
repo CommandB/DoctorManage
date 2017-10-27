@@ -18,6 +18,7 @@ class TrainingCell: UITableViewCell {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
     
+    @IBOutlet weak var taskStateLabel: UILabel!
     override func draw(_ rect: CGRect) {
         //        backGroundView.backgroundColor = UIColor.white
         //        self.contentView.backgroundColor = UIColor.init(colorLiteralRed: 0.88, green: 0.88, blue: 0.88, alpha: 1.0)

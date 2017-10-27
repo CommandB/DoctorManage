@@ -10,6 +10,7 @@ import UIKit
 protocol SubScoreCellDelegate: class {
     func toMinusScore(_ sender: UIButton)
     func toAddScore(_ sender: UIButton)
+    func toInputScore(_ sender: UIButton)
 }
 
 class SubScoreCell: UITableViewCell {
@@ -18,6 +19,8 @@ class SubScoreCell: UITableViewCell {
     @IBOutlet weak var minusBtn: UIButton!
     @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var getscoreLabel: UILabel!
+    @IBOutlet weak var getscoreBtn: UIButton!
+    
     weak var delegate: SubScoreCellDelegate?
 
     @IBAction func minusBtnTapped(_ sender: UIButton) {
@@ -26,6 +29,10 @@ class SubScoreCell: UITableViewCell {
     
     @IBAction func addBtnTapped(_ sender: UIButton) {
         delegate?.toAddScore(sender)
+    }
+    
+    @IBAction func inputBtnTapped(_ sender: UIButton) {
+        delegate?.toInputScore(sender)
     }
     
     override func awakeFromNib() {

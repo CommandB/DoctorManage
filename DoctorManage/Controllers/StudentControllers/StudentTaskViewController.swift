@@ -24,15 +24,15 @@ class StudentTaskViewController: BaseViewController {
 //        getData(pageindex: "0")
     }
     func getData(pageindex:Int) {
-        var params = ["pageindex":String(pageindex*10),"pagesize": "10","token":UserInfo.instance().token,"fromteacher":"1"]
-        if studentType == .SingleType{
-            params = ["personid":String(infoDic["personid"] as! Int),"pageindex":String(pageindex*10),"pagesize": "10","token":UserInfo.instance().token,"fromteacher":"1"]
+//        var params = ["pageindex":String(pageindex*10),"pagesize": "10","token":UserInfo.instance().token,"fromteacher":"1"]
+//        if studentType == .SingleType{
+           let params = ["personid":infoDic["personid"].stringValue,"pageindex":String(pageindex*10),"pagesize": "10","token":UserInfo.instance().token,"fromteacher":"1"]
             if infoDic.count == 0 {
                 self.tableView.mj_header.endRefreshing()
                 self.tableView.mj_footer.endRefreshing()
                 return
             }
-        }
+//        }
         MBProgressHUD.showAdded(to: self.view, animated: true)
         NetworkTool.sharedInstance.requestQueryStudentTaskURL(params: params as! [String : String], success: { (response) in
             self.tableView.mj_header.endRefreshing()

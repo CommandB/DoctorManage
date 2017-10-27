@@ -42,7 +42,7 @@ class TaskCenterViewController: UIViewController,UITableViewDataSource,UITableVi
     
     func getData(pageindex:Int) {
         MBProgressHUD.showAdded(to: self.view, animated: true)
-        let params = ["pageindex":String(pageindex*10),"pagesize": "10","task_state":"1","myshop_forapp_key":"987654321","token":UserInfo.instance().token]
+        let params = ["pageindex":String(pageindex*10),"pagesize": "10","task_state":"1,2","myshop_forapp_key":"987654321","token":UserInfo.instance().token]
         
         NetworkTool.sharedInstance.requestUnCompleteTask(params: params as! [String : String], success: { (response) in
             self.tableview.mj_header.endRefreshing()
@@ -53,6 +53,7 @@ class TaskCenterViewController: UIViewController,UITableViewDataSource,UITableVi
                     self.dataSource.append((data as! [NSDictionary])[i-1])
                 }
                 self.tableview.reloadData()
+                print(self.dataSource)
             }
             else if response["data"]?.count == 0{
                 self.tableview.mj_footer.endRefreshingWithNoMoreData()
@@ -96,6 +97,11 @@ class TaskCenterViewController: UIViewController,UITableViewDataSource,UITableVi
         cell.beginTimeLabel.text = dataSource[indexPath.section].stringValue(forKey: "starttime_show")
         cell.endTimeLabel.text = dataSource[indexPath.section].stringValue(forKey: "endtime_show")
         cell.addressLabel.text = dataSource[indexPath.section].stringValue(forKey: "addressname")
+        if dataSource[indexPath.section].stringValue(forKey: "task_state") == "1" {
+            cell.taskStateLabel.text = "未开始"
+        }else{
+            cell.taskStateLabel.text = "正在进行中..."
+        }
         return cell
         
     }

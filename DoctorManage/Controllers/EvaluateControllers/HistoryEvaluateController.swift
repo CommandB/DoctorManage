@@ -84,7 +84,7 @@ class HistoryEvaluateController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryEvaluateCell", for: indexPath) as! HistoryEvaluateCell
-        cell.titleLabel.text = dataSource[indexPath.section]["evaluationtitle"].stringValue
+        cell.titleLabel.text = dataSource[indexPath.section]["tasktitle"].stringValue
         cell.personLabel.text = dataSource[indexPath.section]["evalutedpersonname"].stringValue
         cell.scoreLabel.text = dataSource[indexPath.section]["evaluarate"].stringValue
         cell.timeLabel.text = dataSource[indexPath.section]["evaluationtime"].stringValue

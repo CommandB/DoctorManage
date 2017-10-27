@@ -28,15 +28,15 @@ class WishlistViewController: BaseViewController,WishlistCellDelegate {
 
     func getData(pageindex:Int) {
         MBProgressHUD.showAdded(to: self.view, animated: true)
-        var params = ["pageindex":String(pageindex*10),"pagesize": "10","token":UserInfo.instance().token,"fromteacher":"1"]
-        if studentType == .SingleType{
-            params = ["personid":String(infoDic["personid"] as! Int),"pageindex":String(pageindex*10),"pagesize": "10","token":UserInfo.instance().token,"fromteacher":"1"]
-            if infoDic.count == 0 {
-                self.tableView.mj_header.endRefreshing()
-                self.tableView.mj_footer.endRefreshing()
-                return
-            }
-        }
+        let params = ["pageindex":String(pageindex*10),"pagesize": "10","token":UserInfo.instance().token,"fromteacher":"1"]
+//        if studentType == .SingleType{
+//            params = ["personid":infoDic["personid"].stringValue,"pageindex":String(pageindex*10),"pagesize": "10","token":UserInfo.instance().token,"fromteacher":"1"]
+//            if infoDic.count == 0 {
+//                self.tableView.mj_header.endRefreshing()
+//                self.tableView.mj_footer.endRefreshing()
+//                return
+//            }
+//        }
         let urlString = "http://"+Ip_port2+kQueryStudentWishListURL
         NetworkTool.sharedInstance.myPostRequest(urlString,params, method: HTTPMethod.post).responseJSON { (response) in
             MBProgressHUD.hideAllHUDs(for: self.view, animated: true)

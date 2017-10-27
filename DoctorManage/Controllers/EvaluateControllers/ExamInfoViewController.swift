@@ -64,8 +64,14 @@ class ExamInfoViewController: UIViewController,UITableViewDataSource,UITableView
         let backgroundView = UIView(frame: CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: 100))
         backgroundView.addSubview(startExamBtn)
         startExamBtn.center = CGPoint(x: backgroundView.center.x, y: backgroundView.frame.size.height/2)
-        
-        
+        if let examtypename = headInfo["examtypename"] {
+            if examtypename as! String == "理论"{
+                startExamBtn.isHidden = true
+            }else{
+                startExamBtn.isHidden = false
+            }
+        }
+
         tableview.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
         tableview.delegate = self
         tableview.dataSource = self

@@ -148,6 +148,7 @@
                 <outlet property="beginTimeLabel" destination="mNm-rZ-DnQ" id="1O0-2i-o3K"/>
                 <outlet property="endTimeLabel" destination="Jh0-Kc-8XI" id="2rq-Ic-gDo"/>
                 <outlet property="retainTimeLabel" destination="Wvh-KD-ou0" id="TqS-ef-CT0"/>
+                <outlet property="taskStateLabel" destination="OoD-Wp-mD0" id="jVf-I3-YvP"/>
                 <outlet property="timeLabel" destination="Dc8-Za-p7H" id="DCu-5T-5fq"/>
                 <outlet property="titleLabel" destination="q2Z-Sn-L9Q" id="3bF-w5-2dH"/>
             </connections>

@@ -30,7 +30,7 @@ class ExamingSubScoController: UIViewController,UITableViewDelegate,UITableViewD
             }
             
             if newValue == headDataArr.count {
-                nextQuestionBtn.setTitle("确定", for: .normal)
+                nextQuestionBtn.setTitle("提交试卷", for: .normal)
             }else{
                 nextQuestionBtn.setTitle("下一题", for: .normal)
             }
@@ -101,7 +101,7 @@ class ExamingSubScoController: UIViewController,UITableViewDelegate,UITableViewD
         self.view.addConstraint(NSLayoutConstraint.init(item: sureBtn, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0))
         self.view.addConstraint(NSLayoutConstraint.init(item: sureBtn, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 50))
         sureBtn.setBackgroundImage(UIImage.init(named: "topBackgroundIcon"), for: .normal)
-        sureBtn.setTitle("确定", for: .normal)
+        sureBtn.setTitle("提交试卷", for: .normal)
         sureBtn.addTarget(self, action: #selector(sureBtnTapped), for: .touchUpInside)
         sureBtn.isHidden = true
     }
@@ -230,7 +230,7 @@ class ExamingSubScoController: UIViewController,UITableViewDelegate,UITableViewD
         self.dataDic.removeAll()
         var typeArr = [String]()
         for i in 0...jsonData.count-1 {
-            let type = jsonData[i]["type"].stringValue
+            let type = jsonData[i]["serialnumber"].stringValue
             if !typeArr.contains(type) {
                 typeArr.append(type)
             }
@@ -240,7 +240,7 @@ class ExamingSubScoController: UIViewController,UITableViewDelegate,UITableViewD
             let typeKey = typeArr[m]
             var dataArr = [JSON]()
             for n in 0...jsonData.count-1 {
-                if typeKey == jsonData[n]["type"].stringValue {
+                if typeKey == jsonData[n]["serialnumber"].stringValue {
                     dataArr.append(jsonData[n])
                 }
             }
@@ -267,7 +267,9 @@ class ExamingSubScoController: UIViewController,UITableViewDelegate,UITableViewD
         
         cell.titleLabel.text = typeArr[indexPath.row]["title"].stringValue
         cell.scoreRule.text = typeArr[indexPath.row]["scorerule"].stringValue
-        cell.getscoreLabel.text = typeArr[indexPath.row]["getscore"].stringValue+"分"
+//        cell.getscoreLabel.text = typeArr[indexPath.row]["getscore"].stringValue+"分"
+        let scoreString = typeArr[indexPath.row]["getscore"].stringValue+"分"
+        cell.getscoreBtn.setTitle(scoreString, for: .normal)
         return cell
     }
     
@@ -284,7 +286,7 @@ class ExamingSubScoController: UIViewController,UITableViewDelegate,UITableViewD
         
         self.tableview.reloadRows(at: [indexPath!], with: .automatic)
         for  info in BRCommitDataManage.shared.allItemQuestions {
-            if info["type"] == typeArr[(indexPath?.row)!]["type"] && info["itemid"] == typeArr[(indexPath?.row)!]["itemid"]{
+            if info["serialnumber"] == typeArr[(indexPath?.row)!]["serialnumber"] && info["itemid"] == typeArr[(indexPath?.row)!]["itemid"]{
                 let index = BRCommitDataManage.shared.allItemQuestions.index(of: info)
                 BRCommitDataManage.shared.allItemQuestions[index!] = typeArr[(indexPath?.row)!]
             }
@@ -302,11 +304,45 @@ class ExamingSubScoController: UIViewController,UITableViewDelegate,UITableViewD
         dataDic[type] = typeArr
         self.tableview.reloadRows(at: [indexPath!], with: .automatic)
         for  info in BRCommitDataManage.shared.allItemQuestions {
-            if info["type"] == typeArr[(indexPath?.row)!]["type"] && info["itemid"] == typeArr[(indexPath?.row)!]["itemid"]{
+            if info["serialnumber"] == typeArr[(indexPath?.row)!]["serialnumber"] && info["itemid"] == typeArr[(indexPath?.row)!]["itemid"]{
                 let index = BRCommitDataManage.shared.allItemQuestions.index(of: info)
                 BRCommitDataManage.shared.allItemQuestions[index!] = typeArr[(indexPath?.row)!]
             }
         }
+    }
+    
+    func toInputScore(_ sender: UIButton){
+        let alertController = UIAlertController(title: "请输入分值", message: nil, preferredStyle: .alert)
+        alertController.addTextField { (textField:UITextField) in
+            textField.placeholder = "请输入分值"
+            textField.keyboardType = .decimalPad
+        }
+        let cancelAction = UIAlertAction(title: "取消", style:.cancel, handler: nil)
+        let okAction = UIAlertAction(title: "确定", style: .default) { (UIAlertAction) in
+            let currentCell = sender.superview?.superview as! SubScoreCell
+            let indexPath = self.tableview.indexPath(for: currentCell)
+            let type = Array(self.dataDic.keys).sorted()[(indexPath?.section)!]
+            var typeArr = self.dataDic[type]!
+            let str = (alertController.textFields?[0].text)!.trimmingCharacters(in: .whitespaces)
+            if let deduce = Float(str){
+                if deduce <= typeArr[(indexPath?.row)!]["score"].floatValue{
+                    typeArr[(indexPath?.row)!]["getscore"].floatValue = Float(String(format: "%.1f", deduce))!
+                }
+            }
+            
+            self.dataDic[type] = typeArr
+            self.tableview.reloadRows(at: [indexPath!], with: .automatic)
+            for  info in BRCommitDataManage.shared.allItemQuestions {
+                if info["serialnumber"] == typeArr[(indexPath?.row)!]["serialnumber"] && info["itemid"] == typeArr[(indexPath?.row)!]["itemid"]{
+                    let index = BRCommitDataManage.shared.allItemQuestions.index(of: info)
+                    BRCommitDataManage.shared.allItemQuestions[index!] = typeArr[(indexPath?.row)!]
+                }
+            }
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -324,7 +360,10 @@ class ExamingSubScoController: UIViewController,UITableViewDelegate,UITableViewD
         let type = String(section+1)
         operationLabel.text = dataDic[type]?.first?["typename"].stringValue
         
-        let viewWidth = getLabWidth(labelStr: (dataDic[type]?.first?["typename"].stringValue)!, font: 16, height: 33/2)
+        var viewWidth = getLabWidth(labelStr: (dataDic[type]?.first?["typename"].stringValue)!, font: 16, height: 33/2)
+        if viewWidth < 40 {
+            viewWidth = 40
+        }
         view.addConstraint(NSLayoutConstraint.init(item: operationLabel, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0))
         view.addConstraint(NSLayoutConstraint.init(item: operationLabel, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0))
         view.addConstraint(NSLayoutConstraint.init(item: operationLabel, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: viewWidth))

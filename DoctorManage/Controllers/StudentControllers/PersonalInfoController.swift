@@ -48,26 +48,23 @@ class PersonalInfoController: BaseViewController,CheckWorkCellDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PersonalnfoCell", for: indexPath) as! PersonalnfoCell
-            cell.major.text = infoDic.stringValue(forKey: "subjectname")
-            cell.jobNum.text = infoDic.stringValue(forKey: "jobnum")
-            cell.education.text = infoDic.stringValue(forKey: "highestdegree")
-            cell.grade.text = infoDic.stringValue(forKey: "grade_show")
-            cell.company.text = infoDic.stringValue(forKey: "hospital")
+            cell.major.text = infoDic["subjectname"].stringValue
+            cell.jobNum.text = infoDic["jobnum"].stringValue
+            cell.education.text = infoDic["highestdegree"].stringValue
+            cell.grade.text = infoDic["grade_show"].stringValue
+            cell.company.text = infoDic["hospital"].stringValue
             cell.selectionStyle = .none
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "CheckWorkCell", for: indexPath) as! CheckWorkCell
-            cell.attendRatio.text = String(Float(infoDic.stringValue(forKey: "workrate"))!*100)+"%"
-            if let unworkdays = infoDic.stringValue(forKey: "unworkdays") {
-                cell.absent.text = "已缺勤"+unworkdays+"天"
-            }
+            cell.attendRatio.text = String(infoDic["workrate"].floatValue*100)+"%"
+            cell.absent.text = "已缺勤"+infoDic["unworkdays"].stringValue+"天"
             cell.delegate = self
-            if let todayisunwork = infoDic.stringValue(forKey: "todayisunwork") {
-                if todayisunwork == "0"{
-                    cell.absentBtn.setTitle("该学员今日缺勤", for: .normal)
+            let todayisunwork = infoDic["todayisunwork"].stringValue
+            if todayisunwork == "0"{
+                cell.absentBtn.setTitle("该学员今日缺勤", for: .normal)
                 }else{
-                    cell.absentBtn.setTitle("取消缺勤", for: .normal)
-                }
+                cell.absentBtn.setTitle("取消缺勤", for: .normal)
             }
             cell.selectionStyle = .none
             return cell
@@ -87,20 +84,24 @@ class PersonalInfoController: BaseViewController,CheckWorkCellDelegate {
     }
     
     func requestAbsentData(title:String,sender:UIButton) {
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         var state = "0"
         if title == "该学员今日缺勤" {
             state = "1"
         }
-        let params = ["personid":String(infoDic["personid"] as! Int),"state": state,"myshop_forapp_key":"987654321","token":UserInfo.instance().token] as! [String:String]
+        let params = ["personid":infoDic["personid"].stringValue,"state": state,"myshop_forapp_key":"987654321","token":UserInfo.instance().token] as! [String:String]
         let urlString = "http://"+Ip_port2+"doctor_train/rest/task/updateStudentWorkState.do"
         print(params)
         Alamofire.request(urlString, method: .post, parameters: params).responseJSON { (response) in
+            MBProgressHUD.hide(for: self.view, animated: true)
             switch(response.result){
             case .failure(let error):
                 print(error)
             case .success(let response):
                 let json = JSON(response)
                 if json["code"].stringValue == "1"{
+                   self.infoDic["unworkdays"] = json["unworkdays"]
+//                    self.infoDic.setValue(json["unworkdays"].stringValue, forKey: "unworkdays")
                     let cell = self.tableView.cellForRow(at: IndexPath.init(item: 0, section: 1)) as! CheckWorkCell
 //                    cell.attendRatio.text = String(Int(infoDic.stringValue(forKey: "workrate"))!*100)+"%"
                     cell.absent.text = "已缺勤"+(json["unworkdays"].stringValue)+"天"
