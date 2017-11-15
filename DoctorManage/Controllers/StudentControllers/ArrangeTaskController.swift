@@ -142,9 +142,12 @@ class ArrangeTaskController: UIViewController,UITableViewDelegate,UITableViewDat
         params?["enddate"] = endTextField.text!
 //        params?["traintype"] = trainTypeArr.index(of: typeTextField.text!)
 //        params?["taskname"] = typeTextField.text!+"申请安排"
-        params?["traintype"] = String(selectTrainTypeIndex)
+        params?["traintype"] = String(selectTrainTypeIndex+1)
         params?["taskname"] = trainTypeArr[selectTrainTypeIndex]+"申请安排"
         params?["token"] = UserInfo.instance().token
+        params?["addressname"] = addressTextField.text ?? ""
+        params?["note"] = remarkTextView.text ?? ""
+        
         var sourceid:String!
         
         for info in receiveData.arrayValue {

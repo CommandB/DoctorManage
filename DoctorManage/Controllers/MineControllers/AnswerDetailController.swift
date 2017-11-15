@@ -118,7 +118,12 @@ class AnswerDetailController: UIViewController,UITableViewDelegate,UITableViewDa
         }else if indexPath.row == 0 {
             return 44
         }
-        return replayListArr[indexPath.row-1]["answercontent"].stringValue.heightWithConstrainedWidth(width: self.view.frame.size.width-55, font: UIFont.systemFont(ofSize: 14))+60
+        let replayStr = replayListArr[indexPath.row-1]["answercontent"].stringValue
+        if ISIphone5() {
+            return replayStr.getLabHeight(labelStr: replayStr, font: UIFont.systemFont(ofSize: 14), width: self.view.frame.size.width-65)+60
+
+        }
+        return replayStr.getLabHeight(labelStr: replayStr, font: UIFont.systemFont(ofSize: 14), width: self.view.frame.size.width-55)+60
     }
 
     public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -145,10 +150,10 @@ class AnswerDetailController: UIViewController,UITableViewDelegate,UITableViewDa
                 let json = JSON(response)
                 if json["code"].stringValue == "1"{
                     self.replayListArr = json["data"][0]["answers"].arrayValue
-//                    self.tableView.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: keyboardOrigin)
                     self.tableView.reloadData()
                     self.tableView.scrollToRow(at: IndexPath.init(row: self.replayListArr.count, section: 1), at: .top, animated: true)
                 }else{
+                    BRAlertView.show(message: json["msg"].stringValue, target: self)
                     print("error")
                 }
             }

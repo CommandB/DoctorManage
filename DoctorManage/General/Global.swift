@@ -23,7 +23,7 @@ let kScreenHeight = UIScreen.main.bounds.size.height
 let kStatusBarHeight = UIApplication.shared.statusBarFrame.size.height
 
 //MARK: 接口
-let kSelectbaseURL = "http://139.224.207.29:8086/doctor_train/rest/trainHospital/query.do"
+let kSelectbaseURL = "http://120.77.181.22:8080/cloud_doctor_train/rest/trainHospital/query.do"
 
 let kLoginURL = "doctor_portal/rest/loginCheck.do"
 
@@ -107,11 +107,34 @@ func getLabWidth(labelStr:String,font:CGFloat,height:CGFloat) -> CGFloat {
     
 }
 
+func ISIphone5() -> Bool {
+    if UIScreen.main.bounds.size.width <= 480 {
+        return true
+    }
+    return false
+}
+
 extension String {
     func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
         let boundingBox = self.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
         return boundingBox.height
     }
+    
+    func getLabHeight(labelStr:String,font:UIFont,width:CGFloat) -> CGFloat {
+        let statusLabelText: NSString = NSString.init(string: labelStr)
+        let size = CGSize(width: width, height: 900)
+        let dic = NSDictionary(object: font, forKey: NSFontAttributeName as NSCopying)
+        let strSize = statusLabelText.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: dic as? [String : AnyObject], context: nil).size
+        return strSize.height
+    }
+    
+//    func getLabWidth(labelStr:String,font:UIFont,height:CGFloat) -> CGFloat {
+//        let statusLabelText: NSString = labelStr
+//        let size = CGSizeMake(900, height)
+//        let dic = NSDictionary(object: font, forKey: NSFontAttributeName)
+//        let strSize = statusLabelText.boundingRectWithSize(size, options: .UsesLineFragmentOrigin, attributes: dic as? [String : AnyObject], context: nil).size
+//        return strSize.width
+//    }
 }
 

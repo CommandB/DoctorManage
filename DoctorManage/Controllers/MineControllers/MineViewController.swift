@@ -41,12 +41,19 @@ class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         self.tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "tableViewCell")
         requestMyInfo()
         requestOnlineQuestions()
+        self.tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshAction))
+    }
+    
+    func refreshAction() {
+        requestMyInfo()
+        requestOnlineQuestions()
     }
     
     func requestMyInfo() {
         MBProgressHUD.showAdded(to: self.navigationController?.view, animated: true)
         let urlString = "http://"+Ip_port2+kMyInfoURL
         NetworkTool.sharedInstance.myPostRequest(urlString, ["token":UserInfo.instance().token], method: HTTPMethod.post).responseJSON { (response) in
+            self.tableView.mj_header.endRefreshing()
             MBProgressHUD.hideAllHUDs(for: self.navigationController?.view, animated: true)
             switch(response.result){
             case .failure(let error):
@@ -67,6 +74,7 @@ class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     func requestOnlineQuestions() {
         let urlString = "http://"+Ip_port2+kOnlineQuestionURL
         NetworkTool.sharedInstance.myPostRequest(urlString, ["pageindex":"0","pagesize": "10","token":UserInfo.instance().token], method: HTTPMethod.post).responseJSON { (response) in
+            self.tableView.mj_header.endRefreshing()
             switch(response.result){
             case .failure(let error):
                 print(error)
