@@ -27,7 +27,7 @@ class SubEvaTeachController: UIViewController,UITableViewDelegate,UITableViewDat
     func requestMyEvaluateDetailData() {
         MBProgressHUD.showAdded(to: self.view, animated: true)
         let urlString = "http://"+Ip_port2+kMyEvalueDetailURL
-        NetworkTool.sharedInstance.myPostRequest(urlString,["token":UserInfo.instance().token!,"pageindex":"0","pagesize": "10","evaluatetype":"1"], method: HTTPMethod.post).responseJSON { (response) in
+        NetworkTool.sharedInstance.myPostRequest(urlString,["token":UserInfo.instance().token!,"pageindex":"0","pagesize": "10","evaluatetype":"0"], method: HTTPMethod.post).responseJSON { (response) in
             MBProgressHUD.hide(for: self.view, animated: true)
             switch(response.result){
             case .failure(let error):
@@ -63,6 +63,7 @@ class SubEvaTeachController: UIViewController,UITableViewDelegate,UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "subEvaTrainCell", for: indexPath) as! subEvaTrainCell
         cell.setObject(object: teachDataArr[indexPath.section]["items"].arrayValue)
+        cell.goodRadio.text = teachDataArr[indexPath.section]["okrate"].stringValue
         return cell
     }
     

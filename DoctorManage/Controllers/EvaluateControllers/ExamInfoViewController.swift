@@ -38,7 +38,9 @@ class ExamInfoViewController: UIViewController,UITableViewDataSource,UITableView
                 case .success(let response):
                     let json = JSON(response)
                     if json["code"].stringValue == "1"{
-                        self.dataSource = json["data"].arrayValue.first!
+                        if let dataValue = json["data"].arrayValue.first{
+                            self.dataSource = dataValue
+                        }
                         self.reloadTitleLabel()
                         self.tableview.reloadData()
                     }else{

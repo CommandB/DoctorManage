@@ -15,6 +15,7 @@ class EvaluateBaseCell: UITableViewCell {
     @IBOutlet weak var personLabel: UILabel!
     @IBOutlet weak var accessView: UIImageView!
 
+    @IBOutlet weak var examLabel: UILabel!
     @IBOutlet weak var waitTypeLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

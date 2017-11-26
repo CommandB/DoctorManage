@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -86,6 +85,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="accessView" destination="nU3-ts-kOA" id="E6u-XO-Usr"/>
+                <outlet property="examLabel" destination="Vbq-OJ-y4C" id="qLf-IV-lIN"/>
                 <outlet property="personLabel" destination="nIk-BJ-4WP" id="u8U-3L-uoM"/>
                 <outlet property="timeLabel" destination="VZ0-fd-BNb" id="xGh-3p-bxB"/>
                 <outlet property="titleLabel" destination="2Mz-rG-fra" id="Nci-VJ-cgz"/>

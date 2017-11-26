@@ -87,9 +87,10 @@ class WaitEvaluateController: UIViewController,UITableViewDelegate,UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EvaluateBaseCell", for: indexPath) as! EvaluateBaseCell
         cell.waitTypeLabel.text = "被评人:"
+        cell.examLabel.text = "截止时间: "
         cell.titleLabel.text = evaluDataSource[indexPath.row]["title"].stringValue
         cell.typeLabel.text = evaluDataSource[indexPath.row]["evaluatetypename"].stringValue
-        cell.timeLabel.text = evaluDataSource[indexPath.row]["createtime"].stringValue
+        cell.timeLabel.text = evaluDataSource[indexPath.row]["endtime_show"].stringValue
         cell.personLabel.text = evaluDataSource[indexPath.row]["bepersonname"].stringValue
         return cell
     }
