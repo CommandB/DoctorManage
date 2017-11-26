@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController,SelectBaseViewDelegate,UIPickerViewDelegate,UIPickerViewDataSource {
+class LoginViewController: UIViewController,SelectBaseViewDelegate,UIPickerViewDelegate,UIPickerViewDataSource,UIAlertViewDelegate {
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var selectBaseBtn: UIButton!
@@ -68,6 +68,7 @@ class LoginViewController: UIViewController,SelectBaseViewDelegate,UIPickerViewD
             MBProgressHUD.showSuccess("登录成功")
             let defaultCenter = NotificationCenter.default
             defaultCenter.post(name: NSNotification.Name(rawValue: kLoginSuccessNotification), object: nil, userInfo: nil)
+            self.checkNewVersion()
         }) { (error) in
             MBProgressHUD.hide(for: self.view, animated: true)
             UserInfo.instance().logout()
@@ -152,7 +153,20 @@ class LoginViewController: UIViewController,SelectBaseViewDelegate,UIPickerViewD
         // Dispose of any resources that can be recreated.
     }
     
+    func checkNewVersion() {
+        Task().checkUpdateForAppID { (thisVersion, version) in
+            let alertView = UIAlertView(title: "最新版本(\(version))已发布", message: "", delegate: self, cancelButtonTitle: nil, otherButtonTitles: "立刻更新")
+            alertView.show()
+        }
+    }
     
+    func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int){
+        let AppID = "1289216466"
+        if let URL = URL(string: "https://itunes.apple.com/us/app/id\(AppID)?ls=1&mt=8") {
+            UIApplication.shared.openURL(URL)
+        }
+    }
+
     /*
      // MARK: - Navigation
      

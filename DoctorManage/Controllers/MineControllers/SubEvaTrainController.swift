@@ -27,7 +27,7 @@ class SubEvaTrainController: UIViewController,UITableViewDataSource,UITableViewD
     func requestMyEvaluateDetailData() {
         MBProgressHUD.showAdded(to: self.view, animated: true)
         let urlString = "http://"+Ip_port2+kMyEvalueDetailURL
-        NetworkTool.sharedInstance.myPostRequest(urlString,["token":UserInfo.instance().token!,"pageindex":"0","pagesize": "10","evaluatetype":"0"], method: HTTPMethod.post).responseJSON { (response) in
+        NetworkTool.sharedInstance.myPostRequest(urlString,["token":UserInfo.instance().token!,"pageindex":"0","pagesize": "10","evaluatetype":"1"], method: HTTPMethod.post).responseJSON { (response) in
             MBProgressHUD.hide(for: self.view, animated: true)
             switch(response.result){
             case .failure(let error):
