@@ -40,6 +40,7 @@ extension UIView {
 
 class subEvaTrainCell: UITableViewCell {
     @IBOutlet weak var personName: UILabel!
+    @IBOutlet weak var goodRadio: UILabel!
     
     var itemData = [JSON]()
     func setObject(object:[JSON]) {
