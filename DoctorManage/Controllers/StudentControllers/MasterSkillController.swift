@@ -7,9 +7,10 @@
 //
 
 import UIKit
-
+import Alamofire
+import SwiftyJSON
 class MasterSkillController: UITableViewController {
-    var receiveDataList:[NSDictionary] = []
+    var receiveDataList:[JSON] = [JSON]()
     var completenum:String = ""
     var titleNum:String = ""
     var ratioNum:String = ""
@@ -44,8 +45,8 @@ class MasterSkillController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MasterSkillCell", for: indexPath) as! MasterSkillCell
-        cell.titleLabel?.text = receiveDataList[indexPath.row].stringValue(forKey: "requiredname")
-        cell.ratioLabel.text = receiveDataList[indexPath.row].stringValue(forKey: "completenum")+"/"+receiveDataList[indexPath.row].stringValue(forKey: "requirednum")
+        cell.titleLabel?.text = receiveDataList[indexPath.row]["requiredname"].stringValue
+        cell.ratioLabel.text = receiveDataList[indexPath.row]["completenum"].stringValue+"/"+receiveDataList[indexPath.row]["requirednum"].stringValue
         return cell
     }
     

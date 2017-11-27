@@ -7,9 +7,10 @@
 //
 
 import UIKit
-
+import SwiftyJSON
+import Alamofire
 class TaketurnsController: BaseViewController {
-    var dataSource:[NSDictionary] = []
+    var dataSource:[JSON] = [JSON]()
     var index = 0
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +27,12 @@ class TaketurnsController: BaseViewController {
         let params = ["personid":infoDic["personid"].stringValue,"token":UserInfo.instance().token]
         NetworkTool.sharedInstance.requestQueryStudentOutlineByTeacherURL(params: params as! [String : String], success: { (response) in
             MBProgressHUD.hide(for:  self.view, animated: true)
-            if let data = response["data"],response["data"]?.count != 0{
-                self.dataSource = data as! [NSDictionary]
+            let json = JSON(response)
+            if json["code"].stringValue == "1"{
+                self.dataSource = json["data"].arrayValue
                 self.tableView.reloadData()
-            }
-            else if response["data"]?.count == 0{
+            }else{
+                print("error")
             }
         }) { (error) in
             MBProgressHUD.hide(for:  self.view, animated: true)
@@ -50,11 +52,11 @@ class TaketurnsController: BaseViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TakeTurnsCell", for: indexPath) as! TakeTurnsCell
-        cell.titleLabel.text = dataSource[indexPath.section].stringValue(forKey: "outlinename")
+        cell.titleLabel.text = dataSource[indexPath.section]["outlinename"].stringValue
         cell.detailLabel.text = "达成数例"
-        cell.titleNum.text = dataSource[indexPath.section].stringValue(forKey: "requirednum")
-        cell.detailNum.text = dataSource[indexPath.section].stringValue(forKey: "completenum")
-        cell.ratioNum.text = String(Float(cell.detailNum.text!)!/Float(cell.titleNum.text!)!*100)+"%"
+        cell.titleNum.text = dataSource[indexPath.section]["requirednum"].stringValue
+        cell.detailNum.text = dataSource[indexPath.section]["completenum"].stringValue
+        cell.ratioNum.text = dataSource[indexPath.section]["overrate"].stringValue+"%"
         return cell
     }
     
@@ -63,8 +65,8 @@ class TaketurnsController: BaseViewController {
         let cell = tableView.cellForRow(at: indexPath) as! TakeTurnsCell
         
         let masterSkillVC = MasterSkillController()
-        masterSkillVC.receiveDataList = dataSource[indexPath.section].value(forKey: "my_data_list") as! [NSDictionary]
-        masterSkillVC.title = dataSource[indexPath.section].stringValue(forKey: "outlinename")
+        masterSkillVC.receiveDataList = dataSource[indexPath.section]["my_data_list"].arrayValue
+        masterSkillVC.title = dataSource[indexPath.section]["outlinename"].stringValue
         masterSkillVC.completenum = cell.detailNum.text!
         masterSkillVC.titleNum = cell.titleNum.text!
         masterSkillVC.ratioNum = cell.ratioNum.text!

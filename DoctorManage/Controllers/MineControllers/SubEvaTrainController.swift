@@ -62,6 +62,7 @@ class SubEvaTrainController: UIViewController,UITableViewDataSource,UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "subEvaTrainCell", for: indexPath) as! subEvaTrainCell
         cell.setObject(object: trainDataArr[indexPath.section]["items"].arrayValue)
+        cell.goodRadio.text = trainDataArr[indexPath.section]["okrate"].stringValue
         return cell
     }
     
