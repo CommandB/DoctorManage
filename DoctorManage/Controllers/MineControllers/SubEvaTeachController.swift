@@ -21,6 +21,11 @@ class SubEvaTeachController: UIViewController,UITableViewDelegate,UITableViewDat
         let nib1 = UINib(nibName: "subEvaTrainCell", bundle: nil)
         self.tableview.register(nib1, forCellReuseIdentifier: "subEvaTrainCell")
         self.tableview.separatorStyle = .none
+        self.tableview.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshAction))
+        requestMyEvaluateDetailData()
+    }
+    
+    func refreshAction() {
         requestMyEvaluateDetailData()
     }
     
@@ -29,6 +34,7 @@ class SubEvaTeachController: UIViewController,UITableViewDelegate,UITableViewDat
         let urlString = "http://"+Ip_port2+kMyEvalueDetailURL
         NetworkTool.sharedInstance.myPostRequest(urlString,["token":UserInfo.instance().token!,"pageindex":"0","pagesize": "10","evaluatetype":"0"], method: HTTPMethod.post).responseJSON { (response) in
             MBProgressHUD.hide(for: self.view, animated: true)
+            self.tableview.mj_header.endRefreshing()
             switch(response.result){
             case .failure(let error):
                 print(error)

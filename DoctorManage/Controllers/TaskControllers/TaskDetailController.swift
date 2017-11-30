@@ -24,7 +24,7 @@ class TaskDetailController: UIViewController,UITableViewDataSource,UITableViewDe
         self.navigationController?.navigationBar.isTranslucent = false;
         self.extendedLayoutIncludesOpaqueBars = true;
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
-        tableview.frame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.frame.size.height-64)
+        tableview.frame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.frame.size.height)
         tableview.delegate = self
         tableview.dataSource = self
         tableview.tableFooterView = UIView()
@@ -93,6 +93,8 @@ class TaskDetailController: UIViewController,UITableViewDataSource,UITableViewDe
             cell.addressLabel.text = headInfo.stringValue(forKey: "addressname")
             cell.beginTimeLabel.text = headInfo.stringValue(forKey: "starttime_show")
             cell.beginTimeLabel.textColor = UIColor(red: 249/255.0, green: 80/255.0, blue: 80/255.0, alpha: 1.0)
+            cell.endTimeLabel.text = headInfo.stringValue(forKey: "endtime_show")
+            cell.endTimeLabel.textColor = UIColor(red: 249/255.0, green: 80/255.0, blue: 80/255.0, alpha: 1.0)
             cell.addressLabel.text = headInfo.stringValue(forKey: "addressname")
             tableView.separatorStyle = .singleLine
             return cell
@@ -121,17 +123,23 @@ class TaskDetailController: UIViewController,UITableViewDataSource,UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section <= 1 {
+        if indexPath.section == 0 {
+            return 150
+        }
+        else if indexPath.section <= 1 {
+            if let noteStr = headInfo.stringValue(forKey: "note") {
+                return noteStr.getLabHeight(labelStr: noteStr, font: UIFont.systemFont(ofSize: 13), width: self.view.frame.size.width-35)+80
+            }
             return 150
         }
         return 38
     }
     
     
-    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 5
     }
+    
     func dismissAction() {
         self.navigationController?.dismiss(animated: true, completion: nil)
         

@@ -17,6 +17,7 @@ class ExamingSubScoController: UIViewController,UITableViewDelegate,UITableViewD
     var lastQuestionBtn = UIButton()
     var nextQuestionBtn = UIButton()
     var sureBtn = UIButton()
+    var typeSortArr = [String]()
     
 //    var allItemQuestions = JSON([:])
     
@@ -228,16 +229,16 @@ class ExamingSubScoController: UIViewController,UITableViewDelegate,UITableViewD
             return
         }
         self.dataDic.removeAll()
-        var typeArr = [String]()
+        typeSortArr = [String]()
         for i in 0...jsonData.count-1 {
             let type = jsonData[i]["serialnumber"].stringValue
-            if !typeArr.contains(type) {
-                typeArr.append(type)
+            if !typeSortArr.contains(type) {
+                typeSortArr.append(type)
             }
         }
         var sortDic = [String:[JSON]]()
-        for m in 0...typeArr.count-1 {
-            let typeKey = typeArr[m]
+        for m in 0...typeSortArr.count-1 {
+            let typeKey = typeSortArr[m]
             var dataArr = [JSON]()
             for n in 0...jsonData.count-1 {
                 if typeKey == jsonData[n]["serialnumber"].stringValue {
@@ -262,7 +263,8 @@ class ExamingSubScoController: UIViewController,UITableViewDelegate,UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SubScoreCell", for: indexPath) as! SubScoreCell
         cell.delegate = self
-        let type = Array(dataDic.keys).sorted()[indexPath.section]
+//        let type = Array(dataDic.keys).sorted()[indexPath.section]
+        let type = typeSortArr[indexPath.section]
         let typeArr = dataDic[type]!
         
         cell.titleLabel.text = typeArr[indexPath.row]["title"].stringValue
