@@ -231,7 +231,7 @@ class ExamingSubScoController: UIViewController,UITableViewDelegate,UITableViewD
         self.dataDic.removeAll()
         typeSortArr = [String]()
         for i in 0...jsonData.count-1 {
-            let type = jsonData[i]["serialnumber"].stringValue
+            let type = jsonData[i]["type"].stringValue
             if !typeSortArr.contains(type) {
                 typeSortArr.append(type)
             }
@@ -241,7 +241,7 @@ class ExamingSubScoController: UIViewController,UITableViewDelegate,UITableViewD
             let typeKey = typeSortArr[m]
             var dataArr = [JSON]()
             for n in 0...jsonData.count-1 {
-                if typeKey == jsonData[n]["serialnumber"].stringValue {
+                if typeKey == jsonData[n]["type"].stringValue {
                     dataArr.append(jsonData[n])
                 }
             }
@@ -256,20 +256,18 @@ class ExamingSubScoController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let type = Array(dataDic.keys).sorted()[section]
+        let type = self.typeSortArr[section]
         return (dataDic[type]?.count)!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SubScoreCell", for: indexPath) as! SubScoreCell
         cell.delegate = self
-//        let type = Array(dataDic.keys).sorted()[indexPath.section]
         let type = typeSortArr[indexPath.section]
         let typeArr = dataDic[type]!
         
         cell.titleLabel.text = typeArr[indexPath.row]["title"].stringValue
         cell.scoreRule.text = typeArr[indexPath.row]["scorerule"].stringValue
-//        cell.getscoreLabel.text = typeArr[indexPath.row]["getscore"].stringValue+"分"
         let scoreString = typeArr[indexPath.row]["getscore"].stringValue+"分"
         cell.getscoreBtn.setTitle(scoreString, for: .normal)
         return cell
@@ -279,7 +277,7 @@ class ExamingSubScoController: UIViewController,UITableViewDelegate,UITableViewD
     {
         let currentCell = sender.superview?.superview as! SubScoreCell
         let indexPath = self.tableview.indexPath(for: currentCell)
-        let type = Array(dataDic.keys).sorted()[(indexPath?.section)!]
+        let type = typeSortArr[(indexPath?.section)!]
         var typeArr = dataDic[type]!
         if typeArr[(indexPath?.row)!]["getscore"].intValue > 0 {
             typeArr[(indexPath?.row)!]["getscore"].intValue = typeArr[(indexPath?.row)!]["getscore"].intValue-1
@@ -298,7 +296,8 @@ class ExamingSubScoController: UIViewController,UITableViewDelegate,UITableViewD
     {
         let currentCell = sender.superview?.superview as! SubScoreCell
         let indexPath = self.tableview.indexPath(for: currentCell)
-        let type = Array(dataDic.keys).sorted()[(indexPath?.section)!]
+        let type = typeSortArr[(indexPath?.section)!]
+
         var typeArr = dataDic[type]!
         if typeArr[(indexPath?.row)!]["getscore"].intValue < typeArr[(indexPath?.row)!]["score"].intValue {
             typeArr[(indexPath?.row)!]["getscore"].intValue = typeArr[(indexPath?.row)!]["getscore"].intValue+1
@@ -323,7 +322,8 @@ class ExamingSubScoController: UIViewController,UITableViewDelegate,UITableViewD
         let okAction = UIAlertAction(title: "确定", style: .default) { (UIAlertAction) in
             let currentCell = sender.superview?.superview as! SubScoreCell
             let indexPath = self.tableview.indexPath(for: currentCell)
-            let type = Array(self.dataDic.keys).sorted()[(indexPath?.section)!]
+            
+            let type = self.typeSortArr[(indexPath?.section)!]
             var typeArr = self.dataDic[type]!
             let str = (alertController.textFields?[0].text)!.trimmingCharacters(in: .whitespaces)
             if let deduce = Float(str){
@@ -348,6 +348,11 @@ class ExamingSubScoController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        for subview in view.subviews{
+            if subview is UILabel{
+                subview.removeFromSuperview()
+            }
+        }
         view.tintColor = UIColor.white
         let operationLabel = UILabel()
         operationLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -359,16 +364,16 @@ class ExamingSubScoController: UIViewController,UITableViewDelegate,UITableViewD
         operationLabel.layer.cornerRadius = 33/2
         operationLabel.layer.masksToBounds = true
         
-        let type = String(section+1)
+        let type = self.typeSortArr[section]
+
         operationLabel.text = dataDic[type]?.first?["typename"].stringValue
-        
-        var viewWidth = getLabWidth(labelStr: (dataDic[type]?.first?["typename"].stringValue)!, font: 16, height: 33/2)
+        var viewWidth = getLabWidth(labelStr: operationLabel.text!, font: 16, height: 33/2)
         if viewWidth < 40 {
             viewWidth = 40
         }
         view.addConstraint(NSLayoutConstraint.init(item: operationLabel, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0))
         view.addConstraint(NSLayoutConstraint.init(item: operationLabel, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0))
-        view.addConstraint(NSLayoutConstraint.init(item: operationLabel, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: viewWidth))
+        view.addConstraint(NSLayoutConstraint.init(item: operationLabel, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: CGFloat(viewWidth)))
         view.addConstraint(NSLayoutConstraint.init(item: operationLabel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 33))
     }
     
