@@ -28,6 +28,15 @@ func getViewToStoryboard(_ viewName:String) -> UIViewController{
     
 }
 
+///系统消息提示
+func myAlert(_ viewController:UIViewController, title:String = "系统提示", message:String, btnTitle:String = "好的", handler:((UIAlertAction) -> Void)? = nil){
+    
+    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: btnTitle, style: .default, handler: handler))
+    viewController.present(alert, animated: true, completion: nil)
+    
+}
+
 //post方式提交数据
 func myPostRequest(_ url:String, _ parameters: [String: Any]? = nil , method: HTTPMethod = HTTPMethod.post , timeoutInterval : TimeInterval = 60) -> DataRequest {
     

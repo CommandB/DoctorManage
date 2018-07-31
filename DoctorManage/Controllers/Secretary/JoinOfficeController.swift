@@ -21,6 +21,18 @@ class JoinOfficeController : UIViewController , UICollectionViewDelegate , UICol
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func btn_chooseTeacher_tui(_ sender: UIButton) {
+        let vc = getViewToStoryboard("officeTeacherView") as! OfficeTeacherController
+        vc.office = office
+        vc.selectedStudents = selectedPerson
+        if selectedPerson.count == 0 {
+            myAlert(self, message: "请选择入科学生!")
+            return
+        }
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
