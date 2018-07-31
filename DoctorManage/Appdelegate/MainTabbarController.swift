@@ -25,18 +25,25 @@ class MainTabbarController: UITabBarController {
         let evaluateNav = UINavigationController(rootViewController: BaseEvaluateController())
         let mineNav = UINavigationController(rootViewController: MineViewController())
         
+        let secretaryVC = storyboard.instantiateViewController(withIdentifier: "secretaryCenterView")
         
         taskCenterVC.title = "任务中心"
+        secretaryVC.title = "秘书"
         studentNav.title = "学员"
         evaluateNav.title = "考评"
         mineNav.title = "我的"
 
-        self.viewControllers = [taskCenterVC, studentNav, evaluateNav, mineNav]
+        self.viewControllers = [taskCenterVC, secretaryVC, studentNav, evaluateNav, mineNav]
         
         let image1 = UIImage(cgImage: (UIImage.init(named: "任务中心-灰色")?.cgImage)!, scale: 2.8, orientation: .up)
         let selectedImage1 = UIImage(cgImage: (UIImage.init(named: "任务中心")?.cgImage)!, scale: 2.8, orientation: .up)
         taskCenterVC.tabBarItem.image = image1.withRenderingMode(.alwaysOriginal)
         taskCenterVC.tabBarItem.selectedImage = selectedImage1.withRenderingMode(.alwaysOriginal)
+        
+        let image5 = UIImage(cgImage: (UIImage.init(named: "学员-灰色")?.cgImage)!, scale: 2.8, orientation: .up)
+        let selectedImage5 = UIImage(cgImage: (UIImage.init(named: "学员")?.cgImage)!, scale: 2.8, orientation: .up)
+        secretaryVC.tabBarItem.image = image5.withRenderingMode(.alwaysOriginal)
+        secretaryVC.tabBarItem.selectedImage = selectedImage5.withRenderingMode(.alwaysOriginal)
         
         let image2 = UIImage(cgImage: (UIImage.init(named: "学员-灰色")?.cgImage)!, scale: 2.8, orientation: .up)
         let selectedImage2 = UIImage(cgImage: (UIImage.init(named: "学员")?.cgImage)!, scale: 2.8, orientation: .up)

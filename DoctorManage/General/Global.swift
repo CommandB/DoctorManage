@@ -26,6 +26,7 @@ let kStatusBarHeight = UIApplication.shared.statusBarFrame.size.height
 let kSelectbaseURL = "http://120.77.181.22:8080/cloud_doctor_train/rest/trainHospital/query.do"
 
 let kLoginURL = "doctor_portal/rest/loginCheck.do"
+let kUserOfficeURL = "doctor_train/rest/app/queryMyOffice.do"
 
 //***********任务中心
 //MARK: 未开始任务

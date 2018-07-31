@@ -89,6 +89,25 @@ class NetworkTool: NSObject {
         }
     }
     
+    //MARK: 获取登录人的科室
+    class func getUserOffice(params : [String : String],success : @escaping (_ response : JSON)->(), failture : @escaping (_ error : Error)->()) {
+        let urlString = "http://"+Ip_port2+kUserOfficeURL
+        Alamofire.request(urlString, method: HTTPMethod.post, parameters: params).responseJSON { (response) in
+            switch response.result{
+            case .success:
+                
+                if let value = response.result.value as? [String: AnyObject] {
+                    let json = JSON(response.result.value)
+                    success(json)
+                }
+            case .failure(let error):
+                failture(error)
+                //                PrintLog("error:\(error)")
+            }
+            
+        }
+    }
+    
     //MARK: 未开始任务
     func requestUnCompleteTask(params : [String : String],success : @escaping (_ response : [String : AnyObject])->(), failture : @escaping (_ error : Error)->()) {
         let urlString = "http://"+Ip_port2+kUnCompleteTaskURL

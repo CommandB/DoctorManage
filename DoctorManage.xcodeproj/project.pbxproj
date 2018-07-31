@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A1A85E62110BC8500C20FB8 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A85DF2110BC8500C20FB8 /* UIColor.swift */; };
+		0A1A85E72110BC8500C20FB8 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A85E02110BC8500C20FB8 /* Extension.swift */; };
+		0A1A85E82110BC8500C20FB8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A85E12110BC8500C20FB8 /* String.swift */; };
+		0A1A85E92110BC8500C20FB8 /* SwitchOfficeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A85E22110BC8500C20FB8 /* SwitchOfficeController.swift */; };
+		0A1A85EA2110BC8500C20FB8 /* SecretaryCenterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A85E32110BC8500C20FB8 /* SecretaryCenterController.swift */; };
+		0A1A85EB2110BC8500C20FB8 /* JoinOfficeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A85E42110BC8500C20FB8 /* JoinOfficeController.swift */; };
+		0A1A85EC2110BC8500C20FB8 /* OfficeTeacherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A85E52110BC8500C20FB8 /* OfficeTeacherController.swift */; };
+		0A1A85F12110BF3C00C20FB8 /* join_office.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A1A85ED2110BF3B00C20FB8 /* join_office.png */; };
+		0A1A85F22110BF3C00C20FB8 /* out_office.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A1A85EE2110BF3C00C20FB8 /* out_office.png */; };
+		0A1A85F32110BF3C00C20FB8 /* office_person.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A1A85EF2110BF3C00C20FB8 /* office_person.png */; };
+		0A1A85F42110BF3C00C20FB8 /* office_plan.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A1A85F02110BF3C00C20FB8 /* office_plan.png */; };
 		944C81C3C2B9BDF3FA125C8B /* Pods_DoctorManage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 773702E47B86F9868C189CF4 /* Pods_DoctorManage.framework */; };
 		B41070121F9301EF00B513BD /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41070101F9301EF00B513BD /* logo@2x.png */; };
 		B41070131F9301EF00B513BD /* logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41070111F9301EF00B513BD /* logo@3x.png */; };
@@ -372,6 +383,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A1A85DF2110BC8500C20FB8 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		0A1A85E02110BC8500C20FB8 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		0A1A85E12110BC8500C20FB8 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		0A1A85E22110BC8500C20FB8 /* SwitchOfficeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchOfficeController.swift; sourceTree = "<group>"; };
+		0A1A85E32110BC8500C20FB8 /* SecretaryCenterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretaryCenterController.swift; sourceTree = "<group>"; };
+		0A1A85E42110BC8500C20FB8 /* JoinOfficeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinOfficeController.swift; sourceTree = "<group>"; };
+		0A1A85E52110BC8500C20FB8 /* OfficeTeacherController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfficeTeacherController.swift; sourceTree = "<group>"; };
+		0A1A85ED2110BF3B00C20FB8 /* join_office.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = join_office.png; sourceTree = "<group>"; };
+		0A1A85EE2110BF3C00C20FB8 /* out_office.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = out_office.png; sourceTree = "<group>"; };
+		0A1A85EF2110BF3C00C20FB8 /* office_person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = office_person.png; sourceTree = "<group>"; };
+		0A1A85F02110BF3C00C20FB8 /* office_plan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = office_plan.png; sourceTree = "<group>"; };
 		4E860808DF1E6E777592D38A /* Pods-DoctorManage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorManage.release.xcconfig"; path = "Pods/Target Support Files/Pods-DoctorManage/Pods-DoctorManage.release.xcconfig"; sourceTree = "<group>"; };
 		54C98E72B22008F441FF49FD /* Pods-DoctorManage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorManage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoctorManage/Pods-DoctorManage.debug.xcconfig"; sourceTree = "<group>"; };
 		773702E47B86F9868C189CF4 /* Pods_DoctorManage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoctorManage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -791,6 +813,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A1A85DD2110BC8500C20FB8 /* Secretary */ = {
+			isa = PBXGroup;
+			children = (
+				0A1A85DE2110BC8500C20FB8 /* util */,
+				0A1A85E22110BC8500C20FB8 /* SwitchOfficeController.swift */,
+				0A1A85E32110BC8500C20FB8 /* SecretaryCenterController.swift */,
+				0A1A85E42110BC8500C20FB8 /* JoinOfficeController.swift */,
+				0A1A85E52110BC8500C20FB8 /* OfficeTeacherController.swift */,
+			);
+			path = Secretary;
+			sourceTree = "<group>";
+		};
+		0A1A85DE2110BC8500C20FB8 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				0A1A85DF2110BC8500C20FB8 /* UIColor.swift */,
+				0A1A85E02110BC8500C20FB8 /* Extension.swift */,
+				0A1A85E12110BC8500C20FB8 /* String.swift */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
 		8C22624A8DD3939A9FB7D825 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1391,6 +1435,7 @@
 			isa = PBXGroup;
 			children = (
 				B41DFA501EE855BA0089CC67 /* TaskControllers */,
+				0A1A85DD2110BC8500C20FB8 /* Secretary */,
 				B41DFA4D1EE855B50089CC67 /* StudentControllers */,
 				B41DFA4A1EE855AB0089CC67 /* EvaluateControllers */,
 				B41DFA471EE855A20089CC67 /* MineControllers */,
@@ -1401,6 +1446,10 @@
 		B4DC074A1EE45A3B00AB32F4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0A1A85ED2110BF3B00C20FB8 /* join_office.png */,
+				0A1A85EF2110BF3C00C20FB8 /* office_person.png */,
+				0A1A85F02110BF3C00C20FB8 /* office_plan.png */,
+				0A1A85EE2110BF3C00C20FB8 /* out_office.png */,
 				B4E7CCDF1F40A34F00696762 /* 1.mp4 */,
 				B41DFA631EE856E00089CC67 /* testPhoto.jpg */,
 				B483F77D1EF2C8CA00A6E289 /* testresource.png */,
@@ -1732,6 +1781,7 @@
 				B42BC6471EEECB9A007B665E /* bar.png in Resources */,
 				B4DA57EB1EFA9F3E00CB31CC /* 老师@2x.png in Resources */,
 				B41DF9FF1EE587340089CC67 /* 未勾选@3x.png in Resources */,
+				0A1A85F12110BF3C00C20FB8 /* join_office.png in Resources */,
 				B41DFA071EE587340089CC67 /* 账号@2x.png in Resources */,
 				B4DA57EE1EFA9F3E00CB31CC /* 蓝色底@3x.png in Resources */,
 				B483F77C1EF2C7F100A6E289 /* subResMineCell.xib in Resources */,
@@ -1749,6 +1799,7 @@
 				B41DFA031EE587340089CC67 /* 学员-灰色@2x.png in Resources */,
 				B4DA583F1EFBE72F00CB31CC /* EvaluateSecondCell.xib in Resources */,
 				B41DF9EE1EE587340089CC67 /* 进入@2x.png in Resources */,
+				0A1A85F22110BF3C00C20FB8 /* out_office.png in Resources */,
 				B41DF9E71EE587340089CC67 /* 勾选@3x.png in Resources */,
 				B41070131F9301EF00B513BD /* logo@3x.png in Resources */,
 				B483F7781EF2C7A700A6E289 /* OnlineHeadCell.xib in Resources */,
@@ -1767,6 +1818,7 @@
 				B4FF1A5E1F93B3A4009C6685 /* logojiuhua@2x.png in Resources */,
 				B483F7BF1EF40DC000A6E289 /* 上一题@3x.png in Resources */,
 				B4DA57D51EFA9F3E00CB31CC /* 分享至@2x.png in Resources */,
+				0A1A85F42110BF3C00C20FB8 /* office_plan.png in Resources */,
 				B483F7C31EF40DC000A6E289 /* 完成@3x.png in Resources */,
 				B4500BEB1F0E8E75000ABD63 /* pulldown_list@2x.png in Resources */,
 				B483F7E21EF40E1C00A6E289 /* SubScoreCell.xib in Resources */,
@@ -1787,6 +1839,7 @@
 				B41DFA7D1EE9A0EF0089CC67 /* StudentTaskCell.xib in Resources */,
 				B41DF9FE1EE587340089CC67 /* 添加@2x.png in Resources */,
 				B46CF9BC1EFE11880048112F /* ELCAssetPicker.xib in Resources */,
+				0A1A85F32110BF3C00C20FB8 /* office_person.png in Resources */,
 				B4DA57F71EFA9F3E00CB31CC /* 选中@2x.png in Resources */,
 				B4DA57D21EFA9F3E00CB31CC /* 上传中@3x.png in Resources */,
 				B41DF9DC1EE587340089CC67 /* 饼图@2x.png in Resources */,
@@ -1906,6 +1959,8 @@
 				B4551F3A1F5BF29500CC68B3 /* TrainingViewController.swift in Sources */,
 				B483F75D1EF2BC9300A6E289 /* MineResourceController.swift in Sources */,
 				B4D62D711F1E448300BF07F6 /* SDWebImageDownloaderOperation.m in Sources */,
+				0A1A85EC2110BC8500C20FB8 /* OfficeTeacherController.swift in Sources */,
+				0A1A85EB2110BC8500C20FB8 /* JoinOfficeController.swift in Sources */,
 				B419F6BE1F03E02400B7FEE9 /* SelectBaseView.swift in Sources */,
 				B4DA583E1EFBE72F00CB31CC /* EvaluateSecondCell.swift in Sources */,
 				B4B045E11EEADA5200C03856 /* MasterSkillController.swift in Sources */,
@@ -1934,6 +1989,7 @@
 				B419F6C11F03E06600B7FEE9 /* SelectBaseCell.swift in Sources */,
 				B4B045DA1EEAD9E100C03856 /* CheckWorkCell.swift in Sources */,
 				B41DFA5A1EE855CB0089CC67 /* LoginViewController.swift in Sources */,
+				0A1A85E82110BC8500C20FB8 /* String.swift in Sources */,
 				B4B045DE1EEADA3700C03856 /* MasterSkillCell.swift in Sources */,
 				B419F6D41F03F06A00B7FEE9 /* NSDictionary+Additions.m in Sources */,
 				B483F7E61EF4380300A6E289 /* ComputeScoreController.swift in Sources */,
@@ -1950,6 +2006,7 @@
 				B483F7591EF2BC2B00A6E289 /* MineEvaluateController.swift in Sources */,
 				B4F3E2181F232813005BC906 /* ArrangeTaskCell.swift in Sources */,
 				B483F7D41EF40DF900A6E289 /* ExamingSubScoController.swift in Sources */,
+				0A1A85EA2110BC8500C20FB8 /* SecretaryCenterController.swift in Sources */,
 				B4D62D431F1B4DF900BF07F6 /* BRCommitDataManage.swift in Sources */,
 				B483F77B1EF2C7F100A6E289 /* subResMineCell.swift in Sources */,
 				B4D62D6C1F1E448300BF07F6 /* SDImageCache.m in Sources */,
@@ -2011,15 +2068,18 @@
 				B41B384B1F08D60100EFBEFF /* BaseEvaluateController.swift in Sources */,
 				B4D62D701F1E448300BF07F6 /* SDWebImageDownloader.m in Sources */,
 				B4D62D6B1F1E448300BF07F6 /* NSImage+WebCache.m in Sources */,
+				0A1A85E62110BC8500C20FB8 /* UIColor.swift in Sources */,
 				B4D62D721F1E448300BF07F6 /* SDWebImageManager.m in Sources */,
 				B41DFA7C1EE9A0EF0089CC67 /* StudentTaskCell.swift in Sources */,
 				B483F7771EF2C7A700A6E289 /* OnlineHeadCell.swift in Sources */,
 				B41DFA2B1EE845480089CC67 /* BRAlertView.swift in Sources */,
 				B4D62D831F1E455800BF07F6 /* FullScreenImageViewer.m in Sources */,
+				0A1A85E72110BC8500C20FB8 /* Extension.swift in Sources */,
 				B41DFA4F1EE855B50089CC67 /* StudentViewController.swift in Sources */,
 				B4D62D771F1E448300BF07F6 /* UIImageView+HighlightedWebCache.m in Sources */,
 				B4D62D7E1F1E450100BF07F6 /* ApplyTaskCell.swift in Sources */,
 				B41DFA491EE855A20089CC67 /* MineViewController.swift in Sources */,
+				0A1A85E92110BC8500C20FB8 /* SwitchOfficeController.swift in Sources */,
 				B41DFA751EE996A40089CC67 /* WishlistViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2195,7 +2255,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/chenshengchang/Desktop/GitDoctormanage/DoctorManage/General/DoctorManage-Briding-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Applications/myProject/DoctorManage/DoctorManage/General/DoctorManage-Briding-Header.h";
 				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
@@ -2228,7 +2288,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/chenshengchang/Desktop/GitDoctormanage/DoctorManage/General/DoctorManage-Briding-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Applications/myProject/DoctorManage/DoctorManage/General/DoctorManage-Briding-Header.h";
 				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};

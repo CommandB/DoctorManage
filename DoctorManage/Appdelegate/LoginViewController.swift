@@ -16,7 +16,7 @@ class LoginViewController: UIViewController,SelectBaseViewDelegate,UIPickerViewD
     var dataSource:[NSDictionary] = [NSDictionary]()
     var basename = ""
     var baseportalurl = ""
-    var ipPort = "120.77.181.22:80"
+    var ipPort = "www.jiuhuatech.com"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +62,16 @@ class LoginViewController: UIViewController,SelectBaseViewDelegate,UIPickerViewD
             UserInfo.instance().save(response)
             self.saveLoginIngo(loginInfo: ["loginid":self.userNameTextField.text!,"password": self.passwordTextField.text!])
 
+            NetworkTool.getUserOffice(params :["token":UserInfo.instance().token], success : { resp in
+                if resp["code"].string == "1"{
+                    g_userOffice = resp["data"].arrayValue
+                }
+            }){error in
+                MBProgressHUD.hide(for: self.view, animated: true)
+                UserInfo.instance().logout()
+                MBProgressHUD.showError("登录失败", to: self.view)
+            }
+            
             //登录成功跳转到主页面
             let mainTabbar = MainTabbarController()
             self.present(mainTabbar, animated: true, completion: nil)
