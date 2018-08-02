@@ -817,8 +817,8 @@
 			isa = PBXGroup;
 			children = (
 				0A1A85DE2110BC8500C20FB8 /* util */,
-				0A1A85E22110BC8500C20FB8 /* SwitchOfficeController.swift */,
 				0A1A85E32110BC8500C20FB8 /* SecretaryCenterController.swift */,
+				0A1A85E22110BC8500C20FB8 /* SwitchOfficeController.swift */,
 				0A1A85E42110BC8500C20FB8 /* JoinOfficeController.swift */,
 				0A1A85E52110BC8500C20FB8 /* OfficeTeacherController.swift */,
 			);

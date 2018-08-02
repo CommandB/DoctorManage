@@ -21,11 +21,16 @@ class SecretaryCenterController : UIViewController{
 
         view.viewWithTag(100001)?.isHidden = true
         let currentOfficeLbl = view.viewWithTag(10001) as! UILabel
-        if g_userOffice.count > 0{
-            currentOffice = g_userOffice[0]
-            currentOfficeLbl.text = currentOffice["officename"].stringValue
-        }else{
+        //如果当前没有科室被选中 则使用默认科室
+        if currentOffice.isEmpty {
+            if g_userOffice.count > 0{
+                currentOffice = g_userOffice[0]
+            }
+        }
+        if currentOffice.isEmpty{
             currentOfficeLbl.text = "科室信息异常"
+        }else{
+            currentOfficeLbl.text = currentOffice["officename"].stringValue
         }
         
         var btn = view.viewWithTag(20001) as! UIButton

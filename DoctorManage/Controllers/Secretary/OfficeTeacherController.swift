@@ -21,11 +21,57 @@ class OfficeTeacherController : UIViewController, UICollectionViewDelegate, UICo
     //被选中的学生
     var selectedStudents = [String:JSON]()
     
+    //返回
     @IBAction func btn_back_tui(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
     
+    //入科登记
     @IBAction func btn_joinOffice_tui(_ sender: UIButton) {
+        if selectedPerson.count == 0 {
+            myAlert(self, message: "请选择带教老师!")
+            return
+        }
+        if selectedStudents.count == 0{
+            myAlert(self, message: "请选择带教老师!")
+            return
+        }
+        
+        let teacher = selectedPerson.values.first
+        
+        var stus = [Dictionary<String, String>]()
+        for s in selectedStudents{
+            var json = Dictionary<String, String>()
+            json["studentid"] = s.value["personid"].stringValue
+            json["roundokpeopleresultid"] = s.value["roundokpeopleresultid"].stringValue
+            stus.append(json)
+        }
+        
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        let url = "http://"+Ip_port2+"doctor_train/rest/app/studentJoinOffice.do"
+        myPostRequest(url,["teacherid":teacher!["personid"].stringValue, "studentlist":stus]).responseJSON(completionHandler: {resp in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            switch resp.result{
+            case .success(let responseJson):
+                let json = JSON(responseJson)
+                if json["code"].stringValue == "1"{
+                    
+                    myAlert(self, message: "入科成功")
+                    //初始化数据,防止重复提交
+                    self.selectedStudents = [String:JSON]()
+                    self.selectedPerson = [String:JSON]()
+                    //重新加载列表
+                    self.loadTeacherInfo()
+                }else{
+                    myAlert(self, message: "入科失败")
+                }
+            case .failure(let error):
+                
+                print(error)
+            }
+            
+        })
+        
     }
     
     
@@ -36,6 +82,10 @@ class OfficeTeacherController : UIViewController, UICollectionViewDelegate, UICo
         teacher_collection.delegate = self
         teacher_collection.reloadData()
         
+        loadTeacherInfo()
+    }
+    
+    func loadTeacherInfo(){
         MBProgressHUD.showAdded(to: self.view, animated: true)
         let url = "http://"+Ip_port2+"doctor_train/rest/app/getOfficeTeachers.do"
         myPostRequest(url,["officeid":office["officeid"].stringValue]).responseJSON(completionHandler: {resp in
@@ -57,7 +107,6 @@ class OfficeTeacherController : UIViewController, UICollectionViewDelegate, UICo
             }
             
         })
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -56,7 +56,7 @@ func myPostRequest(_ url:String, _ parameters: [String: Any]? = nil , method: HT
     //添加必要参数
     requestParam["myshop_forapp_key"] = 987654321
     
-    //    print("url:\(url)\nparam:\(JSON.init(requestParam))")
+        print("url:\(url)\nparam:\(JSON.init(requestParam))")
     
     
     //设置请求超时时间

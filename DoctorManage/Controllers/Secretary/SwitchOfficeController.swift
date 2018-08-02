@@ -48,6 +48,7 @@ class SwitchOfficeController : UIViewController , UICollectionViewDataSource,UIC
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = office_collection.dequeueReusableCell(withReuseIdentifier: "c1", for: indexPath)
+        cell.backgroundColor = UIColor.white
         let data = collectionDs[indexPath.item]
         let lbl = cell.viewWithTag(10001) as! UILabel
         lbl.text = data["officename"].stringValue
