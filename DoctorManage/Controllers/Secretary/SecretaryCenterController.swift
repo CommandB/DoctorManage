@@ -33,16 +33,28 @@ class SecretaryCenterController : UIViewController{
             currentOfficeLbl.text = currentOffice["officename"].stringValue
         }
         
-        var btn = view.viewWithTag(20001) as! UIButton
-        btn.set(image: UIImage(named: "join_office"), title: "入科", titlePosition: .bottom, additionalSpacing: 10.0, state: .normal)
-        btn.addTarget(self, action: #selector(btn_nav_tui), for: .touchUpInside)
-        btn = view.viewWithTag(20002) as! UIButton
-        btn.set(image: UIImage(named: "out_office"), title: "出科", titlePosition: .bottom, additionalSpacing: 10.0, state: .normal)
-        btn = view.viewWithTag(20003) as! UIButton
-        btn.set(image: UIImage(named: "office_person"), title: "科室人员", titlePosition: .bottom, additionalSpacing: 10.0, state: .normal)
-        btn = view.viewWithTag(20004) as! UIButton
-        btn.set(image: UIImage(named: "office_plan"), title: "教学计划", titlePosition: .bottom, additionalSpacing: 10.0, state: .normal)
-        
+        for i in 1...4 {
+            let btn = view.viewWithTag(20000+i) as! UIButton
+            btn.addTarget(self, action: #selector(btn_nav_tui), for: .touchUpInside)
+            switch i {
+            case 1:
+                btn.set(image: UIImage(named: "join_office"), title: "入科", titlePosition: .bottom, additionalSpacing: 10.0, state: .normal)
+                break
+            case 2:
+                btn.set(image: UIImage(named: "out_office"), title: "出科", titlePosition: .bottom, additionalSpacing: 10.0, state: .normal)
+                break
+            case 3:
+                btn.set(image: UIImage(named: "office_person"), title: "科室人员", titlePosition: .bottom, additionalSpacing: 10.0, state: .normal)
+                break
+            case 4:
+                btn.set(image: UIImage(named: "office_plan"), title: "教学计划", titlePosition: .bottom, additionalSpacing: 10.0, state: .normal)
+                break
+            default: break
+                
+            }
+
+        }
+
         
         NetworkTool.getUserOffice(params :["token":UserInfo.instance().token], success : { resp in
             if resp["code"].string == "1"{
@@ -70,6 +82,12 @@ class SecretaryCenterController : UIViewController{
             vc.office = currentOffice
             self.present(vc, animated: true, completion: nil)
             break
+        case 20004:
+            let nav = UINavigationController(rootViewController: SmallLectureViewController())
+            self.present(nav, animated: true, completion: nil)
+            break
+            
+            
         default: break
             
         }

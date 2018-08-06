@@ -96,8 +96,8 @@ class NetworkTool: NSObject {
             switch response.result{
             case .success:
                 
-                if let value = response.result.value as? [String: AnyObject] {
-                    let json = JSON(response.result.value)
+                if (response.result.value as? [String: AnyObject]) != nil {
+                    let json = JSON(response.result.value!)
                     success(json)
                 }
             case .failure(let error):
@@ -493,6 +493,25 @@ class NetworkTool: NSObject {
             
         })
         
+    }
+    
+    //MARK: 小讲座
+    func requestSmallLecture(params : [String : String],success : @escaping (_ response : [String : AnyObject])->(), failture : @escaping (_ error : Error)->()) {
+        let urlString = "http://"+Ip_port2+kSmallLectureURL
+        Alamofire.request(urlString, method: HTTPMethod.post, parameters: params).responseJSON { (response) in
+            switch response.result{
+            case .success:
+                if let value = response.result.value as? [String: AnyObject] {
+                    success(value)
+                    _ = JSON(value)
+                    //                    PrintLog(json)
+                }
+            case .failure(let error):
+                failture(error)
+                //                PrintLog("error:\(error)")
+            }
+            
+        }
     }
     
 }

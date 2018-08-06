@@ -248,6 +248,11 @@
 		B4B045E11EEADA5200C03856 /* MasterSkillController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B045E01EEADA5200C03856 /* MasterSkillController.swift */; };
 		B4B045E31EEAED9200C03856 /* CompleteDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B045E21EEAED9200C03856 /* CompleteDetailController.swift */; };
 		B4B045E71EEAF1CA00C03856 /* SubValuateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B045E61EEAF1C900C03856 /* SubValuateController.swift */; };
+		B4CC3E7221186D9D0044D795 /* SmallLectureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CC3E7121186D9D0044D795 /* SmallLectureViewController.swift */; };
+		B4CC3E7421186EB60044D795 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CC3E7321186EB60044D795 /* String+Extension.swift */; };
+		B4CC3E7721186F010044D795 /* JHTrainingChangedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CC3E7521186F010044D795 /* JHTrainingChangedCell.swift */; };
+		B4CC3E7821186F010044D795 /* JHTrainingChangedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4CC3E7621186F010044D795 /* JHTrainingChangedCell.xib */; };
+		B4CC3E7B211873610044D795 /* JHCommonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CC3E7A211873610044D795 /* JHCommonViewController.swift */; };
 		B4CF78011EEB977A00FD36E9 /* EvaluateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CF77FF1EEB977A00FD36E9 /* EvaluateCell.swift */; };
 		B4CF78021EEB977A00FD36E9 /* EvaluateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4CF78001EEB977A00FD36E9 /* EvaluateCell.xib */; };
 		B4D62D361F1677DF00BF07F6 /* HisEvaluateDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D62D351F1677DF00BF07F6 /* HisEvaluateDetailController.swift */; };
@@ -643,6 +648,11 @@
 		B4B045E01EEADA5200C03856 /* MasterSkillController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterSkillController.swift; sourceTree = "<group>"; };
 		B4B045E21EEAED9200C03856 /* CompleteDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteDetailController.swift; sourceTree = "<group>"; };
 		B4B045E61EEAF1C900C03856 /* SubValuateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubValuateController.swift; sourceTree = "<group>"; };
+		B4CC3E7121186D9D0044D795 /* SmallLectureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallLectureViewController.swift; sourceTree = "<group>"; };
+		B4CC3E7321186EB60044D795 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		B4CC3E7521186F010044D795 /* JHTrainingChangedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHTrainingChangedCell.swift; sourceTree = "<group>"; };
+		B4CC3E7621186F010044D795 /* JHTrainingChangedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JHTrainingChangedCell.xib; sourceTree = "<group>"; };
+		B4CC3E7A211873610044D795 /* JHCommonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHCommonViewController.swift; sourceTree = "<group>"; };
 		B4CF77FF1EEB977A00FD36E9 /* EvaluateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluateCell.swift; sourceTree = "<group>"; };
 		B4CF78001EEB977A00FD36E9 /* EvaluateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluateCell.xib; sourceTree = "<group>"; };
 		B4D62D351F1677DF00BF07F6 /* HisEvaluateDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HisEvaluateDetailController.swift; sourceTree = "<group>"; };
@@ -829,6 +839,7 @@
 				0A1A85DF2110BC8500C20FB8 /* UIColor.swift */,
 				0A1A85E02110BC8500C20FB8 /* Extension.swift */,
 				0A1A85E12110BC8500C20FB8 /* String.swift */,
+				B4CC3E7321186EB60044D795 /* String+Extension.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -1193,6 +1204,24 @@
 			path = EvaluateView;
 			sourceTree = "<group>";
 		};
+		B4CC3E7021186D9D0044D795 /* SmallLectureControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B4CC3E7521186F010044D795 /* JHTrainingChangedCell.swift */,
+				B4CC3E7621186F010044D795 /* JHTrainingChangedCell.xib */,
+				B4CC3E7121186D9D0044D795 /* SmallLectureViewController.swift */,
+			);
+			path = SmallLectureControllers;
+			sourceTree = "<group>";
+		};
+		B4CC3E79211873500044D795 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B4CC3E7A211873610044D795 /* JHCommonViewController.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		B4D62D461F1E448300BF07F6 /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -1391,6 +1420,7 @@
 				B4DA58CD1EFE002900CB31CC /* General */,
 				B41DFA0F1EE589E40089CC67 /* Venders */,
 				B4DC074A1EE45A3B00AB32F4 /* Resources */,
+				B4CC3E79211873500044D795 /* Common */,
 				B4DC06B81EE2606600AB32F4 /* doctorResource.plist */,
 				B4DC05E81EE1AFD100AB32F4 /* Main.storyboard */,
 				B4DC05EB1EE1AFD100AB32F4 /* Assets.xcassets */,
@@ -1436,6 +1466,7 @@
 				B41DFA4D1EE855B50089CC67 /* StudentControllers */,
 				B41DFA4A1EE855AB0089CC67 /* EvaluateControllers */,
 				B41DFA471EE855A20089CC67 /* MineControllers */,
+				B4CC3E7021186D9D0044D795 /* SmallLectureControllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1714,6 +1745,7 @@
 				B41DF9D71EE587340089CC67 /* 安排@3x.png in Resources */,
 				B41DF9F31EE587340089CC67 /* 空星@3x.png in Resources */,
 				B41DFA081EE587340089CC67 /* 账号@3x.png in Resources */,
+				B4CC3E7821186F010044D795 /* JHTrainingChangedCell.xib in Resources */,
 				B41DF9F91EE587340089CC67 /* 任务中心-灰色@2x.png in Resources */,
 				B4DC05EF1EE1AFD100AB32F4 /* LaunchScreen.storyboard in Resources */,
 				B483F7BE1EF40DC000A6E289 /* 上一题@2x.png in Resources */,
@@ -1965,6 +1997,7 @@
 				B429B2621EF5862B00A21DD0 /* SubResDepartController.swift in Sources */,
 				B429B2641EF5863C00A21DD0 /* SubResMineController.swift in Sources */,
 				B483F7E91EF43AC700A6E289 /* ComputeScroHeadCell.swift in Sources */,
+				B4CC3E7221186D9D0044D795 /* SmallLectureViewController.swift in Sources */,
 				B483F7DD1EF40E1C00A6E289 /* EvaluateBaseCell.swift in Sources */,
 				B48018D91EF628A800250158 /* HistoryExamController.swift in Sources */,
 				B419F6CF1F03EB6D00B7FEE9 /* MBProgressHUD.m in Sources */,
@@ -1998,6 +2031,7 @@
 				B4D62D761F1E448300BF07F6 /* UIImage+MultiFormat.m in Sources */,
 				B41DFA3F1EE854690089CC67 /* PersonalHeadCell.swift in Sources */,
 				B46CF9B61EFE11880048112F /* ELCAssetCell.m in Sources */,
+				B4CC3E7421186EB60044D795 /* String+Extension.swift in Sources */,
 				B419F6D51F03F06A00B7FEE9 /* UserInfo.m in Sources */,
 				B483F7591EF2BC2B00A6E289 /* MineEvaluateController.swift in Sources */,
 				B4F3E2181F232813005BC906 /* ArrangeTaskCell.swift in Sources */,
@@ -2028,6 +2062,7 @@
 				B41DFA781EE996F50089CC67 /* WishlistCell.swift in Sources */,
 				B41DFA461EE854C80089CC67 /* MainTabbarController.swift in Sources */,
 				B46CF9B41EFE11880048112F /* ELCAlbumPickerController.m in Sources */,
+				B4CC3E7B211873610044D795 /* JHCommonViewController.swift in Sources */,
 				B4DA58931EFC146C00CB31CC /* ReplayInfoCell.swift in Sources */,
 				B4DA589F1EFD4C3F00CB31CC /* UIKitExtension.swift in Sources */,
 				B48018DF1EF6324300250158 /* HistoryExamCell.swift in Sources */,
@@ -2047,6 +2082,7 @@
 				B4D62D731F1E448300BF07F6 /* SDWebImagePrefetcher.m in Sources */,
 				B41DFA7F1EE9A4160089CC67 /* StudentTaskViewController.swift in Sources */,
 				B483F7D31EF40DF900A6E289 /* ExamingViewController.swift in Sources */,
+				B4CC3E7721186F010044D795 /* JHTrainingChangedCell.swift in Sources */,
 				B4B045D31EEAD99C00C03856 /* PersonalInfoController.swift in Sources */,
 				B4B045E31EEAED9200C03856 /* CompleteDetailController.swift in Sources */,
 				B42BC64B1EF02246007B665E /* QuestionViewController.swift in Sources */,
