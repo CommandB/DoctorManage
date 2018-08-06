@@ -66,6 +66,12 @@ func myPostRequest(_ url:String, _ parameters: [String: Any]? = nil , method: HT
     return sessionManager.request(url, method: method, parameters: requestParam, encoding: URLEncoding.default, headers: ["Content-type":"application/x-www-form-urlencoded"])
 }
 
+///根据lbl的lineNumbner计算lbl的高度
+func getHeightForLabel(lbl : UILabel) -> CGFloat{
+    
+    return CGFloat(lbl.numberOfLines * 20)
+}
+
 extension UIButton {
     
     @objc func set(image anImage: UIImage?, title: String,

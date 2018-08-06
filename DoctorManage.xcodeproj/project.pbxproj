@@ -18,6 +18,10 @@
 		0A1A85F22110BF3C00C20FB8 /* out_office.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A1A85EE2110BF3C00C20FB8 /* out_office.png */; };
 		0A1A85F32110BF3C00C20FB8 /* office_person.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A1A85EF2110BF3C00C20FB8 /* office_person.png */; };
 		0A1A85F42110BF3C00C20FB8 /* office_plan.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A1A85F02110BF3C00C20FB8 /* office_plan.png */; };
+		0A1A85FB2118262700C20FB8 /* CreateNoticeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A85FA2118262700C20FB8 /* CreateNoticeController.swift */; };
+		0A1A85FD211828F600C20FB8 /* notice_office.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A1A85FC211828F400C20FB8 /* notice_office.png */; };
+		0A1A8601211844F200C20FB8 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A8600211844F100C20FB8 /* UILabel.swift */; };
+		0A1A860321184A2900C20FB8 /* UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A860221184A2900C20FB8 /* UIScreen.swift */; };
 		944C81C3C2B9BDF3FA125C8B /* Pods_DoctorManage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 773702E47B86F9868C189CF4 /* Pods_DoctorManage.framework */; };
 		B41070121F9301EF00B513BD /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41070101F9301EF00B513BD /* logo@2x.png */; };
 		B41070131F9301EF00B513BD /* logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41070111F9301EF00B513BD /* logo@3x.png */; };
@@ -400,6 +404,10 @@
 		0A1A85EE2110BF3C00C20FB8 /* out_office.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = out_office.png; sourceTree = "<group>"; };
 		0A1A85EF2110BF3C00C20FB8 /* office_person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = office_person.png; sourceTree = "<group>"; };
 		0A1A85F02110BF3C00C20FB8 /* office_plan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = office_plan.png; sourceTree = "<group>"; };
+		0A1A85FA2118262700C20FB8 /* CreateNoticeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoticeController.swift; sourceTree = "<group>"; };
+		0A1A85FC211828F400C20FB8 /* notice_office.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notice_office.png; sourceTree = "<group>"; };
+		0A1A8600211844F100C20FB8 /* UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		0A1A860221184A2900C20FB8 /* UIScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScreen.swift; sourceTree = "<group>"; };
 		4E860808DF1E6E777592D38A /* Pods-DoctorManage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorManage.release.xcconfig"; path = "Pods/Target Support Files/Pods-DoctorManage/Pods-DoctorManage.release.xcconfig"; sourceTree = "<group>"; };
 		54C98E72B22008F441FF49FD /* Pods-DoctorManage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorManage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoctorManage/Pods-DoctorManage.debug.xcconfig"; sourceTree = "<group>"; };
 		773702E47B86F9868C189CF4 /* Pods_DoctorManage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoctorManage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -833,6 +841,7 @@
 				0A1A85E22110BC8500C20FB8 /* SwitchOfficeController.swift */,
 				0A1A85E42110BC8500C20FB8 /* JoinOfficeController.swift */,
 				0A1A85E52110BC8500C20FB8 /* OfficeTeacherController.swift */,
+				0A1A85FA2118262700C20FB8 /* CreateNoticeController.swift */,
 			);
 			path = Secretary;
 			sourceTree = "<group>";
@@ -843,7 +852,8 @@
 				0A1A85DF2110BC8500C20FB8 /* UIColor.swift */,
 				0A1A85E02110BC8500C20FB8 /* Extension.swift */,
 				0A1A85E12110BC8500C20FB8 /* String.swift */,
-				B4CC3E7321186EB60044D795 /* String+Extension.swift */,
+				0A1A860221184A2900C20FB8 /* UIScreen.swift */,
+				0A1A8600211844F100C20FB8 /* UILabel.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -1490,6 +1500,7 @@
 			children = (
 				0A1A85ED2110BF3B00C20FB8 /* join_office.png */,
 				0A1A85EF2110BF3C00C20FB8 /* office_person.png */,
+				0A1A85FC211828F400C20FB8 /* notice_office.png */,
 				0A1A85F02110BF3C00C20FB8 /* office_plan.png */,
 				0A1A85EE2110BF3C00C20FB8 /* out_office.png */,
 				B4E7CCDF1F40A34F00696762 /* 1.mp4 */,
@@ -1766,6 +1777,7 @@
 				B41DFA3A1EE854690089CC67 /* BaseTableViewCell.xib in Resources */,
 				B4DA57FD1EFA9F3E00CB31CC /* 黄底边2@2x.png in Resources */,
 				B41DF9F81EE587340089CC67 /* 密码@3x.png in Resources */,
+				0A1A85FD211828F600C20FB8 /* notice_office.png in Resources */,
 				B41DF9EA1EE587340089CC67 /* 渐变大@2x.png in Resources */,
 				B42BC6481EEECB9A007B665E /* bar@2x.png in Resources */,
 				B483F7EA1EF43AC700A6E289 /* ComputeScroHeadCell.xib in Resources */,
@@ -1986,6 +1998,7 @@
 				B483F7E41EF41B9C00A6E289 /* QuestionListController.swift in Sources */,
 				B41DFA581EE855BA0089CC67 /* UnCompleteController.swift in Sources */,
 				B45000B11F0E709A000ABD63 /* WaitEvaluateController.swift in Sources */,
+				0A1A860321184A2900C20FB8 /* UIScreen.swift in Sources */,
 				B4DA58901EFC131200CB31CC /* AnswerDetailController.swift in Sources */,
 				B41DFA3B1EE854690089CC67 /* CheckingTableViewCell.swift in Sources */,
 				B48D47031F35C9E800055F89 /* BRPersonInfoData.swift in Sources */,
@@ -1999,6 +2012,7 @@
 				B4D62D711F1E448300BF07F6 /* SDWebImageDownloaderOperation.m in Sources */,
 				0A1A85EC2110BC8500C20FB8 /* OfficeTeacherController.swift in Sources */,
 				0A1A85EB2110BC8500C20FB8 /* JoinOfficeController.swift in Sources */,
+				0A1A8601211844F200C20FB8 /* UILabel.swift in Sources */,
 				B419F6BE1F03E02400B7FEE9 /* SelectBaseView.swift in Sources */,
 				B4DA583E1EFBE72F00CB31CC /* EvaluateSecondCell.swift in Sources */,
 				B4B045E11EEADA5200C03856 /* MasterSkillController.swift in Sources */,
@@ -2105,6 +2119,7 @@
 				B4DA589E1EFD4C3F00CB31CC /* UIColor+Extensions.swift in Sources */,
 				B46CF9C31EFF869B0048112F /* NetworkTool.swift in Sources */,
 				B46CF9D11F0151CF0048112F /* XLVideoPlayer.m in Sources */,
+				0A1A85FB2118262700C20FB8 /* CreateNoticeController.swift in Sources */,
 				B42D402D1F262EEE001143F7 /* ZHDropDownMenu.swift in Sources */,
 				B41DFA561EE855BA0089CC67 /* TaskCenterViewController.swift in Sources */,
 				B46CF9B51EFE11880048112F /* ELCAsset.m in Sources */,

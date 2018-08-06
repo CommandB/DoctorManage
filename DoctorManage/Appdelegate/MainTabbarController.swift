@@ -28,7 +28,7 @@ class MainTabbarController: UITabBarController {
         let secretaryVC = storyboard.instantiateViewController(withIdentifier: "secretaryCenterView")
         
         taskCenterVC.title = "任务中心"
-        secretaryVC.title = "秘书"
+        secretaryVC.title = "科室"
         studentNav.title = "学员"
         evaluateNav.title = "考评"
         mineNav.title = "我的"
