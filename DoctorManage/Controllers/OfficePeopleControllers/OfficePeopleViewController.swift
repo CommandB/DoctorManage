@@ -70,7 +70,6 @@ class OfficePeopleViewController: JHBaseViewController,UITableViewDelegate,UITab
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let itemDataList = self.dataSource[indexPath.section]["my_data_list"].arrayValue
-//        print(CGFloat(((itemDataList.count-1)/4+1)*50)+20)
         return  CGFloat(((itemDataList.count-1)/4+1)*50)+20
     }
     
