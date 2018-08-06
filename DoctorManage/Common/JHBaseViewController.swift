@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JHCommonViewController: UIViewController {
+class JHBaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

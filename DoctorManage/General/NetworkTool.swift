@@ -514,4 +514,23 @@ class NetworkTool: NSObject {
         }
     }
     
+    //MARK: 科室人员
+    func requestOfficePeople(params : [String : String],success : @escaping (_ response : [String : AnyObject])->(), failture : @escaping (_ error : Error)->()) {
+        let urlString = "http://"+Ip_port2+kOfficePeopleURL
+        Alamofire.request(urlString, method: HTTPMethod.post, parameters: params).responseJSON { (response) in
+            switch response.result{
+            case .success:
+                if let value = response.result.value as? [String: AnyObject] {
+                    success(value)
+                    _ = JSON(value)
+                    //                    PrintLog(json)
+                }
+            case .failure(let error):
+                failture(error)
+                //                PrintLog("error:\(error)")
+            }
+            
+        }
+    }
+    
 }

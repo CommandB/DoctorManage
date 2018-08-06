@@ -252,7 +252,9 @@
 		B4CC3E7421186EB60044D795 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CC3E7321186EB60044D795 /* String+Extension.swift */; };
 		B4CC3E7721186F010044D795 /* JHTrainingChangedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CC3E7521186F010044D795 /* JHTrainingChangedCell.swift */; };
 		B4CC3E7821186F010044D795 /* JHTrainingChangedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4CC3E7621186F010044D795 /* JHTrainingChangedCell.xib */; };
-		B4CC3E7B211873610044D795 /* JHCommonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CC3E7A211873610044D795 /* JHCommonViewController.swift */; };
+		B4CC3E7B211873610044D795 /* JHBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CC3E7A211873610044D795 /* JHBaseViewController.swift */; };
+		B4CC3E7F211876A50044D795 /* OfficePeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CC3E7E211876A50044D795 /* OfficePeopleViewController.swift */; };
+		B4CC3E8121187DC40044D795 /* OfficePeopleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CC3E8021187DC40044D795 /* OfficePeopleCell.swift */; };
 		B4CF78011EEB977A00FD36E9 /* EvaluateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CF77FF1EEB977A00FD36E9 /* EvaluateCell.swift */; };
 		B4CF78021EEB977A00FD36E9 /* EvaluateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4CF78001EEB977A00FD36E9 /* EvaluateCell.xib */; };
 		B4D62D361F1677DF00BF07F6 /* HisEvaluateDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D62D351F1677DF00BF07F6 /* HisEvaluateDetailController.swift */; };
@@ -652,7 +654,9 @@
 		B4CC3E7321186EB60044D795 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		B4CC3E7521186F010044D795 /* JHTrainingChangedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHTrainingChangedCell.swift; sourceTree = "<group>"; };
 		B4CC3E7621186F010044D795 /* JHTrainingChangedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JHTrainingChangedCell.xib; sourceTree = "<group>"; };
-		B4CC3E7A211873610044D795 /* JHCommonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHCommonViewController.swift; sourceTree = "<group>"; };
+		B4CC3E7A211873610044D795 /* JHBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHBaseViewController.swift; sourceTree = "<group>"; };
+		B4CC3E7E211876A50044D795 /* OfficePeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficePeopleViewController.swift; sourceTree = "<group>"; };
+		B4CC3E8021187DC40044D795 /* OfficePeopleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficePeopleCell.swift; sourceTree = "<group>"; };
 		B4CF77FF1EEB977A00FD36E9 /* EvaluateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluateCell.swift; sourceTree = "<group>"; };
 		B4CF78001EEB977A00FD36E9 /* EvaluateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluateCell.xib; sourceTree = "<group>"; };
 		B4D62D351F1677DF00BF07F6 /* HisEvaluateDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HisEvaluateDetailController.swift; sourceTree = "<group>"; };
@@ -1217,9 +1221,18 @@
 		B4CC3E79211873500044D795 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				B4CC3E7A211873610044D795 /* JHCommonViewController.swift */,
+				B4CC3E7A211873610044D795 /* JHBaseViewController.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		B4CC3E7D211876880044D795 /* OfficePeopleControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B4CC3E7E211876A50044D795 /* OfficePeopleViewController.swift */,
+				B4CC3E8021187DC40044D795 /* OfficePeopleCell.swift */,
+			);
+			path = OfficePeopleControllers;
 			sourceTree = "<group>";
 		};
 		B4D62D461F1E448300BF07F6 /* SDWebImage */ = {
@@ -1467,6 +1480,7 @@
 				B41DFA4A1EE855AB0089CC67 /* EvaluateControllers */,
 				B41DFA471EE855A20089CC67 /* MineControllers */,
 				B4CC3E7021186D9D0044D795 /* SmallLectureControllers */,
+				B4CC3E7D211876880044D795 /* OfficePeopleControllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1573,7 +1587,6 @@
 				B4DC05DE1EE1AFD100AB32F4 /* Frameworks */,
 				B4DC05DF1EE1AFD100AB32F4 /* Resources */,
 				AD9C52923F83E3098834B8CD /* [CP] Embed Pods Frameworks */,
-				71FA2B2AEBF0BB21219BED68 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1915,34 +1928,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		71FA2B2AEBF0BB21219BED68 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DoctorManage/Pods-DoctorManage-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		9AC6836ABF29165B26153379 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DoctorManage-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AD9C52923F83E3098834B8CD /* [CP] Embed Pods Frameworks */ = {
@@ -1951,9 +1952,18 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DoctorManage/Pods-DoctorManage-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2022,6 +2032,7 @@
 				B4B045DE1EEADA3700C03856 /* MasterSkillCell.swift in Sources */,
 				B419F6D41F03F06A00B7FEE9 /* NSDictionary+Additions.m in Sources */,
 				B483F7E61EF4380300A6E289 /* ComputeScoreController.swift in Sources */,
+				B4CC3E7F211876A50044D795 /* OfficePeopleViewController.swift in Sources */,
 				B41DFA551EE855BA0089CC67 /* CompleteController.swift in Sources */,
 				B4DA588A1EFC0ED200CB31CC /* AnswerListController.swift in Sources */,
 				B483F7D21EF40DF900A6E289 /* ExamInfoViewController.swift in Sources */,
@@ -2040,6 +2051,7 @@
 				B4D62D431F1B4DF900BF07F6 /* BRCommitDataManage.swift in Sources */,
 				B483F77B1EF2C7F100A6E289 /* subResMineCell.swift in Sources */,
 				B4D62D6C1F1E448300BF07F6 /* SDImageCache.m in Sources */,
+				B4CC3E8121187DC40044D795 /* OfficePeopleCell.swift in Sources */,
 				B483F7711EF2C7A700A6E289 /* LearnResourceCell.swift in Sources */,
 				B483F7731EF2C7A700A6E289 /* MineEvaluateCell.swift in Sources */,
 				B4DC07261EE456D500AB32F4 /* AppDelegate.swift in Sources */,
@@ -2062,7 +2074,7 @@
 				B41DFA781EE996F50089CC67 /* WishlistCell.swift in Sources */,
 				B41DFA461EE854C80089CC67 /* MainTabbarController.swift in Sources */,
 				B46CF9B41EFE11880048112F /* ELCAlbumPickerController.m in Sources */,
-				B4CC3E7B211873610044D795 /* JHCommonViewController.swift in Sources */,
+				B4CC3E7B211873610044D795 /* JHBaseViewController.swift in Sources */,
 				B4DA58931EFC146C00CB31CC /* ReplayInfoCell.swift in Sources */,
 				B4DA589F1EFD4C3F00CB31CC /* UIKitExtension.swift in Sources */,
 				B48018DF1EF6324300250158 /* HistoryExamCell.swift in Sources */,

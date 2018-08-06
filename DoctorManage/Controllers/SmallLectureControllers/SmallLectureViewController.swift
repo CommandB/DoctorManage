@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import SwiftyJSON
 
-class SmallLectureViewController: JHCommonViewController,UITableViewDataSource,UITableViewDelegate {
+class SmallLectureViewController: JHBaseViewController,UITableViewDataSource,UITableViewDelegate {
     var tableview = UITableView()
     var sortedData = Dictionary<String, [NSDictionary]>()
-    
+    var office = JSON()
+
     var index = 0
     
     override func viewDidLoad() {

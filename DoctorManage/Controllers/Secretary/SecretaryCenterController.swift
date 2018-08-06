@@ -82,7 +82,15 @@ class SecretaryCenterController : UIViewController{
             vc.office = currentOffice
             self.present(vc, animated: true, completion: nil)
             break
+        case 20003:
+            let vc = OfficePeopleViewController()
+            vc.office = currentOffice
+            let nav = UINavigationController(rootViewController: vc)
+            self.present(nav, animated: true, completion: nil)
+            break
         case 20004:
+            let vc = SmallLectureViewController()
+            vc.office = currentOffice
             let nav = UINavigationController(rootViewController: SmallLectureViewController())
             self.present(nav, animated: true, completion: nil)
             break

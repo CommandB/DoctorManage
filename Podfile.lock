@@ -14,6 +14,15 @@ DEPENDENCIES:
   - Reachability
   - SwiftyJSON
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - JCore
+    - JPush
+    - MJRefresh
+    - Reachability
+    - SwiftyJSON
+
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   JCore: 9bd9c770c877c583d98b90a68792b8361974c231
@@ -22,6 +31,6 @@ SPEC CHECKSUMS:
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 96e6f4cc53694ef4435c7e407c6b35d47607ae6e
+PODFILE CHECKSUM: ef52ddae328091779cabb5e79ca0c3f02686e3d7
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.5.3

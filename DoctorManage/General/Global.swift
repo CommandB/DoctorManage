@@ -23,7 +23,7 @@ let kScreenHeight = UIScreen.main.bounds.size.height
 let kStatusBarHeight = UIApplication.shared.statusBarFrame.size.height
 
 //MARK: 接口
-let kSelectbaseURL = "http://120.77.181.22:8080/cloud_doctor_train/rest/trainHospital/query.do"
+let kSelectbaseURL = "http://39.104.60.22:6023/cloud_doctor_train/rest/trainHospital/query.do"
 
 let kLoginURL = "doctor_portal/rest/loginCheck.do"
 let kUserOfficeURL = "doctor_train/rest/app/queryMyOffice.do"
@@ -39,6 +39,9 @@ let kQueryTaskevaluationresultinfoRateURL = "doctor_train/rest/evaluation/queryT
 
 //*********小讲座
 let kSmallLectureURL = "doctor_train/rest/app/queryOfficeTrain.do"
+
+//*********科室人员
+let kOfficePeopleURL = "doctor_train/rest/app/getOfficePerson.do"
 
 //**********学员
 //MARK: 我的学员--个人信息(全部)
