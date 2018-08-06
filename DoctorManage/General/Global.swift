@@ -37,6 +37,12 @@ let kRecordTaskSignResultURL = "doctor_train/rest/taskSignResult/recordTaskSignR
 //MARK: 评价
 let kQueryTaskevaluationresultinfoRateURL = "doctor_train/rest/evaluation/queryTaskevaluationresultinfoRate.do"
 
+//*********小讲座
+let kSmallLectureURL = "doctor_train/rest/app/queryOfficeTrain.do"
+
+//*********科室人员
+let kOfficePeopleURL = "doctor_train/rest/app/getOfficePerson.do"
+
 //**********学员
 //MARK: 我的学员--个人信息(全部)
 let kQueryMyStudentsURL = "doctor_train/rest/teacher/queryMyStudents.do"
