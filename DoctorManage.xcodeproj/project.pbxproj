@@ -355,7 +355,6 @@
 		B4DC05FA1EE1AFD100AB32F4 /* DoctorManageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DC05F91EE1AFD100AB32F4 /* DoctorManageTests.swift */; };
 		B4DC06051EE1AFD100AB32F4 /* DoctorManageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DC06041EE1AFD100AB32F4 /* DoctorManageUITests.swift */; };
 		B4DC06B91EE2606600AB32F4 /* doctorResource.plist in Resources */ = {isa = PBXBuildFile; fileRef = B4DC06B81EE2606600AB32F4 /* doctorResource.plist */; };
-		B4DC07231EE4538300AB32F4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4DC07221EE4538300AB32F4 /* Images.xcassets */; };
 		B4DC07261EE456D500AB32F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DC07251EE456D500AB32F4 /* AppDelegate.swift */; };
 		B4DC074C1EE45A5100AB32F4 /* loginbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B4DC074B1EE45A5100AB32F4 /* loginbackground.png */; };
 		B4E7CCE01F40A34F00696762 /* 1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B4E7CCDF1F40A34F00696762 /* 1.mp4 */; };
@@ -777,7 +776,6 @@
 		B4DC06041EE1AFD100AB32F4 /* DoctorManageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorManageUITests.swift; sourceTree = "<group>"; };
 		B4DC06061EE1AFD100AB32F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4DC06B81EE2606600AB32F4 /* doctorResource.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = doctorResource.plist; sourceTree = "<group>"; };
-		B4DC07221EE4538300AB32F4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B4DC07251EE456D500AB32F4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4DC074B1EE45A5100AB32F4 /* loginbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginbackground.png; sourceTree = "<group>"; };
 		B4E7CCDF1F40A34F00696762 /* 1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.mp4; sourceTree = "<group>"; };
@@ -1398,7 +1396,6 @@
 				B4DC05EB1EE1AFD100AB32F4 /* Assets.xcassets */,
 				B4DC05ED1EE1AFD100AB32F4 /* LaunchScreen.storyboard */,
 				B4DC05F01EE1AFD100AB32F4 /* Info.plist */,
-				B4DC07221EE4538300AB32F4 /* Images.xcassets */,
 			);
 			path = DoctorManage;
 			sourceTree = "<group>";
@@ -1697,7 +1694,6 @@
 				B41DFA051EE587340089CC67 /* 学员@2x.png in Resources */,
 				B41070121F9301EF00B513BD /* logo@2x.png in Resources */,
 				B483F7C51EF40DC000A6E289 /* 扣分@3x.png in Resources */,
-				B4DC07231EE4538300AB32F4 /* Images.xcassets in Resources */,
 				B4DA58431EFBF04C00CB31CC /* 提交评价@1x.png in Resources */,
 				B41B38441F07983500EFBEFF /* TaskPersonInfoCell.xib in Resources */,
 				B46CF9BE1EFE11880048112F /* Overlay.png in Resources */,
@@ -2255,7 +2251,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Applications/myProject/DoctorManage/DoctorManage/General/DoctorManage-Briding-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/DoctorManage/General/DoctorManage-Briding-Header.h";
 				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
@@ -2288,7 +2284,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Applications/myProject/DoctorManage/DoctorManage/General/DoctorManage-Briding-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/DoctorManage/General/DoctorManage-Briding-Header.h";
 				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
