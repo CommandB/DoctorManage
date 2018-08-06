@@ -12,18 +12,11 @@
 #define kDocumentDirectory ([NSSearchPathForDirectoriesInDomains( NSDocumentDirectory,\
 NSUserDomainMask,YES) objectAtIndex:0])
 #define kUserInfoFilePath [kDocumentDirectory stringByAppendingPathComponent:@"userInfo"]
+#define kJson_Path [kDocumentDirectory stringByAppendingPathComponent:@"JsonFile.json"]
 
 #define kToken          @"token"
 #define kCompanyname    @"companyname"
 #define kCompanyid      @"companyid"
-
-//#define kAge @"age"
-//#define kSex @"sex"
-//#define kIsVip @"is_vip"
-//#define kPicurl @"picurl"
-//#define kStar @"star"
-//#define kBirthday @"brithday"
-//#define kPhone @"phone"
 
 @interface UserInfo ()
 @end
@@ -63,6 +56,7 @@ NSUserDomainMask,YES) objectAtIndex:0])
 
 - (void)logout {
     [self saveUserInfo:nil];
+    [self removeJsonFile];
 }
 
 - (void)reset:(NSDictionary*)aDict {
@@ -90,6 +84,23 @@ NSUserDomainMask,YES) objectAtIndex:0])
     return self;
 }
 
+
+- (void)saveOfficeInfo:(NSData*)jsonData{
+    NSLog(@"%@",[jsonData writeToFile:kJson_Path atomically:YES] ? @"Succeed":@"Failed");
+}
+
+- (void)removeJsonFile{
+    [[NSFileManager defaultManager] removeItemAtPath:kJson_Path error:nil];
+}
+
+- (id)getOfficeInfo
+{
+    NSData *data = [NSData dataWithContentsOfFile:kJson_Path];
+    id JsonObject = [NSJSONSerialization JSONObjectWithData:data
+                                                  options:NSJSONReadingAllowFragments
+                                                      error:nil];
+    return JsonObject;
+}
 @end
 
 
