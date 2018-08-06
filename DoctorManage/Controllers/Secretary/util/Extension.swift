@@ -10,7 +10,7 @@ import Alamofire
 import UIKit
 import SwiftyJSON
 
-var g_userOffice = [JSON]()
+//var g_userOffice = [JSON]()
 
 ///跳转view
 func myPresentView(_ controller:UIViewController, viewName:String , completion: (() -> Void)? = nil ){

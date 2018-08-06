@@ -64,7 +64,8 @@ class LoginViewController: UIViewController,SelectBaseViewDelegate,UIPickerViewD
 
             NetworkTool.getUserOffice(params :["token":UserInfo.instance().token], success : { resp in
                 if resp["code"].string == "1"{
-                    g_userOffice = resp["data"].arrayValue
+                    //g_userOffice = resp["data"].arrayValue
+                    UserInfo.instance().saveOfficeInfo(try! resp["data"].rawData());
                 }
             }){error in
                 MBProgressHUD.hide(for: self.view, animated: true)

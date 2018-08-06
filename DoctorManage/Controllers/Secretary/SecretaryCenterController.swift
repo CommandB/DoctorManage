@@ -36,10 +36,12 @@ class SecretaryCenterController : UIViewController, UICollectionViewDelegate, UI
         
         view.viewWithTag(100001)?.isHidden = true
         let currentOfficeLbl = view.viewWithTag(10001) as! UILabel
+        let userOfficeList = JSON.init(UserInfo.instance().getOfficeInfo())
+        
         //如果当前没有科室被选中 则使用默认科室
         if currentOffice.isEmpty {
-            if g_userOffice.count > 0{
-                currentOffice = g_userOffice[0]
+            if userOfficeList.count > 0{
+                currentOffice = userOfficeList[0]
             }
         }
         if currentOffice.isEmpty{
@@ -64,20 +66,6 @@ class SecretaryCenterController : UIViewController, UICollectionViewDelegate, UI
         btn.set(image: UIImage(named: "office_plan"), title: "教学计划", titlePosition: .bottom, additionalSpacing: 10.0, state: .normal)
         btn.addTarget(self, action: #selector(btn_nav_tui), for: .touchUpInside)
         
-        
-        NetworkTool.getUserOffice(params :["token":UserInfo.instance().token], success : { resp in
-            if resp["code"].string == "1"{
-                g_userOffice = resp["data"].arrayValue
-
-                UserInfo.instance().saveOfficeInfo(try! resp["data"].rawData());
-            }
-        }){error in
-            MBProgressHUD.hide(for: self.view, animated: true)
-            UserInfo.instance().logout()
-            MBProgressHUD.showError("登录失败", to: self.view)
-        }
-        
-//        loadData()
     }
     
     
@@ -99,6 +87,10 @@ class SecretaryCenterController : UIViewController, UICollectionViewDelegate, UI
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = notice_collection.dequeueReusableCell(withReuseIdentifier: "c1", for: indexPath)
+        
+        cell.cornerRadius = 4
+        cell.clipsToBounds = true
+        
         let data = collectionDs[indexPath.section]
         let title = data["title"].stringValue
         let msg = data["msg"].stringValue
@@ -108,7 +100,7 @@ class SecretaryCenterController : UIViewController, UICollectionViewDelegate, UI
         lbl.numberOfLines = 0
         //title的行数
         let tn = title.getLineNumberForUILabel(lbl)
-        lbl.text = " \(title)"
+        lbl.text = "\(title)"
         lbl.frame.size = CGSize(width: lbl.frame.size.width, height: CGFloat(20*tn))
         
         //分割线
@@ -123,7 +115,7 @@ class SecretaryCenterController : UIViewController, UICollectionViewDelegate, UI
         lbl.numberOfLines = 0
         //正文的行数
         let mn = msg.getLineNumberForUILabel(lbl)
-        lbl.text = " \(msg)"
+        lbl.text = "\(msg)"
         lbl.frame.size = CGSize(width: lbl.frame.size.width, height: CGFloat(20*mn))
         lbl.frame.origin = CGPoint(x: lbl.frame.origin.x, y: dividing.frame.origin.y.adding(1))
         
@@ -147,7 +139,7 @@ class SecretaryCenterController : UIViewController, UICollectionViewDelegate, UI
         //正文的行数
         let mn = msg.getLineNumberForWidth(width: 300, cFont: UIFont.systemFont(ofSize: 13))
         let contentHeight = 20*(tn+mn)
-        return CGSize(width: UIScreen.width, height: CGFloat(contentHeight + 20))
+        return CGSize(width: UIScreen.width.subtracting(40), height: CGFloat(contentHeight + 20))
         
     }
     
@@ -157,11 +149,12 @@ class SecretaryCenterController : UIViewController, UICollectionViewDelegate, UI
         switch kind{
         case UICollectionElementKindSectionHeader:
             let header:HeaderReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath as IndexPath) as! HeaderReusableView
-            
-            let data = collectionDs[indexPath.section]
-            
-            header.name!.text = "  "+data["createloginname"].stringValue
-            header.date!.text = "\(data["createtime"].stringValue.prefix(18))"
+            if collectionDs.count > 0{
+                let data = collectionDs[indexPath.section]
+                
+                header.name!.text = "\t"+data["createloginname"].stringValue
+                header.date!.text = "\(data["createtime"].stringValue.prefix(19))"
+            }
             
             return header
         default:
@@ -172,25 +165,29 @@ class SecretaryCenterController : UIViewController, UICollectionViewDelegate, UI
     //分组的头部视图的尺寸，在这里控制分组头部视图的高度
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         
-        return CGSize.init(width: UIScreen.width, height: CGFloat(20))
+        return CGSize.init(width: UIScreen.width, height: CGFloat(35))
     }
     
     func loadData(){
         let url = "http://"+Ip_port2+"doctor_train/rest/app/queryOfficeNotice.do"
         myPostRequest(url,["officeid":currentOffice["officeid"].stringValue, "pageindex":collectionDs.count, "pagesize":20]).responseJSON(completionHandler: {resp in
             MBProgressHUD.hide(for: self.view, animated: true)
+            self.notice_collection.mj_footer.endRefreshing()
+            self.notice_collection.mj_header.endRefreshing()
             switch resp.result{
             case .success(let responseJson):
                 let json = JSON(responseJson)
                 if json["code"].stringValue == "1"{
                     
                     self.collectionDs += json["data"].arrayValue
+                    if json["data"].arrayValue.count == 0{
+                        self.notice_collection.mj_footer.endRefreshingWithNoMoreData()
+                    }
                     self.notice_collection.reloadData()
                 }else{
                     myAlert(self, message: "读取公告失败")
                 }
             case .failure(let error):
-                
                 print(error)
             }
             
@@ -246,17 +243,17 @@ class HeaderReusableView: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         //
-        let width = UIScreen.width - 40
-        name = UILabel(frame: CGRect.init(x: 0, y: 0, width: width, height: 20))
+        let width = UIScreen.width
+        name = UILabel(frame: CGRect.init(x: 0, y: 5, width: width, height: 30))
         name.backgroundColor = UIColor.clear
         name.textAlignment = .left
-        name.font = UIFont.boldSystemFont(ofSize: 13)
+        name.font = UIFont.systemFont(ofSize: 13)
         name.textColor = UIColor.darkGray
         
-        date = UILabel(frame: CGRect.init(x: 0, y: 0, width: width, height: 20))
+        date = UILabel(frame: CGRect.init(x: 0, y: 5, width: width, height: 30))
         date.backgroundColor = UIColor.clear
         date.textAlignment = .center
-        date.font = UIFont.boldSystemFont(ofSize: 13)
+        date.font = UIFont.systemFont(ofSize: 13)
         date.textColor = UIColor.darkGray
         
         self.addSubview(name!)

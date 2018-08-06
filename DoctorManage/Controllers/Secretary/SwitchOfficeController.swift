@@ -21,7 +21,8 @@ class SwitchOfficeController : UIViewController , UICollectionViewDataSource,UIC
         parentView = parent as? SecretaryCenterController
         office_collection.dataSource = self
         office_collection.delegate = self
-        collectionDs = g_userOffice
+//        let tData = JSON.init(UserInfo.instance().getOfficeInfo()).arr
+        collectionDs = JSON.init(UserInfo.instance().getOfficeInfo()).arrayValue
         office_collection.reloadData()
         
     }
@@ -38,6 +39,7 @@ class SwitchOfficeController : UIViewController , UICollectionViewDataSource,UIC
         parentView?.view.viewWithTag(100001)?.isHidden = true
         parentView?.currentOffice = selectedOffice
         (parentView?.view.viewWithTag(10001) as? UILabel)?.text = selectedOffice["officename"].stringValue
+        parentView?.refreshAction()
         office_collection.reloadData()
     }
     
