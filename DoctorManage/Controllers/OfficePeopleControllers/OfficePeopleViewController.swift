@@ -64,7 +64,6 @@ class OfficePeopleViewController: JHBaseViewController,UITableViewDelegate,UITab
         let cell = tableView.dequeueReusableCell(withIdentifier: "OfficePeopleCell", for: indexPath) as! OfficePeopleCell
         
         cell.bindData(self.dataSource[indexPath.section])
-        print(self.dataSource[indexPath.section].count)
         return cell
     }
     
