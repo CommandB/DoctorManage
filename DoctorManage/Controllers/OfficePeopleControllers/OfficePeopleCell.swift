@@ -12,6 +12,7 @@ class OfficePeopleCell: UITableViewCell {
     var titleLabel = UILabel()
     
     func setUpUI() {
+        self.selectionStyle = .none
         titleLabel.frame = CGRect.init(x: 20, y: 10, width: 80, height: 40)
         self.addSubview(titleLabel)
     }
@@ -22,6 +23,11 @@ class OfficePeopleCell: UITableViewCell {
         if itemDataList.count == 0 {
             return
         }
+        for subview in self.subviews {
+            if subview is UILabel && subview != titleLabel{
+                subview.removeFromSuperview()
+            }
+        }
         var h_x:CGFloat = 120
         var h_y:CGFloat = 10
         let l_x:CGFloat = 10
@@ -29,23 +35,23 @@ class OfficePeopleCell: UITableViewCell {
         let height:CGFloat = 40
         
         for i in 0...itemDataList.count-1 {
-            let titleLabel = UILabel()
-            titleLabel.frame = CGRect.init(x: h_x, y: h_y, width: length, height: height)
-            titleLabel.text = itemDataList[i]["personname"].stringValue
-            titleLabel.backgroundColor = UIColor.init(red: 76/255.0, green: 163/255.0, blue: 253/255.0, alpha: 1.0)
-            titleLabel.font = UIFont.systemFont(ofSize: 15.0)
-            titleLabel.textAlignment = .center
+            let nameLabel = UILabel()
+            nameLabel.frame = CGRect.init(x: h_x, y: h_y, width: length, height: height)
+            nameLabel.text = itemDataList[i]["personname"].stringValue
+            nameLabel.backgroundColor = UIColor.init(red: 76/255.0, green: 163/255.0, blue: 253/255.0, alpha: 1.0)
+            nameLabel.font = UIFont.systemFont(ofSize: 15.0)
+            nameLabel.textAlignment = .center
             if h_x+length+20 > self.frame.size.width {
                 h_x = 120
                 h_y = h_y + height + 10
-                titleLabel.frame = CGRect.init(x: h_x, y: h_y, width: length, height: height)
+                nameLabel.frame = CGRect.init(x: h_x, y: h_y, width: length, height: height)
             }
             h_x = 120+(length+l_x)*CGFloat(i%4+1)
 //            titleLabel.layer.masksToBounds = true
 //            titleLabel.layer.cornerRadius = titleLabel.frame.height/2
 //            titleLabel.layer.borderWidth = 1.0
 //            titleLabel.layer.borderColor = UIColor.init(red: 199/255.0, green: 211/255.0, blue: 224/255.0, alpha: 1.0).cgColor
-            self.addSubview(titleLabel)
+            self.addSubview(nameLabel)
         }
     }
     
