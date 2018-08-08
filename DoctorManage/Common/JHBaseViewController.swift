@@ -14,15 +14,56 @@ class JHBaseViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "topBack.png"), for: .default)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
-
-        let image = UIImage(named: "返回")!.withRenderingMode(.alwaysOriginal)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:image, style: .done, target: self, action: #selector(backAction))
+        self.setNavBackItem(false)
     }
     
-    func backAction(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.hidesBottomBarWhenPushed = true
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if self.isNavRoot(){
+            self.hidesBottomBarWhenPushed = false
+        } else {
+            self.hidesBottomBarWhenPushed = true
+        }
+    }
+    
+    // 当前视图是否是根视图
+    func isNavRoot() -> Bool {
+        
+        return self.navigationController?.viewControllers.first == self
+    }
+    
+    func setNavBackItem(_ containBack:Bool){
+        //获取到导航控制器的子视图控制器的个数
+        let count = self.navigationController?.viewControllers.count
+        if  count! > 1 || containBack == true{
+            let leftBtn = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 40, height: 40))
+            let image = UIImage(named: "返回")!.withRenderingMode(.alwaysOriginal)
+            leftBtn.setImage(image, for: .normal)
+            leftBtn.addTarget(self, action: #selector(backToSuperView), for: .touchUpInside)
+            let leftButtonItem = UIBarButtonItem.init(customView: leftBtn)
+            self.navigationItem.leftBarButtonItem = leftButtonItem
+            
+        }
+    }
+    
+    @objc func backToSuperView() {
+        if (self.navigationController?.viewControllers.first == self) {
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            if ((self.presentedViewController) != nil) {
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

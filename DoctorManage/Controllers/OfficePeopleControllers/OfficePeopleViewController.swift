@@ -17,6 +17,7 @@ class OfficePeopleViewController: JHBaseViewController,UITableViewDelegate,UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "科室人员"
+        setNavBackItem(true)
         configUI()
     }
 

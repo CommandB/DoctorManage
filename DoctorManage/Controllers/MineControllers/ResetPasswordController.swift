@@ -9,27 +9,17 @@
 import UIKit
 import SwiftyJSON
 import Alamofire
-class ResetPasswordController: UIViewController {
+class ResetPasswordController: JHBaseViewController {
     @IBOutlet weak var inputTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage.init(named: "topBackgroundIcon"), for: .default)
         self.extendedLayoutIncludesOpaqueBars = true
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
-        self.navigationController?.navigationBar.tintColor = UIColor.white
         self.title = "设置"
-        
-        let image = UIImage(named: "返回")!.withRenderingMode(.alwaysOriginal)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:image, style: .done, target: self, action: #selector(backAction))
-    }
-    
-    func backAction() {
-        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func resetAction(_ sender: Any) {
-        if inputTextField.text?.characters.count == 0 || inputTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines).lengthOfBytes(using: .utf8) == 0{
+        if inputTextField.text?.count == 0 || inputTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines).lengthOfBytes(using: .utf8) == 0{
             BRAlertView.show(message: "请输入新密码", target: self)
             return
         }

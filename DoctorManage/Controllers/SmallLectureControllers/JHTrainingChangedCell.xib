@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -22,7 +22,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MBV-eW-AAs">
                         <rect key="frame" x="20" y="20" width="39.5" height="36"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                        <color key="textColor" red="0.95165440329999995" green="1" blue="0.30293678909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" red="0.9569983703138889" green="0.64271375868055558" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="技能培训" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FY7-xM-C5Q">
@@ -108,8 +108,8 @@
             <connections>
                 <outlet property="addressLabel" destination="qog-B5-gBl" id="JOX-Fi-T8f"/>
                 <outlet property="dateLabel" destination="hSF-NN-3Zi" id="9A4-YO-wEE"/>
+                <outlet property="dayLabel" destination="MBV-eW-AAs" id="Gva-F8-IT6"/>
                 <outlet property="describleLabel" destination="sZw-LY-qFp" id="CVP-lX-AkM"/>
-                <outlet property="monthLabel" destination="MBV-eW-AAs" id="rd2-TO-bw0"/>
                 <outlet property="nameLabel" destination="xT6-qN-0jj" id="F6b-RW-rQR"/>
                 <outlet property="trainTypeLabel" destination="FY7-xM-C5Q" id="YW5-AT-Ide"/>
                 <outlet property="weekDayLabel" destination="YJq-P0-7xd" id="zFb-tz-s72"/>

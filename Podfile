@@ -7,5 +7,6 @@ target ‘DoctorManage’ do
     pod 'MJRefresh'
     pod 'Reachability'
     pod 'JPush'
+    pod 'IQKeyboardManagerSwift'
 
 end

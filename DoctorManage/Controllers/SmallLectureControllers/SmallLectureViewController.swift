@@ -18,7 +18,8 @@ class SmallLectureViewController: JHBaseViewController,UITableViewDataSource,UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "小讲座"
+        self.title = "教学计划"
+        setNavBackItem(true)
         
         let rightBtn = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 80, height: 30))
         rightBtn.setTitle("历史任务", for: .normal)
@@ -91,21 +92,14 @@ class SmallLectureViewController: JHBaseViewController,UITableViewDataSource,UIT
         
         let key = Array(sortedData.keys).sorted()[indexPath.section]
         let dic = sortedData[key]![indexPath.row]
-        cell.monthLabel.text = dic.stringValue(forKey: "starttime").getDateNum(type: .dateTypeMonth)
+        cell.dayLabel.text = dic.stringValue(forKey: "starttime").getDateNum(type: .dateTypeDay)
         cell.weekDayLabel.text = dic.stringValue(forKey: "weekday")
         cell.trainTypeLabel.text = dic.stringValue(forKey: "traintype")
         cell.dateLabel.text = dic.stringValue(forKey: "starttime").extractHourStrFromDateStr()+"-"+dic.stringValue(forKey: "endtime").extractHourStrFromDateStr()
         cell.nameLabel.text = dic.stringValue(forKey: "teachers")
         cell.describleLabel.text = dic.stringValue(forKey: "title")
         cell.addressLabel.text = dic.stringValue(forKey: "addressname")
-        
-        if indexPath.row == 0 {
-            cell.monthLabel.isHidden = false
-            cell.weekDayLabel.isHidden = false
-        }else{
-            cell.monthLabel.isHidden = true
-            cell.weekDayLabel.isHidden = true
-        }
+
         return cell
     }
     

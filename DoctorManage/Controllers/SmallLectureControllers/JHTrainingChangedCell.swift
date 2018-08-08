@@ -9,7 +9,7 @@
 import UIKit
 
 class JHTrainingChangedCell: UITableViewCell {
-    @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var weekDayLabel: UILabel!
     @IBOutlet weak var trainTypeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!

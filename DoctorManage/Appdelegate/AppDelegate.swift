@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import IQKeyboardManagerSwift
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -33,6 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         self.window?.backgroundColor = UIColor.white
         setApperance()
+        //点击空白隐藏键盘
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         
         //JPush notification
         let entity = JPUSHRegisterEntity()
