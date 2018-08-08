@@ -37,6 +37,15 @@ func myAlert(_ viewController:UIViewController, title:String = "系统提示", m
     
 }
 
+func myConfirm(_ viewController:UIViewController, title:String = "系统提示", message:String, okTitle:String = "好的", cancelTitle:String = "取消" , okHandler:((UIAlertAction) -> Void)? = nil , cancelHandler:((UIAlertAction) -> Void)? = nil){
+    
+    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: okTitle, style: .default, handler: okHandler))
+    alert.addAction(UIAlertAction(title: cancelTitle, style: .default, handler: cancelHandler))
+    viewController.present(alert, animated: true, completion: nil)
+    
+}
+
 //post方式提交数据
 func myPostRequest(_ url:String, _ parameters: [String: Any]? = nil , method: HTTPMethod = HTTPMethod.post , timeoutInterval : TimeInterval = 60) -> DataRequest {
     

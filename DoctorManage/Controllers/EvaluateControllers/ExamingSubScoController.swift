@@ -24,13 +24,14 @@ class ExamingSubScoController: UIViewController,UITableViewDelegate,UITableViewD
     var questionIndex = 0{
         willSet
         {
-            if newValue <= 0 {
+            let maxQuestionIndex = headDataArr.count - 1
+            if newValue <= 0 || maxQuestionIndex == 0{
                 lastQuestionBtn.isHidden = true
             }else{
                 lastQuestionBtn.isHidden = false
             }
             
-            if newValue == headDataArr.count {
+            if newValue == maxQuestionIndex {
                 nextQuestionBtn.setTitle("提交试卷", for: .normal)
             }else{
                 nextQuestionBtn.setTitle("下一题", for: .normal)
@@ -41,12 +42,17 @@ class ExamingSubScoController: UIViewController,UITableViewDelegate,UITableViewD
         {
             
         }
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         BRCommitDataManage.shared.allItemQuestions.removeAll()
         setSubviews()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        questionIndex = 0
     }
     
     func setSubviews() {
@@ -84,7 +90,11 @@ class ExamingSubScoController: UIViewController,UITableViewDelegate,UITableViewD
         nextQuestionBtn.translatesAutoresizingMaskIntoConstraints = false
         bottomView.addSubview(nextQuestionBtn)
         nextQuestionBtn.setBackgroundImage(UIImage.init(named: "nextQuestion"), for: .normal)
-        nextQuestionBtn.setTitle("下一题", for: .normal)
+        if headDataArr.count == 1{
+            nextQuestionBtn.setTitle("提交试卷", for: .normal)
+        }else{
+            nextQuestionBtn.setTitle("下一题", for: .normal)
+        }
         nextQuestionBtn.titleLabel?.font = UIFont.systemFont(ofSize: 13)
         bottomView.addConstraint(NSLayoutConstraint.init(item: nextQuestionBtn, attribute: .trailing, relatedBy: .equal, toItem: bottomView, attribute: .trailing, multiplier: 1.0, constant: -15))
         bottomView.addConstraint(NSLayoutConstraint.init(item: nextQuestionBtn, attribute: .centerY, relatedBy: .equal, toItem: bottomView, attribute: .centerY, multiplier: 1.0, constant: 0))
@@ -117,18 +127,26 @@ class ExamingSubScoController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     func nextQuestionBtnTapped() {
-        questionIndex = questionIndex+1
-        lastQuestionBtn.isHidden = false
+        let maxQuestionIndex = headDataArr.count - 1
+        
         if questionIndex >= headDataArr.count {
-//            nextQuestionBtn.setTitle("确定", for: .normal)
-//            self.dataDic.removeAll()
-//            //            reloadHeadTitle()
-//            MBProgressHUD.showError("已无更多题目", to: self.view)
-//            self.tableview.reloadData()
-//            return
-            
-            sureBtn.isHidden = false
+            questionIndex = maxQuestionIndex
             return
+        }
+        
+        if questionIndex == maxQuestionIndex{
+            
+            myConfirm(self, message:"是否提交考试?" , okHandler:{action in
+                self.sureBtnTapped()
+            } , cancelHandler:{action in
+                
+            })
+            return
+        }
+        
+        if questionIndex < maxQuestionIndex{
+            lastQuestionBtn.isHidden = false
+            questionIndex = questionIndex+1
         }
         requestQuestionItem(questionsid: self.headDataArr[questionIndex]["questionsid"].stringValue, isNextQuestionBtnTapped: true)
         (self.parent as! ExamingViewController).reloadHeadTitle(questionIndex:questionIndex)
@@ -189,28 +207,33 @@ class ExamingSubScoController: UIViewController,UITableViewDelegate,UITableViewD
             case .success(let response):
                 let json = JSON(response)
                 if json["code"].stringValue == "1"{
-//                    if isNextQuestionBtnTapped {
-//                        if (BRCommitDataManage.shared.allItemQuestions != nil) {
-//                            BRCommitDataManage.shared.allItemQuestions = try! BRCommitDataManage.shared.allItemQuestions.merged(with: json["data"])
-//                        }else{
-//                            BRCommitDataManage.shared.allItemQuestions = json["data"]
-//                        }
-//                    }
                     
-                    if isNextQuestionBtnTapped {
-                        BRCommitDataManage.shared.allItemQuestions += json["data"].arrayValue
+                    var dataSource = [JSON]()
+                    
+                    var hasCache = false
+                    var index = 0
+                    for question in json["data"].arrayValue{
+                        let qid = question["questionsid"]
+                        let itemid = question["itemid"]
+                        //循环判断题目是不是已经在缓存中存在
+                        index = 0
+                        for  info in BRCommitDataManage.shared.allItemQuestions {
+                            if info["questionsid"] == qid && info["itemid"] == itemid{
+                                hasCache = true
+                                break
+                            }
+                            index += 1
+                        }
+                        //不存在则放入缓存
+                        if hasCache{
+                            dataSource.append(BRCommitDataManage.shared.allItemQuestions[index])
+                        }else{
+                            BRCommitDataManage.shared.allItemQuestions.append(question)
+                            dataSource.append(question)
+                        }
                     }
                     
-                    
-//                        += json["data"].arrayValue
-                    
-//                    var aa = JSON([:])
-//                    aa = json["data"]
-//                    aa.dictionaryObject
-//                    aa += json["data"]
-                    
-//                    BRCommitDataManage.shared.allItemQuestions.arrayValue += json["data"]
-                    self.updateSubViewData(jsonData: json["data"].arrayValue)
+                    self.updateSubViewData(jsonData: dataSource)
                 }else{
                     print("error")
                 }

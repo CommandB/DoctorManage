@@ -101,7 +101,14 @@ class ExamingViewController: UIViewController,UIScrollViewDelegate {
         self.navigationController?.pushViewController(questionListView, animated: true)
     }
     func backAction(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        myConfirm(self, message:"是否退出考试?" ,
+                  okHandler:{action in
+                    
+                    self.navigationController?.popViewController(animated: true)
+                    
+        } , cancelHandler:{action in
+            
+        })
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

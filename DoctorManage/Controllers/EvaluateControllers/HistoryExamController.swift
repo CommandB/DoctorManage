@@ -87,7 +87,7 @@ class HistoryExamController: UITableViewController {
         cell.titleLabel.text = dataSource[indexPath.section]["exercisestitle"].stringValue
         cell.passLabel.text = dataSource[indexPath.section]["ispassshow"].stringValue
         cell.personLabel.text = dataSource[indexPath.section]["bepersonname"].stringValue
-        cell.scoreLabel.text = dataSource[indexPath.section]["score"].stringValue+"/"+dataSource[indexPath.row]["exercisesscore"].stringValue
+        cell.scoreLabel.text = dataSource[indexPath.section]["score"].stringValue+"/"+dataSource[indexPath.section]["exercisesscore"].stringValue
         cell.timeLabel.text = dataSource[indexPath.section]["finishtime"].stringValue
         return cell
     }
