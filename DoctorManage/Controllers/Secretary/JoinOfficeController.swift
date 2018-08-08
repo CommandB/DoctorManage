@@ -40,6 +40,8 @@ class JoinOfficeController : UIViewController , UICollectionViewDelegate , UICol
         students_collection.delegate = self
         students_collection.reloadData()
         
+        selectedPerson = [String:JSON]()
+        
         MBProgressHUD.showAdded(to: self.view, animated: true)
         let url = "http://"+Ip_port2+"doctor_train/rest/app/queryJoinOfficePerson.do"
         myPostRequest(url,["officeid":office["officeid"].stringValue]).responseJSON(completionHandler: {resp in
