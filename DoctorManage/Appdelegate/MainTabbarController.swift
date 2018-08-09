@@ -40,7 +40,7 @@ class MainTabbarController: UITabBarController {
         taskCenterVC.tabBarItem.image = image1.withRenderingMode(.alwaysOriginal)
         taskCenterVC.tabBarItem.selectedImage = selectedImage1.withRenderingMode(.alwaysOriginal)
         
-        let image5 = UIImage(cgImage: (UIImage.init(named: "学员-灰色")?.cgImage)!, scale: 2.8, orientation: .up)
+        let image5 = UIImage(cgImage: (UIImage.init(named: "科室-灰色")?.cgImage)!, scale: 2.8, orientation: .up)
         let selectedImage5 = UIImage(cgImage: (UIImage.init(named: "科室")?.cgImage)!, scale: 2.8, orientation: .up)
         secretaryVC.tabBarItem.image = image5.withRenderingMode(.alwaysOriginal)
         secretaryVC.tabBarItem.selectedImage = selectedImage5.withRenderingMode(.alwaysOriginal)

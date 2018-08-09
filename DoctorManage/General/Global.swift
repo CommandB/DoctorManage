@@ -39,6 +39,7 @@ let kQueryTaskevaluationresultinfoRateURL = "doctor_train/rest/evaluation/queryT
 
 //*********小讲座
 let kSmallLectureURL = "doctor_train/rest/app/queryOfficeTrain.do"
+let kCompleteSmallLectureURL = "doctor_train/rest/app/queryOfficeHistoryTrain.do"//已完成
 
 //*********科室人员
 let kOfficePeopleURL = "doctor_train/rest/app/getOfficePerson.do"

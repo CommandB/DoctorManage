@@ -1,32 +1,23 @@
 //
-//  SmallLectureViewController.swift
+//  LectureCompleteController.swift
 //  DoctorManage
 //
-//  Created by 陈海峰 on 2018/7/29.
+//  Created by chenhaifeng on 2018/8/9.
 //  Copyright © 2018年 chenshengchang. All rights reserved.
 //
 
 import UIKit
 import SwiftyJSON
-
-class SmallLectureViewController: JHBaseViewController,UITableViewDataSource,UITableViewDelegate {
+class LectureCompleteController: JHBaseViewController,UITableViewDelegate,UITableViewDataSource {
     var tableview = UITableView()
     var sortedData = Dictionary<String, [NSDictionary]>()
+    var index = 0
     var office = JSON()
 
-    var index = 0
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "教学计划"
-        setNavBackItem(true)
-        
-        let rightBtn = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 80, height: 30))
-        rightBtn.setTitle("历史任务", for: .normal)
-        rightBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        rightBtn.addTarget(self, action: #selector(historyTaskAction), for: .touchUpInside)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: rightBtn)
-        
+        self.title = "历史任务"
+ 
         self.tableview = UITableView(frame: CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.bounds.size.height-64))
         self.view.addSubview(tableview)
         self.tableview.delegate = self
@@ -38,14 +29,12 @@ class SmallLectureViewController: JHBaseViewController,UITableViewDataSource,UIT
         self.tableview.separatorStyle = .none
         self.tableview.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshAction))
         self.tableview.mj_header.beginRefreshing()
-        
     }
     
     func getData(pageindex:Int) {
-        MBProgressHUD.showAdded(to: self.view, animated: true)
-        let params = ["pageindex":String(pageindex*10),"pagesize": "10","task_state":"1,2","myshop_forapp_key":"987654321","token":UserInfo.instance().token,"officeid":office["officeid"].stringValue]
-        
-        NetworkTool.sharedInstance.requestSmallLecture(params: params as! [String : String], success: { (response) in
+        MBProgressHUD.showAdded(to:  self.view, animated: true)
+        let params = ["pageindex":String(pageindex*10),"pagesize": "100","task_state":"3,4","myshop_forapp_key":"987654321","token":UserInfo.instance().token,"officeid":office["officeid"].stringValue]
+        NetworkTool.sharedInstance.requestCompleteSmallLecture(params: params as! [String : String], success: { (response) in
             self.tableview.mj_header.endRefreshing()
             MBProgressHUD.hide(for:  self.view, animated: true)
             if let data = response["data"],response["data"]?.count != 0{
@@ -77,7 +66,7 @@ class SmallLectureViewController: JHBaseViewController,UITableViewDataSource,UIT
         index = 0
         getData(pageindex: index)
     }
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return sortedData.count
     }
@@ -99,7 +88,7 @@ class SmallLectureViewController: JHBaseViewController,UITableViewDataSource,UIT
         cell.nameLabel.text = dic.stringValue(forKey: "teachers")
         cell.describleLabel.text = dic.stringValue(forKey: "title")
         cell.addressLabel.text = dic.stringValue(forKey: "addressname")
-
+        
         cell.dayLabel.isHidden = compareIsSameDay(indexPath)
         cell.weekDayLabel.isHidden = cell.dayLabel.isHidden
         return cell
@@ -141,19 +130,12 @@ class SmallLectureViewController: JHBaseViewController,UITableViewDataSource,UIT
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        //        let taskDetailVC = TaskDetailController()
-        //        taskDetailVC.title = "任务详细"
-        //        taskDetailVC.enterPath = .UNCOMPLETE
-        //        taskDetailVC.headInfo = dataSource[indexPath.section]
-        //        let nav = UINavigationController(rootViewController: taskDetailVC)
-        //        self.present(nav, animated: true, completion: nil)
+//        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+//        let completeDetailVC = storyboard.instantiateViewController(withIdentifier: "completeDetailView") as! CompleteDetailController
+//        completeDetailVC.headInfo = dataSource[indexPath.section]
+//        self.present(completeDetailVC, animated: true, completion: nil)
     }
     
-    func historyTaskAction() {
-        let completeView = LectureCompleteController()
-        completeView.office = office
-        self.navigationController?.pushViewController(completeView, animated: true)
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
