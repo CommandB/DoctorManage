@@ -24,10 +24,10 @@
 		0A1A860321184A2900C20FB8 /* UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A860221184A2900C20FB8 /* UIScreen.swift */; };
 		0A1A86102118A88D00C20FB8 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A860F2118A88D00C20FB8 /* String+Extension.swift */; };
 		921191AE211C070F008411BC /* LectureCompleteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921191AD211C070F008411BC /* LectureCompleteController.swift */; };
-		921191B7211C16D6008411BC /* 科室@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 921191B3211C16D4008411BC /* 科室@2x.png */; };
-		921191B9211C16D6008411BC /* 科室@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 921191B5211C16D5008411BC /* 科室@3x.png */; };
 		921191BD211C184F008411BC /* 科室-灰色@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 921191BB211C184D008411BC /* 科室-灰色@2x.png */; };
 		921191BE211C184F008411BC /* 科室-灰色@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 921191BC211C184E008411BC /* 科室-灰色@3x.png */; };
+		921191C1211C1C5F008411BC /* 科室@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 921191BF211C1C5D008411BC /* 科室@2x.png */; };
+		921191C2211C1C5F008411BC /* 科室@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 921191C0211C1C5E008411BC /* 科室@3x.png */; };
 		944C81C3C2B9BDF3FA125C8B /* Pods_DoctorManage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 773702E47B86F9868C189CF4 /* Pods_DoctorManage.framework */; };
 		B41070121F9301EF00B513BD /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41070101F9301EF00B513BD /* logo@2x.png */; };
 		B41070131F9301EF00B513BD /* logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41070111F9301EF00B513BD /* logo@3x.png */; };
@@ -418,10 +418,10 @@
 		54C98E72B22008F441FF49FD /* Pods-DoctorManage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorManage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoctorManage/Pods-DoctorManage.debug.xcconfig"; sourceTree = "<group>"; };
 		773702E47B86F9868C189CF4 /* Pods_DoctorManage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoctorManage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		921191AD211C070F008411BC /* LectureCompleteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureCompleteController.swift; sourceTree = "<group>"; };
-		921191B3211C16D4008411BC /* 科室@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "科室@2x.png"; path = "../../../../Downloads/科室@2x.png"; sourceTree = "<group>"; };
-		921191B5211C16D5008411BC /* 科室@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "科室@3x.png"; path = "../../../../Downloads/科室@3x.png"; sourceTree = "<group>"; };
 		921191BB211C184D008411BC /* 科室-灰色@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "科室-灰色@2x.png"; sourceTree = "<group>"; };
 		921191BC211C184E008411BC /* 科室-灰色@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "科室-灰色@3x.png"; sourceTree = "<group>"; };
+		921191BF211C1C5D008411BC /* 科室@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "科室@2x.png"; sourceTree = "<group>"; };
+		921191C0211C1C5E008411BC /* 科室@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "科室@3x.png"; sourceTree = "<group>"; };
 		B41070101F9301EF00B513BD /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		B41070111F9301EF00B513BD /* logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@3x.png"; sourceTree = "<group>"; };
 		B419F6BD1F03E02400B7FEE9 /* SelectBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectBaseView.swift; sourceTree = "<group>"; };
@@ -1528,8 +1528,8 @@
 				B4FF1A5D1F93B3A4009C6685 /* logojiuhua@3x.png */,
 				921191BB211C184D008411BC /* 科室-灰色@2x.png */,
 				921191BC211C184E008411BC /* 科室-灰色@3x.png */,
-				921191B3211C16D4008411BC /* 科室@2x.png */,
-				921191B5211C16D5008411BC /* 科室@3x.png */,
+				921191BF211C1C5D008411BC /* 科室@2x.png */,
+				921191C0211C1C5E008411BC /* 科室@3x.png */,
 				B41B38361F076B2600EFBEFF /* 打钩@2x.png */,
 				B41B38371F076B2600EFBEFF /* 打钩@3x.png */,
 				B41DF9A31EE587340089CC67 /* 安排@3x.png */,
@@ -1754,12 +1754,13 @@
 				B4DA57F31EFA9F3E00CB31CC /* 进入-小@2x.png in Resources */,
 				B483F7761EF2C7A700A6E289 /* OnlineContentCell.xib in Resources */,
 				B4DA57D91EFA9F3E00CB31CC /* 学员评价@2x.png in Resources */,
-				921191B7211C16D6008411BC /* 科室@2x.png in Resources */,
+				921191C1211C1C5F008411BC /* 科室@2x.png in Resources */,
 				921191BD211C184F008411BC /* 科室-灰色@2x.png in Resources */,
 				B4B045D11EEAD76E00C03856 /* PhotoCollectionCell.xib in Resources */,
 				B41DF9E11EE587340089CC67 /* 个人中心-灰色@3x.png in Resources */,
 				B41DF9FA1EE587340089CC67 /* 任务中心-灰色@3x.png in Resources */,
 				B483F79D1EF2C9BD00A6E289 /* 更多@2x.png in Resources */,
+				921191C2211C1C5F008411BC /* 科室@3x.png in Resources */,
 				B483F79E1EF2C9BD00A6E289 /* 更多@3x.png in Resources */,
 				B483F7C61EF40DC000A6E289 /* 未通过@2x.png in Resources */,
 				B483F7C21EF40DC000A6E289 /* 完成@2x.png in Resources */,
@@ -1857,7 +1858,6 @@
 				B4DA57EE1EFA9F3E00CB31CC /* 蓝色底@3x.png in Resources */,
 				B483F77C1EF2C7F100A6E289 /* subResMineCell.xib in Resources */,
 				B4DA58A41EFDFA5F00CB31CC /* BRCustomOptionView.xib in Resources */,
-				921191B9211C16D6008411BC /* 科室@3x.png in Resources */,
 				B41DF9F11EE587340089CC67 /* 考评@3x.png in Resources */,
 				B41DFA691EE984240089CC67 /* 返回@2x.png in Resources */,
 				B483F7701EF2C7A700A6E289 /* InfoHeadCell.xib in Resources */,
