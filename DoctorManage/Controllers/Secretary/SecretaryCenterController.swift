@@ -225,7 +225,7 @@ class SecretaryCenterController : UIViewController, UICollectionViewDelegate, UI
         case 20005:
             let vc = SmallLectureViewController()
             vc.office = currentOffice
-            let nav = UINavigationController(rootViewController: SmallLectureViewController())
+            let nav = UINavigationController(rootViewController: vc)
             self.present(nav, animated: true, completion: nil)
             break
             
