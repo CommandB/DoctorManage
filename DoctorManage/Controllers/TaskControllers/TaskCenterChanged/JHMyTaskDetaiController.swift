@@ -1,5 +1,5 @@
 //
-//  TaskCenterRootController.swift
+//  JHMyTaskDetaiController.swift
 //  DoctorManage
 //
 //  Created by chenhaifeng on 2018/8/10.
@@ -8,31 +8,14 @@
 
 import UIKit
 
-class TaskCenterRootController: UIViewController{
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var botttomLine: UIView!
-    let leftTableView = UITableView()
-    let rightTableView = UITableView()
-    
-    
+class JHMyTaskDetaiController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        configUI()
+
+        // Do any additional setup after loading the view.
     }
 
-    func configUI() {
-        scrollView.contentSize = CGSize(width: kScreenH*2, height: 0)
-        scrollView.isScrollEnabled = false
-        scrollView.addSubview(leftTableView)
-        scrollView.addSubview(rightTableView)
-//        leftTableView.
-    }
-    
-    @IBAction func switchTypeAction(_ sender: UIButton) {
-        botttomLine.center = CGPoint(x: sender.center.x, y: botttomLine.center.y)
-    }
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

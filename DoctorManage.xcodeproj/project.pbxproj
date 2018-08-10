@@ -30,14 +30,21 @@
 		0A2B4D0C211D4653004A32B9 /* LBXScanWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2B4D06211D4652004A32B9 /* LBXScanWrapper.swift */; };
 		0A2B4D0D211D4653004A32B9 /* LBXPermissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2B4D07211D4652004A32B9 /* LBXPermissions.swift */; };
 		0A2B4D10211D4707004A32B9 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2B4D0F211D4707004A32B9 /* ScannerViewController.swift */; };
-		0A2B4D12211D48F2004A32B9 /* 扫一扫-白.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A2B4D11211D48F1004A32B9 /* 扫一扫-白.png */; };
 		921191AE211C070F008411BC /* LectureCompleteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921191AD211C070F008411BC /* LectureCompleteController.swift */; };
 		921191BD211C184F008411BC /* 科室-灰色@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 921191BB211C184D008411BC /* 科室-灰色@2x.png */; };
 		921191BE211C184F008411BC /* 科室-灰色@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 921191BC211C184E008411BC /* 科室-灰色@3x.png */; };
 		921191C1211C1C5F008411BC /* 科室@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 921191BF211C1C5D008411BC /* 科室@2x.png */; };
 		921191C2211C1C5F008411BC /* 科室@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 921191C0211C1C5E008411BC /* 科室@3x.png */; };
 		921216EC211D5C0F00076FF6 /* TaskCenter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 921216EB211D5C0F00076FF6 /* TaskCenter.storyboard */; };
-		921216EF211D5DE800076FF6 /* TaskCenterRootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921216EE211D5DE800076FF6 /* TaskCenterRootController.swift */; };
+		921216F1211D692E00076FF6 /* 扫一扫-白.png in Resources */ = {isa = PBXBuildFile; fileRef = 921216F0211D692E00076FF6 /* 扫一扫-白.png */; };
+		921216F4211D6F8C00076FF6 /* TaskCenterRootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921216F3211D6F8C00076FF6 /* TaskCenterRootController.swift */; };
+		921216F6211D6FAD00076FF6 /* JHMyTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921216F5211D6FAD00076FF6 /* JHMyTaskViewController.swift */; };
+		921216F8211D6FBA00076FF6 /* JHMyTeachViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921216F7211D6FBA00076FF6 /* JHMyTeachViewController.swift */; };
+		921216FE211D796A00076FF6 /* JHMyTaskViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921216FC211D796A00076FF6 /* JHMyTaskViewCell.swift */; };
+		921216FF211D796A00076FF6 /* JHMyTaskViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921216FD211D796A00076FF6 /* JHMyTaskViewCell.xib */; };
+		92121701211D7E6B00076FF6 /* JHMyTaskDetai2Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92121700211D7E6B00076FF6 /* JHMyTaskDetai2Controller.swift */; };
+		92121703211D860300076FF6 /* CircleDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92121702211D860300076FF6 /* CircleDataView.swift */; };
+		92121705211D8A6C00076FF6 /* JHMyTaskDetaiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92121704211D8A6C00076FF6 /* JHMyTaskDetaiController.swift */; };
 		944C81C3C2B9BDF3FA125C8B /* Pods_DoctorManage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 773702E47B86F9868C189CF4 /* Pods_DoctorManage.framework */; };
 		B41070121F9301EF00B513BD /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41070101F9301EF00B513BD /* logo@2x.png */; };
 		B41070131F9301EF00B513BD /* logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41070111F9301EF00B513BD /* logo@3x.png */; };
@@ -431,7 +438,6 @@
 		0A2B4D06211D4652004A32B9 /* LBXScanWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanWrapper.swift; sourceTree = "<group>"; };
 		0A2B4D07211D4652004A32B9 /* LBXPermissions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXPermissions.swift; sourceTree = "<group>"; };
 		0A2B4D0F211D4707004A32B9 /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
-		0A2B4D11211D48F1004A32B9 /* 扫一扫-白.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "扫一扫-白.png"; path = "../../../../../Users/huangweisheng/Downloads/扫一扫-白.png"; sourceTree = "<group>"; };
 		4E860808DF1E6E777592D38A /* Pods-DoctorManage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorManage.release.xcconfig"; path = "Pods/Target Support Files/Pods-DoctorManage/Pods-DoctorManage.release.xcconfig"; sourceTree = "<group>"; };
 		54C98E72B22008F441FF49FD /* Pods-DoctorManage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorManage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoctorManage/Pods-DoctorManage.debug.xcconfig"; sourceTree = "<group>"; };
 		773702E47B86F9868C189CF4 /* Pods_DoctorManage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoctorManage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -441,7 +447,15 @@
 		921191BF211C1C5D008411BC /* 科室@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "科室@2x.png"; sourceTree = "<group>"; };
 		921191C0211C1C5E008411BC /* 科室@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "科室@3x.png"; sourceTree = "<group>"; };
 		921216EB211D5C0F00076FF6 /* TaskCenter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TaskCenter.storyboard; sourceTree = "<group>"; };
-		921216EE211D5DE800076FF6 /* TaskCenterRootController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCenterRootController.swift; sourceTree = "<group>"; };
+		921216F0211D692E00076FF6 /* 扫一扫-白.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "扫一扫-白.png"; sourceTree = "<group>"; };
+		921216F3211D6F8C00076FF6 /* TaskCenterRootController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCenterRootController.swift; sourceTree = "<group>"; };
+		921216F5211D6FAD00076FF6 /* JHMyTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMyTaskViewController.swift; sourceTree = "<group>"; };
+		921216F7211D6FBA00076FF6 /* JHMyTeachViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMyTeachViewController.swift; sourceTree = "<group>"; };
+		921216FC211D796A00076FF6 /* JHMyTaskViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMyTaskViewCell.swift; sourceTree = "<group>"; };
+		921216FD211D796A00076FF6 /* JHMyTaskViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JHMyTaskViewCell.xib; sourceTree = "<group>"; };
+		92121700211D7E6B00076FF6 /* JHMyTaskDetai2Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMyTaskDetai2Controller.swift; sourceTree = "<group>"; };
+		92121702211D860300076FF6 /* CircleDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleDataView.swift; sourceTree = "<group>"; };
+		92121704211D8A6C00076FF6 /* JHMyTaskDetaiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMyTaskDetaiController.swift; sourceTree = "<group>"; };
 		B41070101F9301EF00B513BD /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		B41070111F9301EF00B513BD /* logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@3x.png"; sourceTree = "<group>"; };
 		B419F6BD1F03E02400B7FEE9 /* SelectBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectBaseView.swift; sourceTree = "<group>"; };
@@ -910,6 +924,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		921216F2211D6F8C00076FF6 /* TaskCenterChanged */ = {
+			isa = PBXGroup;
+			children = (
+				921216F9211D791400076FF6 /* Views */,
+				921216F3211D6F8C00076FF6 /* TaskCenterRootController.swift */,
+				921216F5211D6FAD00076FF6 /* JHMyTaskViewController.swift */,
+				921216F7211D6FBA00076FF6 /* JHMyTeachViewController.swift */,
+				92121704211D8A6C00076FF6 /* JHMyTaskDetaiController.swift */,
+				92121700211D7E6B00076FF6 /* JHMyTaskDetai2Controller.swift */,
+			);
+			path = TaskCenterChanged;
+			sourceTree = "<group>";
+		};
+		921216F9211D791400076FF6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				921216FC211D796A00076FF6 /* JHMyTaskViewCell.swift */,
+				921216FD211D796A00076FF6 /* JHMyTaskViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B419F6BC1F03DFED00B7FEE9 /* SelectBaseView */ = {
 			isa = PBXGroup;
 			children = (
@@ -951,6 +987,7 @@
 		B41DFA0F1EE589E40089CC67 /* Venders */ = {
 			isa = PBXGroup;
 			children = (
+				92121702211D860300076FF6 /* CircleDataView.swift */,
 				0A2B4D0E211D46DC004A32B9 /* qrScanner */,
 				B45000AC1F0E6C87000ABD63 /* EvaluateMenuController.swift */,
 				B42D40291F262EEE001143F7 /* ZHDropDownMenu */,
@@ -1071,7 +1108,7 @@
 		B41DFA501EE855BA0089CC67 /* TaskControllers */ = {
 			isa = PBXGroup;
 			children = (
-				921216EE211D5DE800076FF6 /* TaskCenterRootController.swift */,
+				921216F2211D6F8C00076FF6 /* TaskCenterChanged */,
 				0A2B4D0F211D4707004A32B9 /* ScannerViewController.swift */,
 				B41DFA521EE855BA0089CC67 /* TaskCenterViewController.swift */,
 				B41DFA511EE855BA0089CC67 /* CompleteController.swift */,
@@ -1559,11 +1596,11 @@
 				B42BC6451EEECB9A007B665E /* bar@2x.png */,
 				B42BC6461EEECB9A007B665E /* bar@3x.png */,
 				B4DC074B1EE45A5100AB32F4 /* loginbackground.png */,
+				921216F0211D692E00076FF6 /* 扫一扫-白.png */,
 				B41070101F9301EF00B513BD /* logo@2x.png */,
 				B41070111F9301EF00B513BD /* logo@3x.png */,
 				B4FF1A5C1F93B3A4009C6685 /* logojiuhua@2x.png */,
 				B4FF1A5D1F93B3A4009C6685 /* logojiuhua@3x.png */,
-				0A2B4D11211D48F1004A32B9 /* 扫一扫-白.png */,
 				921191BB211C184D008411BC /* 科室-灰色@2x.png */,
 				921191BC211C184E008411BC /* 科室-灰色@3x.png */,
 				921191BF211C1C5D008411BC /* 科室@2x.png */,
@@ -1848,6 +1885,7 @@
 				B41DF9EC1EE587340089CC67 /* 渐变小@2x.png in Resources */,
 				B41DF9F51EE587340089CC67 /* 满星@3x.png in Resources */,
 				921216EC211D5C0F00076FF6 /* TaskCenter.storyboard in Resources */,
+				921216F1211D692E00076FF6 /* 扫一扫-白.png in Resources */,
 				B4CF78021EEB977A00FD36E9 /* EvaluateCell.xib in Resources */,
 				B41DFA791EE996F50089CC67 /* WishlistCell.xib in Resources */,
 				B483F7CA1EF40DC000A6E289 /* 进入小灰箭头@2x.png in Resources */,
@@ -1890,7 +1928,6 @@
 				B41DF9E21EE587340089CC67 /* 个人中心-灰色@2x.png in Resources */,
 				B4DA57EA1EFA9F3E00CB31CC /* 确定@3x.png in Resources */,
 				B42BC6471EEECB9A007B665E /* bar.png in Resources */,
-				0A2B4D12211D48F2004A32B9 /* 扫一扫-白.png in Resources */,
 				B4DA57EB1EFA9F3E00CB31CC /* 老师@2x.png in Resources */,
 				B41DF9FF1EE587340089CC67 /* 未勾选@3x.png in Resources */,
 				0A1A85F12110BF3C00C20FB8 /* join_office.png in Resources */,
@@ -1959,6 +1996,7 @@
 				B4DA57E31EFA9F3E00CB31CC /* 未选@2x.png in Resources */,
 				B41DF9FB1EE587340089CC67 /* 任务中心@2x.png in Resources */,
 				B4DA57D11EFA9F3E00CB31CC /* 上传中@2x.png in Resources */,
+				921216FF211D796A00076FF6 /* JHMyTaskViewCell.xib in Resources */,
 				B46CF9BF1EFE11880048112F /* Overlay@2x.png in Resources */,
 				B41DFA731EE98C0B0089CC67 /* topBack.png in Resources */,
 				B483F7C41EF40DC000A6E289 /* 扣分@2x.png in Resources */,
@@ -2029,6 +2067,7 @@
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -2037,6 +2076,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2077,6 +2117,7 @@
 				0A1A85EB2110BC8500C20FB8 /* JoinOfficeController.swift in Sources */,
 				0A1A8601211844F200C20FB8 /* UILabel.swift in Sources */,
 				B419F6BE1F03E02400B7FEE9 /* SelectBaseView.swift in Sources */,
+				92121705211D8A6C00076FF6 /* JHMyTaskDetaiController.swift in Sources */,
 				B4DA583E1EFBE72F00CB31CC /* EvaluateSecondCell.swift in Sources */,
 				B4B045E11EEADA5200C03856 /* MasterSkillController.swift in Sources */,
 				B4DA588D1EFC0F5300CB31CC /* AnswerListCell.swift in Sources */,
@@ -2124,6 +2165,7 @@
 				B4F3E2181F232813005BC906 /* ArrangeTaskCell.swift in Sources */,
 				B483F7D41EF40DF900A6E289 /* ExamingSubScoController.swift in Sources */,
 				0A1A85EA2110BC8500C20FB8 /* SecretaryCenterController.swift in Sources */,
+				921216F6211D6FAD00076FF6 /* JHMyTaskViewController.swift in Sources */,
 				B4D62D431F1B4DF900BF07F6 /* BRCommitDataManage.swift in Sources */,
 				B483F77B1EF2C7F100A6E289 /* subResMineCell.swift in Sources */,
 				B4D62D6C1F1E448300BF07F6 /* SDImageCache.m in Sources */,
@@ -2144,6 +2186,7 @@
 				B4DA58A31EFDFA5F00CB31CC /* BRCustomOptionView.swift in Sources */,
 				B483F7F11EF43D6C00A6E289 /* DeduceScoreCell.swift in Sources */,
 				0A2B4D0B211D4653004A32B9 /* LBXScanViewStyle.swift in Sources */,
+				921216F8211D6FBA00076FF6 /* JHMyTeachViewController.swift in Sources */,
 				B45000AF1F0E708A000ABD63 /* WaitExamViewController.swift in Sources */,
 				0A2B4D10211D4707004A32B9 /* ScannerViewController.swift in Sources */,
 				B45000AD1F0E6C87000ABD63 /* EvaluateMenuController.swift in Sources */,
@@ -2155,6 +2198,7 @@
 				B4CC3E7B211873610044D795 /* JHBaseViewController.swift in Sources */,
 				B4DA58931EFC146C00CB31CC /* ReplayInfoCell.swift in Sources */,
 				B4DA589F1EFD4C3F00CB31CC /* UIKitExtension.swift in Sources */,
+				92121703211D860300076FF6 /* CircleDataView.swift in Sources */,
 				B48018DF1EF6324300250158 /* HistoryExamCell.swift in Sources */,
 				B41B38541F0A9B2700EFBEFF /* EvaluateContentCell.swift in Sources */,
 				B4D62D791F1E448300BF07F6 /* UIView+WebCache.m in Sources */,
@@ -2163,11 +2207,13 @@
 				B41DFA4C1EE855AB0089CC67 /* EvaluateViewController.swift in Sources */,
 				B483F7DF1EF40E1C00A6E289 /* ExamInfoCell.swift in Sources */,
 				B4DA57841EFA9D5300CB31CC /* ResetPasswordController.swift in Sources */,
+				92121701211D7E6B00076FF6 /* JHMyTaskDetai2Controller.swift in Sources */,
 				B4D62D391F179DCB00BF07F6 /* subEvaTrainCell.swift in Sources */,
 				B483F7D51EF40DF900A6E289 /* ExamingSubScrController.swift in Sources */,
 				B451A39A1F7934F3005023E4 /* Task.swift in Sources */,
 				B4DA583C1EFBE72F00CB31CC /* EvaluateFirstCell.swift in Sources */,
 				0A2B4D0D211D4653004A32B9 /* LBXPermissions.swift in Sources */,
+				921216F4211D6F8C00076FF6 /* TaskCenterRootController.swift in Sources */,
 				B41B384D1F0A9A2D00EFBEFF /* EvaluateDetailController.swift in Sources */,
 				B46CF9D01F0151CF0048112F /* XLSlider.m in Sources */,
 				921191AE211C070F008411BC /* LectureCompleteController.swift in Sources */,
@@ -2180,7 +2226,6 @@
 				B4B045D31EEAD99C00C03856 /* PersonalInfoController.swift in Sources */,
 				0A2B4D08211D4653004A32B9 /* LBXScanLineAnimation.swift in Sources */,
 				B4B045E31EEAED9200C03856 /* CompleteDetailController.swift in Sources */,
-				921216EF211D5DE800076FF6 /* TaskCenterRootController.swift in Sources */,
 				B42BC64B1EF02246007B665E /* QuestionViewController.swift in Sources */,
 				B4B045D81EEAD9E100C03856 /* PersonalnfoCell.swift in Sources */,
 				B4D62D6F1F1E448300BF07F6 /* SDWebImageDecoder.m in Sources */,
@@ -2195,6 +2240,7 @@
 				B46CF9B51EFE11880048112F /* ELCAsset.m in Sources */,
 				B46CF9C11EFE122A0048112F /* PassVideoViewController.swift in Sources */,
 				B41B384B1F08D60100EFBEFF /* BaseEvaluateController.swift in Sources */,
+				921216FE211D796A00076FF6 /* JHMyTaskViewCell.swift in Sources */,
 				B4D62D701F1E448300BF07F6 /* SDWebImageDownloader.m in Sources */,
 				B4D62D6B1F1E448300BF07F6 /* NSImage+WebCache.m in Sources */,
 				0A1A85E62110BC8500C20FB8 /* UIColor.swift in Sources */,

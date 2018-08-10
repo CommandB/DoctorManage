@@ -552,4 +552,20 @@ class NetworkTool: NSObject {
         }
     }
     
+    //MARK: 学生端未开始任务
+    func requestStudentUnCompleteTask(params : [String : String],success : @escaping (_ response : [String : AnyObject])->(), failture : @escaping (_ error : Error)->()) {
+        let urlString = "http://"+Ip_port2+"doctor_train/rest/task/query.do"
+        Alamofire.request(urlString, method: HTTPMethod.post, parameters: params).responseJSON { (response) in
+            switch response.result{
+            case .success:
+                if let value = response.result.value as? [String: AnyObject] {
+                    success(value)
+                    _ = JSON(value)
+                }
+            case .failure(let error):
+                failture(error)
+            }
+            
+        }
+    }
 }
