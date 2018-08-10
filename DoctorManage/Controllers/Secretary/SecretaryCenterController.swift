@@ -18,6 +18,7 @@ class SecretaryCenterController : UIViewController, UICollectionViewDelegate, UI
     var currentOffice = JSON()
     var collectionDs = [JSON]()
     let boundary = CGFloat(9)
+    let lineHeight = 16
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -90,18 +91,19 @@ class SecretaryCenterController : UIViewController, UICollectionViewDelegate, UI
         
         cell.cornerRadius = 4
         cell.clipsToBounds = true
+        //cell.backgroundColor = UIColor.red
         
         let data = collectionDs[indexPath.section]
         let title = data["title"].stringValue
         let msg = data["msg"].stringValue
         
-        var lbl = cell.viewWithTag(10001) as! UILabel
+        let lbl = cell.viewWithTag(10001) as! UILabel
         lbl.text = title
         lbl.numberOfLines = 0
         //title的行数
-        let tn = title.getLineNumberForUILabel(lbl)
+        let tn = title.getLineNumberForWidth(width: UIScreen.width.subtracting(80), cFont: UIFont.systemFont(ofSize: 13))
         lbl.text = "\(title)"
-        lbl.frame.size = CGSize(width: lbl.frame.size.width, height: CGFloat(20*tn))
+        lbl.frame.size = CGSize(width: lbl.frame.size.width, height: CGFloat(lineHeight*tn))
         
         //分割线
         let dividing = cell.viewWithTag(20001) as! UILabel
@@ -109,37 +111,35 @@ class SecretaryCenterController : UIViewController, UICollectionViewDelegate, UI
         frame.origin = CGPoint(x: dividing.frame.origin.x, y: lbl.frame.height.adding(lbl.frame.origin.y))
         frame.size = dividing.frame.size
         dividing.frame = frame
+        dividing.backgroundColor = UIColor.lightGray
         
-        lbl = cell.viewWithTag(30001) as! UILabel
-        lbl.text = msg
-        lbl.numberOfLines = 0
+        let contentLbl = cell.viewWithTag(30001) as! UILabel
+        contentLbl.text = msg
+        contentLbl.numberOfLines = 0
         //正文的行数
-        let mn = msg.getLineNumberForUILabel(lbl)
-        lbl.text = "\(msg)"
-        lbl.frame.size = CGSize(width: lbl.frame.size.width, height: CGFloat(20*mn))
-        lbl.frame.origin = CGPoint(x: lbl.frame.origin.x, y: dividing.frame.origin.y.adding(1))
+        let mn = msg.getLineNumberForWidth(width: UIScreen.width.subtracting(80), cFont: UIFont.systemFont(ofSize: 13))
+        if mn>3{
+            print()
+        }
+        contentLbl.text = "\(msg)"
+        contentLbl.frame.size = CGSize(width: contentLbl.frame.size.width, height: CGFloat(lineHeight*mn))
+        contentLbl.frame.origin = CGPoint(x: contentLbl.frame.origin.x, y: lbl.frame.height.adding(lbl.frame.origin.y).adding(1))
         
-//        let lineWidth = lbl.frame.width - boundary
-        
-        
-        
-        
-        //51 -
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        
+        let lblWidth = UIScreen.width.subtracting(40)
         let data = collectionDs[indexPath.section]
         let title = data["title"].stringValue
         let msg = data["msg"].stringValue
         //title的行数
-        let tn = title.getLineNumberForWidth(width: 300, cFont: UIFont.systemFont(ofSize: 13))
+        let tn = title.getLineNumberForWidth(width: lblWidth.subtracting(40), cFont: UIFont.systemFont(ofSize: 13))
         //正文的行数
-        let mn = msg.getLineNumberForWidth(width: 300, cFont: UIFont.systemFont(ofSize: 13))
-        let contentHeight = 20*(tn+mn)
-        return CGSize(width: UIScreen.width.subtracting(40), height: CGFloat(contentHeight + 20))
+        let mn = msg.getLineNumberForWidth(width: lblWidth.subtracting(40), cFont: UIFont.systemFont(ofSize: 13))
+        let contentHeight = lineHeight * (tn+mn)
+        return CGSize(width: lblWidth, height: CGFloat(contentHeight + 20))
         
     }
     
@@ -210,6 +210,9 @@ class SecretaryCenterController : UIViewController, UICollectionViewDelegate, UI
             let vc = getViewToStoryboard("joinOfficeView") as! JoinOfficeController
             vc.office = currentOffice
             self.present(vc, animated: true, completion: nil)
+            break
+        case 20002:
+            myAlert(self, message: "暂未开放")
             break
         case 20003:
             let vc = getViewToStoryboard("createNoticeView") as! CreateNoticeController

@@ -19,6 +19,11 @@ class TaskCenterViewController: UIViewController,UITableViewDataSource,UITableVi
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
         self.title = "任务中心"
         
+        let leftBtn = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 40, height: 30))
+        leftBtn.setImage(UIImage.init(named: "扫一扫-白"), for: .normal)
+        leftBtn.addTarget(self, action: #selector(scannerAction), for: .touchUpInside)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: leftBtn)
+        
         let rightBtn = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 80, height: 30))
         rightBtn.setTitle("历史任务", for: .normal)
         rightBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
@@ -134,6 +139,10 @@ class TaskCenterViewController: UIViewController,UITableViewDataSource,UITableVi
         let completeView = CompleteController()
         let nav = UINavigationController.init(rootViewController: completeView)
         self.present(nav, animated: true, completion: nil)
+    }
+    
+    func scannerAction(){
+        myPresentView(self, viewName: "scannerView")
     }
     
     override func didReceiveMemoryWarning() {

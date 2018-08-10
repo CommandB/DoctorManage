@@ -23,6 +23,14 @@
 		0A1A8601211844F200C20FB8 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A8600211844F100C20FB8 /* UILabel.swift */; };
 		0A1A860321184A2900C20FB8 /* UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A860221184A2900C20FB8 /* UIScreen.swift */; };
 		0A1A86102118A88D00C20FB8 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A860F2118A88D00C20FB8 /* String+Extension.swift */; };
+		0A2B4D08211D4653004A32B9 /* LBXScanLineAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2B4D02211D4650004A32B9 /* LBXScanLineAnimation.swift */; };
+		0A2B4D09211D4653004A32B9 /* LBXScanNetAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2B4D03211D4651004A32B9 /* LBXScanNetAnimation.swift */; };
+		0A2B4D0A211D4653004A32B9 /* LBXScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2B4D04211D4651004A32B9 /* LBXScanView.swift */; };
+		0A2B4D0B211D4653004A32B9 /* LBXScanViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2B4D05211D4652004A32B9 /* LBXScanViewStyle.swift */; };
+		0A2B4D0C211D4653004A32B9 /* LBXScanWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2B4D06211D4652004A32B9 /* LBXScanWrapper.swift */; };
+		0A2B4D0D211D4653004A32B9 /* LBXPermissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2B4D07211D4652004A32B9 /* LBXPermissions.swift */; };
+		0A2B4D10211D4707004A32B9 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2B4D0F211D4707004A32B9 /* ScannerViewController.swift */; };
+		0A2B4D12211D48F2004A32B9 /* 扫一扫-白.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A2B4D11211D48F1004A32B9 /* 扫一扫-白.png */; };
 		921191AE211C070F008411BC /* LectureCompleteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921191AD211C070F008411BC /* LectureCompleteController.swift */; };
 		921191BD211C184F008411BC /* 科室-灰色@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 921191BB211C184D008411BC /* 科室-灰色@2x.png */; };
 		921191BE211C184F008411BC /* 科室-灰色@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 921191BC211C184E008411BC /* 科室-灰色@3x.png */; };
@@ -416,6 +424,14 @@
 		0A1A8600211844F100C20FB8 /* UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		0A1A860221184A2900C20FB8 /* UIScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScreen.swift; sourceTree = "<group>"; };
 		0A1A860F2118A88D00C20FB8 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		0A2B4D02211D4650004A32B9 /* LBXScanLineAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanLineAnimation.swift; sourceTree = "<group>"; };
+		0A2B4D03211D4651004A32B9 /* LBXScanNetAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanNetAnimation.swift; sourceTree = "<group>"; };
+		0A2B4D04211D4651004A32B9 /* LBXScanView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanView.swift; sourceTree = "<group>"; };
+		0A2B4D05211D4652004A32B9 /* LBXScanViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanViewStyle.swift; sourceTree = "<group>"; };
+		0A2B4D06211D4652004A32B9 /* LBXScanWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanWrapper.swift; sourceTree = "<group>"; };
+		0A2B4D07211D4652004A32B9 /* LBXPermissions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXPermissions.swift; sourceTree = "<group>"; };
+		0A2B4D0F211D4707004A32B9 /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		0A2B4D11211D48F1004A32B9 /* 扫一扫-白.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "扫一扫-白.png"; path = "../../../../../Users/huangweisheng/Downloads/扫一扫-白.png"; sourceTree = "<group>"; };
 		4E860808DF1E6E777592D38A /* Pods-DoctorManage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorManage.release.xcconfig"; path = "Pods/Target Support Files/Pods-DoctorManage/Pods-DoctorManage.release.xcconfig"; sourceTree = "<group>"; };
 		54C98E72B22008F441FF49FD /* Pods-DoctorManage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorManage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoctorManage/Pods-DoctorManage.debug.xcconfig"; sourceTree = "<group>"; };
 		773702E47B86F9868C189CF4 /* Pods_DoctorManage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoctorManage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -873,6 +889,19 @@
 			path = util;
 			sourceTree = "<group>";
 		};
+		0A2B4D0E211D46DC004A32B9 /* qrScanner */ = {
+			isa = PBXGroup;
+			children = (
+				0A2B4D07211D4652004A32B9 /* LBXPermissions.swift */,
+				0A2B4D02211D4650004A32B9 /* LBXScanLineAnimation.swift */,
+				0A2B4D03211D4651004A32B9 /* LBXScanNetAnimation.swift */,
+				0A2B4D04211D4651004A32B9 /* LBXScanView.swift */,
+				0A2B4D05211D4652004A32B9 /* LBXScanViewStyle.swift */,
+				0A2B4D06211D4652004A32B9 /* LBXScanWrapper.swift */,
+			);
+			path = qrScanner;
+			sourceTree = "<group>";
+		};
 		8C22624A8DD3939A9FB7D825 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -922,6 +951,7 @@
 		B41DFA0F1EE589E40089CC67 /* Venders */ = {
 			isa = PBXGroup;
 			children = (
+				0A2B4D0E211D46DC004A32B9 /* qrScanner */,
 				B45000AC1F0E6C87000ABD63 /* EvaluateMenuController.swift */,
 				B42D40291F262EEE001143F7 /* ZHDropDownMenu */,
 				B4D62D801F1E455800BF07F6 /* FullScreenImageViewer */,
@@ -1042,6 +1072,7 @@
 			isa = PBXGroup;
 			children = (
 				921216EE211D5DE800076FF6 /* TaskCenterRootController.swift */,
+				0A2B4D0F211D4707004A32B9 /* ScannerViewController.swift */,
 				B41DFA521EE855BA0089CC67 /* TaskCenterViewController.swift */,
 				B41DFA511EE855BA0089CC67 /* CompleteController.swift */,
 				B41DFA541EE855BA0089CC67 /* UnCompleteController.swift */,
@@ -1532,6 +1563,7 @@
 				B41070111F9301EF00B513BD /* logo@3x.png */,
 				B4FF1A5C1F93B3A4009C6685 /* logojiuhua@2x.png */,
 				B4FF1A5D1F93B3A4009C6685 /* logojiuhua@3x.png */,
+				0A2B4D11211D48F1004A32B9 /* 扫一扫-白.png */,
 				921191BB211C184D008411BC /* 科室-灰色@2x.png */,
 				921191BC211C184E008411BC /* 科室-灰色@3x.png */,
 				921191BF211C1C5D008411BC /* 科室@2x.png */,
@@ -1858,6 +1890,7 @@
 				B41DF9E21EE587340089CC67 /* 个人中心-灰色@2x.png in Resources */,
 				B4DA57EA1EFA9F3E00CB31CC /* 确定@3x.png in Resources */,
 				B42BC6471EEECB9A007B665E /* bar.png in Resources */,
+				0A2B4D12211D48F2004A32B9 /* 扫一扫-白.png in Resources */,
 				B4DA57EB1EFA9F3E00CB31CC /* 老师@2x.png in Resources */,
 				B41DF9FF1EE587340089CC67 /* 未勾选@3x.png in Resources */,
 				0A1A85F12110BF3C00C20FB8 /* join_office.png in Resources */,
@@ -2034,6 +2067,7 @@
 				B4D62D6A1F1E448300BF07F6 /* NSData+ImageContentType.m in Sources */,
 				B483F76F1EF2C7A700A6E289 /* InfoHeadCell.swift in Sources */,
 				B4B045D01EEAD76E00C03856 /* PhotoCollectionCell.swift in Sources */,
+				0A2B4D0A211D4653004A32B9 /* LBXScanView.swift in Sources */,
 				B41DFA8A1EE9AC8B0089CC67 /* TakeTurnsCell.swift in Sources */,
 				B4D62D781F1E448300BF07F6 /* UIImageView+WebCache.m in Sources */,
 				B4551F3A1F5BF29500CC68B3 /* TrainingViewController.swift in Sources */,
@@ -2109,7 +2143,9 @@
 				B4D62D6E1F1E448300BF07F6 /* SDWebImageCompat.m in Sources */,
 				B4DA58A31EFDFA5F00CB31CC /* BRCustomOptionView.swift in Sources */,
 				B483F7F11EF43D6C00A6E289 /* DeduceScoreCell.swift in Sources */,
+				0A2B4D0B211D4653004A32B9 /* LBXScanViewStyle.swift in Sources */,
 				B45000AF1F0E708A000ABD63 /* WaitExamViewController.swift in Sources */,
+				0A2B4D10211D4707004A32B9 /* ScannerViewController.swift in Sources */,
 				B45000AD1F0E6C87000ABD63 /* EvaluateMenuController.swift in Sources */,
 				B4500BE11F0E898E000ABD63 /* MoreMenuView.m in Sources */,
 				B483F7E11EF40E1C00A6E289 /* SubScoreCell.swift in Sources */,
@@ -2131,6 +2167,7 @@
 				B483F7D51EF40DF900A6E289 /* ExamingSubScrController.swift in Sources */,
 				B451A39A1F7934F3005023E4 /* Task.swift in Sources */,
 				B4DA583C1EFBE72F00CB31CC /* EvaluateFirstCell.swift in Sources */,
+				0A2B4D0D211D4653004A32B9 /* LBXPermissions.swift in Sources */,
 				B41B384D1F0A9A2D00EFBEFF /* EvaluateDetailController.swift in Sources */,
 				B46CF9D01F0151CF0048112F /* XLSlider.m in Sources */,
 				921191AE211C070F008411BC /* LectureCompleteController.swift in Sources */,
@@ -2139,7 +2176,9 @@
 				B483F7D31EF40DF900A6E289 /* ExamingViewController.swift in Sources */,
 				B4CC3E7721186F010044D795 /* JHTrainingChangedCell.swift in Sources */,
 				0A1A86102118A88D00C20FB8 /* String+Extension.swift in Sources */,
+				0A2B4D0C211D4653004A32B9 /* LBXScanWrapper.swift in Sources */,
 				B4B045D31EEAD99C00C03856 /* PersonalInfoController.swift in Sources */,
+				0A2B4D08211D4653004A32B9 /* LBXScanLineAnimation.swift in Sources */,
 				B4B045E31EEAED9200C03856 /* CompleteDetailController.swift in Sources */,
 				921216EF211D5DE800076FF6 /* TaskCenterRootController.swift in Sources */,
 				B42BC64B1EF02246007B665E /* QuestionViewController.swift in Sources */,
@@ -2170,6 +2209,7 @@
 				B4D62D7E1F1E450100BF07F6 /* ApplyTaskCell.swift in Sources */,
 				B41DFA491EE855A20089CC67 /* MineViewController.swift in Sources */,
 				0A1A85E92110BC8500C20FB8 /* SwitchOfficeController.swift in Sources */,
+				0A2B4D09211D4653004A32B9 /* LBXScanNetAnimation.swift in Sources */,
 				B41DFA751EE996A40089CC67 /* WishlistViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
