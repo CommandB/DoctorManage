@@ -16,8 +16,9 @@ class MainTabbarController: UITabBarController {
     }
     func creatTabbarController() {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-//        let taskCenterVC = storyboard.instantiateViewController(withIdentifier: "taskCenterView")
-        let taskCenterVC = UINavigationController(rootViewController: TaskCenterViewController())
+        let taskCenterStoryboard = UIStoryboard.init(name: "TaskCenter", bundle: nil)
+
+        let taskCenterVC = taskCenterStoryboard.instantiateViewController(withIdentifier: "taskCenterView")
         
         let studentVC = storyboard.instantiateViewController(withIdentifier: "studentView")
         let studentNav = UINavigationController(rootViewController: studentVC)

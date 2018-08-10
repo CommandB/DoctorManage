@@ -28,6 +28,8 @@
 		921191BE211C184F008411BC /* 科室-灰色@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 921191BC211C184E008411BC /* 科室-灰色@3x.png */; };
 		921191C1211C1C5F008411BC /* 科室@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 921191BF211C1C5D008411BC /* 科室@2x.png */; };
 		921191C2211C1C5F008411BC /* 科室@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 921191C0211C1C5E008411BC /* 科室@3x.png */; };
+		921216EC211D5C0F00076FF6 /* TaskCenter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 921216EB211D5C0F00076FF6 /* TaskCenter.storyboard */; };
+		921216EF211D5DE800076FF6 /* TaskCenterRootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921216EE211D5DE800076FF6 /* TaskCenterRootController.swift */; };
 		944C81C3C2B9BDF3FA125C8B /* Pods_DoctorManage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 773702E47B86F9868C189CF4 /* Pods_DoctorManage.framework */; };
 		B41070121F9301EF00B513BD /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41070101F9301EF00B513BD /* logo@2x.png */; };
 		B41070131F9301EF00B513BD /* logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41070111F9301EF00B513BD /* logo@3x.png */; };
@@ -422,6 +424,8 @@
 		921191BC211C184E008411BC /* 科室-灰色@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "科室-灰色@3x.png"; sourceTree = "<group>"; };
 		921191BF211C1C5D008411BC /* 科室@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "科室@2x.png"; sourceTree = "<group>"; };
 		921191C0211C1C5E008411BC /* 科室@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "科室@3x.png"; sourceTree = "<group>"; };
+		921216EB211D5C0F00076FF6 /* TaskCenter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TaskCenter.storyboard; sourceTree = "<group>"; };
+		921216EE211D5DE800076FF6 /* TaskCenterRootController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCenterRootController.swift; sourceTree = "<group>"; };
 		B41070101F9301EF00B513BD /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		B41070111F9301EF00B513BD /* logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@3x.png"; sourceTree = "<group>"; };
 		B419F6BD1F03E02400B7FEE9 /* SelectBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectBaseView.swift; sourceTree = "<group>"; };
@@ -1037,6 +1041,7 @@
 		B41DFA501EE855BA0089CC67 /* TaskControllers */ = {
 			isa = PBXGroup;
 			children = (
+				921216EE211D5DE800076FF6 /* TaskCenterRootController.swift */,
 				B41DFA521EE855BA0089CC67 /* TaskCenterViewController.swift */,
 				B41DFA511EE855BA0089CC67 /* CompleteController.swift */,
 				B41DFA541EE855BA0089CC67 /* UnCompleteController.swift */,
@@ -1457,6 +1462,7 @@
 				B4DC074A1EE45A3B00AB32F4 /* Resources */,
 				B4CC3E79211873500044D795 /* Common */,
 				B4DC06B81EE2606600AB32F4 /* doctorResource.plist */,
+				921216EB211D5C0F00076FF6 /* TaskCenter.storyboard */,
 				B4DC05E81EE1AFD100AB32F4 /* Main.storyboard */,
 				B4DC05EB1EE1AFD100AB32F4 /* Assets.xcassets */,
 				B4DC05ED1EE1AFD100AB32F4 /* LaunchScreen.storyboard */,
@@ -1809,6 +1815,7 @@
 				B4DA57F11EFA9F3E00CB31CC /* 进入-大@2x.png in Resources */,
 				B41DF9EC1EE587340089CC67 /* 渐变小@2x.png in Resources */,
 				B41DF9F51EE587340089CC67 /* 满星@3x.png in Resources */,
+				921216EC211D5C0F00076FF6 /* TaskCenter.storyboard in Resources */,
 				B4CF78021EEB977A00FD36E9 /* EvaluateCell.xib in Resources */,
 				B41DFA791EE996F50089CC67 /* WishlistCell.xib in Resources */,
 				B483F7CA1EF40DC000A6E289 /* 进入小灰箭头@2x.png in Resources */,
@@ -2134,6 +2141,7 @@
 				0A1A86102118A88D00C20FB8 /* String+Extension.swift in Sources */,
 				B4B045D31EEAD99C00C03856 /* PersonalInfoController.swift in Sources */,
 				B4B045E31EEAED9200C03856 /* CompleteDetailController.swift in Sources */,
+				921216EF211D5DE800076FF6 /* TaskCenterRootController.swift in Sources */,
 				B42BC64B1EF02246007B665E /* QuestionViewController.swift in Sources */,
 				B4B045D81EEAD9E100C03856 /* PersonalnfoCell.swift in Sources */,
 				B4D62D6F1F1E448300BF07F6 /* SDWebImageDecoder.m in Sources */,
