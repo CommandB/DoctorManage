@@ -13,6 +13,7 @@ class TaskCenterRootController: UIViewController{
     @IBOutlet weak var botttomLine: UIView!
     @IBOutlet weak var myTaskBtn: UIButton!
     @IBOutlet weak var myTeachBtn: UIButton!
+    @IBOutlet weak var topbackView: UIView!
     
     let myTaskView = JHMyTaskViewController()
     let myTeachView = JHMyTeachViewController()
@@ -20,6 +21,7 @@ class TaskCenterRootController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigationBarColor()
         configUI()
     }
 
@@ -46,15 +48,24 @@ class TaskCenterRootController: UIViewController{
         botttomLine.center = CGPoint(x: sender.center.x, y: botttomLine.center.y)
         if sender == myTaskBtn {
             scrollView.contentOffset = CGPoint(x: 0, y: scrollView.contentOffset.y)
-//            leftTableView.reloadData()
         }else{
             scrollView.contentOffset = CGPoint(x: kScreenWidth, y: scrollView.contentOffset.y)
-//            rightTableView.reloadData()
         }
     }
     
     @IBAction func scanAction(_ sender: UIButton) {
         myPresentView(self, viewName: "scannerView")
+    }
+    
+    ///设置标题的渐变背景色
+    func setNavigationBarColor(){
+        let navigationBarColor = CAGradientLayer()
+        navigationBarColor.startPoint = CGPoint.init(x: 0.0, y: 0.5)
+        navigationBarColor.endPoint = CGPoint.init(x: 1.0, y: 0.5)
+        navigationBarColor.colors = [UIColor.init(hex: "74c0e0").cgColor,UIColor.init(hex: "407bd8").cgColor]
+        topbackView.layer.insertSublayer(navigationBarColor, at: 0)
+//        topbackView?.layer.addSublayer(navigationBarColor)
+        navigationBarColor.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: 110)
     }
     
     override func didReceiveMemoryWarning() {

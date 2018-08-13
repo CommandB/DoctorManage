@@ -114,18 +114,18 @@ class JHMyTaskViewController: UIViewController,UITableViewDataSource,UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-//        let taskDetailVC = TaskDetailController()
-//        taskDetailVC.title = "任务详细"
-//        taskDetailVC.enterPath = .UNCOMPLETE
-//        taskDetailVC.headInfo = dataSource[indexPath.section]
-//        let nav = UINavigationController(rootViewController: taskDetailVC)
-//        self.present(nav, animated: true, completion: nil)
-     
         
         let taskCenterStoryboard = UIStoryboard.init(name: "TaskCenter", bundle: nil)
-        let taskDetailView2 = taskCenterStoryboard.instantiateViewController(withIdentifier: "taskDetailView2") as! JHMyTaskDetai2Controller
-        taskDetailView2.headDataJson = JSON(self.dataSource[indexPath.section])
-        self.present(taskDetailView2, animated: true, completion: nil)
+        if self.dataSource[indexPath.section].stringValue(forKey: "type") == "2"{
+            let taskDetailView = taskCenterStoryboard.instantiateViewController(withIdentifier: "taskDetailView") as! JHMyTaskDetaiController
+            taskDetailView.headDataJson = JSON(self.dataSource[indexPath.section])
+            self.present(taskDetailView, animated: true, completion: nil)
+        }else {
+            let taskDetailView2 = taskCenterStoryboard.instantiateViewController(withIdentifier: "taskDetailView2") as! JHMyTaskDetai2Controller
+            taskDetailView2.headDataJson = JSON(self.dataSource[indexPath.section])
+            self.present(taskDetailView2, animated: true, completion: nil)
+        }
+       
     }
     
     func historyTaskAction() {

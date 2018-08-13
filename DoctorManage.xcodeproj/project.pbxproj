@@ -45,6 +45,9 @@
 		92121701211D7E6B00076FF6 /* JHMyTaskDetai2Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92121700211D7E6B00076FF6 /* JHMyTaskDetai2Controller.swift */; };
 		92121703211D860300076FF6 /* CircleDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92121702211D860300076FF6 /* CircleDataView.swift */; };
 		92121705211D8A6C00076FF6 /* JHMyTaskDetaiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92121704211D8A6C00076FF6 /* JHMyTaskDetaiController.swift */; };
+		9220FA7A21216607001B332C /* JHOtherFilesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220FA7921216607001B332C /* JHOtherFilesController.swift */; };
+		9220FA7D212169E9001B332C /* OtherFilesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220FA7B212169E8001B332C /* OtherFilesCell.swift */; };
+		9220FA7E212169E9001B332C /* OtherFilesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9220FA7C212169E9001B332C /* OtherFilesCell.xib */; };
 		944C81C3C2B9BDF3FA125C8B /* Pods_DoctorManage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 773702E47B86F9868C189CF4 /* Pods_DoctorManage.framework */; };
 		B41070121F9301EF00B513BD /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41070101F9301EF00B513BD /* logo@2x.png */; };
 		B41070131F9301EF00B513BD /* logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41070111F9301EF00B513BD /* logo@3x.png */; };
@@ -456,6 +459,9 @@
 		92121700211D7E6B00076FF6 /* JHMyTaskDetai2Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMyTaskDetai2Controller.swift; sourceTree = "<group>"; };
 		92121702211D860300076FF6 /* CircleDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleDataView.swift; sourceTree = "<group>"; };
 		92121704211D8A6C00076FF6 /* JHMyTaskDetaiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMyTaskDetaiController.swift; sourceTree = "<group>"; };
+		9220FA7921216607001B332C /* JHOtherFilesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHOtherFilesController.swift; sourceTree = "<group>"; };
+		9220FA7B212169E8001B332C /* OtherFilesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherFilesCell.swift; sourceTree = "<group>"; };
+		9220FA7C212169E9001B332C /* OtherFilesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherFilesCell.xib; sourceTree = "<group>"; };
 		B41070101F9301EF00B513BD /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		B41070111F9301EF00B513BD /* logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@3x.png"; sourceTree = "<group>"; };
 		B419F6BD1F03E02400B7FEE9 /* SelectBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectBaseView.swift; sourceTree = "<group>"; };
@@ -933,6 +939,7 @@
 				921216F7211D6FBA00076FF6 /* JHMyTeachViewController.swift */,
 				92121704211D8A6C00076FF6 /* JHMyTaskDetaiController.swift */,
 				92121700211D7E6B00076FF6 /* JHMyTaskDetai2Controller.swift */,
+				9220FA7921216607001B332C /* JHOtherFilesController.swift */,
 			);
 			path = TaskCenterChanged;
 			sourceTree = "<group>";
@@ -942,6 +949,8 @@
 			children = (
 				921216FC211D796A00076FF6 /* JHMyTaskViewCell.swift */,
 				921216FD211D796A00076FF6 /* JHMyTaskViewCell.xib */,
+				9220FA7B212169E8001B332C /* OtherFilesCell.swift */,
+				9220FA7C212169E9001B332C /* OtherFilesCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1823,6 +1832,7 @@
 				B41DFA6A1EE984240089CC67 /* 返回@3x.png in Resources */,
 				B4DA57E21EFA9F3E00CB31CC /* 教学水平@3x.png in Resources */,
 				B4DA57FE1EFA9F3E00CB31CC /* 黄底边2@3x.png in Resources */,
+				9220FA7E212169E9001B332C /* OtherFilesCell.xib in Resources */,
 				B4DA57F91EFA9F3E00CB31CC /* 重置@2x.png in Resources */,
 				B41DFA001EE587340089CC67 /* 未勾选@2x.png in Resources */,
 				B41DF9DB1EE587340089CC67 /* 饼图@3x.png in Resources */,
@@ -2113,6 +2123,7 @@
 				B4551F3A1F5BF29500CC68B3 /* TrainingViewController.swift in Sources */,
 				B483F75D1EF2BC9300A6E289 /* MineResourceController.swift in Sources */,
 				B4D62D711F1E448300BF07F6 /* SDWebImageDownloaderOperation.m in Sources */,
+				9220FA7A21216607001B332C /* JHOtherFilesController.swift in Sources */,
 				0A1A85EC2110BC8500C20FB8 /* OfficeTeacherController.swift in Sources */,
 				0A1A85EB2110BC8500C20FB8 /* JoinOfficeController.swift in Sources */,
 				0A1A8601211844F200C20FB8 /* UILabel.swift in Sources */,
@@ -2238,6 +2249,7 @@
 				B42D402D1F262EEE001143F7 /* ZHDropDownMenu.swift in Sources */,
 				B41DFA561EE855BA0089CC67 /* TaskCenterViewController.swift in Sources */,
 				B46CF9B51EFE11880048112F /* ELCAsset.m in Sources */,
+				9220FA7D212169E9001B332C /* OtherFilesCell.swift in Sources */,
 				B46CF9C11EFE122A0048112F /* PassVideoViewController.swift in Sources */,
 				B41B384B1F08D60100EFBEFF /* BaseEvaluateController.swift in Sources */,
 				921216FE211D796A00076FF6 /* JHMyTaskViewCell.swift in Sources */,

@@ -7,8 +7,13 @@
 //
 
 import UIKit
-
+import SwiftyJSON
 class JHMyTaskDetaiController: UIViewController {
+    var headDataJson = JSON.init("")
+    var teachingmaterialJson = JSON.init("")
+    let c : CircleDataView = CircleDataView()
+    
+    @IBOutlet weak var btn_start: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +21,20 @@ class JHMyTaskDetaiController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    
+    @IBAction func btn_back_inside(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    //开始执行
+    @IBAction func btn_start_inside(_ sender: UIButton) {
+//        let vc = getViewToStoryboard("videoView") as! VideoController
+//        vc.headData = teachingmaterialJson
+//        vc.complate = headDataJson["student_state"].stringValue
+//        vc.taskId = headDataJson["taskid"].stringValue
+//        present(vc, animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

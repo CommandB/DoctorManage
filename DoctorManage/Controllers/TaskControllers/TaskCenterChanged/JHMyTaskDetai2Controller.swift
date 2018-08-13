@@ -64,15 +64,12 @@ class JHMyTaskDetai2Controller: UIViewController {
         lbl.text = headDataJson["addressname"].stringValue
         
         let lateImageView = view.viewWithTag(101010) as! UIImageView
-        var lateImage = UIImage()
-        do{
-            if let imageurl = URL(string: headDataJson["siginurl"].stringValue) {
-                try lateImage = UIImage(data: Data.init(contentsOf: imageurl))!
-            }
-        }catch{
-            
+        let lateImage = UIImage()
+        if let imageurl = URL(string: headDataJson["siginurl"].stringValue) {
+            lateImageView.sd_setImage(with: imageurl)
+        }else{
+            lateImageView.image = lateImage
         }
-        lateImageView.image = lateImage
         
         getTaskDetail()
     }
@@ -121,6 +118,13 @@ class JHMyTaskDetai2Controller: UIViewController {
     
     @IBAction func btn_back_inside(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func otherFileAction(_ sender: UIButton) {
+        let taskCenterStoryboard = UIStoryboard.init(name: "TaskCenter", bundle: nil)
+        let vc = taskCenterStoryboard.instantiateViewController(withIdentifier: "OtherFilesController") as! JHOtherFilesController
+        vc.taskId = headDataJson["taskid"].stringValue
+        self.present(vc, animated: true, completion: nil)
     }
     
     ///设置标题的渐变背景色
