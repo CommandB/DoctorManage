@@ -23,12 +23,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xlg-mc-0q8">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="历史任务" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXD-Er-OpM">
-                                        <rect key="frame" x="297" y="25" width="58" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y4X-fz-bpH">
+                                        <rect key="frame" x="293" y="25" width="62" height="30"/>
+                                        <state key="normal" title="历史任务">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tapHistoryBtn:" destination="kzS-TG-xCS" eventType="touchUpInside" id="8jf-8y-jyZ"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6SG-O4-75r">
                                         <rect key="frame" x="61" y="73" width="66" height="32"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -71,17 +74,17 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.25098039215686274" green="0.4823529411764706" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="IXD-Er-OpM" secondAttribute="trailing" constant="20" id="6SG-WN-tuq"/>
                                     <constraint firstItem="sNk-I8-A9o" firstAttribute="centerX" secondItem="xlg-mc-0q8" secondAttribute="centerX" multiplier="1.5" id="7jq-Ud-WFa"/>
                                     <constraint firstAttribute="bottom" secondItem="jjR-ic-JIa" secondAttribute="bottom" id="8ua-Nr-Uei"/>
                                     <constraint firstAttribute="bottom" secondItem="6SG-O4-75r" secondAttribute="bottom" constant="5" id="A9F-p6-NPq"/>
-                                    <constraint firstItem="IXD-Er-OpM" firstAttribute="top" secondItem="xlg-mc-0q8" secondAttribute="top" constant="25" id="CGE-nx-vpR"/>
                                     <constraint firstItem="5rf-Vc-CBN" firstAttribute="leading" secondItem="xlg-mc-0q8" secondAttribute="leading" constant="15" id="Se7-rL-AdY"/>
                                     <constraint firstItem="6SG-O4-75r" firstAttribute="centerX" secondItem="xlg-mc-0q8" secondAttribute="centerX" multiplier="0.5" id="Wi1-84-GWk"/>
                                     <constraint firstAttribute="height" constant="110" id="XEc-yd-qLa"/>
                                     <constraint firstItem="sNk-I8-A9o" firstAttribute="centerY" secondItem="6SG-O4-75r" secondAttribute="centerY" id="Y4n-8K-Fll"/>
                                     <constraint firstItem="jjR-ic-JIa" firstAttribute="centerX" secondItem="6SG-O4-75r" secondAttribute="centerX" id="aCy-Mp-jor"/>
                                     <constraint firstItem="5rf-Vc-CBN" firstAttribute="top" secondItem="xlg-mc-0q8" secondAttribute="top" constant="20" id="bdy-t5-8rH"/>
+                                    <constraint firstAttribute="trailing" secondItem="Y4X-fz-bpH" secondAttribute="trailing" constant="20" id="feL-7d-0Ul"/>
+                                    <constraint firstItem="Y4X-fz-bpH" firstAttribute="top" secondItem="xlg-mc-0q8" secondAttribute="top" constant="25" id="wyt-eE-iHs"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="任务中心" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ed0-8f-qEr">
@@ -110,6 +113,7 @@
                     </view>
                     <connections>
                         <outlet property="botttomLine" destination="jjR-ic-JIa" id="vND-eT-SMr"/>
+                        <outlet property="historyBtn" destination="Y4X-fz-bpH" id="lRt-1d-03W"/>
                         <outlet property="myTaskBtn" destination="6SG-O4-75r" id="RCj-Pk-ASJ"/>
                         <outlet property="myTeachBtn" destination="sNk-I8-A9o" id="oZH-3c-kGA"/>
                         <outlet property="scrollView" destination="7j2-gI-OFv" id="d5G-bg-hsR"/>

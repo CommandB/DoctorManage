@@ -16,12 +16,6 @@ let Ip_port = "139.224.207.29:8086"
 //var Ip_port2 = "120.77.181.22:80/"
 var Ip_port2 = "218.109.193.102/"
 
-
-//MARK: 屏幕尺寸
-let kScreenWidth = UIScreen.main.bounds.size.width
-let kScreenHeight = UIScreen.main.bounds.size.height
-let kStatusBarHeight = UIApplication.shared.statusBarFrame.size.height
-
 //MARK: 接口
 let kSelectbaseURL = "http://www.jiuhuatech.com:6023/cloud_doctor_train/rest/trainHospital/query.do"
 

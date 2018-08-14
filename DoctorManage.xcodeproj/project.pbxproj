@@ -48,6 +48,7 @@
 		9220FA7A21216607001B332C /* JHOtherFilesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220FA7921216607001B332C /* JHOtherFilesController.swift */; };
 		9220FA7D212169E9001B332C /* OtherFilesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220FA7B212169E8001B332C /* OtherFilesCell.swift */; };
 		9220FA7E212169E9001B332C /* OtherFilesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9220FA7C212169E9001B332C /* OtherFilesCell.xib */; };
+		9220FA802122A3BD001B332C /* JHHeaderDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220FA7F2122A3BD001B332C /* JHHeaderDefine.swift */; };
 		944C81C3C2B9BDF3FA125C8B /* Pods_DoctorManage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 773702E47B86F9868C189CF4 /* Pods_DoctorManage.framework */; };
 		B41070121F9301EF00B513BD /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41070101F9301EF00B513BD /* logo@2x.png */; };
 		B41070131F9301EF00B513BD /* logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41070111F9301EF00B513BD /* logo@3x.png */; };
@@ -462,6 +463,7 @@
 		9220FA7921216607001B332C /* JHOtherFilesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHOtherFilesController.swift; sourceTree = "<group>"; };
 		9220FA7B212169E8001B332C /* OtherFilesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherFilesCell.swift; sourceTree = "<group>"; };
 		9220FA7C212169E9001B332C /* OtherFilesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherFilesCell.xib; sourceTree = "<group>"; };
+		9220FA7F2122A3BD001B332C /* JHHeaderDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHHeaderDefine.swift; sourceTree = "<group>"; };
 		B41070101F9301EF00B513BD /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		B41070111F9301EF00B513BD /* logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@3x.png"; sourceTree = "<group>"; };
 		B419F6BD1F03E02400B7FEE9 /* SelectBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectBaseView.swift; sourceTree = "<group>"; };
@@ -1326,6 +1328,7 @@
 			isa = PBXGroup;
 			children = (
 				B4CC3E7A211873610044D795 /* JHBaseViewController.swift */,
+				9220FA7F2122A3BD001B332C /* JHHeaderDefine.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -2122,6 +2125,7 @@
 				B4D62D781F1E448300BF07F6 /* UIImageView+WebCache.m in Sources */,
 				B4551F3A1F5BF29500CC68B3 /* TrainingViewController.swift in Sources */,
 				B483F75D1EF2BC9300A6E289 /* MineResourceController.swift in Sources */,
+				9220FA802122A3BD001B332C /* JHHeaderDefine.swift in Sources */,
 				B4D62D711F1E448300BF07F6 /* SDWebImageDownloaderOperation.m in Sources */,
 				9220FA7A21216607001B332C /* JHOtherFilesController.swift in Sources */,
 				0A1A85EC2110BC8500C20FB8 /* OfficeTeacherController.swift in Sources */,

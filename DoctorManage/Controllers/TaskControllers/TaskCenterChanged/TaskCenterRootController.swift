@@ -14,6 +14,7 @@ class TaskCenterRootController: UIViewController{
     @IBOutlet weak var myTaskBtn: UIButton!
     @IBOutlet weak var myTeachBtn: UIButton!
     @IBOutlet weak var topbackView: UIView!
+    @IBOutlet weak var historyBtn: UIButton!
     
     let myTaskView = JHMyTaskViewController()
     let myTeachView = JHMyTeachViewController()
@@ -55,6 +56,12 @@ class TaskCenterRootController: UIViewController{
     
     @IBAction func scanAction(_ sender: UIButton) {
         myPresentView(self, viewName: "scannerView")
+    }
+    
+    @IBAction func tapHistoryBtn(_ sender: UIButton) {
+        let completeView = CompleteController()
+        let nav = UINavigationController.init(rootViewController: completeView)
+        self.present(nav, animated: true, completion: nil)
     }
     
     ///设置标题的渐变背景色
