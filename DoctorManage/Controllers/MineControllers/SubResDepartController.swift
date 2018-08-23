@@ -28,6 +28,7 @@ class SubResDepartController: UIViewController,UITableViewDataSource,UITableView
         self.tableview.backgroundColor = UIColor.init(red: 245/255.0, green: 248/255.0, blue: 251, alpha: 1.0)
         self.tableview.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshAction))
         self.tableview.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreAction))
+        self.tableview.mj_footer.isAutomaticallyChangeAlpha = true
         self.tableview.mj_header.beginRefreshing()
         NotificationCenter.default.addObserver(self, selector: #selector(uploadSuccess(_:)), name:NSNotification.Name(rawValue: kUploadVideoSuccessNotification), object: nil)
     }
@@ -55,6 +56,9 @@ class SubResDepartController: UIViewController,UITableViewDataSource,UITableView
                         }else{
                             self.thumbnailArr.append(UIImage.init(named: "testresource")!)
                         }
+                    }
+                    if json["data"].arrayValue.count == 0{
+                        self.tableview.mj_footer.endRefreshingWithNoMoreData()
                     }
                     self.tableview.reloadData()
                 }else{
