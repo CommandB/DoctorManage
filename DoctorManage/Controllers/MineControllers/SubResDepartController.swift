@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import AVFoundation
-class SubResDepartController: UIViewController,UITableViewDataSource,UITableViewDelegate,subResMineCellDelegate,UIScrollViewDelegate {
+class SubResDepartController: UIViewController,UITableViewDataSource,UITableViewDelegate,subResMineCellDelegate,UIScrollViewDelegate,UIDocumentInteractionControllerDelegate {
     var tableview = UITableView()
     var player:XLVideoPlayer!
     var dataSource:[JSON] = []
@@ -34,7 +34,7 @@ class SubResDepartController: UIViewController,UITableViewDataSource,UITableView
     }
     
     func requestResMineData(pageindex:Int) {
-        let urlString = "http://"+Ip_port2+"doctor_train/rest/teachingMaterial/getAppMaterial.do"
+        let urlString = "http://"+Ip_port2+"doctor_train/rest/teachingMaterial/queryMine.do"
         let params = ["token":UserInfo.instance().token,"gettype":"2","pageindex":String(pageindex*10),"pagesize": "10"] as! [String:String]
         MBProgressHUD.showAdded(to: self.view, animated: true)
         Alamofire.request(urlString, method: .post, parameters: params).responseJSON { (response) in
@@ -50,7 +50,7 @@ class SubResDepartController: UIViewController,UITableViewDataSource,UITableView
                     //                    self.dataSource = json["data"].arrayValue
                     for item in json["data"].arrayValue{
                         self.dataSource.append(item)
-                        if let url = URL.init(string: item["url"].stringValue){
+                        if let url = URL.init(string: item["fullurl"].stringValue){
                             let image = self.generateThumbImage(url:url) ?? UIImage.init(named: "testresource")
                             self.thumbnailArr.append(image!)
                         }else{
@@ -111,8 +111,13 @@ class SubResDepartController: UIViewController,UITableViewDataSource,UITableView
         let indexPath = IndexPath.init(row: 0, section: (view?.tag)!-100)
         let cell = tableview.cellForRow(at: indexPath) as! subResMineCell
         
+        if dataSource[indexPath.section]["type"].intValue != 0{
+            downloadFile(indexpath: indexPath)
+            return
+        }
+        
         player = XLVideoPlayer()
-        player.videoUrl = dataSource[indexPath.section]["url"].stringValue
+        player.videoUrl = dataSource[indexPath.section]["fullurl"].stringValue
         //        "http://v1.mukewang.com/57de8272-38a2-4cae-b734-ac55ab528aa8/L.mp4"
         player.playerBindTableView(tableview, currentIndexPath: indexPath)
         player.frame = (view?.bounds)!
@@ -183,6 +188,47 @@ class SubResDepartController: UIViewController,UITableViewDataSource,UITableView
     {
         self.tableview.mj_header.beginRefreshing()
     }
+    
+    func downloadFile(indexpath:IndexPath) {
+        //指定下载路径和保存文件名
+        let destination: DownloadRequest.DownloadFileDestination = { _, _ in
+            let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            let fileURL = documentsURL.appendingPathComponent(self.dataSource[indexpath.section]["reffilename"].stringValue)
+            print("\r\r测试--------------文件保存---------------\r\r")
+            //两个参数表示如果有同名文件则会覆盖，如果路径中文件夹不存在则会自动创建
+            return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
+        }
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        //开始下载
+        Alamofire.download(self.dataSource[indexpath.section]["fullurl"].stringValue, to: destination)
+            .response { response in
+                //print(response)
+                let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                let fileURL = documentsURL.appendingPathComponent(self.dataSource[indexpath.section]["reffilename"].stringValue)
+                self.openFile(fileURL)
+                
+        }
+    }
+    
+    
+    func openFile(_ filePath: URL) {
+        MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+        let _docController = UIDocumentInteractionController.init(url: filePath)
+        _docController.delegate = self
+        _docController.presentPreview(animated: true)
+    }
+    
+    func documentInteractionControllerViewForPreview(_ controller: UIDocumentInteractionController) -> UIView? {
+        return self.view
+    }
+    
+    func documentInteractionControllerRectForPreview(_ controller: UIDocumentInteractionController) -> CGRect {
+        return self.view.frame
+    }
+    func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
+        return self
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

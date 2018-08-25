@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import AVFoundation
-class SubResMineController: UIViewController,UITableViewDataSource,UITableViewDelegate,subResMineCellDelegate,UIScrollViewDelegate {
+class SubResMineController: UIViewController,UITableViewDataSource,UITableViewDelegate,subResMineCellDelegate,UIScrollViewDelegate,UIDocumentInteractionControllerDelegate {
     var tableview = UITableView()
     var player:XLVideoPlayer!
     var dataSource:[JSON] = []
@@ -30,36 +30,13 @@ class SubResMineController: UIViewController,UITableViewDataSource,UITableViewDe
         self.tableview.tableFooterView = UIView()
         self.tableview.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshAction))
         self.tableview.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreAction))
+        self.tableview.mj_footer.isAutomaticallyChangeAlpha = true
         self.tableview.mj_header.beginRefreshing()
         NotificationCenter.default.addObserver(self, selector: #selector(uploadSuccess(_:)), name:NSNotification.Name(rawValue: kUploadVideoSuccessNotification), object: nil)
     }
     
-//    func getData(pageindex:String) {
-//        MBProgressHUD.showAdded(to: self.view, animated: true)
-//        let params = ["token":UserInfo.instance().token,"gettype":"2"] as! [String:String]
-//        
-//        NetworkTool.sharedInstance.requestUnCompleteTask(params: params as! [String : String], success: { (response) in
-//            self.tableview.mj_header.endRefreshing()
-//            self.tableview.mj_footer.endRefreshing()
-//            MBProgressHUD.hide(for:  self.view, animated: true)
-//            if let data = response["data"],response["data"]?.count != 0{
-//                for i in 1...(data as! [NSDictionary]).count {
-//                    self.dataSource.append((data as! [NSDictionary])[i-1])
-//                }
-//                self.tableview.reloadData()
-//            }
-//            else if response["data"]?.count == 0{
-//                self.tableview.mj_footer.endRefreshingWithNoMoreData()
-//            }
-//        }) { (error) in
-//            self.tableview.mj_header.endRefreshing()
-//            self.tableview.mj_footer.endRefreshing()
-//            MBProgressHUD.hide(for:  self.view, animated: true)
-//        }
-//    }
-    
     func requestResMineData(pageindex:Int) {
-        let urlString = "http://"+Ip_port2+"doctor_train/rest/teachingMaterial/getAppMaterial.do"
+        let urlString = "http://"+Ip_port2+"doctor_train/rest/teachingMaterial/queryMine.do"
         let params = ["token":UserInfo.instance().token,"gettype":"1","pageindex":String(pageindex*10),"pagesize": "10"] as! [String:String]
         MBProgressHUD.showAdded(to: self.view, animated: true)
         Alamofire.request(urlString, method: .post, parameters: params).responseJSON { (response) in
@@ -73,12 +50,15 @@ class SubResMineController: UIViewController,UITableViewDataSource,UITableViewDe
             case .success(let response):
                 let json = JSON(response)
                 if json["code"].stringValue == "1"{
-//                    self.dataSource = json["data"].arrayValue
+                    //                    self.dataSource = json["data"].arrayValue
                     for item in json["data"].arrayValue{
                         self.dataSource.append(item)
                     }
                     self.createImages()
                     self.tableview.reloadData()
+                    if json["data"].arrayValue.count == 0{
+                        self.tableview.mj_footer.endRefreshingWithNoMoreData()
+                    }
                 }else{
                     print("error")
                 }
@@ -98,7 +78,7 @@ class SubResMineController: UIViewController,UITableViewDataSource,UITableViewDe
         index = index + 1
         requestResMineData(pageindex: index)
     }
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return self.dataSource.count
     }
@@ -130,31 +110,30 @@ class SubResMineController: UIViewController,UITableViewDataSource,UITableViewDe
         let indexPath = IndexPath.init(row: 0, section: (view?.tag)!-100)
         let cell = tableview.cellForRow(at: indexPath) as! subResMineCell
         
+        if dataSource[indexPath.section]["type"].intValue != 0{
+            downloadFile(indexpath: indexPath)
+            return
+        }
+        
         player = XLVideoPlayer()
-        player.videoUrl = dataSource[indexPath.section]["url"].stringValue
-//        "http://v1.mukewang.com/57de8272-38a2-4cae-b734-ac55ab528aa8/L.mp4"
+        player.videoUrl = dataSource[indexPath.section]["fullurl"].stringValue
+        //        "http://v1.mukewang.com/57de8272-38a2-4cae-b734-ac55ab528aa8/L.mp4"
         player.playerBindTableView(tableview, currentIndexPath: indexPath)
         player.frame = (view?.bounds)!
         
         cell.videoImageView.addSubview(player)
         player.completedPlayingBlock = {(player) -> (Void) in
             player?.destroy()
-//            player?.removeFromSuperview()
+            //            player?.removeFromSuperview()
         }
-//        {(btn) -> (Void) in
-//                player.completedPlayingBlock = ^(player:XLVideoPlayer) {
-////                    [player destroyPlayer];
-////                    _player = nil;
-//                    player.destroy()
-//                }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        for cell in tableView.visibleCells {
-//            (cell as! subResMineCell).avPlayer.player?.pause()
-//        }
-//        let cell = tableView.cellForRow(at: indexPath) as! subResMineCell
-//        cell.avPlayer.player?.play()
+        //        for cell in tableView.visibleCells {
+        //            (cell as! subResMineCell).avPlayer.player?.pause()
+        //        }
+        //        let cell = tableView.cellForRow(at: indexPath) as! subResMineCell
+        //        cell.avPlayer.player?.play()
     }
     
     func shareBtnDelegate(button:UIButton){
@@ -193,7 +172,7 @@ class SubResMineController: UIViewController,UITableViewDataSource,UITableViewDe
     
     func createImages() {
         for item in self.dataSource{
-            if let url = URL.init(string: item["url"].stringValue){
+            if let url = URL.init(string: item["fullurl"].stringValue){
                 let image = self.generateThumbImage(url:url) ?? UIImage.init(named: "testresource")
                 self.thumbnailArr.append(image!)
             }else{
@@ -222,20 +201,60 @@ class SubResMineController: UIViewController,UITableViewDataSource,UITableViewDe
         self.tableview.mj_header.beginRefreshing()
     }
     
+    func downloadFile(indexpath:IndexPath) {
+        //指定下载路径和保存文件名
+        let destination: DownloadRequest.DownloadFileDestination = { _, _ in
+            let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            let fileURL = documentsURL.appendingPathComponent(self.dataSource[indexpath.section]["reffilename"].stringValue)
+            print("\r\r测试--------------文件保存---------------\r\r")
+            //两个参数表示如果有同名文件则会覆盖，如果路径中文件夹不存在则会自动创建
+            return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
+        }
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        //开始下载
+        Alamofire.download(self.dataSource[indexpath.section]["fullurl"].stringValue, to: destination)
+            .response { response in
+                //print(response)
+                let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                let fileURL = documentsURL.appendingPathComponent(self.dataSource[indexpath.section]["reffilename"].stringValue)
+                self.openFile(fileURL)
+                
+        }
+    }
+    
+    
+    func openFile(_ filePath: URL) {
+        MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+        let _docController = UIDocumentInteractionController.init(url: filePath)
+        _docController.delegate = self        
+        _docController.presentPreview(animated: true)
+    }
+    
+    func documentInteractionControllerViewForPreview(_ controller: UIDocumentInteractionController) -> UIView? {
+        return self.view
+    }
+    
+    func documentInteractionControllerRectForPreview(_ controller: UIDocumentInteractionController) -> CGRect {
+        return self.view.frame
+    }
+    func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
+        return self
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
