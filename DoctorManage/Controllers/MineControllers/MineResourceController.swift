@@ -58,7 +58,12 @@ class MineResourceController: UIViewController,UIImagePickerControllerDelegate,U
     }
     
     @IBAction func dismissAction(_ sender: Any) {
+        UINavigationBar.appearance().tintColor = UIColor.white
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        UINavigationBar.appearance().tintColor = UIColor.black
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
