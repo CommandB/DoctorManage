@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A04006E213EB0AA0095AE36 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A04006D213EB0AA0095AE36 /* AppConfiguration.swift */; };
+		0A040070213EB1940095AE36 /* WebModuleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A04006F213EB1940095AE36 /* WebModuleCell.xib */; };
+		0A040072213EB2710095AE36 /* WebModuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A040071213EB2710095AE36 /* WebModuleCell.swift */; };
 		0A1A85E62110BC8500C20FB8 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A85DF2110BC8500C20FB8 /* UIColor.swift */; };
 		0A1A85E72110BC8500C20FB8 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A85E02110BC8500C20FB8 /* Extension.swift */; };
 		0A1A85E82110BC8500C20FB8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A85E12110BC8500C20FB8 /* String.swift */; };
@@ -419,6 +422,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A04006D213EB0AA0095AE36 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		0A04006F213EB1940095AE36 /* WebModuleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebModuleCell.xib; sourceTree = "<group>"; };
+		0A040071213EB2710095AE36 /* WebModuleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebModuleCell.swift; sourceTree = "<group>"; };
 		0A1A85DF2110BC8500C20FB8 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		0A1A85E02110BC8500C20FB8 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		0A1A85E12110BC8500C20FB8 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -1228,6 +1234,8 @@
 			children = (
 				B483F7651EF2C7A700A6E289 /* InfoHeadCell.swift */,
 				B483F7661EF2C7A700A6E289 /* InfoHeadCell.xib */,
+				0A040071213EB2710095AE36 /* WebModuleCell.swift */,
+				0A04006F213EB1940095AE36 /* WebModuleCell.xib */,
 				B483F7671EF2C7A700A6E289 /* LearnResourceCell.swift */,
 				B483F7681EF2C7A700A6E289 /* LearnResourceCell.xib */,
 				B483F7691EF2C7A700A6E289 /* MineEvaluateCell.swift */,
@@ -1575,6 +1583,7 @@
 				B4DC07251EE456D500AB32F4 /* AppDelegate.swift */,
 				B41DFA451EE854C80089CC67 /* MainTabbarController.swift */,
 				B41DFA591EE855CB0089CC67 /* LoginViewController.swift */,
+				0A04006D213EB0AA0095AE36 /* AppConfiguration.swift */,
 			);
 			path = Appdelegate;
 			sourceTree = "<group>";
@@ -2018,6 +2027,7 @@
 				B4B045DB1EEAD9E100C03856 /* CheckWorkCell.xib in Resources */,
 				B4500BEE1F0E9241000ABD63 /* more_bg.png in Resources */,
 				B4DA57E81EFA9F3E00CB31CC /* 知识传授@3x.png in Resources */,
+				0A040070213EB1940095AE36 /* WebModuleCell.xib in Resources */,
 				B4DA57F41EFA9F3E00CB31CC /* 进入-小@3x.png in Resources */,
 				B46CF9C61EFF8C690048112F /* 头像蒙版@2x.png in Resources */,
 				B4DA583D1EFBE72F00CB31CC /* EvaluateFirstCell.xib in Resources */,
@@ -2243,6 +2253,7 @@
 				B4B045E31EEAED9200C03856 /* CompleteDetailController.swift in Sources */,
 				B42BC64B1EF02246007B665E /* QuestionViewController.swift in Sources */,
 				B4B045D81EEAD9E100C03856 /* PersonalnfoCell.swift in Sources */,
+				0A040072213EB2710095AE36 /* WebModuleCell.swift in Sources */,
 				B4D62D6F1F1E448300BF07F6 /* SDWebImageDecoder.m in Sources */,
 				B4DA589B1EFD4C3F00CB31CC /* EditTextContainerView.swift in Sources */,
 				B4D62D3D1F1A06D400BF07F6 /* EvaluateStarCell.swift in Sources */,
@@ -2260,6 +2271,7 @@
 				B4D62D701F1E448300BF07F6 /* SDWebImageDownloader.m in Sources */,
 				B4D62D6B1F1E448300BF07F6 /* NSImage+WebCache.m in Sources */,
 				0A1A85E62110BC8500C20FB8 /* UIColor.swift in Sources */,
+				0A04006E213EB0AA0095AE36 /* AppConfiguration.swift in Sources */,
 				B4D62D721F1E448300BF07F6 /* SDWebImageManager.m in Sources */,
 				B41DFA7C1EE9A0EF0089CC67 /* StudentTaskCell.swift in Sources */,
 				B483F7771EF2C7A700A6E289 /* OnlineHeadCell.swift in Sources */,

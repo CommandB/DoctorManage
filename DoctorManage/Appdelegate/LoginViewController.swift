@@ -66,6 +66,41 @@ class LoginViewController: UIViewController,SelectBaseViewDelegate,UIPickerViewD
                 if resp["code"].string == "1"{
                     //g_userOffice = resp["data"].arrayValue
                     UserInfo.instance().saveOfficeInfo(try! resp["data"].rawData());
+                    
+                    
+                    //缓存app配置信息
+                    let appConfig = resp["appconfig"].arrayValue
+                    for config in appConfig{
+                        let name = config["name"].stringValue
+                        let val = config["value"].stringValue
+                        if  name == AppConfiguration.teacherCreateNoticeText.rawValue{
+                            UserDefaults.standard.set(val, forKey: AppConfiguration.teacherCreateNotice.rawValue)
+                        }else if name == AppConfiguration.signInTakePhotoText.rawValue{
+                            UserDefaults.standard.set(val, forKey: AppConfiguration.signInTakePhoto.rawValue)
+                        }
+                    }
+                    
+                    //解析角色信息并缓存
+//                    let role = json["role"].arrayValue
+//                    var roleDic = [String:Bool]()
+//                    if role.count > 0{
+//                        let r = role[0]
+//                        for item in r{
+//                            if "0" == item.1{
+//                                roleDic[item.0] = false
+//                            }else{
+//                                roleDic[item.0] = true
+//                            }
+//                        }
+//                    }
+//                    UserDefaults.standard.set(roleDic, forKey: LoginInfo.role.rawValue)
+                    
+                    //缓存web模块 (这里存不了json数组 所以存string 后面自己转一下)
+                    UserDefaults.standard.set(resp["webmodule"].description, forKey: AppConfiguration.webModule.rawValue)
+                    
+                    
+                    
+                    
                 }
             }){error in
                 MBProgressHUD.hide(for: self.view, animated: true)
