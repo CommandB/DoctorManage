@@ -10,6 +10,7 @@
 		0A04006E213EB0AA0095AE36 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A04006D213EB0AA0095AE36 /* AppConfiguration.swift */; };
 		0A040070213EB1940095AE36 /* WebModuleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A04006F213EB1940095AE36 /* WebModuleCell.xib */; };
 		0A040072213EB2710095AE36 /* WebModuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A040071213EB2710095AE36 /* WebModuleCell.swift */; };
+		0A040074214264010095AE36 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A040073214264010095AE36 /* WebViewController.swift */; };
 		0A1A85E62110BC8500C20FB8 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A85DF2110BC8500C20FB8 /* UIColor.swift */; };
 		0A1A85E72110BC8500C20FB8 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A85E02110BC8500C20FB8 /* Extension.swift */; };
 		0A1A85E82110BC8500C20FB8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A85E12110BC8500C20FB8 /* String.swift */; };
@@ -425,6 +426,7 @@
 		0A04006D213EB0AA0095AE36 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		0A04006F213EB1940095AE36 /* WebModuleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebModuleCell.xib; sourceTree = "<group>"; };
 		0A040071213EB2710095AE36 /* WebModuleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebModuleCell.swift; sourceTree = "<group>"; };
+		0A040073214264010095AE36 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		0A1A85DF2110BC8500C20FB8 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		0A1A85E02110BC8500C20FB8 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		0A1A85E12110BC8500C20FB8 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -1080,6 +1082,7 @@
 				B4DA58891EFC0ED200CB31CC /* AnswerListController.swift */,
 				B4DA588F1EFC131200CB31CC /* AnswerDetailController.swift */,
 				B46CF9C01EFE122A0048112F /* PassVideoViewController.swift */,
+				0A040073214264010095AE36 /* WebViewController.swift */,
 			);
 			path = MineControllers;
 			sourceTree = "<group>";
@@ -2221,6 +2224,7 @@
 				B41DFA461EE854C80089CC67 /* MainTabbarController.swift in Sources */,
 				B46CF9B41EFE11880048112F /* ELCAlbumPickerController.m in Sources */,
 				B4CC3E7B211873610044D795 /* JHBaseViewController.swift in Sources */,
+				0A040074214264010095AE36 /* WebViewController.swift in Sources */,
 				B4DA58931EFC146C00CB31CC /* ReplayInfoCell.swift in Sources */,
 				B4DA589F1EFD4C3F00CB31CC /* UIKitExtension.swift in Sources */,
 				92121703211D860300076FF6 /* CircleDataView.swift in Sources */,

@@ -320,16 +320,15 @@ class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     func openWebView(sender: UIButton){
-//        let webModule = UserDefaults.standard.string(forKey: AppConfiguration.webModule.rawValue)
-//        let json = JSON.init(parseJSON: webModule!).arrayValue
-//        let index = sender.tag - 50001
-//        var url = json[index]["moduleurl"].stringValue
-//        url.removeSubrange(url.startIndex...url.index(url.startIndex, offsetBy: 13))
-//        url = SERVER_PORT + url + "?token=" + UserDefaults.standard.string(forKey: LoginInfo.token.rawValue)!
-//        let vc = getViewToStoryboard("webView") as! WebViewController
-//        vc.webUrl = url
-//        vc.viewTitlte = json[index]["modulename"].stringValue
-//        parentView?.present(vc, animated: true, completion: nil)
+        let webModule = UserDefaults.standard.string(forKey: AppConfiguration.webModule.rawValue)
+        let json = JSON.init(parseJSON: webModule!).arrayValue
+        let index = sender.tag - 30001
+        var url = json[index]["moduleurl"].stringValue
+        url = "http://"+Ip_port2 + url + "?token=" + UserInfo.instance().token
+        let vc = getViewToStoryboard("webView") as! WebViewController
+        vc.webUrl = url
+        vc.viewTitlte = json[index]["modulename"].stringValue
+        present(vc, animated: true, completion: nil)
     }
     
     /*
