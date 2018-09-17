@@ -42,6 +42,7 @@ class TaskDetailController: UIViewController,UITableViewDataSource,UITableViewDe
         
         let image = UIImage(named: "返回")!.withRenderingMode(.alwaysOriginal)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:image, style: .done, target: self, action: #selector(dismissAction))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "附件", style: .done, target: self, action: #selector(OtherFilesAction))
         getDetailData()
     }
 
@@ -203,6 +204,16 @@ class TaskDetailController: UIViewController,UITableViewDataSource,UITableViewDe
             MBProgressHUD.hide(for: self.view, animated: true)
         }
     }
+    
+    @objc func OtherFilesAction() {
+        let taskCenterStoryboard = UIStoryboard.init(name: "TaskCenter", bundle: nil)
+        let vc = taskCenterStoryboard.instantiateViewController(withIdentifier: "OtherFilesController") as! JHOtherFilesController
+        if let taskId = headInfo["taskid"] as? String{
+            vc.taskId = taskId 
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
