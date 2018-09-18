@@ -47,15 +47,8 @@ class SubResDepartController: UIViewController,UITableViewDataSource,UITableView
             case .success(let response):
                 let json = JSON(response)
                 if json["code"].stringValue == "1"{
-                    //                    self.dataSource = json["data"].arrayValue
                     for item in json["data"].arrayValue{
                         self.dataSource.append(item)
-                        if let url = URL.init(string: item["fullurl"].stringValue){
-                            let image = self.generateThumbImage(url:url) ?? UIImage.init(named: "testresource")
-                            self.thumbnailArr.append(image!)
-                        }else{
-                            self.thumbnailArr.append(UIImage.init(named: "testresource")!)
-                        }
                     }
                     if json["data"].arrayValue.count == 0{
                         self.tableview.mj_footer.endRefreshingWithNoMoreData()
@@ -91,7 +84,9 @@ class SubResDepartController: UIViewController,UITableViewDataSource,UITableView
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = subResMineCell.videoCellWithTableView(tableview: tableView)
-        cell.videoImageView.image = thumbnailArr[indexPath.section]
+        if let imageUrlStr = self.dataSource[indexPath.section]["imageUrl"] as? String,let url = URL.init(string: imageUrlStr) {
+            cell.videoImageView.sd_setImage(with: url)
+        }
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(showVideoPlayer(gesture:)))
         cell.videoImageView.addGestureRecognizer(tap)
         cell.titleLabel.text = self.dataSource[indexPath.section]["title"].stringValue

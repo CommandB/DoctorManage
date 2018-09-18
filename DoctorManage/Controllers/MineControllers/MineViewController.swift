@@ -196,7 +196,7 @@ class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             return 140
         }else if indexPath.section == 1{
             return 115
-        }else if indexPath.section == 2 {
+        }else if indexPath.section == 2 || indexPath.section == 3{
             return 80
         }else if indexPath.row == 0 {
             return 40
@@ -211,16 +211,16 @@ class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.section == 1 {
+        if indexPath.section == 2 {
             let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
             let mineEvaluateVC = storyboard.instantiateViewController(withIdentifier: "MineEvaluateView")
             self.present(mineEvaluateVC, animated: true, completion: nil)
         }
-        else if indexPath.section == 2 {
+        else if indexPath.section == 3 {
             let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
             let mineResourceVC = storyboard.instantiateViewController(withIdentifier: "MineResourceView")
             self.present(mineResourceVC, animated: true, completion: nil)
-        }else if indexPath.section == 3{
+        }else if indexPath.section == 4{
             if indexPath.row > 0 && indexPath.row < 4{
                 let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
                 let answerDetailVC = storyboard.instantiateViewController(withIdentifier: "answerDetailView") as! AnswerDetailController
