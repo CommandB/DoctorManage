@@ -34,6 +34,8 @@
 		0A2B4D0C211D4653004A32B9 /* LBXScanWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2B4D06211D4652004A32B9 /* LBXScanWrapper.swift */; };
 		0A2B4D0D211D4653004A32B9 /* LBXPermissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2B4D07211D4652004A32B9 /* LBXPermissions.swift */; };
 		0A2B4D10211D4707004A32B9 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2B4D0F211D4707004A32B9 /* ScannerViewController.swift */; };
+		0A9221B12150D58D00FCBDE7 /* CEXStudentsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9221B02150D58D00FCBDE7 /* CEXStudentsListController.swift */; };
+		0A9221B5215232DE00FCBDE7 /* CEXCheckController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9221B4215232DE00FCBDE7 /* CEXCheckController.swift */; };
 		921191AE211C070F008411BC /* LectureCompleteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921191AD211C070F008411BC /* LectureCompleteController.swift */; };
 		921191BD211C184F008411BC /* 科室-灰色@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 921191BB211C184D008411BC /* 科室-灰色@2x.png */; };
 		921191BE211C184F008411BC /* 科室-灰色@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 921191BC211C184E008411BC /* 科室-灰色@3x.png */; };
@@ -450,6 +452,8 @@
 		0A2B4D06211D4652004A32B9 /* LBXScanWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanWrapper.swift; sourceTree = "<group>"; };
 		0A2B4D07211D4652004A32B9 /* LBXPermissions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXPermissions.swift; sourceTree = "<group>"; };
 		0A2B4D0F211D4707004A32B9 /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		0A9221B02150D58D00FCBDE7 /* CEXStudentsListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEXStudentsListController.swift; sourceTree = "<group>"; };
+		0A9221B4215232DE00FCBDE7 /* CEXCheckController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEXCheckController.swift; sourceTree = "<group>"; };
 		4E860808DF1E6E777592D38A /* Pods-DoctorManage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorManage.release.xcconfig"; path = "Pods/Target Support Files/Pods-DoctorManage/Pods-DoctorManage.release.xcconfig"; sourceTree = "<group>"; };
 		54C98E72B22008F441FF49FD /* Pods-DoctorManage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorManage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoctorManage/Pods-DoctorManage.debug.xcconfig"; sourceTree = "<group>"; };
 		773702E47B86F9868C189CF4 /* Pods_DoctorManage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoctorManage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -932,6 +936,15 @@
 			path = qrScanner;
 			sourceTree = "<group>";
 		};
+		0A9221AF2150D56500FCBDE7 /* CEX */ = {
+			isa = PBXGroup;
+			children = (
+				0A9221B02150D58D00FCBDE7 /* CEXStudentsListController.swift */,
+				0A9221B4215232DE00FCBDE7 /* CEXCheckController.swift */,
+			);
+			path = CEX;
+			sourceTree = "<group>";
+		};
 		8C22624A8DD3939A9FB7D825 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1090,6 +1103,7 @@
 		B41DFA4A1EE855AB0089CC67 /* EvaluateControllers */ = {
 			isa = PBXGroup;
 			children = (
+				0A9221AF2150D56500FCBDE7 /* CEX */,
 				B41B384A1F08D60100EFBEFF /* BaseEvaluateController.swift */,
 				B45000AE1F0E708A000ABD63 /* WaitExamViewController.swift */,
 				B45000B01F0E709A000ABD63 /* WaitEvaluateController.swift */,
@@ -2129,6 +2143,7 @@
 				0A1A860321184A2900C20FB8 /* UIScreen.swift in Sources */,
 				B4DA58901EFC131200CB31CC /* AnswerDetailController.swift in Sources */,
 				B41DFA3B1EE854690089CC67 /* CheckingTableViewCell.swift in Sources */,
+				0A9221B12150D58D00FCBDE7 /* CEXStudentsListController.swift in Sources */,
 				B48D47031F35C9E800055F89 /* BRPersonInfoData.swift in Sources */,
 				B4D62D6A1F1E448300BF07F6 /* NSData+ImageContentType.m in Sources */,
 				B483F76F1EF2C7A700A6E289 /* InfoHeadCell.swift in Sources */,
@@ -2137,6 +2152,7 @@
 				B41DFA8A1EE9AC8B0089CC67 /* TakeTurnsCell.swift in Sources */,
 				B4D62D781F1E448300BF07F6 /* UIImageView+WebCache.m in Sources */,
 				B4551F3A1F5BF29500CC68B3 /* TrainingViewController.swift in Sources */,
+				0A9221B5215232DE00FCBDE7 /* CEXCheckController.swift in Sources */,
 				B483F75D1EF2BC9300A6E289 /* MineResourceController.swift in Sources */,
 				9220FA802122A3BD001B332C /* JHHeaderDefine.swift in Sources */,
 				B4D62D711F1E448300BF07F6 /* SDWebImageDownloaderOperation.m in Sources */,

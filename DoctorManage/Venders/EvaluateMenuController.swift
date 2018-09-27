@@ -20,7 +20,7 @@ class EvaluateMenuController: UIViewController {
     /// 代理
     weak var delegate: EvaluateMenuControllerDelegate?
     /// 滑块颜色
-    var sliderColor: UIColor = .white { didSet { updateView() } }
+    var sliderColor: UIColor = .red { didSet { updateView() } }
     /// 子标题按钮未选中颜色
     var tipBtnNormalColor : UIColor = .white { didSet { updateView() } }
     /// 子标题按钮选中颜色
@@ -41,7 +41,7 @@ class EvaluateMenuController: UIViewController {
     /* ============================================================ */
     /// 头部
     fileprivate lazy var headerView: UIImageView = { [unowned self] in
-        let view = UIImageView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 40))
+        let view = UIImageView(frame: CGRect(x: 0, y: 40, width: kScreenW, height: 40))
         view.image = UIImage.init(named: "topBack.png")
         view.isUserInteractionEnabled = true
         self.view.addSubview(view)
@@ -105,6 +105,7 @@ extension EvaluateMenuController {
         let silderW = getSliderWidth(with: btn)
         sliderFrame.size.width = silderW
         sliderFrame.origin.x = (btn.frame.width - silderW) * 0.5
+        sliderFrame.origin.y = sliderFrame.origin.y
         sliderView.frame = sliderFrame
     }
 }
@@ -125,7 +126,7 @@ extension EvaluateMenuController {
         page.dataSource = self
         page.setViewControllers([controllers.first!], direction: .forward, animated: false, completion: nil)
         let pageX: CGFloat = 0
-        let pageY: CGFloat = headerView.frame.height
+        let pageY: CGFloat = headerView.frame.height.adding(40)
         let pageW: CGFloat = self.view.frame.width
         let pageH: CGFloat = self.view.frame.height - pageY
         page.view.frame = CGRect(x: pageX, y: pageY, width: pageW, height: pageH)

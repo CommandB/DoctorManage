@@ -48,6 +48,26 @@ class BaseEvaluateController: UITableViewController,MoreMenuClickDelegate {
         lxfMenuVc.view.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
         self.view.addSubview(lxfMenuVc.view)
         setMoreMenu()
+        
+        let btn_cex = UIButton()
+        btn_cex.setTitle("Mini-CEX", for: .normal)
+        btn_cex.setTitleColor(UIColor.white, for: .normal)
+        btn_cex.frame = CGRect(x: 0, y: 0, width: kScreenW, height: 40)
+        btn_cex.setBackgroundImage(UIImage(named: "topBack.png"), for: .normal)
+        btn_cex.addTarget(self, action: #selector(btn_cex_tui), for: .touchUpInside)
+        btn_cex.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        btn_cex.adjustsImageWhenDisabled = false
+        self.view.addSubview(btn_cex)
+        let border = UILabel(frame: CGRect(x: 0, y: 39, width: kScreenW, height: 1))
+        border.backgroundColor = UIColor.darkGray
+        border.alpha = 0.3
+        self.view.addSubview(border)
+        
+        
+    }
+    
+    func btn_cex_tui(){
+        myPresentView(self, viewName: "cexStudentsListView")
     }
 
     func setMoreMenu() {
