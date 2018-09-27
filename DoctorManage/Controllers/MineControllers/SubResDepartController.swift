@@ -34,7 +34,7 @@ class SubResDepartController: UIViewController,UITableViewDataSource,UITableView
     }
     
     func requestResMineData(pageindex:Int) {
-        let urlString = "http://"+Ip_port2+"doctor_train/rest/teachingMaterial/queryMine.do"
+        let urlString = "http://"+Ip_port2+"doctor_train/rest/teachingMaterial/queryByOffice.do"
         let params = ["token":UserInfo.instance().token,"gettype":"2","pageindex":String(pageindex*10),"pagesize": "10"] as! [String:String]
         MBProgressHUD.showAdded(to: self.view, animated: true)
         Alamofire.request(urlString, method: .post, parameters: params).responseJSON { (response) in
