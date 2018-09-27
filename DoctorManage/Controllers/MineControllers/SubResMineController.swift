@@ -54,7 +54,7 @@ class SubResMineController: UIViewController,UITableViewDataSource,UITableViewDe
                     for item in json["data"].arrayValue{
                         self.dataSource.append(item)
                     }
-                    self.createImages()
+//                    self.createImages()
                     self.tableview.reloadData()
                     if json["data"].arrayValue.count == 0{
                         self.tableview.mj_footer.endRefreshingWithNoMoreData()
@@ -89,7 +89,9 @@ class SubResMineController: UIViewController,UITableViewDataSource,UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = subResMineCell.videoCellWithTableView(tableview: tableView)
-        cell.videoImageView.image = thumbnailArr[indexPath.section]
+        if let imageUrlStr = self.dataSource[indexPath.section]["imageUrl"] as? String,let url = URL.init(string: imageUrlStr) {
+            cell.videoImageView.sd_setImage(with: url)
+        }
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(showVideoPlayer(gesture:)))
         cell.videoImageView.addGestureRecognizer(tap)
         cell.titleLabel.text = self.dataSource[indexPath.section]["title"].stringValue
