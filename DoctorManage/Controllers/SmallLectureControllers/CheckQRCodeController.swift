@@ -14,6 +14,11 @@ class CheckQRCodeController: JHBaseViewController {
     var taskid = ""
     var detailDic = NSDictionary()
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var beginTimeLabel: UILabel!
+    @IBOutlet weak var endTimeLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var codeImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "任务明细"
@@ -23,7 +28,11 @@ class CheckQRCodeController: JHBaseViewController {
     }
 
     func configUI() {
-    
+        titleLabel.text = detailDic["title"] as? String
+        beginTimeLabel.text = detailDic["starttime"] as? String
+        endTimeLabel.text = detailDic["endtime"] as? String
+        addressLabel.text = detailDic["addressname"] as? String
+
     }
     
     func requestQRCode() {
@@ -36,9 +45,10 @@ class CheckQRCodeController: JHBaseViewController {
                 print(error)
             case .success(let response):
                 let json = JSON(response)
-                if json["code"].stringValue == "1"{
-//                    self.dataSource = json["data"].arrayValue
-//                    self.tableview.reloadData()
+                if json["code"].stringValue == "1" {
+                    if let url = URL.init(string: json["qrcode"].stringValue) {
+                        self.codeImageView.sd_setImage(with: url, placeholderImage: nil)
+                    }
                 }else{
                     print("error")
                 }
