@@ -55,6 +55,8 @@
 		9220FA7D212169E9001B332C /* OtherFilesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220FA7B212169E8001B332C /* OtherFilesCell.swift */; };
 		9220FA7E212169E9001B332C /* OtherFilesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9220FA7C212169E9001B332C /* OtherFilesCell.xib */; };
 		9220FA802122A3BD001B332C /* JHHeaderDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220FA7F2122A3BD001B332C /* JHHeaderDefine.swift */; };
+		92989DF3216B83320077F20E /* CheckQRCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92989DF2216B83320077F20E /* CheckQRCodeController.swift */; };
+		92989DF5216B83810077F20E /* ScanQRCode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92989DF4216B83810077F20E /* ScanQRCode.storyboard */; };
 		944C81C3C2B9BDF3FA125C8B /* Pods_DoctorManage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 773702E47B86F9868C189CF4 /* Pods_DoctorManage.framework */; };
 		B41070121F9301EF00B513BD /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41070101F9301EF00B513BD /* logo@2x.png */; };
 		B41070131F9301EF00B513BD /* logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41070111F9301EF00B513BD /* logo@3x.png */; };
@@ -476,6 +478,8 @@
 		9220FA7B212169E8001B332C /* OtherFilesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherFilesCell.swift; sourceTree = "<group>"; };
 		9220FA7C212169E9001B332C /* OtherFilesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherFilesCell.xib; sourceTree = "<group>"; };
 		9220FA7F2122A3BD001B332C /* JHHeaderDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHHeaderDefine.swift; sourceTree = "<group>"; };
+		92989DF2216B83320077F20E /* CheckQRCodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckQRCodeController.swift; sourceTree = "<group>"; };
+		92989DF4216B83810077F20E /* ScanQRCode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScanQRCode.storyboard; sourceTree = "<group>"; };
 		B41070101F9301EF00B513BD /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		B41070111F9301EF00B513BD /* logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@3x.png"; sourceTree = "<group>"; };
 		B419F6BD1F03E02400B7FEE9 /* SelectBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectBaseView.swift; sourceTree = "<group>"; };
@@ -1345,6 +1349,7 @@
 				B4CC3E7621186F010044D795 /* JHTrainingChangedCell.xib */,
 				B4CC3E7121186D9D0044D795 /* SmallLectureViewController.swift */,
 				921191AD211C070F008411BC /* LectureCompleteController.swift */,
+				92989DF2216B83320077F20E /* CheckQRCodeController.swift */,
 			);
 			path = SmallLectureControllers;
 			sourceTree = "<group>";
@@ -1567,6 +1572,7 @@
 				B4DC074A1EE45A3B00AB32F4 /* Resources */,
 				B4CC3E79211873500044D795 /* Common */,
 				B4DC06B81EE2606600AB32F4 /* doctorResource.plist */,
+				92989DF4216B83810077F20E /* ScanQRCode.storyboard */,
 				921216EB211D5C0F00076FF6 /* TaskCenter.storyboard */,
 				B4DC05E81EE1AFD100AB32F4 /* Main.storyboard */,
 				B4DC05EB1EE1AFD100AB32F4 /* Assets.xcassets */,
@@ -1858,6 +1864,7 @@
 				B41DF9F61EE587340089CC67 /* 满星@2x.png in Resources */,
 				B4DA57F21EFA9F3E00CB31CC /* 进入-大@3x.png in Resources */,
 				B41DFA8B1EE9AC8B0089CC67 /* TakeTurnsCell.xib in Resources */,
+				92989DF5216B83810077F20E /* ScanQRCode.storyboard in Resources */,
 				B41DFA6A1EE984240089CC67 /* 返回@3x.png in Resources */,
 				B4DA57E21EFA9F3E00CB31CC /* 教学水平@3x.png in Resources */,
 				B4DA57FE1EFA9F3E00CB31CC /* 黄底边2@3x.png in Resources */,
@@ -2213,6 +2220,7 @@
 				B4D62D431F1B4DF900BF07F6 /* BRCommitDataManage.swift in Sources */,
 				B483F77B1EF2C7F100A6E289 /* subResMineCell.swift in Sources */,
 				B4D62D6C1F1E448300BF07F6 /* SDImageCache.m in Sources */,
+				92989DF3216B83320077F20E /* CheckQRCodeController.swift in Sources */,
 				B4CC3E8121187DC40044D795 /* OfficePeopleCell.swift in Sources */,
 				B483F7711EF2C7A700A6E289 /* LearnResourceCell.swift in Sources */,
 				B483F7731EF2C7A700A6E289 /* MineEvaluateCell.swift in Sources */,

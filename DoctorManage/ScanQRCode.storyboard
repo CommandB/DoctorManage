@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--CheckQR Code Controller-->
+        <scene sceneID="jLJ-s7-pIW">
+            <objects>
+                <viewController storyboardIdentifier="ScanQRCode" id="XMt-Xy-mwc" customClass="CheckQRCodeController" customModule="DoctorManage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wVj-m9-aCf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ko-WS-6Vn">
+                                <rect key="frame" x="10" y="30" width="355" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bT8-Jc-G9G">
+                                        <rect key="frame" x="10" y="5" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="bT8-Jc-G9G" firstAttribute="leading" secondItem="6Ko-WS-6Vn" secondAttribute="leading" constant="10" id="B0r-Lh-Jhn"/>
+                                    <constraint firstItem="bT8-Jc-G9G" firstAttribute="top" secondItem="6Ko-WS-6Vn" secondAttribute="top" constant="5" id="Xkd-2n-tcC"/>
+                                    <constraint firstAttribute="height" constant="128" id="pWg-dS-BBd"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.82307140050000005" green="0.82894001139999995" blue="0.84654584389999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Ko-WS-6Vn" firstAttribute="top" secondItem="s3g-7l-tH4" secondAttribute="top" constant="10" id="GLE-TI-IBh"/>
+                            <constraint firstItem="6Ko-WS-6Vn" firstAttribute="width" secondItem="wVj-m9-aCf" secondAttribute="width" constant="-20" id="cOA-Qi-gul"/>
+                            <constraint firstItem="6Ko-WS-6Vn" firstAttribute="centerX" secondItem="s3g-7l-tH4" secondAttribute="centerX" id="pGq-iq-vhe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="s3g-7l-tH4"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mkX-BQ-Ew3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="212" y="159"/>
+        </scene>
+    </scenes>
+</document>

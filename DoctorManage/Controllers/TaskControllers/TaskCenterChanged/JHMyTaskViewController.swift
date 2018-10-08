@@ -33,6 +33,7 @@ class JHMyTaskViewController: UIViewController,UITableViewDataSource,UITableView
         tableView.separatorStyle = .none
         tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshAction))
         tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreAction))
+        tableView.mj_footer.isAutomaticallyChangeAlpha = true
         tableView.mj_header.beginRefreshing()
     }
     

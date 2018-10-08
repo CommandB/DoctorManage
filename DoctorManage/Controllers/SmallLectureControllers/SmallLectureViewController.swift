@@ -141,12 +141,13 @@ class SmallLectureViewController: JHBaseViewController,UITableViewDataSource,UIT
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        //        let taskDetailVC = TaskDetailController()
-        //        taskDetailVC.title = "任务详细"
-        //        taskDetailVC.enterPath = .UNCOMPLETE
-        //        taskDetailVC.headInfo = dataSource[indexPath.section]
-        //        let nav = UINavigationController(rootViewController: taskDetailVC)
-        //        self.present(nav, animated: true, completion: nil)
+        let storyboard = UIStoryboard.init(name: "ScanQRCode", bundle: nil)
+        let completeDetailVC = storyboard.instantiateViewController(withIdentifier: "ScanQRCode") as! CheckQRCodeController
+        
+        let key = Array(sortedData.keys).sorted()[indexPath.section]
+        completeDetailVC.taskid = sortedData[key]![indexPath.row]["taskid"] as! String
+        completeDetailVC.detailDic = sortedData[key]![indexPath.row]
+        self.navigationController?.pushViewController(completeDetailVC, animated: true)
     }
     
     func historyTaskAction() {
