@@ -151,9 +151,9 @@ class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 cell.valuateLabel.attributedText = valuateStr
             }
             if infoData["evaluation_okratename"].stringValue != "" {
-                let evaluation_okrate = infoData["evaluation_okratename"].stringValue
+                let evaluation_okrate = infoData["evaluation_okratename"].stringValue.removingPercentEncoding
                 let favoRatioStr = NSMutableAttributedString(string: "好评率")
-                let appendStr2 = NSMutableAttributedString(string: evaluation_okrate)
+                let appendStr2 = NSMutableAttributedString(string: evaluation_okrate!)
                 appendStr2.addAttribute(NSForegroundColorAttributeName, value: UIColor.init(red: 249/255.0, green: 80/255.0, blue: 80/255.0, alpha: 1.0),
                                         range: NSMakeRange(0, appendStr2.length))
                 favoRatioStr.append(appendStr2)
