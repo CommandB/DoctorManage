@@ -15,7 +15,7 @@ class EvaluateSecondCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var bottomLine: UILabel!
-    var yellowStarNum = 0
+    var yellowStarNum = 5
     weak var delegate: EvaluateSecondCellDelegate?
 
     @IBAction func tapStarAction(_ sender: UIButton) {
@@ -34,15 +34,15 @@ class EvaluateSecondCell: UITableViewCell {
     }
     
     func setYellowStarNum(num:Int) {
-        if num == 0 {
+        if num == 5 {
             for index in 1...5 {
                 if let view = self.viewWithTag(index+100) {
-                    (view as! UIButton).setImage(UIImage.init(named: "空星"), for: .normal)
+                    (view as! UIButton).setImage(UIImage.init(named: "满星"), for: .normal)
                 }
             }
             return
         }
-        for index in 1...num {
+        for index in 1...5 {
             if let view = self.viewWithTag(index+100) {
                 (view as! UIButton).setImage(UIImage.init(named: "空星"), for: .normal)
             }

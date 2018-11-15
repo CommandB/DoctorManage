@@ -41,7 +41,7 @@ class EvaluateInfoController: UIViewController,UITableViewDelegate,UITableViewDa
                 if json["code"].stringValue == "1"{
                     self.evaluateStarData = json["data"]
                     for i in 0...self.evaluateStarData.count-1 {
-                        self.evaluateStarData[i]["get_value"].stringValue = "0"
+                        self.evaluateStarData[i]["get_value"].stringValue = "5"
                     }
                     self.tableView.reloadData()
                 }else{
@@ -157,6 +157,7 @@ class EvaluateInfoController: UIViewController,UITableViewDelegate,UITableViewDa
     //MARK:EvaluateSecondCellDelegate
     func updateModelDataDelegate(yellowStarNum: Int,cell:EvaluateSecondCell){
         evaluateStarData[cell.tag-500]["get_value"].stringValue = String(yellowStarNum)
+        self.tableView.reloadData()
     }
     
     func dismissAction(_ sender: Any) {
