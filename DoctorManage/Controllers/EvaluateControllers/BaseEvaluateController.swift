@@ -8,76 +8,134 @@
 
 import UIKit
 
-class BaseEvaluateController: UITableViewController,MoreMenuClickDelegate {
+class BaseEvaluateController: UIViewController,UIScrollViewDelegate,MoreMenuClickDelegate {
     var moreMenu = MoreMenuView()
-    
-    /// 子标题
-    lazy var subTitleArr:[String] = {
-        return ["待考任务", "待评任务"]
-    }()
-    
-    /// 子控制器
-    var controllers:[UIViewController] = {
-        var cons:[UIViewController] = [UIViewController]()
-        cons.append(WaitExamViewController())
-        cons.append(WaitEvaluateController())
-        return cons
-    }()
-    
-    
-    /// 菜单分类控制器
-    lazy var lxfMenuVc: EvaluateMenuController = {
-        let pageVc = EvaluateMenuController(controllers: self.controllers, titles: self.subTitleArr, inParentController: self)
-        pageVc.delegate = self
-        self.view.addSubview(pageVc.view)
-        return pageVc
-    }()
 
+    var topView = EvaluateTopSelectView()
+    var scrollView = UIScrollView()
+    var taskType = 1000
+    
+    var firstVC = WaitExamViewController()
+    var secondVC = WaitEvaluateController()
+    var thirdVC = CEXStudentsListController()
+    var fourthVC = UIViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage.init(named: "topBackgroundIcon"), for: .default)
-//        self.extendedLayoutIncludesOpaqueBars = true
+        self.extendedLayoutIncludesOpaqueBars = true
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
-//        self.navigationController?.navigationBar.tintColor = UIColor.white
         let image = UIImage(named: "Menu")!.withRenderingMode(.alwaysOriginal)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .done, target: self, action: #selector(rightItemTapped))
         self.title = "考评"
-        tableView.tableFooterView = UIView()
-        self.tableView.backgroundColor = UIColor(red: 245/255.0, green: 248/255.0, blue: 251/255.0, alpha: 1.0)
-        lxfMenuVc.tipBtnFontSize = 15
-        lxfMenuVc.view.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
-        self.view.addSubview(lxfMenuVc.view)
+        
+        addChildeView()
+        setupConStrains()
         setMoreMenu()
-        
-        let btn_cex = UIButton()
-        btn_cex.setTitle("Mini-CEX", for: .normal)
-        btn_cex.setTitleColor(UIColor.white, for: .normal)
-        btn_cex.frame = CGRect(x: 0, y: 0, width: kScreenW, height: 40)
-        btn_cex.setBackgroundImage(UIImage(named: "topBack.png"), for: .normal)
-        btn_cex.addTarget(self, action: #selector(btn_cex_tui), for: .touchUpInside)
-        btn_cex.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        btn_cex.adjustsImageWhenDisabled = false
-        self.view.addSubview(btn_cex)
-        let border = UILabel(frame: CGRect(x: 0, y: 39, width: kScreenW, height: 1))
-        border.backgroundColor = UIColor.darkGray
-        border.alpha = 0.3
-        self.view.addSubview(border)
-        
-        
     }
     
-    func btn_cex_tui(){
-        myPresentView(self, viewName: "cexStudentsListView")
+    func addChildeView() {
+        self.view.addSubview(topView)
+        self.view.addSubview(scrollView)
     }
+    
+    func setupConStrains() {
+        topView.mas_makeConstraints { (make) in
+            make?.height.equalTo()(45)
+            make?.top.offset()(64)
+            make?.left.right().offset()(0)
+        }
+        topView.buttonClickCallBack = { (tag) in
+            self.changeViewWithTag(type: tag)
+        }
+        scrollView.mas_makeConstraints { (make) in
+            make?.top.equalTo()(topView.mas_bottom)
+            make?.left.right().offset()(0)
+            make?.bottom.offset()(0)
+        }
+        scrollView.backgroundColor = .yellow
+        scrollView.isPagingEnabled = true
+        scrollView.bounces = false
+        scrollView.contentSize = CGSize(width: kScreenW*4, height: kScreenH-64-45-49)
+        scrollView.delegate = self
 
-    func setMoreMenu() {
-        moreMenu.frame = CGRect.init(x: self.view.frame.size.width-110, y: 0, width: 100, height: 100)
-        moreMenu.tag = 1000
-        moreMenu.m_delegate = self
-        self.view.addSubview(moreMenu)
+        firstVC.view.frame = CGRect.init(x: 0, y: 0, width: kScreenW, height: kScreenH-64-45-49)
+        secondVC.view.frame = CGRect.init(x: kScreenW, y: 0, width: kScreenW, height: kScreenH-64-45-49)
+        thirdVC.view.frame = CGRect.init(x: kScreenW*2, y: 0, width: kScreenW, height: kScreenH-64-45-49)
+        fourthVC.view.frame = CGRect.init(x: kScreenW*3, y: 0, width: kScreenW, height: kScreenH-64-45-49)
+        
+        self.addChildViewController(firstVC)
+        self.addChildViewController(secondVC)
+        self.addChildViewController(thirdVC)
+        self.addChildViewController(fourthVC)
+        self.scrollView.addSubview(firstVC.view)
+        self.scrollView.addSubview(secondVC.view)
+        self.scrollView.addSubview(thirdVC.view)
+        self.scrollView.addSubview(fourthVC.view)
+        
+        firstVC.parentView = self
+        secondVC.parentView = self
+        thirdVC.parentView = self
+    }
+    
+    func changeViewWithTag(type:NSInteger) {
+        self.scrollView.contentOffset = CGPoint.init(x: kScreenW*CGFloat(type-1000), y:self.scrollView.contentOffset.y)
+        moreMenu.isHidden = true
+        if type == self.taskType {
+            return
+        }
+        self.taskType = type
+        self.refreshOrderList()
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let index = NSInteger(scrollView.contentOffset.x/kScreenW)
+        self.topView.endScrollViewWithIndex(index:index)
+        if 1000+index == self.taskType {
+            return
+        }
+        self.taskType = 1000+index
+        self.refreshOrderList()
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         moreMenu.isHidden = true
     }
     
+    func refreshOrderList() {
+        switch taskType {
+        case 1000:
+            self.firstVC.tableview.mj_header.beginRefreshing();
+            break
+        case 1001:
+            self.secondVC.tableview.mj_header.beginRefreshing();
+            break
+        case 1002:
+            self.thirdVC.students_collection?.mj_header.beginRefreshing()
+            break
+        case 1003:
+            
+            break
+        default:
+            break
+        }
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        UIView.animate(withDuration: 0.5) {
+            self.moreMenu.isHidden = true;
+        }
+    }
+    
+    func setMoreMenu() {
+        moreMenu.frame = CGRect.init(x: self.view.frame.size.width-110, y: 64, width: 100, height: 100)
+        moreMenu.tag = 1000
+        moreMenu.m_delegate = self
+        self.navigationController?.view.addSubview(moreMenu)
+        moreMenu.isHidden = true
+    }
+
     //MARK:moreMenuDelegate
     func moreMenu(with menuView: MoreMenuView!, with index: Int) {
         switch index {
@@ -94,10 +152,7 @@ class BaseEvaluateController: UITableViewController,MoreMenuClickDelegate {
         default:break
         }
     }
-    
-    func handleGesture() {
-        moreMenu.isHidden = true
-    }
+
     func rightItemTapped() {
         if moreMenu.isHidden == true {
             moreMenu.isHidden = false
@@ -106,24 +161,12 @@ class BaseEvaluateController: UITableViewController,MoreMenuClickDelegate {
         }
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func viewWillDisappear(_ animated: Bool) {
         moreMenu.isHidden = true
-    }
-    
-    /// 隐藏状态栏
-    override var prefersStatusBarHidden: Bool {
-        return false
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-}
-
-// MARK:- LXFMenuPageControllerDelegate
-extension BaseEvaluateController: EvaluateMenuControllerDelegate {
-    func lxf_MenuPageCurrentSubController(index: NSInteger, menuPageController: EvaluateMenuController) {
-        print("第\(index)个子控制器")
     }
 }

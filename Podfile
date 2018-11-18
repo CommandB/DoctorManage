@@ -9,5 +9,6 @@ target ‘DoctorManage’ do
     pod 'JPush'
     pod 'IQKeyboardManagerSwift'
     pod 'SnapKit' , '~> 3.2.0'
+    pod 'Masonry', '1.1.0'
 
 end

@@ -4,6 +4,7 @@ PODS:
   - JCore (1.1.5)
   - JPush (3.0.6):
     - JCore (~> 1.1.1)
+  - Masonry (1.1.0)
   - MJRefresh (3.1.12)
   - Reachability (3.2)
   - SnapKit (3.2.0)
@@ -13,6 +14,7 @@ DEPENDENCIES:
   - Alamofire (~> 4.4)
   - IQKeyboardManagerSwift
   - JPush
+  - Masonry (= 1.1.0)
   - MJRefresh
   - Reachability
   - SnapKit (~> 3.2.0)
@@ -24,6 +26,7 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - JCore
     - JPush
+    - Masonry
     - MJRefresh
     - Reachability
     - SnapKit
@@ -34,11 +37,12 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 977affaeb4d6e971975c7790a6850f31d38f1207
   JCore: 9bd9c770c877c583d98b90a68792b8361974c231
   JPush: c41be50eb1a574a66aeb68d237f00a4ec6ec3a82
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 94dd3b593856ed9889be479e89508b3d5428b711
+PODFILE CHECKSUM: c108df15e59b655b549ea59637d8dabeeff77235
 
 COCOAPODS: 1.5.3

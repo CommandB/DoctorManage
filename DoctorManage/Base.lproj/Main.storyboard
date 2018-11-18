@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hdf-Gs-ALw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hdf-Gs-ALw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Students List Controller-->
+        <!--View Controller-->
         <scene sceneID="s42-Eo-HPI">
             <objects>
-                <viewController storyboardIdentifier="cexStudentsListView" id="o4t-4m-Es3" customClass="CEXStudentsListController" customModule="DoctorManage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="cexStudentsListView" id="o4t-4m-Es3" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mvq-wd-6Bu"/>
                         <viewControllerLayoutGuide type="bottom" id="jl4-Xx-XE1"/>
@@ -21,28 +24,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="top背景.png" translatesAutoresizingMaskIntoConstraints="NO" id="rJM-pP-UXg">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" tag="10001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="mini-CEX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fby-uu-SaY">
-                                <rect key="frame" x="69" y="24" width="169" height="30"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="saW-b3-fmI">
-                                <rect key="frame" x="16" y="28" width="22" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="返回.png"/>
-                                <connections>
-                                    <action selector="btn_back_tui:" destination="o4t-4m-Es3" eventType="touchUpInside" id="oSe-T7-ljA"/>
-                                </connections>
-                            </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AOu-eQ-rzj">
-                                <rect key="frame" x="0.0" y="65" width="375" height="602"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AOu-eQ-rzj">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="DU1-Kp-SXR">
                                     <size key="itemSize" width="375" height="87"/>
@@ -88,19 +71,15 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ge3-0x-Mi9">
-                                <rect key="frame" x="302" y="28" width="57" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="历史评分"/>
-                                <connections>
-                                    <action selector="btn_back:" destination="T5a-BE-OXe" eventType="touchUpInside" id="NRq-m1-o65"/>
-                                    <action selector="btn_back_tui:" destination="bWz-To-pk8" eventType="touchUpInside" id="zW2-Sb-N9I"/>
-                                    <action selector="btn_history_tui:" destination="o4t-4m-Es3" eventType="touchUpInside" id="orG-rO-hTB"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jl4-Xx-XE1" firstAttribute="top" secondItem="AOu-eQ-rzj" secondAttribute="bottom" id="61d-Ii-5UO"/>
+                            <constraint firstItem="AOu-eQ-rzj" firstAttribute="top" secondItem="mvq-wd-6Bu" secondAttribute="bottom" constant="-20" id="8zU-7m-3Ud"/>
+                            <constraint firstItem="AOu-eQ-rzj" firstAttribute="leading" secondItem="hCn-W0-HF8" secondAttribute="leading" id="Q0t-Jm-dDH"/>
+                            <constraint firstAttribute="trailing" secondItem="AOu-eQ-rzj" secondAttribute="trailing" id="YBx-MS-G1P"/>
+                            <constraint firstItem="AOu-eQ-rzj" firstAttribute="width" secondItem="hCn-W0-HF8" secondAttribute="width" id="zCg-rr-Rpt"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="students_collection" destination="AOu-eQ-rzj" id="GSM-lf-LL5"/>
@@ -2974,7 +2953,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="c1" id="1aU-KR-4du">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="c1" id="1aU-KR-4du">
                                         <rect key="frame" x="18.5" y="0.0" width="294" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">

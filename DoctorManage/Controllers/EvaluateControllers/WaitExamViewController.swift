@@ -8,14 +8,16 @@
 
 import UIKit
 
-class WaitExamViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class WaitExamViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate {
     var tableview = UITableView()
     var examDataSource:[NSDictionary] = []
     var index = 0
-
+    var parentView:BaseEvaluateController?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableview.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height-64-49)
+        tableview.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height-64-49-45)
         tableview.delegate = self
         tableview.dataSource = self
         self.tableview.backgroundColor = UIColor.init(red: 245/255.0, green: 248/255.0, blue: 251, alpha: 1.0)
@@ -33,12 +35,10 @@ class WaitExamViewController: UIViewController,UITableViewDelegate,UITableViewDa
         self.tableview.mj_header.beginRefreshing()
     }
     func requestData(pageindex:Int) {
-        MBProgressHUD.showAdded(to: self.view, animated: true)        
         let params = ["pageindex":String(pageindex*10),"pagesize": "10","token":UserInfo.instance().token]
             NetworkTool.sharedInstance.requestTaskexamURL(params: params as! [String : String], success: { (response) in
                 self.tableview.mj_header.endRefreshing()
                 self.tableview.mj_footer.endRefreshing()
-                MBProgressHUD.hide(for:  self.view, animated: true)
                 if let data = response["data"],(response["data"] as AnyObject).count != 0{
                     for i in 1...(data as! [NSDictionary]).count {
                         self.examDataSource.append((data as! [NSDictionary])[i-1])
@@ -51,7 +51,6 @@ class WaitExamViewController: UIViewController,UITableViewDelegate,UITableViewDa
             }) { (error) in
                 self.tableview.mj_header.endRefreshing()
                 self.tableview.mj_footer.endRefreshing()
-                MBProgressHUD.hide(for:  self.view, animated: true)
             }
     }
     
@@ -96,7 +95,11 @@ class WaitExamViewController: UIViewController,UITableViewDelegate,UITableViewDa
         let nav = UINavigationController(rootViewController: examInfoVC)
         self.present(nav, animated: true, completion: nil)
     }
-
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        parentView?.moreMenu.isHidden = true
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

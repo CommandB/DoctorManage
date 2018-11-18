@@ -9,11 +9,12 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-class WaitEvaluateController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class WaitEvaluateController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate {
     var tableview = UITableView()
     var evaluDataSource:[JSON] = []
     var index = 0
-    
+    var parentView:BaseEvaluateController?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage.init(named: "topBackgroundIcon"), for: .default)
@@ -23,7 +24,7 @@ class WaitEvaluateController: UIViewController,UITableViewDelegate,UITableViewDa
         let image = UIImage(named: "返回")!.withRenderingMode(.alwaysOriginal)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:image, style: .done, target: self, action: #selector(backAction))
         self.title = "考评"
-        tableview.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height-64-49)
+        tableview.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height-64-49-45)
         tableview.delegate = self
         tableview.dataSource = self
         self.view.addSubview(tableview)
@@ -42,11 +43,9 @@ class WaitEvaluateController: UIViewController,UITableViewDelegate,UITableViewDa
     }
     
     func requestData(pageindex:Int) {
-        MBProgressHUD.showAdded(to: self.view, animated: true)
         let urlString = "http://"+Ip_port2+kQueryTaskEvaluationURL
         let params = ["pageindex":String(pageindex*10),"pagesize": "10","token":UserInfo.instance().token,"state":"1"] as! [String:String]
         NetworkTool.sharedInstance.myPostRequest(urlString,params, method: HTTPMethod.post).responseJSON { (response) in
-            MBProgressHUD.hide(for: self.view, animated: true)
             self.tableview.mj_header.endRefreshing()
             self.tableview.mj_footer.endRefreshing()
             switch(response.result){
@@ -111,7 +110,9 @@ class WaitEvaluateController: UIViewController,UITableViewDelegate,UITableViewDa
         self.navigationController?.popViewController(animated: true)
     }
     
-    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        parentView?.moreMenu.isHidden = true
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

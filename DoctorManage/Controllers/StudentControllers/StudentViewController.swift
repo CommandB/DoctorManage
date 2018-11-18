@@ -125,22 +125,25 @@ class StudentViewController: UIViewController,UICollectionViewDelegate,UICollect
         requestData()
         collectionView.selectItem(at: IndexPath.init(row: 0, section: 0), animated: false, scrollPosition: .left)
         collectionView.delegate?.collectionView!(collectionView, didSelectItemAt: IndexPath.init(row: 0, section: 0))
+        setRightButton()
+    }
+    
+    func setRightButton() {
+        let rightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+        rightButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        rightButton.titleLabel?.textAlignment = .right
+        rightButton.setTitle("发布讲座", for: .normal)
+        rightButton.addTarget(self, action: #selector(publishLectureAction), for: .touchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
+    }
+    
+    func publishLectureAction() {
+        self.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(PublishLectureController(), animated: true)
+        self.hidesBottomBarWhenPushed = false
     }
     
     func requestData() {
-//        let params = ["token":UserInfo.instance().token]
-//        NetworkTool.sharedInstance.requestQueryMyStudentsURL(params: params as! [String : String], success: { (response) in
-//            if let data = response["data"],response["data"]?.count != 0 {
-//                for i in 1...(data as! [NSDictionary]).count {
-//                    self.dataSource.append((data as! [NSDictionary])[i-1])
-//                }
-//                self.collectionView.reloadData()
-//            }
-//        }) { (error) in
-//
-//        }
-        
-        
         let urlString = "http://"+Ip_port2+kQueryMyStudentsURL
         NetworkTool.sharedInstance.myPostRequest(urlString,["token":UserInfo.instance().token!], method: HTTPMethod.post).responseJSON { (response) in
             switch(response.result){
