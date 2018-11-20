@@ -39,7 +39,9 @@ class CEXStudentsListController : UIViewController ,UICollectionViewDelegate,UIC
         students_collection?.register(nib, forCellWithReuseIdentifier: "CEXStudentCollectionCell")
         self.view.addSubview(students_collection!)
         
-        self.students_collection?.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshAction))
+        let header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshAction))
+        header?.setTitle("", for: .idle)
+        self.students_collection?.mj_header = header
         self.students_collection?.mj_header.beginRefreshing()
     }
 

@@ -26,7 +26,9 @@ class WaitExamViewController: UIViewController,UITableViewDelegate,UITableViewDa
         tableview.register(nib1, forCellReuseIdentifier: "WaitEvaluateCell")
         tableview.tableFooterView = UIView()
         
-        self.tableview.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshAction))
+        let header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshAction))
+        header?.setTitle("", for: .idle)
+        self.tableview.mj_header = header
         self.tableview.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreAction))
 //        requestData(pageindex: index)
     }
