@@ -23,7 +23,7 @@ class BaseEvaluateController: UIViewController,UIScrollViewDelegate,MoreMenuClic
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage.init(named: "topBackgroundIcon"), for: .default)
-        self.extendedLayoutIncludesOpaqueBars = true
+//        self.extendedLayoutIncludesOpaqueBars = true
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
         let image = UIImage(named: "Menu")!.withRenderingMode(.alwaysOriginal)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .done, target: self, action: #selector(rightItemTapped))
@@ -42,7 +42,7 @@ class BaseEvaluateController: UIViewController,UIScrollViewDelegate,MoreMenuClic
     func setupConStrains() {
         topView.mas_makeConstraints { (make) in
             make?.height.equalTo()(45)
-            make?.top.offset()(64)
+            make?.top.offset()(0)
             make?.left.right().offset()(0)
         }
         topView.buttonClickCallBack = { (tag) in
@@ -53,12 +53,11 @@ class BaseEvaluateController: UIViewController,UIScrollViewDelegate,MoreMenuClic
             make?.left.right().offset()(0)
             make?.bottom.offset()(0)
         }
-        scrollView.backgroundColor = .yellow
         scrollView.isPagingEnabled = true
         scrollView.bounces = false
         scrollView.contentSize = CGSize(width: kScreenW*4, height: kScreenH-64-45-49)
         scrollView.delegate = self
-
+        
         firstVC.view.frame = CGRect.init(x: 0, y: 0, width: kScreenW, height: kScreenH-64-45-49)
         secondVC.view.frame = CGRect.init(x: kScreenW, y: 0, width: kScreenW, height: kScreenH-64-45-49)
         thirdVC.view.frame = CGRect.init(x: kScreenW*2, y: 0, width: kScreenW, height: kScreenH-64-45-49)

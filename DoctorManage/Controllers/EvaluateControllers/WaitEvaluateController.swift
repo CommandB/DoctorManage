@@ -34,14 +34,15 @@ class WaitEvaluateController: UIViewController,UITableViewDelegate,UITableViewDa
         tableview.tableFooterView = UIView()
         
         let header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshAction))
-        header?.setTitle("", for: .idle)
         self.tableview.mj_header = header
-        self.tableview.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreAction))
+        let footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreAction))
+        self.tableview.mj_footer = footer
+        header?.setTitle("", for: .idle)
+        footer?.setTitle("", for: .idle)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.tableview.mj_header.beginRefreshing()
     }
     
     func requestData(pageindex:Int) {
@@ -54,6 +55,9 @@ class WaitEvaluateController: UIViewController,UITableViewDelegate,UITableViewDa
             case .failure(let error):
                 print(error)
             case .success(let response):
+                if pageindex == 0 {
+                    self.evaluDataSource.removeAll()
+                }
                 let json = JSON(response)
                 if json["code"].stringValue == "1"{
                     self.evaluDataSource += json["data"].arrayValue
@@ -66,7 +70,6 @@ class WaitEvaluateController: UIViewController,UITableViewDelegate,UITableViewDa
     }
     
     func refreshAction() {
-        evaluDataSource.removeAll()
         index = 0
         self.tableview.mj_footer.resetNoMoreData()
         requestData(pageindex: index)

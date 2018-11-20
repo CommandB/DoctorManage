@@ -27,20 +27,25 @@ class WaitExamViewController: UIViewController,UITableViewDelegate,UITableViewDa
         tableview.tableFooterView = UIView()
         
         let header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshAction))
-        header?.setTitle("", for: .idle)
         self.tableview.mj_header = header
-        self.tableview.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreAction))
-//        requestData(pageindex: index)
+        self.tableview.mj_header.beginRefreshing()
+        
+        let footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreAction))
+        self.tableview.mj_footer = footer
+        header?.setTitle("", for: .idle)
+        footer?.setTitle("", for: .idle)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.tableview.mj_header.beginRefreshing()
     }
     func requestData(pageindex:Int) {
         let params = ["pageindex":String(pageindex*10),"pagesize": "10","token":UserInfo.instance().token]
             NetworkTool.sharedInstance.requestTaskexamURL(params: params as! [String : String], success: { (response) in
                 self.tableview.mj_header.endRefreshing()
                 self.tableview.mj_footer.endRefreshing()
+                if pageindex == 0 {
+                    self.examDataSource.removeAll()
+                }
                 if let data = response["data"],(response["data"] as AnyObject).count != 0{
                     for i in 1...(data as! [NSDictionary]).count {
                         self.examDataSource.append((data as! [NSDictionary])[i-1])
@@ -57,7 +62,6 @@ class WaitExamViewController: UIViewController,UITableViewDelegate,UITableViewDa
     }
     
     func refreshAction() {
-        examDataSource.removeAll()
         index = 0
         self.tableview.mj_footer.resetNoMoreData()
         requestData(pageindex:index)
