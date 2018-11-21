@@ -94,7 +94,7 @@ class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     // MARK: - Table view data source
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return 4
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -122,24 +122,26 @@ class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             cell.highestDegree.text = infoData["highestdegree"].stringValue
             cell.delegate = self
             return cell
-        }else if indexPath.section == 1{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "WebModuleCell", for: indexPath) as! WebModuleCell
-            
-            
-            let webModule = UserDefaults.standard.string(forKey: AppConfiguration.webModule.rawValue)
-            if webModule != nil{
-                let json = JSON.init(parseJSON: webModule!).arrayValue
-                var index = 1
-                for item in json{
-                    let btn = cell.viewWithTag(30000+index) as! UIButton
-                    btn.set(image: UIImage(named: "扫一扫-白"), title: item["modulename"].stringValue, titlePosition: .bottom, additionalSpacing: 10.0, state: .normal)
-                    btn.addTarget(self, action: #selector(openWebView), for: .touchUpInside)
-                    index += 1
-                    btn.isHidden = false
-                }
-            }
-            return cell
-        }else if indexPath.section == 2{
+        }
+//        else if indexPath.section == 1{
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "WebModuleCell", for: indexPath) as! WebModuleCell
+//
+//
+//            let webModule = UserDefaults.standard.string(forKey: AppConfiguration.webModule.rawValue)
+//            if webModule != nil{
+//                let json = JSON.init(parseJSON: webModule!).arrayValue
+//                var index = 1
+//                for item in json{
+//                    let btn = cell.viewWithTag(30000+index) as! UIButton
+//                    btn.set(image: UIImage(named: "扫一扫-白"), title: item["modulename"].stringValue, titlePosition: .bottom, additionalSpacing: 10.0, state: .normal)
+//                    btn.addTarget(self, action: #selector(openWebView), for: .touchUpInside)
+//                    index += 1
+//                    btn.isHidden = false
+//                }
+//            }
+//            return cell
+//        }
+        else if indexPath.section == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "MineEvaluateCell", for: indexPath) as! MineEvaluateCell
             if infoData["evaluation_count"].stringValue != ""{
                 let evaluation_count = infoData["evaluation_count"].stringValue
@@ -161,7 +163,7 @@ class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             }
             
             return cell
-        }else if indexPath.section == 3{
+        }else if indexPath.section == 2{
             let cell = tableView.dequeueReusableCell(withIdentifier: "LearnResourceCell", for: indexPath) as! LearnResourceCell
             if infoData["teachingcount"].stringValue != ""{
                 let teachingcount = infoData["teachingcount"].stringValue
@@ -194,9 +196,11 @@ class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return 140
-        }else if indexPath.section == 1{
-            return 115
-        }else if indexPath.section == 2 || indexPath.section == 3{
+        }
+//        else if indexPath.section == 1{
+//            return 115
+//        }
+        else if indexPath.section == 1 || indexPath.section == 2{
             return 80
         }else if indexPath.row == 0 {
             return 40
@@ -211,16 +215,16 @@ class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.section == 2 {
+        if indexPath.section == 1 {
             let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
             let mineEvaluateVC = storyboard.instantiateViewController(withIdentifier: "MineEvaluateView")
             self.present(mineEvaluateVC, animated: true, completion: nil)
         }
-        else if indexPath.section == 3 {
+        else if indexPath.section == 2 {
             let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
             let mineResourceVC = storyboard.instantiateViewController(withIdentifier: "MineResourceView")
             self.present(mineResourceVC, animated: true, completion: nil)
-        }else if indexPath.section == 4{
+        }else if indexPath.section == 3{
             if indexPath.row > 0 && indexPath.row < 4{
                 let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
                 let answerDetailVC = storyboard.instantiateViewController(withIdentifier: "answerDetailView") as! AnswerDetailController
