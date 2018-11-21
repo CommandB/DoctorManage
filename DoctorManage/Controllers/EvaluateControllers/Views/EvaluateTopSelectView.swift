@@ -22,9 +22,9 @@ class EvaluateTopSelectView: UIView {
     }
     
     func addChildeView() {
-        let titles = ["待考任务","待评任务","Mini-CEX","调查问卷"];
+        let titles = ["待考任务","待评任务","Mini-CEX"];
 
-        for index in 0...3 {
+        for index in 0...2 {
             let button = createButtonWithTitle(title: titles[index], tag: 1000+index)
             self.addSubview(button)
             self.saveButtonArry.add(button)
@@ -72,7 +72,7 @@ class EvaluateTopSelectView: UIView {
             callBack(btn.tag)
         }
         
-        for index in 0...3 {
+        for index in 0...2 {
             if let button = self.viewWithTag(1000+index) as? UIButton {
                 button.setTitleColor(UIColor.black, for: .normal)
                 button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
@@ -93,7 +93,7 @@ class EvaluateTopSelectView: UIView {
             make?.width.equalTo()(65)
         }
         
-        for index in 0...3 {
+        for index in 0...2 {
             if let button = self.viewWithTag(1000+index) as? UIButton {
                 button.setTitleColor(UIColor.black, for: .normal)
                 button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)

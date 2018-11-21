@@ -18,7 +18,7 @@ class BaseEvaluateController: UIViewController,UIScrollViewDelegate,MoreMenuClic
     var firstVC = WaitExamViewController()
     var secondVC = WaitEvaluateController()
     var thirdVC = CEXStudentsListController()
-    var fourthVC = UIViewController()
+//    var fourthVC = UIViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,22 +55,22 @@ class BaseEvaluateController: UIViewController,UIScrollViewDelegate,MoreMenuClic
         }
         scrollView.isPagingEnabled = true
         scrollView.bounces = false
-        scrollView.contentSize = CGSize(width: kScreenW*4, height: kScreenH-64-45-49)
+        scrollView.contentSize = CGSize(width: kScreenW*3, height: kScreenH-64-45-49)
         scrollView.delegate = self
         
         firstVC.view.frame = CGRect.init(x: 0, y: 0, width: kScreenW, height: kScreenH-64-45-49)
         secondVC.view.frame = CGRect.init(x: kScreenW, y: 0, width: kScreenW, height: kScreenH-64-45-49)
         thirdVC.view.frame = CGRect.init(x: kScreenW*2, y: 0, width: kScreenW, height: kScreenH-64-45-49)
-        fourthVC.view.frame = CGRect.init(x: kScreenW*3, y: 0, width: kScreenW, height: kScreenH-64-45-49)
+//        fourthVC.view.frame = CGRect.init(x: kScreenW*3, y: 0, width: kScreenW, height: kScreenH-64-45-49)
         
         self.addChildViewController(firstVC)
         self.addChildViewController(secondVC)
         self.addChildViewController(thirdVC)
-        self.addChildViewController(fourthVC)
+//        self.addChildViewController(fourthVC)
         self.scrollView.addSubview(firstVC.view)
         self.scrollView.addSubview(secondVC.view)
         self.scrollView.addSubview(thirdVC.view)
-        self.scrollView.addSubview(fourthVC.view)
+//        self.scrollView.addSubview(fourthVC.view)
         
         firstVC.parentView = self
         secondVC.parentView = self

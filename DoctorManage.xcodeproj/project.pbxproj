@@ -57,6 +57,16 @@
 		9220FA802122A3BD001B332C /* JHHeaderDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220FA7F2122A3BD001B332C /* JHHeaderDefine.swift */; };
 		92989DF3216B83320077F20E /* CheckQRCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92989DF2216B83320077F20E /* CheckQRCodeController.swift */; };
 		92989DF5216B83810077F20E /* ScanQRCode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92989DF4216B83810077F20E /* ScanQRCode.storyboard */; };
+		9371810E21A431BE00728B03 /* PublicBaseInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371810D21A431BE00728B03 /* PublicBaseInfoViewController.swift */; };
+		9371811021A431D100728B03 /* PublicTrainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371810F21A431D100728B03 /* PublicTrainViewController.swift */; };
+		9371811221A431DB00728B03 /* PublicFilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371811121A431DA00728B03 /* PublicFilesViewController.swift */; };
+		9371811421A4359200728B03 /* PublicInfoFirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371811321A4359200728B03 /* PublicInfoFirstCell.swift */; };
+		9371811621A435AD00728B03 /* PublicInfoSecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371811521A435AD00728B03 /* PublicInfoSecondCell.swift */; };
+		9371811821A435B700728B03 /* PublicInfoThirdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371811721A435B700728B03 /* PublicInfoThirdCell.swift */; };
+		9371811A21A435CF00728B03 /* PublicInfoFourthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371811921A435CF00728B03 /* PublicInfoFourthCell.swift */; };
+		9371811C21A435EC00728B03 /* PublicInfoFiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371811B21A435EC00728B03 /* PublicInfoFiveCell.swift */; };
+		9371811E21A44A8E00728B03 /* public_unselect.png in Resources */ = {isa = PBXBuildFile; fileRef = 9371811D21A44A8E00728B03 /* public_unselect.png */; };
+		9371812021A44A9200728B03 /* public_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 9371811F21A44A9200728B03 /* public_select.png */; };
 		937EE47621A1382300F045BD /* EvaluateTopSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937EE47521A1382300F045BD /* EvaluateTopSelectView.swift */; };
 		937EE47921A152AF00F045BD /* CEXStudentCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937EE47721A152AF00F045BD /* CEXStudentCollectionCell.swift */; };
 		937EE47A21A152AF00F045BD /* CEXStudentCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 937EE47821A152AF00F045BD /* CEXStudentCollectionCell.xib */; };
@@ -484,6 +494,16 @@
 		9220FA7F2122A3BD001B332C /* JHHeaderDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHHeaderDefine.swift; sourceTree = "<group>"; };
 		92989DF2216B83320077F20E /* CheckQRCodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckQRCodeController.swift; sourceTree = "<group>"; };
 		92989DF4216B83810077F20E /* ScanQRCode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScanQRCode.storyboard; sourceTree = "<group>"; };
+		9371810D21A431BE00728B03 /* PublicBaseInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicBaseInfoViewController.swift; sourceTree = "<group>"; };
+		9371810F21A431D100728B03 /* PublicTrainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicTrainViewController.swift; sourceTree = "<group>"; };
+		9371811121A431DA00728B03 /* PublicFilesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicFilesViewController.swift; sourceTree = "<group>"; };
+		9371811321A4359200728B03 /* PublicInfoFirstCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicInfoFirstCell.swift; sourceTree = "<group>"; };
+		9371811521A435AD00728B03 /* PublicInfoSecondCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicInfoSecondCell.swift; sourceTree = "<group>"; };
+		9371811721A435B700728B03 /* PublicInfoThirdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicInfoThirdCell.swift; sourceTree = "<group>"; };
+		9371811921A435CF00728B03 /* PublicInfoFourthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicInfoFourthCell.swift; sourceTree = "<group>"; };
+		9371811B21A435EC00728B03 /* PublicInfoFiveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicInfoFiveCell.swift; sourceTree = "<group>"; };
+		9371811D21A44A8E00728B03 /* public_unselect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = public_unselect.png; sourceTree = "<group>"; };
+		9371811F21A44A9200728B03 /* public_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = public_select.png; sourceTree = "<group>"; };
 		937EE47521A1382300F045BD /* EvaluateTopSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluateTopSelectView.swift; sourceTree = "<group>"; };
 		937EE47721A152AF00F045BD /* CEXStudentCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEXStudentCollectionCell.swift; sourceTree = "<group>"; };
 		937EE47821A152AF00F045BD /* CEXStudentCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CEXStudentCollectionCell.xib; sourceTree = "<group>"; };
@@ -1013,6 +1033,9 @@
 			isa = PBXGroup;
 			children = (
 				938528CF2196BD09003F9A55 /* PublishLectureController.swift */,
+				9371810D21A431BE00728B03 /* PublicBaseInfoViewController.swift */,
+				9371810F21A431D100728B03 /* PublicTrainViewController.swift */,
+				9371811121A431DA00728B03 /* PublicFilesViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1021,6 +1044,11 @@
 			isa = PBXGroup;
 			children = (
 				938528D12196BD50003F9A55 /* PublishLectureHeadView.swift */,
+				9371811321A4359200728B03 /* PublicInfoFirstCell.swift */,
+				9371811521A435AD00728B03 /* PublicInfoSecondCell.swift */,
+				9371811721A435B700728B03 /* PublicInfoThirdCell.swift */,
+				9371811921A435CF00728B03 /* PublicInfoFourthCell.swift */,
+				9371811B21A435EC00728B03 /* PublicInfoFiveCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1750,6 +1778,8 @@
 				B41DF9D51EE587340089CC67 /* top背景@3x.png */,
 				B41DF9D61EE587340089CC67 /* top背景@2x.png */,
 				B41DFA651EE982DB0089CC67 /* topBackgroundIcon.png */,
+				9371811D21A44A8E00728B03 /* public_unselect.png */,
+				9371811F21A44A9200728B03 /* public_select.png */,
 				B4DA57A21EFA9F3E00CB31CC /* 我的切图 */,
 				B483F7AD1EF40DC000A6E289 /* 考评页切图 */,
 			);
@@ -2008,6 +2038,7 @@
 				B41DF9E31EE587340089CC67 /* 个人中心@3x.png in Resources */,
 				B4F3E2191F232813005BC906 /* ArrangeTaskCell.xib in Resources */,
 				B4DA57E11EFA9F3E00CB31CC /* 教学水平@2x.png in Resources */,
+				9371812021A44A9200728B03 /* public_select.png in Resources */,
 				B4FF1A5F1F93B3A4009C6685 /* logojiuhua@3x.png in Resources */,
 				B41DFA3C1EE854690089CC67 /* CheckingTableViewCell.xib in Resources */,
 				B419F6CC1F03EB0C00B7FEE9 /* MBProgressHUD.bundle in Resources */,
@@ -2018,6 +2049,7 @@
 				B41DF9D91EE587340089CC67 /* 编辑@3x.png in Resources */,
 				B41DF9E21EE587340089CC67 /* 个人中心-灰色@2x.png in Resources */,
 				B4DA57EA1EFA9F3E00CB31CC /* 确定@3x.png in Resources */,
+				9371811E21A44A8E00728B03 /* public_unselect.png in Resources */,
 				B42BC6471EEECB9A007B665E /* bar.png in Resources */,
 				B4DA57EB1EFA9F3E00CB31CC /* 老师@2x.png in Resources */,
 				B41DF9FF1EE587340089CC67 /* 未勾选@3x.png in Resources */,
@@ -2215,6 +2247,7 @@
 				0A1A85EB2110BC8500C20FB8 /* JoinOfficeController.swift in Sources */,
 				0A1A8601211844F200C20FB8 /* UILabel.swift in Sources */,
 				B419F6BE1F03E02400B7FEE9 /* SelectBaseView.swift in Sources */,
+				9371810E21A431BE00728B03 /* PublicBaseInfoViewController.swift in Sources */,
 				92121705211D8A6C00076FF6 /* JHMyTaskDetaiController.swift in Sources */,
 				B4DA583E1EFBE72F00CB31CC /* EvaluateSecondCell.swift in Sources */,
 				B4B045E11EEADA5200C03856 /* MasterSkillController.swift in Sources */,
@@ -2245,6 +2278,7 @@
 				B419F6C11F03E06600B7FEE9 /* SelectBaseCell.swift in Sources */,
 				B4B045DA1EEAD9E100C03856 /* CheckWorkCell.swift in Sources */,
 				B41DFA5A1EE855CB0089CC67 /* LoginViewController.swift in Sources */,
+				9371811421A4359200728B03 /* PublicInfoFirstCell.swift in Sources */,
 				0A1A85E82110BC8500C20FB8 /* String.swift in Sources */,
 				B4B045DE1EEADA3700C03856 /* MasterSkillCell.swift in Sources */,
 				B419F6D41F03F06A00B7FEE9 /* NSDictionary+Additions.m in Sources */,
@@ -2274,6 +2308,7 @@
 				B483F7711EF2C7A700A6E289 /* LearnResourceCell.swift in Sources */,
 				B483F7731EF2C7A700A6E289 /* MineEvaluateCell.swift in Sources */,
 				937EE47621A1382300F045BD /* EvaluateTopSelectView.swift in Sources */,
+				9371811A21A435CF00728B03 /* PublicInfoFourthCell.swift in Sources */,
 				938528D22196BD50003F9A55 /* PublishLectureHeadView.swift in Sources */,
 				B4DC07261EE456D500AB32F4 /* AppDelegate.swift in Sources */,
 				B42BC64E1EF02259007B665E /* QuestionSelectCell.swift in Sources */,
@@ -2293,6 +2328,7 @@
 				B45000AF1F0E708A000ABD63 /* WaitExamViewController.swift in Sources */,
 				0A2B4D10211D4707004A32B9 /* ScannerViewController.swift in Sources */,
 				B45000AD1F0E6C87000ABD63 /* EvaluateMenuController.swift in Sources */,
+				9371811621A435AD00728B03 /* PublicInfoSecondCell.swift in Sources */,
 				B4500BE11F0E898E000ABD63 /* MoreMenuView.m in Sources */,
 				B483F7E11EF40E1C00A6E289 /* SubScoreCell.swift in Sources */,
 				B41DFA781EE996F50089CC67 /* WishlistCell.swift in Sources */,
@@ -2304,6 +2340,7 @@
 				B4DA589F1EFD4C3F00CB31CC /* UIKitExtension.swift in Sources */,
 				92121703211D860300076FF6 /* CircleDataView.swift in Sources */,
 				B48018DF1EF6324300250158 /* HistoryExamCell.swift in Sources */,
+				9371811821A435B700728B03 /* PublicInfoThirdCell.swift in Sources */,
 				B41B38541F0A9B2700EFBEFF /* EvaluateContentCell.swift in Sources */,
 				B4D62D791F1E448300BF07F6 /* UIView+WebCache.m in Sources */,
 				B419F6CB1F03EB0C00B7FEE9 /* MBProgressHUD+MJ.m in Sources */,
@@ -2316,8 +2353,10 @@
 				B451A39A1F7934F3005023E4 /* Task.swift in Sources */,
 				B4DA583C1EFBE72F00CB31CC /* EvaluateFirstCell.swift in Sources */,
 				0A2B4D0D211D4653004A32B9 /* LBXPermissions.swift in Sources */,
+				9371811C21A435EC00728B03 /* PublicInfoFiveCell.swift in Sources */,
 				921216F4211D6F8C00076FF6 /* TaskCenterRootController.swift in Sources */,
 				B41B384D1F0A9A2D00EFBEFF /* EvaluateDetailController.swift in Sources */,
+				9371811021A431D100728B03 /* PublicTrainViewController.swift in Sources */,
 				B46CF9D01F0151CF0048112F /* XLSlider.m in Sources */,
 				921191AE211C070F008411BC /* LectureCompleteController.swift in Sources */,
 				B4D62D731F1E448300BF07F6 /* SDWebImagePrefetcher.m in Sources */,
@@ -2336,6 +2375,7 @@
 				B4DA589B1EFD4C3F00CB31CC /* EditTextContainerView.swift in Sources */,
 				B4D62D3D1F1A06D400BF07F6 /* EvaluateStarCell.swift in Sources */,
 				B4DA589E1EFD4C3F00CB31CC /* UIColor+Extensions.swift in Sources */,
+				9371811221A431DB00728B03 /* PublicFilesViewController.swift in Sources */,
 				B46CF9C31EFF869B0048112F /* NetworkTool.swift in Sources */,
 				B46CF9D11F0151CF0048112F /* XLVideoPlayer.m in Sources */,
 				0A1A85FB2118262700C20FB8 /* CreateNoticeController.swift in Sources */,
