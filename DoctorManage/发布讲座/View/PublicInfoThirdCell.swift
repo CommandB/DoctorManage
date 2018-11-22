@@ -22,6 +22,7 @@ class PublicInfoThirdCell: UITableViewCell {
         self.addSubview(titleLabel)
         self.addSubview(detailLabel)
         self.addSubview(arrowView)
+        self.addSubview(line)
     }
     
     func layOutChildeView() {
@@ -38,18 +39,25 @@ class PublicInfoThirdCell: UITableViewCell {
             make?.centerY.offset()(0)
             make?.size.equalTo()(CGSize.init(width: 20, height: 20))
         }
+        line.mas_makeConstraints { (make) in
+            make?.left.offset()(20)
+            make?.right.offset()(0)
+            make?.height.equalTo()(0.5)
+            make?.bottom.offset()(0);
+        }
     }
     
     func setData(indexpath:IndexPath) {
         if indexpath.row == 0 {
             titleLabel.text = "地点"
-            detailLabel.text = "默认常用地址"
+            detailLabel.text = "请选择地址"
         }else if indexpath.row == 1 {
             titleLabel.text = "主讲人"
-            detailLabel.text = "默认常用老师"
+            detailLabel.text = "请选择老师"
         }else{
             titleLabel.text = "记录人"
-            detailLabel.text = "默认常用记录人"
+            detailLabel.text = "请选择记录人"
+            line.isHidden = true
         }
     }
     
@@ -75,4 +83,10 @@ class PublicInfoThirdCell: UITableViewCell {
         view.image = UIImage.init(named: "进入")
         return view
     }()
+    lazy var line:UILabel = {
+        let view = UILabel()
+        view.backgroundColor = UIColor.graySeparateLineColor()
+        return view
+    }()
+    
 }

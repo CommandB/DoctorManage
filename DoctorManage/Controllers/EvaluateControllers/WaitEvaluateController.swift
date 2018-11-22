@@ -61,6 +61,9 @@ class WaitEvaluateController: UIViewController,UITableViewDelegate,UITableViewDa
                 let json = JSON(response)
                 if json["code"].stringValue == "1"{
                     self.evaluDataSource += json["data"].arrayValue
+                    if json["data"].arrayValue.count == 0 {
+                        self.tableview.mj_footer.endRefreshingWithNoMoreData()
+                    }
                     self.tableview.reloadData()
                 }else{
                     print("error")
@@ -71,7 +74,7 @@ class WaitEvaluateController: UIViewController,UITableViewDelegate,UITableViewDa
     
     func refreshAction() {
         index = 0
-        self.tableview.mj_footer.resetNoMoreData()
+        self.tableview.mj_footer.state = .idle
         requestData(pageindex: index)
     }
     

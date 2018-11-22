@@ -63,7 +63,7 @@ class WaitExamViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     func refreshAction() {
         index = 0
-        self.tableview.mj_footer.resetNoMoreData()
+        self.tableview.mj_footer.state = .idle
         requestData(pageindex:index)
     }
     

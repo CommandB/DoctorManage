@@ -20,7 +20,10 @@ class ReportViewController: UITableViewController,ApplyTaskCellDelegate {
         self.tableView.register(nib, forCellReuseIdentifier: "ApplyTaskCell")
         self.tableView.backgroundColor = UIColor(red: 245/255.0, green: 248/255.0, blue: 251/255.0, alpha: 1.0)
         self.tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshAction))
-        self.tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreAction))
+      
+        let footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreAction))
+        self.tableView.mj_footer = footer
+        footer?.setTitle("", for: .idle)
         self.tableView.mj_header.beginRefreshing()
     }
 

@@ -23,12 +23,14 @@ class PublicInfoFiveCell: UITableViewCell {
         self.addSubview(leftLabel2)
         self.addSubview(switchBtn1)
         self.addSubview(switchBtn2)
+        self.addSubview(line1)
+        self.addSubview(line2)
     }
     
     func layOutChildeView() {
         titleLabel.mas_makeConstraints { (make) in
             make?.left.offset()(20)
-            make?.centerY.equalTo()(self.mas_centerY)?.multipliedBy()(0.25);
+            make?.centerY.equalTo()(self.mas_centerY)?.multipliedBy()(0.33);
         }
         leftLabel1.mas_makeConstraints { (make) in
             make?.left.offset()(20)
@@ -36,7 +38,7 @@ class PublicInfoFiveCell: UITableViewCell {
         }
         leftLabel2.mas_makeConstraints { (make) in
             make?.left.offset()(20)
-            make?.centerY.equalTo()(self.mas_centerY)?.multipliedBy()(1.75);
+            make?.centerY.equalTo()(self.mas_centerY)?.multipliedBy()(1.67);
         }
         switchBtn1.mas_makeConstraints { (make) in
             make?.right.offset()(-20)
@@ -44,9 +46,20 @@ class PublicInfoFiveCell: UITableViewCell {
         }
         switchBtn2.mas_makeConstraints { (make) in
             make?.right.offset()(-20)
-            make?.centerY.equalTo()(self.mas_centerY)?.multipliedBy()(1.75);
+            make?.centerY.equalTo()(self.mas_centerY)?.multipliedBy()(1.67);
         }
-        
+        line1.mas_makeConstraints { (make) in
+            make?.left.offset()(20)
+            make?.right.offset()(0)
+            make?.height.equalTo()(0.5)
+            make?.centerY.equalTo()(self.mas_centerY)?.multipliedBy()(0.67);
+        }
+        line2.mas_makeConstraints { (make) in
+            make?.left.offset()(20)
+            make?.right.offset()(0)
+            make?.height.equalTo()(0.5)
+            make?.centerY.equalTo()(self.mas_centerY)?.multipliedBy()(1.33);
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -86,4 +99,15 @@ class PublicInfoFiveCell: UITableViewCell {
         return switch2
     }()
     
+    lazy var line1:UILabel = {
+        let line = UILabel()
+        line.backgroundColor = UIColor.graySeparateLineColor()
+        return line
+    }()
+    
+    lazy var line2:UILabel = {
+        let line = UILabel()
+        line.backgroundColor = UIColor.graySeparateLineColor()
+        return line
+    }()
 }

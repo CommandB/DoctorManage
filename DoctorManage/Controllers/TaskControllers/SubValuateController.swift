@@ -37,7 +37,8 @@ class SubValuateController: UIViewController,UITableViewDelegate,UITableViewData
 
     func requestEvaluateData() {
         let urlString = "http://"+Ip_port2+kQueryTaskevaluationresultinfoRateURL
-        let params = ["token":UserInfo.instance().token,"taskid":"1821"] as! [String:String]
+        guard let taskid = headInfo["taskid"] else { return }
+        let params = ["token":UserInfo.instance().token,"taskid":taskid] as! [String:String]
         
         Alamofire.request(urlString, method: .post, parameters: params).responseJSON { (response) in
             switch(response.result){

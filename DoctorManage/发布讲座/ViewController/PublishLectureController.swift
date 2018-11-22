@@ -63,9 +63,6 @@ class PublishLectureController: JHBaseViewController,UIScrollViewDelegate {
         self.scrollView.addSubview(firstVC.view)
         self.scrollView.addSubview(secondVC.view)
         self.scrollView.addSubview(thirdVC.view)
-      
-        scrollView.backgroundColor = .yellow
-        
         
     }
     
