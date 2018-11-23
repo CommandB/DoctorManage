@@ -33,19 +33,26 @@ class EvaluateSecondCell: UITableViewCell {
         self.delegate?.updateModelDataDelegate(yellowStarNum: yellowStarNum,cell:self)
     }
     
-    func setYellowStarNum(num:Int) {
-        if num == 5 {
-            for index in 1...5 {
-                if let view = self.viewWithTag(index+100) {
-                    (view as! UIButton).setImage(UIImage.init(named: "满星"), for: .normal)
-                }
+    func setYellowStarNum(num:Int,allStars:Int) {
+        for index in 1...5 {
+            if let view = self.viewWithTag(index+100) {
+                (view as! UIButton).setImage(UIImage.init(named: "满星"), for: .normal)
+                (view as! UIButton).isHidden = false
             }
-            return
         }
+//        if num == 5 {
+//            return
+//        }
         for index in 1...5 {
             if let view = self.viewWithTag(index+100) {
                 (view as! UIButton).setImage(UIImage.init(named: "空星"), for: .normal)
+                if index > allStars {
+                    (view as! UIButton).isHidden = true
+                }else{
+                    (view as! UIButton).isHidden = false
+                }
             }
+            
         }
         for index in 1...num {
             if let view = self.viewWithTag(index+100) {

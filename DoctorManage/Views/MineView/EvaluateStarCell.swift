@@ -13,19 +13,26 @@ class EvaluateStarCell: UITableViewCell {
     @IBOutlet weak var bottomLine: UILabel!
     var yellowStarNum = 0
     
-    func setYellowStarNum(num:Int) {
-        if num == 0 {
-            for index in 1...5 {
-                if let view = self.viewWithTag(index+100) {
-                    (view as! UIButton).setImage(UIImage.init(named: "空星"), for: .normal)
-                }
-            }
-            return
-        }
-        for index in 1...num {
+    func setYellowStarNum(num:Int, allStars:Int) {
+        for index in 1...5 {
             if let view = self.viewWithTag(index+100) {
                 (view as! UIButton).setImage(UIImage.init(named: "空星"), for: .normal)
+                (view as! UIButton).isHidden = false
             }
+        }
+        if num == 0 {
+            return
+        }
+        for index in 1...5 {
+            if let view = self.viewWithTag(index+100) {
+                (view as! UIButton).setImage(UIImage.init(named: "空星"), for: .normal)
+                if index > allStars {
+                    (view as! UIButton).isHidden = true
+                }else{
+                    (view as! UIButton).isHidden = false
+                }
+            }
+            
         }
         for index in 1...num {
             if let view = self.viewWithTag(index+100) {

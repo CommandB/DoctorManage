@@ -83,7 +83,7 @@ class HisEvaluateDetailController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EvaluateStarCell", for: indexPath) as! EvaluateStarCell
             cell.titleLabel.text = starListArr[indexPath.row]["itemtitle"].stringValue
             let yellowStarNum = starListArr[indexPath.row]["numbervalue"].intValue
-            cell.setYellowStarNum(num: yellowStarNum)
+            cell.setYellowStarNum(num: yellowStarNum , allStars: starListArr[indexPath.row]["starsvalue"].intValue)
             cell.selectionStyle = .none
             return cell
         }

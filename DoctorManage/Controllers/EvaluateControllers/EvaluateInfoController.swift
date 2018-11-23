@@ -105,7 +105,7 @@ class EvaluateInfoController: UIViewController,UITableViewDelegate,UITableViewDa
             cell.titleLabel.text = evaluateStarData[indexPath.row]["itemtitle"].stringValue
 //            cell.setYellowStarNum(num: 0)
             let yellowStarNum = evaluateStarData[indexPath.row]["get_value"].intValue
-            cell.setYellowStarNum(num: yellowStarNum)
+            cell.setYellowStarNum(num: yellowStarNum, allStars: evaluateStarData[indexPath.row]["starsvalue"].intValue)
             cell.tag = 500+indexPath.row
             cell.delegate = self
             return cell
