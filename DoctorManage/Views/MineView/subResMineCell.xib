@@ -46,13 +46,6 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNT-X5-S3J">
-                        <rect key="frame" x="325" y="265.5" width="73" height="32"/>
-                        <state key="normal" image="分享.png"/>
-                        <connections>
-                            <action selector="shareBtntapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1F4-Oe-fPL"/>
-                        </connections>
-                    </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zje-vH-KDl">
                         <rect key="frame" x="184" y="126.5" width="60" height="60"/>
                         <state key="normal" image="play.png"/>
@@ -65,9 +58,7 @@
                     <constraint firstItem="UWL-rI-7Cy" firstAttribute="centerY" secondItem="3GP-lI-5g9" secondAttribute="centerY" id="LGF-9U-h1b"/>
                     <constraint firstItem="3GP-lI-5g9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="Mnc-4D-gX5"/>
                     <constraint firstAttribute="trailing" secondItem="0FA-xZ-xOK" secondAttribute="trailing" id="MxI-OG-aBJ"/>
-                    <constraint firstItem="eNT-X5-S3J" firstAttribute="trailing" secondItem="iDX-NJ-Hs6" secondAttribute="trailing" id="Slj-JA-3D3"/>
                     <constraint firstItem="0FA-xZ-xOK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="15" id="VIV-wc-ndm"/>
-                    <constraint firstItem="eNT-X5-S3J" firstAttribute="centerY" secondItem="3GP-lI-5g9" secondAttribute="centerY" id="Wl4-TP-ExC"/>
                     <constraint firstItem="UWL-rI-7Cy" firstAttribute="leading" secondItem="wEt-RY-OV7" secondAttribute="trailing" constant="10" id="X5h-XZ-DWz"/>
                     <constraint firstItem="iDX-NJ-Hs6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="Zo7-0b-YaL"/>
                     <constraint firstItem="iDX-NJ-Hs6" firstAttribute="top" secondItem="0FA-xZ-xOK" secondAttribute="bottom" constant="10" id="fsc-E9-2kM"/>
@@ -90,7 +81,6 @@
     <resources>
         <image name="play.png" width="60" height="60"/>
         <image name="testresource.png" width="668" height="440"/>
-        <image name="分享.png" width="73" height="32"/>
         <image name="老师.png" width="30" height="30"/>
     </resources>
 </document>

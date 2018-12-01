@@ -2353,9 +2353,13 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="账号.png" translatesAutoresizingMaskIntoConstraints="NO" id="EAz-ld-cJa">
                                         <rect key="frame" x="18" y="9" width="22" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="BDP-Mt-X0L"/>
+                                            <constraint firstAttribute="width" constant="22" id="mPs-9F-pKd"/>
+                                        </constraints>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入账号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BPg-61-tqT">
-                                        <rect key="frame" x="50" y="2" width="91" height="36"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入账号" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="BPg-61-tqT">
+                                        <rect key="frame" x="50" y="2" width="239" height="36"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -2372,13 +2376,16 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ahn-xA-G5i">
-                                        <rect key="frame" x="50" y="42" width="91" height="36"/>
+                                        <rect key="frame" x="50" y="42" width="175" height="36"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oxl-7n-IxX">
                                         <rect key="frame" x="235" y="46" width="54" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="54" id="Zmz-zM-NHx"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="忘记密码">
                                             <color key="titleColor" red="0.60784313729999995" green="0.65098039220000004" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -2421,10 +2428,12 @@
                                     <constraint firstItem="BPg-61-tqT" firstAttribute="leading" secondItem="EAz-ld-cJa" secondAttribute="trailing" constant="10" id="0GN-gl-8dI"/>
                                     <constraint firstItem="BPg-61-tqT" firstAttribute="height" secondItem="4xY-We-Wu2" secondAttribute="height" multiplier="0.3" id="1Kb-A2-fkZ"/>
                                     <constraint firstItem="wXZ-Pl-4xq" firstAttribute="centerY" secondItem="4xY-We-Wu2" secondAttribute="centerY" multiplier="0.66" id="1hS-6e-XPB"/>
+                                    <constraint firstItem="ahn-xA-G5i" firstAttribute="trailing" secondItem="oxl-7n-IxX" secondAttribute="leading" constant="-10" id="2BB-9B-qqi"/>
                                     <constraint firstItem="kS7-pv-nJ5" firstAttribute="centerY" secondItem="4xY-We-Wu2" secondAttribute="centerY" multiplier="1.33" id="3jh-q1-iab"/>
                                     <constraint firstItem="ahn-xA-G5i" firstAttribute="leading" secondItem="BPg-61-tqT" secondAttribute="leading" id="5qy-D2-FRY"/>
                                     <constraint firstItem="wXZ-Pl-4xq" firstAttribute="centerX" secondItem="4xY-We-Wu2" secondAttribute="centerX" id="8lf-o9-zcd"/>
                                     <constraint firstItem="ahn-xA-G5i" firstAttribute="height" secondItem="4xY-We-Wu2" secondAttribute="height" multiplier="0.3" id="AAU-bB-UzR"/>
+                                    <constraint firstItem="BPg-61-tqT" firstAttribute="trailing" secondItem="4xY-We-Wu2" secondAttribute="trailing" constant="-10" id="Bkt-kT-9Pn"/>
                                     <constraint firstItem="C23-Jb-crs" firstAttribute="width" secondItem="4xY-We-Wu2" secondAttribute="width" constant="-30" id="HqS-RK-wlT"/>
                                     <constraint firstItem="BPg-61-tqT" firstAttribute="centerY" secondItem="EAz-ld-cJa" secondAttribute="centerY" id="RSE-AY-7Lg"/>
                                     <constraint firstItem="kS7-pv-nJ5" firstAttribute="centerX" secondItem="4xY-We-Wu2" secondAttribute="centerX" id="ZyG-ek-gae"/>
@@ -2440,11 +2449,15 @@
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="密码.png" translatesAutoresizingMaskIntoConstraints="NO" id="fgQ-7g-iC1">
                                 <rect key="frame" x="56" y="222" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="Hly-r2-JvU"/>
+                                    <constraint firstAttribute="width" constant="22" id="hwx-Sd-OCq"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSM-OX-Hyr">
-                                <rect key="frame" x="38" y="318" width="299" height="35"/>
+                                <rect key="frame" x="38" y="318" width="299" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="HxI-Xg-7ge"/>
+                                    <constraint firstAttribute="height" constant="45" id="HxI-Xg-7ge"/>
                                 </constraints>
                                 <state key="normal" title="登录" backgroundImage="top背景.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2471,7 +2484,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ess-Um-ch8">
-                                <rect key="frame" x="0.0" y="353" width="375" height="274"/>
+                                <rect key="frame" x="0.0" y="363" width="375" height="264"/>
                                 <connections>
                                     <outlet property="dataSource" destination="hdf-Gs-ALw" id="b1h-Ar-vuv"/>
                                     <outlet property="delegate" destination="hdf-Gs-ALw" id="tEp-W1-fZF"/>
@@ -2532,6 +2545,7 @@
                     </view>
                     <connections>
                         <outlet property="basePickerView" destination="ess-Um-ch8" id="n2q-MZ-7y3"/>
+                        <outlet property="logoImageView" destination="Lkz-lc-deS" id="zdm-dy-xlY"/>
                         <outlet property="passwordTextField" destination="ahn-xA-G5i" id="vcP-em-y07"/>
                         <outlet property="selectBaseBtn" destination="C23-Jb-crs" id="Ptx-ew-DbG"/>
                         <outlet property="userNameTextField" destination="BPg-61-tqT" id="Vt4-r2-d4Y"/>

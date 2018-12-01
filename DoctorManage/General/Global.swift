@@ -116,6 +116,20 @@ func ISIphone5() -> Bool {
     return false
 }
 
+func ISIphoneX() -> Bool {
+    if ISIphone() && kScreenW == 375 && kScreenH == 812 {
+        return true
+    }
+    return false
+}
+
+func ISIphone() -> Bool {
+    if UI_USER_INTERFACE_IDIOM() == .phone  {
+        return true
+    }
+    return false
+}
+
 extension String {
     func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)

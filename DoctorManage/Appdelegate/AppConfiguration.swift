@@ -20,4 +20,6 @@ enum AppConfiguration :String {
     ///web模块配置
     case webModule = "webModeule"
     
+    case officeList = "officeList"
+    
 }

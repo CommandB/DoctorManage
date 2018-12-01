@@ -73,14 +73,26 @@ class PublicBaseInfoViewController: UIViewController,UITableViewDelegate,UITable
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 2 && indexPath.row == 1 {
-            let selectTeacherView = SelectTeacherViewController()
-            selectTeacherView.cellClickCallBack = { (nameStr) in
-                if let cell = tableView.cellForRow(at: IndexPath.init(row: 1, section: 2)) as? PublicInfoThirdCell {
-                    cell.detailLabel.text = nameStr
+        if indexPath.section == 2 {
+            if indexPath.row == 0 {
+                let selectAddressView = SelectAddressViewController()
+                selectAddressView.cellClickCallBack = { (nameStr) in
+                    if let cell = tableView.cellForRow(at: IndexPath.init(row: 0, section: 2)) as? PublicInfoThirdCell {
+                        cell.detailLabel.text = nameStr
+                    }
                 }
+                self.present(UINavigationController(rootViewController: selectAddressView), animated: true)
+                
+            }else if indexPath.row == 1 {
+                let selectTeacherView = SelectTeacherViewController()
+                selectTeacherView.cellClickCallBack = { (nameStr) in
+                    if let cell = tableView.cellForRow(at: IndexPath.init(row: 1, section: 2)) as? PublicInfoThirdCell {
+                        cell.detailLabel.text = nameStr
+                    }
+                }
+                self.present(UINavigationController(rootViewController: selectTeacherView), animated: true)
             }
-            self.present(UINavigationController(rootViewController: selectTeacherView), animated: true)
+           
         }
     }
     

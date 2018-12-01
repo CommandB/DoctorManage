@@ -95,6 +95,8 @@ extension UserDefaults{
             case officeList
             //是否开启Mini-CEX
             case isOpenMiniCex
+            ///教室清单
+            case classroomList
         }
     }
     

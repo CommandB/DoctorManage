@@ -125,14 +125,14 @@ class StudentViewController: UIViewController,UICollectionViewDelegate,UICollect
         requestData()
         collectionView.selectItem(at: IndexPath.init(row: 0, section: 0), animated: false, scrollPosition: .left)
         collectionView.delegate?.collectionView!(collectionView, didSelectItemAt: IndexPath.init(row: 0, section: 0))
-//        setRightButton()
+        setRightButton()
     }
     
     func setRightButton() {
         let rightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 40))
         rightButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         rightButton.titleLabel?.textAlignment = .right
-        rightButton.setTitle("发布讲座", for: .normal)
+        rightButton.setTitle("发布培训", for: .normal)
         rightButton.titleLabel?.sizeToFit()
         rightButton.addTarget(self, action: #selector(publishLectureAction), for: .touchUpInside)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
@@ -140,7 +140,7 @@ class StudentViewController: UIViewController,UICollectionViewDelegate,UICollect
     
     func publishLectureAction() {
         self.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(PublishLectureController(), animated: true)
+        self.navigationController?.pushViewController(SelectLectureViewController(), animated: true)
         self.hidesBottomBarWhenPushed = false
     }
     

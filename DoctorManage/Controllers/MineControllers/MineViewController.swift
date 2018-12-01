@@ -221,8 +221,7 @@ class MineViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             self.present(mineEvaluateVC, animated: true, completion: nil)
         }
         else if indexPath.section == 2 {
-            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-            let mineResourceVC = storyboard.instantiateViewController(withIdentifier: "MineResourceView")
+            let mineResourceVC = JHMineResourceViewController()
             self.present(mineResourceVC, animated: true, completion: nil)
         }else if indexPath.section == 3{
             if indexPath.row > 0 && indexPath.row < 4{

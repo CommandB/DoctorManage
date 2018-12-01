@@ -31,8 +31,12 @@ class SecretaryCenterController : UIViewController, UICollectionViewDelegate, UI
         //注册section Header
         notice_collection.register(HeaderReusableView.classForCoder(), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
         
-        self.notice_collection.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshAction))
-        self.notice_collection.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreAction))
+        let header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshAction))
+        let footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreAction))
+        header?.setTitle("", for: .idle)
+        footer?.setTitle("", for: .idle)
+        self.notice_collection.mj_header = header
+        self.notice_collection.mj_footer = footer
         self.notice_collection.mj_header.beginRefreshing()
         
         view.viewWithTag(100001)?.isHidden = true
@@ -72,6 +76,7 @@ class SecretaryCenterController : UIViewController, UICollectionViewDelegate, UI
     
     @IBAction func btn_swichOffice_tui(_ sender: UIButton) {
         office_view.isHidden = false
+        self.view.bringSubview(toFront: office_view)
         //背景
         view.viewWithTag(100001)?.isHidden = false
         

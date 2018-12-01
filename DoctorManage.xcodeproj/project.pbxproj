@@ -57,6 +57,7 @@
 		9220FA802122A3BD001B332C /* JHHeaderDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220FA7F2122A3BD001B332C /* JHHeaderDefine.swift */; };
 		92989DF3216B83320077F20E /* CheckQRCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92989DF2216B83320077F20E /* CheckQRCodeController.swift */; };
 		92989DF5216B83810077F20E /* ScanQRCode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92989DF4216B83810077F20E /* ScanQRCode.storyboard */; };
+		931F05EC21B2609300086ED7 /* JHMineResourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931F05EB21B2609300086ED7 /* JHMineResourceViewController.swift */; };
 		9371810E21A431BE00728B03 /* PublicBaseInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371810D21A431BE00728B03 /* PublicBaseInfoViewController.swift */; };
 		9371811021A431D100728B03 /* PublicTrainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371810F21A431D100728B03 /* PublicTrainViewController.swift */; };
 		9371811221A431DB00728B03 /* PublicFilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371811121A431DA00728B03 /* PublicFilesViewController.swift */; };
@@ -73,11 +74,17 @@
 		937B1CCA21A6DBAA00AA4902 /* SelectTeacherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937B1CC921A6DBAA00AA4902 /* SelectTeacherViewController.swift */; };
 		937B1CCC21A6DCDA00AA4902 /* UINavigationController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937B1CCB21A6DCDA00AA4902 /* UINavigationController + Extension.swift */; };
 		937B1CCE21A6DDC800AA4902 /* IGBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937B1CCD21A6DDC800AA4902 /* IGBaseViewController.swift */; };
+		937B1CD021A905F400AA4902 /* SelectLectureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937B1CCF21A905F400AA4902 /* SelectLectureViewController.swift */; };
+		937B1CD221A90C2300AA4902 /* SelectAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937B1CD121A90C2300AA4902 /* SelectAddressViewController.swift */; };
+		937B1CD421A930F800AA4902 /* PublicLecture.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 937B1CD321A930F800AA4902 /* PublicLecture.storyboard */; };
 		937EE47621A1382300F045BD /* EvaluateTopSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937EE47521A1382300F045BD /* EvaluateTopSelectView.swift */; };
 		937EE47921A152AF00F045BD /* CEXStudentCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937EE47721A152AF00F045BD /* CEXStudentCollectionCell.swift */; };
 		937EE47A21A152AF00F045BD /* CEXStudentCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 937EE47821A152AF00F045BD /* CEXStudentCollectionCell.xib */; };
 		938528D02196BD09003F9A55 /* PublishLectureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938528CF2196BD09003F9A55 /* PublishLectureController.swift */; };
 		938528D22196BD50003F9A55 /* PublishLectureHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938528D12196BD50003F9A55 /* PublishLectureHeadView.swift */; };
+		9390559D21A931F400E38302 /* PersonSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9390559C21A931F400E38302 /* PersonSelectorController.swift */; };
+		9390559F21A932BF00E38302 /* HBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9390559E21A932BF00E38302 /* HBaseViewController.swift */; };
+		939055A121A934B500E38302 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939055A021A934B500E38302 /* UIView.swift */; };
 		944C81C3C2B9BDF3FA125C8B /* Pods_DoctorManage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 773702E47B86F9868C189CF4 /* Pods_DoctorManage.framework */; };
 		B41070121F9301EF00B513BD /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41070101F9301EF00B513BD /* logo@2x.png */; };
 		B41070131F9301EF00B513BD /* logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41070111F9301EF00B513BD /* logo@3x.png */; };
@@ -500,6 +507,7 @@
 		9220FA7F2122A3BD001B332C /* JHHeaderDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHHeaderDefine.swift; sourceTree = "<group>"; };
 		92989DF2216B83320077F20E /* CheckQRCodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckQRCodeController.swift; sourceTree = "<group>"; };
 		92989DF4216B83810077F20E /* ScanQRCode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScanQRCode.storyboard; sourceTree = "<group>"; };
+		931F05EB21B2609300086ED7 /* JHMineResourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMineResourceViewController.swift; sourceTree = "<group>"; };
 		9371810D21A431BE00728B03 /* PublicBaseInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicBaseInfoViewController.swift; sourceTree = "<group>"; };
 		9371810F21A431D100728B03 /* PublicTrainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicTrainViewController.swift; sourceTree = "<group>"; };
 		9371811121A431DA00728B03 /* PublicFilesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicFilesViewController.swift; sourceTree = "<group>"; };
@@ -516,11 +524,17 @@
 		937B1CC921A6DBAA00AA4902 /* SelectTeacherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTeacherViewController.swift; sourceTree = "<group>"; };
 		937B1CCB21A6DCDA00AA4902 /* UINavigationController + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController + Extension.swift"; sourceTree = "<group>"; };
 		937B1CCD21A6DDC800AA4902 /* IGBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGBaseViewController.swift; sourceTree = "<group>"; };
+		937B1CCF21A905F400AA4902 /* SelectLectureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLectureViewController.swift; sourceTree = "<group>"; };
+		937B1CD121A90C2300AA4902 /* SelectAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressViewController.swift; sourceTree = "<group>"; };
+		937B1CD321A930F800AA4902 /* PublicLecture.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PublicLecture.storyboard; sourceTree = "<group>"; };
 		937EE47521A1382300F045BD /* EvaluateTopSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluateTopSelectView.swift; sourceTree = "<group>"; };
 		937EE47721A152AF00F045BD /* CEXStudentCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEXStudentCollectionCell.swift; sourceTree = "<group>"; };
 		937EE47821A152AF00F045BD /* CEXStudentCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CEXStudentCollectionCell.xib; sourceTree = "<group>"; };
 		938528CF2196BD09003F9A55 /* PublishLectureController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishLectureController.swift; sourceTree = "<group>"; };
 		938528D12196BD50003F9A55 /* PublishLectureHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishLectureHeadView.swift; sourceTree = "<group>"; };
+		9390559C21A931F400E38302 /* PersonSelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonSelectorController.swift; sourceTree = "<group>"; };
+		9390559E21A932BF00E38302 /* HBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBaseViewController.swift; sourceTree = "<group>"; };
+		939055A021A934B500E38302 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		B41070101F9301EF00B513BD /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		B41070111F9301EF00B513BD /* logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@3x.png"; sourceTree = "<group>"; };
 		B419F6BD1F03E02400B7FEE9 /* SelectBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectBaseView.swift; sourceTree = "<group>"; };
@@ -1024,11 +1038,20 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		931F05E721B2603C00086ED7 /* 我的资源新 */ = {
+			isa = PBXGroup;
+			children = (
+				931F05EB21B2609300086ED7 /* JHMineResourceViewController.swift */,
+			);
+			path = "我的资源新";
+			sourceTree = "<group>";
+		};
 		9371812621A5A57E00728B03 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				937B1CCB21A6DCDA00AA4902 /* UINavigationController + Extension.swift */,
 				9371812721A5A5B800728B03 /* UserDefaults.swift */,
+				939055A021A934B500E38302 /* UIView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1037,6 +1060,7 @@
 			isa = PBXGroup;
 			children = (
 				9371810D21A431BE00728B03 /* PublicBaseInfoViewController.swift */,
+				937B1CD121A90C2300AA4902 /* SelectAddressViewController.swift */,
 				937B1CC921A6DBAA00AA4902 /* SelectTeacherViewController.swift */,
 			);
 			path = "基础信息";
@@ -1046,6 +1070,8 @@
 			isa = PBXGroup;
 			children = (
 				9371810F21A431D100728B03 /* PublicTrainViewController.swift */,
+				9390559E21A932BF00E38302 /* HBaseViewController.swift */,
+				9390559C21A931F400E38302 /* PersonSelectorController.swift */,
 			);
 			path = "培训学员";
 			sourceTree = "<group>";
@@ -1079,6 +1105,7 @@
 			isa = PBXGroup;
 			children = (
 				937B1CCD21A6DDC800AA4902 /* IGBaseViewController.swift */,
+				937B1CCF21A905F400AA4902 /* SelectLectureViewController.swift */,
 				938528CF2196BD09003F9A55 /* PublishLectureController.swift */,
 				937B1CC621A6DB0500AA4902 /* 基础信息 */,
 				937B1CC721A6DB2100AA4902 /* 培训学员 */,
@@ -1207,6 +1234,7 @@
 			children = (
 				B41DFA481EE855A20089CC67 /* MineViewController.swift */,
 				B41B384C1F0A9A2D00EFBEFF /* EvaluateDetailController.swift */,
+				931F05E721B2603C00086ED7 /* 我的资源新 */,
 				B483F75C1EF2BC9300A6E289 /* MineResourceController.swift */,
 				B483F7581EF2BC2B00A6E289 /* MineEvaluateController.swift */,
 				B429B2631EF5863C00A21DD0 /* SubResMineController.swift */,
@@ -1696,6 +1724,7 @@
 				92989DF4216B83810077F20E /* ScanQRCode.storyboard */,
 				921216EB211D5C0F00076FF6 /* TaskCenter.storyboard */,
 				B4DC05E81EE1AFD100AB32F4 /* Main.storyboard */,
+				937B1CD321A930F800AA4902 /* PublicLecture.storyboard */,
 				B4DC05EB1EE1AFD100AB32F4 /* Assets.xcassets */,
 				B4DC05ED1EE1AFD100AB32F4 /* LaunchScreen.storyboard */,
 				B4DC05F01EE1AFD100AB32F4 /* Info.plist */,
@@ -2179,6 +2208,7 @@
 				B4500BEE1F0E9241000ABD63 /* more_bg.png in Resources */,
 				B4DA57E81EFA9F3E00CB31CC /* 知识传授@3x.png in Resources */,
 				0A040070213EB1940095AE36 /* WebModuleCell.xib in Resources */,
+				937B1CD421A930F800AA4902 /* PublicLecture.storyboard in Resources */,
 				B4DA57F41EFA9F3E00CB31CC /* 进入-小@3x.png in Resources */,
 				B46CF9C61EFF8C690048112F /* 头像蒙版@2x.png in Resources */,
 				B4DA583D1EFBE72F00CB31CC /* EvaluateFirstCell.xib in Resources */,
@@ -2320,6 +2350,8 @@
 				B4D62D751F1E448300BF07F6 /* UIImage+GIF.m in Sources */,
 				B41DFA3D1EE854690089CC67 /* DescribleCell.swift in Sources */,
 				B4D62D451F1E446B00BF07F6 /* ReportViewController.swift in Sources */,
+				9390559D21A931F400E38302 /* PersonSelectorController.swift in Sources */,
+				9390559F21A932BF00E38302 /* HBaseViewController.swift in Sources */,
 				B46CF9B91EFE11880048112F /* ELCImagePickerController.m in Sources */,
 				B483F7A81EF2CFB900A6E289 /* SubEvaTeachController.swift in Sources */,
 				B4D62D741F1E448300BF07F6 /* UIButton+WebCache.m in Sources */,
@@ -2330,6 +2362,7 @@
 				B4B045DA1EEAD9E100C03856 /* CheckWorkCell.swift in Sources */,
 				B41DFA5A1EE855CB0089CC67 /* LoginViewController.swift in Sources */,
 				9371811421A4359200728B03 /* PublicInfoFirstCell.swift in Sources */,
+				931F05EC21B2609300086ED7 /* JHMineResourceViewController.swift in Sources */,
 				0A1A85E82110BC8500C20FB8 /* String.swift in Sources */,
 				B4B045DE1EEADA3700C03856 /* MasterSkillCell.swift in Sources */,
 				B419F6D41F03F06A00B7FEE9 /* NSDictionary+Additions.m in Sources */,
@@ -2375,11 +2408,13 @@
 				B483F7A61EF2CFA500A6E289 /* SubEvaTrainController.swift in Sources */,
 				B44C46141FA0BE48001EA627 /* WaitEvaluateCell.swift in Sources */,
 				B4D62D6E1F1E448300BF07F6 /* SDWebImageCompat.m in Sources */,
+				939055A121A934B500E38302 /* UIView.swift in Sources */,
 				B4DA58A31EFDFA5F00CB31CC /* BRCustomOptionView.swift in Sources */,
 				B483F7F11EF43D6C00A6E289 /* DeduceScoreCell.swift in Sources */,
 				0A2B4D0B211D4653004A32B9 /* LBXScanViewStyle.swift in Sources */,
 				921216F8211D6FBA00076FF6 /* JHMyTeachViewController.swift in Sources */,
 				B45000AF1F0E708A000ABD63 /* WaitExamViewController.swift in Sources */,
+				937B1CD221A90C2300AA4902 /* SelectAddressViewController.swift in Sources */,
 				0A2B4D10211D4707004A32B9 /* ScannerViewController.swift in Sources */,
 				B45000AD1F0E6C87000ABD63 /* EvaluateMenuController.swift in Sources */,
 				9371811621A435AD00728B03 /* PublicInfoSecondCell.swift in Sources */,
@@ -2432,6 +2467,7 @@
 				B4DA589E1EFD4C3F00CB31CC /* UIColor+Extensions.swift in Sources */,
 				9371811221A431DB00728B03 /* PublicFilesViewController.swift in Sources */,
 				B46CF9C31EFF869B0048112F /* NetworkTool.swift in Sources */,
+				937B1CD021A905F400AA4902 /* SelectLectureViewController.swift in Sources */,
 				B46CF9D11F0151CF0048112F /* XLVideoPlayer.m in Sources */,
 				0A1A85FB2118262700C20FB8 /* CreateNoticeController.swift in Sources */,
 				B42D402D1F262EEE001143F7 /* ZHDropDownMenu.swift in Sources */,

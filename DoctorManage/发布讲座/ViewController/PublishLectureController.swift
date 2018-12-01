@@ -18,6 +18,7 @@ class PublishLectureController: JHBaseViewController,UIScrollViewDelegate {
     var secondVC = PublicTrainViewController()
     var thirdVC = PublicFilesViewController()
     
+    var titleStr = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         initProperty()
@@ -26,7 +27,7 @@ class PublishLectureController: JHBaseViewController,UIScrollViewDelegate {
 
     func initProperty() {
         self.view.backgroundColor = UIColor.rgb(r: 239, g: 239, b: 239)
-        self.title = "发布讲座"
+        self.title = titleStr
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "取消", style: .done, target: self, action: #selector(cancelAction))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "发布", style: .done, target: self, action: #selector(publishAction))
     }

@@ -20,7 +20,9 @@ class PublicTrainViewController: UIViewController {
     }
     
     func selectTrainsPeopleAction() {
-        
+        let storyBoard = UIStoryboard.init(name: "PublicLecture", bundle: nil)
+        let selectView = storyBoard.instantiateViewController(withIdentifier: "personSelectorView")
+        self.present(selectView, animated: true, completion: nil)
     }
     
     lazy var addStudentsButton:UIButton = {

@@ -13,6 +13,7 @@ class LoginViewController: UIViewController,SelectBaseViewDelegate,UIPickerViewD
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var selectBaseBtn: UIButton!
     @IBOutlet weak var basePickerView: UIPickerView!
+    @IBOutlet weak var logoImageView: UIImageView!
     var dataSource:[NSDictionary] = [NSDictionary]()
     var basename = ""
     var baseportalurl = ""
@@ -61,12 +62,13 @@ class LoginViewController: UIViewController,SelectBaseViewDelegate,UIPickerViewD
             Ip_port2 = self.ipPort+"/"
             UserInfo.instance().save(response)
             self.saveLoginIngo(loginInfo: ["loginid":self.userNameTextField.text!,"password": self.passwordTextField.text!])
-
+            //请求App相对固定的数据和配置
+            AppStableDataModel().getStableData()
+            
             NetworkTool.getUserOffice(params :["token":UserInfo.instance().token], success : { resp in
                 if resp["code"].string == "1"{
                     //g_userOffice = resp["data"].arrayValue
                     UserInfo.instance().saveOfficeInfo(try! resp["data"].rawData());
-                    
                     
                     //缓存app配置信息
                     let appConfig = resp["appconfig"].arrayValue
@@ -98,7 +100,8 @@ class LoginViewController: UIViewController,SelectBaseViewDelegate,UIPickerViewD
                     //缓存web模块 (这里存不了json数组 所以存string 后面自己转一下)
                     UserDefaults.standard.set(resp["webmodule"].description, forKey: AppConfiguration.webModule.rawValue)
                     
-                    
+                    //缓存科室列表
+                     UserDefaults.standard.set(resp["data"].description, forKey: AppConfiguration.officeList.rawValue)
                     
                     
                 }
