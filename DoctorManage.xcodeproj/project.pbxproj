@@ -1886,6 +1886,7 @@
 				B4DC05DE1EE1AFD100AB32F4 /* Frameworks */,
 				B4DC05DF1EE1AFD100AB32F4 /* Resources */,
 				AD9C52923F83E3098834B8CD /* [CP] Embed Pods Frameworks */,
+				736A73AC9366E3AD2E3FDD05 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2242,6 +2243,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		736A73AC9366E3AD2E3FDD05 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DoctorManage/Pods-DoctorManage-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9AC6836ABF29165B26153379 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

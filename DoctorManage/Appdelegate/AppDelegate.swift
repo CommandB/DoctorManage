@@ -93,6 +93,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //MARK:-极光推送 AppDelegate扩展
 extension AppDelegate:UNUserNotificationCenterDelegate,JPUSHRegisterDelegate
 {
+    @available(iOS 10.0, *)
+    func jpushNotificationCenter(_ center: UNUserNotificationCenter!, openSettingsFor notification: UNNotification?) {
+        
+    }
+    
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         
         JPUSHService.registerDeviceToken(deviceToken)
