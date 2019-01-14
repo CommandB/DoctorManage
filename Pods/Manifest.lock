@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (4.8.0)
+  - Charts (3.2.1):
+    - Charts/Core (= 3.2.1)
+  - Charts/Core (3.2.1)
   - IQKeyboardManagerSwift (6.2.0)
   - JCore (1.2.5)
   - JPush (3.1.1.1):
@@ -12,6 +15,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
+  - Charts
   - IQKeyboardManagerSwift
   - JPush
   - Masonry (= 1.1.0)
@@ -20,8 +24,22 @@ DEPENDENCIES:
   - SnapKit (~> 3.2.0)
   - SwiftyJSON
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Charts
+    - IQKeyboardManagerSwift
+    - JCore
+    - JPush
+    - Masonry
+    - MJRefresh
+    - Reachability
+    - SnapKit
+    - SwiftyJSON
+
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  Charts: f122fb70b19847fa5817d018b77d6c5a2296ab25
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
   JCore: 14706de2640b25fb77dbd02332696491407f37c9
   JPush: 25dd9013fbe106082c14f9f30a82364ee98852fb
@@ -31,6 +49,6 @@ SPEC CHECKSUMS:
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: c108df15e59b655b549ea59637d8dabeeff77235
+PODFILE CHECKSUM: 85b7c34e36cde2ec0482206910bec7080b93add2
 
-COCOAPODS: 1.4.0.beta.2
+COCOAPODS: 1.5.3

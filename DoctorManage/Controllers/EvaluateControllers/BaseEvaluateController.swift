@@ -128,7 +128,7 @@ class BaseEvaluateController: UIViewController,UIScrollViewDelegate,MoreMenuClic
     }
     
     func setMoreMenu() {
-        moreMenu.frame = CGRect.init(x: self.view.frame.size.width-110, y: 64, width: 100, height: 100)
+        moreMenu.frame = CGRect.init(x: self.view.frame.size.width-110, y: 64, width: 100, height: 150)
         moreMenu.tag = 1000
         moreMenu.m_delegate = self
         self.navigationController?.view.addSubview(moreMenu)
@@ -147,6 +147,11 @@ class BaseEvaluateController: UIViewController,UIScrollViewDelegate,MoreMenuClic
             moreMenu.isHidden = true
             let historyEvaluateVC = HistoryEvaluateController()
             let nav = UINavigationController(rootViewController: historyEvaluateVC)
+            self.present(nav, animated: true, completion: nil)
+        case 102:
+            moreMenu.isHidden = true
+            let historyCEXVC = HisCEXViewController()
+            let nav = UINavigationController(rootViewController: historyCEXVC)
             self.present(nav, animated: true, completion: nil)
         default:break
         }

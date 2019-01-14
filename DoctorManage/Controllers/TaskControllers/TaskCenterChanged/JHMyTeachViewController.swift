@@ -26,8 +26,14 @@ class JHMyTeachViewController: UIViewController,UITableViewDataSource,UITableVie
         self.tableview.tableFooterView = UIView()
         self.tableview.backgroundColor = UIColor.init(red: 245/255.0, green: 248/255.0, blue: 251, alpha: 1.0)
         self.tableview.separatorStyle = .none
-        self.tableview.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshAction))
-        self.tableview.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreAction))
+        
+        let header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshAction))
+        let footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreAction))
+        header?.setTitle("", for: .idle)
+        footer?.setTitle("", for: .idle)
+        
+        self.tableview.mj_header = header
+        self.tableview.mj_footer = footer
         self.tableview.mj_header.beginRefreshing()
     }
     
@@ -58,11 +64,14 @@ class JHMyTeachViewController: UIViewController,UITableViewDataSource,UITableVie
     func refreshAction() {
         dataSource.removeAll()
         index = 0
-        self.tableview.mj_footer.resetNoMoreData()
         getData(pageindex: index)
     }
     
     func loadMoreAction() {
+        if self.dataSource.count == 0 {
+            self.tableview.mj_footer.endRefreshing()
+            return
+        }
         index = index + 1
         getData(pageindex: index)
     }
@@ -113,7 +122,7 @@ class JHMyTeachViewController: UIViewController,UITableViewDataSource,UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let taskDetailVC = TaskDetailController()
+        let taskDetailVC = JHMyTeachDetailViewController()
         taskDetailVC.title = "任务详细"
         taskDetailVC.enterPath = .UNCOMPLETE
         taskDetailVC.headInfo = dataSource[indexPath.section]

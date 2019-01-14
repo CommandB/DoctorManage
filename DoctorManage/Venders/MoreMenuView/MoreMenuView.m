@@ -23,7 +23,7 @@
 //        bgImageView.image = [[UIImage imageNamed:@"more_bg"]stretchableImageWithLeftCapWidth:13 topCapHeight:13];
         [self addSubview:bgImageView];
         
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 100, 150)];
         tableView.delegate = self;
         tableView.layer.cornerRadius=5.0f;
         tableView.dataSource = self;
@@ -39,7 +39,7 @@
 #pragma mark - UITableview delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 3;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -58,6 +58,8 @@
         cell.textLabel.text = @"历史考试";
     }else if(indexPath.row == 1){
         cell.textLabel.text = @"历史评价";
+    }else {
+        cell.textLabel.text = @"历史CEX";
     }
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.textLabel.textColor = [UIColor whiteColor];
@@ -79,6 +81,11 @@
             }
             break;
         case 101:
+            if (m_delegate != nil && [m_delegate respondsToSelector:@selector(moreMenuWithMenuView:withIndex:)]) {
+                [m_delegate moreMenuWithMenuView:self withIndex:index];
+            }
+            break;
+        case 102:
             if (m_delegate != nil && [m_delegate respondsToSelector:@selector(moreMenuWithMenuView:withIndex:)]) {
                 [m_delegate moreMenuWithMenuView:self withIndex:index];
             }

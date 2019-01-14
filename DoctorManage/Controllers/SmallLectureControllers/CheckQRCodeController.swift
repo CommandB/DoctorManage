@@ -41,7 +41,7 @@ class CheckQRCodeController: JHBaseViewController {
     }
     
     func addTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(reloadAction), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(reloadAction), userInfo: nil, repeats: true)
     }
     
     func reloadAction() {
@@ -57,7 +57,7 @@ class CheckQRCodeController: JHBaseViewController {
     
     func requestQRCode() {
         let urlString = "http://"+Ip_port2+"doctor_train/rest/public/GenerateQRCode.do"
-        let params = ["token":UserInfo.instance().token,"type":"pctask","taskid":taskid] as! [String:String]
+        guard let params = ["token":UserInfo.instance().token,"type":"pctask","taskid":taskid] as? [String:String] else { return }
         
         Alamofire.request(urlString, method: .post, parameters: params).responseJSON { (response) in
             switch(response.result){
