@@ -65,7 +65,9 @@ class HisCEXViewController: IGBaseViewController,UITableViewDelegate,UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HisCEXTableViewCell
         cell.nameLabel.text =  dataSource[indexPath.row]["studentname"].stringValue
         cell.dateLabel.text =  dataSource[indexPath.row]["testtime"].stringValue
-        cell.scoreLabel.text =  dataSource[indexPath.row]["totalscore"].stringValue+"/90"
+        
+        let totalscore = String(format: "%.1f", dataSource[indexPath.row]["totalscore"].floatValue)
+        cell.scoreLabel.text =  totalscore+"/90"
         return cell
     }
     

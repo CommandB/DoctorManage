@@ -37,7 +37,7 @@ class HisCEXTableViewCell: UITableViewCell {
             make?.top.equalTo()(self.mas_centerY)?.offset()(5);
         }
         rightLabel.mas_makeConstraints { (make) in
-            make?.right.offset()(-60)
+            make?.right.offset()(-80)
             make?.bottom.equalTo()(self.mas_centerY)?.offset()(0);
         }
         nameLabel.mas_makeConstraints { (make) in
