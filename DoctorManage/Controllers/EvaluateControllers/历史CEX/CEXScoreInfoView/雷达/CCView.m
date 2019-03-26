@@ -216,6 +216,7 @@
         _markYLabel.text = @"";
         _markYLabel.textColor = [UIColor whiteColor];
         _markYLabel.backgroundColor = [UIColor grayColor];
+        _markYLabel.hidden = YES;
     }
     return _markYLabel;
 }

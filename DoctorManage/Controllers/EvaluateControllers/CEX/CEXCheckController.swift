@@ -238,7 +238,16 @@ class CEXCheckController : UIViewController{
                 let json = JSON(responseJson)
                 print(json)
                 if json["code"].stringValue == "1"{
-                    myAlert(self, message: "提交成功!")
+                    let alert = UIAlertController.init(title: nil, message: "提交成功", preferredStyle: .alert)
+                    self.present(alert, animated: true, completion: nil)
+                    DispatchQueue.global().async {
+                        Thread.sleep(forTimeInterval: 2.0)
+                        DispatchQueue.main.async {
+                            alert.dismiss(animated: true, completion: {
+                                self.dismiss(animated: false, completion: nil)
+                            })
+                        }
+                    }
                 }else{
                     myAlert(self, message: json["msg"].stringValue)
                 }
