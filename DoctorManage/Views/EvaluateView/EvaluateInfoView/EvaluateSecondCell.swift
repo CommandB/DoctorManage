@@ -54,12 +54,15 @@ class EvaluateSecondCell: UITableViewCell {
             }
             
         }
+        guard num > 0 else {
+            return
+        }
         for index in 1...num {
             if let view = self.viewWithTag(index+100) {
                 (view as! UIButton).setImage(UIImage.init(named: "满星"), for: .normal)
             }
         }
-        yellowStarNum = num
+//        yellowStarNum = num
     }
     override func layoutSubviews() {
 

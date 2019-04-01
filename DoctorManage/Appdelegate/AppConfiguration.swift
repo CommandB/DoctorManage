@@ -17,6 +17,10 @@ enum AppConfiguration :String {
     case signInTakePhoto = "signInTakePhoto"
     case signInTakePhotoText = "扫码签到是否需要拍照上传"
     
+    ///0=零分 1=满分
+    case evaluateDefaultStar = "evaluateDefaultStar"
+    case evaluateDefaultStarText = "评价是否默认满分"
+
     ///web模块配置
     case webModule = "webModeule"
     

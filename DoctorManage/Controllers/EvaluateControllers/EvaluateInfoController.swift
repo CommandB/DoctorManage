@@ -16,6 +16,9 @@ class EvaluateInfoController: UIViewController,UITableViewDelegate,UITableViewDa
     var storageData = JSON([:])
     var evaluateStarData = JSON([:])
     
+    var defaultCount = 0
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "评价"
@@ -24,7 +27,36 @@ class EvaluateInfoController: UIViewController,UITableViewDelegate,UITableViewDa
         let image = UIImage(named: "返回")!.withRenderingMode(.alwaysOriginal)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:image, style: .done, target: self, action: #selector(dismissAction))
         setSubviews()
+        defaultCount = UserDefaults.standard.integer(forKey: AppConfiguration.evaluateDefaultStar.rawValue)
+        requestDefaultStar()
         requestEvaluateStarData()
+    }
+    //获取默认星星数
+    func requestDefaultStar() {
+        NetworkTool.getUserOffice(params :["token":UserInfo.instance().token], success : { resp in
+            if resp["code"].string == "1"{
+                //g_userOffice = resp["data"].arrayValue
+                UserInfo.instance().saveOfficeInfo(try! resp["data"].rawData());
+                
+                //缓存app配置信息
+                let appConfig = resp["appconfig"].arrayValue
+                for config in appConfig{
+                    let name = config["name"].stringValue
+                    let val = config["value"].stringValue
+                    if  name == AppConfiguration.teacherCreateNoticeText.rawValue{
+                        UserDefaults.standard.set(val, forKey: AppConfiguration.teacherCreateNotice.rawValue)
+                    }else if name == AppConfiguration.signInTakePhotoText.rawValue{
+                        UserDefaults.standard.set(val, forKey: AppConfiguration.signInTakePhoto.rawValue)
+                    }else if name == AppConfiguration.evaluateDefaultStarText.rawValue{
+                        UserDefaults.standard.set(val, forKey: AppConfiguration.evaluateDefaultStar.rawValue)
+                        self.defaultCount = config["value"].intValue
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        }){error in
+            
+        }
     }
     
     func requestEvaluateStarData() {
@@ -40,8 +72,9 @@ class EvaluateInfoController: UIViewController,UITableViewDelegate,UITableViewDa
                 let json = JSON(response)
                 if json["code"].stringValue == "1"{
                     self.evaluateStarData = json["data"]
+                    guard self.evaluateStarData.count > 0 else { return }
                     for i in 0...self.evaluateStarData.count-1 {
-                        self.evaluateStarData[i]["get_value"].stringValue = "5"
+                        self.evaluateStarData[i]["get_value"].stringValue = "\(self.defaultCount)"
                     }
                     self.tableView.reloadData()
                 }else{

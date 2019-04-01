@@ -79,6 +79,8 @@ class LoginViewController: UIViewController,SelectBaseViewDelegate,UIPickerViewD
                             UserDefaults.standard.set(val, forKey: AppConfiguration.teacherCreateNotice.rawValue)
                         }else if name == AppConfiguration.signInTakePhotoText.rawValue{
                             UserDefaults.standard.set(val, forKey: AppConfiguration.signInTakePhoto.rawValue)
+                        }else if name == AppConfiguration.evaluateDefaultStarText.rawValue{
+                            UserDefaults.standard.set(val, forKey: AppConfiguration.evaluateDefaultStar.rawValue)
                         }
                     }
                     
